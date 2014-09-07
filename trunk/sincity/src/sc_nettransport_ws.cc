@@ -155,22 +155,6 @@ bool SCWsTransport::handshaking(SCObjWrapper<SCNetPeer*> oPeer, SCObjWrapper<SCU
 	bool ret = sendData(oPeer, request, tsk_strlen(request));
 	TSK_FREE(request);
 	return ret;
-
-	
-#if 0
-    // FIXME
-#define WS_GET  "GET /wsStringStaticMulti?roomId=0 HTTP/1.1\r\n" \
-   "Host: localhost\r\n" \
-   "Upgrade: websocket\r\n" \
-   "Connection: Upgrade\r\n" \
-   "Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==\r\n" \
-   "Origin: 192.168.0.37\r\n" \
-   "Sec-WebSocket-Version: 13\r\n" \
-	"\r\n"
-#endif
-
-    //   "Sec-WebSocket-Protocol: ge-signaling\r\n" \
-    //ws://localhost:9000/wsStringStaticMulti?roomId=0
 }
 
 SCObjWrapper<SCWsResult*> SCWsTransport::handleJsonContent(SCObjWrapper<SCNetPeer*> oPeer, const void* pcDataPtr, size_t nDataSize)const

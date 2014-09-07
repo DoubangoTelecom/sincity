@@ -33,6 +33,19 @@ bool SCSignaling::isConnected()
     return m_oNetTransport->isConnected(m_Fd);
 }
 
+bool SCSignaling::isReady()
+{
+	if (!isConnected())
+	{
+		return false;
+	}
+	if (m_oConnectionUrl->getType() == SCUrlType_WS || m_oConnectionUrl->getType() == SCUrlType_WSS)
+	{
+		return m_bWsHandshakingDone;
+	}
+	return true;
+}
+
 bool SCSignaling::connect()
 {
     if (isConnected())
