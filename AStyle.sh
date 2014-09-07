@@ -1,0 +1,1 @@
+../doubango/branches/2.0/doubango/thirdparties/win32/bin/AStyle.exe --style=k/r --lineend=linux --mode=c --add-brackets --break-closing-brackets --recursive "*.cc" "*.c"  "*.h"

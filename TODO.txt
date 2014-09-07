@@ -1,0 +1,2 @@
+- Add JSONCPP (MIT) to the thirdparties
+- Remove reference to wcecompact
