@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Test Websockets</title>
+</head>
+
+<script type="text/javascript">
+
+var WebSocket = (window['MozWebSocket'] || window['MozWebSocket'] || WebSocket);
+var socket;
+
+function connect() {
+    socket = new WebSocket("ws://localhost:9000/wsStringStaticMulti?roomId=0", "ge-webrtc-signaling");
+    socket.onopen = function() {
+        console.info("onopen");
+        socket.send("data from test.html");
+    }
+    socket.onclose = function() {
+        console.info("onclose");
+    }
+}
+
+function close() {
+    if (socket) {
+        socket.close();
+        socket = null;
+    }
+}
+
+</script>
+
+<body>
+    <form action=''>
+    <input type="button" value="connect" onclick='connect();' />
+    <input type="button" value="close" onclick='close();' />
+    </form>
+</body>
+</html>
