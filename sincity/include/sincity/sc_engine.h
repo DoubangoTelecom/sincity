@@ -16,6 +16,7 @@ public:
 	static bool init();
 	static bool deInit();
 	static bool setDebugLevel(SCDebugLevel_t eLevel);
+	static bool setSSLCertificates(const char* strPublicKey, const char* strPrivateKey = NULL, const char* strCA = NULL, bool bMutualAuth = false);
 
 private:
 	static bool s_bInitialized;

@@ -36,6 +36,15 @@ typedef enum SCDebugLevel_e
 }
 SCDebugLevel_t;
 
+typedef enum SCSignalingEventType_e
+{
+	SCSignalingEventType_Connected,
+	SCSignalingEventType_Ready,
+	SCSignalingEventType_Disconnected,
+	SCSignalingEventType_Error
+}
+SCSignalingEventType_t;
+
 typedef enum SCSessionState_e
 {
 	SCSessionState_None,
@@ -50,9 +59,10 @@ typedef enum SCMediaType_e
 	SCMediaType_None = 0x00,
 	SCMediaType_Audio = (0x01<<0),
 	SCMediaType_Video = (0x01<<1),
+	SCMediaType_ScreenCast = SCMediaType_Video/*(0x02<<1)*/, // FIXME
 	SCMediaType_AudioVideo = (SCMediaType_Audio | SCMediaType_Video),
 
-	SCMediaType_All = (SCMediaType_AudioVideo),
+	SCMediaType_All = 0xFF,
 }
 SCMediaType_t;
 
