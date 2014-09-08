@@ -24,10 +24,28 @@ private:
 	bool createSessionMgr();
 	bool createLocalOffer();
 
+	bool iceCreateCtx();
+	bool iceSetTimeout(int32_t timeout);
+	bool iceGotLocalCandidates(struct tnet_ice_ctx_s *p_IceCtx);
+	bool iceGotLocalCandidates();
+	bool iceProcessRo(const struct tsdp_message_s* pc_SdpRo, bool isOffer);
+	bool iceIsDone();
+	bool iceIsEnabled(const struct tsdp_message_s* pc_Sdp);
+	bool iceStart();
+	static int iceCallback(const struct tnet_ice_event_s *e);
+
+	bool sendMsgCall();
+
 private:
 	SCMediaType_t m_eMediaType;
+
+	SCCallAction_t m_eActionPending;
+
 	struct tnet_ice_ctx_s *m_pIceCtxVideo;
 	struct tnet_ice_ctx_s *m_pIceCtxAudio;
+
+	bool m_bIceCandAudioSignaled;
+	bool m_bIceCandVideoSignaled;
 
 	struct tmedia_session_mgr_s* m_pSessionMgr;
 

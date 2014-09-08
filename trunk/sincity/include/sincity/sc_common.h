@@ -20,6 +20,8 @@
 
 #define kJsonContentType "application/json"
 
+#define kStunSoftware "Doubango WebRTC Client"
+
 #define kSchemeWSS "wss"
 #define kSchemeWS "ws"
 
@@ -65,6 +67,21 @@ typedef enum SCMediaType_e
 	SCMediaType_All = 0xFF,
 }
 SCMediaType_t;
+
+typedef enum SCCallAction_e
+{
+	SCCallAction_None,
+	SCCallAction_Make,
+	SCCallAction_Accept
+}
+SCCallAction_t;
+
+typedef enum SCCallState_e
+{
+	SCCallState_None,
+	SCCallState_IceGathering,
+}
+SCCallState_t;
 
 typedef enum SCSessionType_e
 {
