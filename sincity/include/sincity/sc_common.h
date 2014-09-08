@@ -147,4 +147,14 @@ static bool SC_INLINE SCNetTransporType_isStream(SCNetTransporType_t eType)
 #define kSCMobuleNameWsTransport "WebSocketTransport"
 #define kSCMobuleNameSignaling "Signaling"
 
+
+template <typename T>
+class SCAutoLock {
+public:
+	explicit SCAutoLock(T* obj) : obj_(obj) { obj_->lock(); }
+	virtual ~SCAutoLock() { obj_->unlock(); }
+protected:
+	T* obj_;
+};
+
 #endif /* SINCITY_COMMON_H */

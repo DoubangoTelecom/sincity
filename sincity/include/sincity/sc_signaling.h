@@ -5,6 +5,7 @@
 #include "sincity/sc_obj.h"
 #include "sincity/sc_nettransport.h"
 #include "sincity/sc_url.h"
+#include "sincity/sc_mutex.h"
 
 class SCSignaling;
 
@@ -41,6 +42,7 @@ private:
 class SCSignaling : public SCObj
 {
 	friend class SCSignalingTransportCallback;
+	friend class SCAutoLock<SCSignaling>;
 protected:
 	SCSignaling(SCObjWrapper<SCNetTransport*>& oNetTransport, SCObjWrapper<SCUrl*>& oConnectionUrl);
 public:
@@ -59,6 +61,9 @@ private:
 	bool handleData(const char* pcData, tsk_size_t nDataSize);
 	bool raiseEvent(SCSignalingEventType_t eType, std::string strDescription);
 
+	void lock();
+	void unlock();
+
 private:
 	SCObjWrapper<SCNetTransport*> m_oNetTransport;
 	SCObjWrapper<SCUrl*> m_oConnectionUrl;
@@ -67,6 +72,7 @@ private:
 	bool m_bWsHandshakingDone;
 	void* m_pWsSendBufPtr;
 	tsk_size_t m_nWsSendBuffSize;
+	SCObjWrapper<SCMutex*> m_oMutex;
 };
 
 #endif /* SINCITY_SIGNALING_H */

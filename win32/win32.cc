@@ -42,7 +42,6 @@ int _tmain(int argc, _TCHAR* argv[])
 	SC_ASSERT(callSession->call(SCMediaType_ScreenCast, SC_USERID_REMOTE));
 
 	getchar();
-	getchar();
 
     SC_ASSERT(signalSession->disConnect());
 
