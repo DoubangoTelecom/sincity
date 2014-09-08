@@ -4,9 +4,11 @@
 #include "sc_config.h"
 #include "sincity/sc_obj.h"
 #include "sincity/sc_common.h"
+#include "sincity/sc_session_call.h"
 
 class SCEngine : public SCObj
 {
+	friend class SCSessionCall;
 protected:
 	SCEngine();
 public:
@@ -20,6 +22,10 @@ public:
 
 private:
 	static bool s_bInitialized;
+	static std::string s_strStunServerAddr;
+	static unsigned short s_nStunServerPort;
+	static std::string s_strStunUsername;
+	static std::string s_strStunPassword;
 };
 
 #endif /* SINCITY_ENGINE_H */

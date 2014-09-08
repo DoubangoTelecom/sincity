@@ -30,6 +30,11 @@
 
 bool SCEngine::s_bInitialized = false;
 
+std::string SCEngine::s_strStunServerAddr = "stun.l.google.com";
+unsigned short SCEngine::s_nStunServerPort = 19302;
+std::string SCEngine::s_strStunUsername = "";
+std::string SCEngine::s_strStunPassword = "";
+
 SCEngine::SCEngine()
 {
 
