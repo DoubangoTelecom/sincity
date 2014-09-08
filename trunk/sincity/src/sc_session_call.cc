@@ -165,6 +165,12 @@ bool SCSessionCall::handEvent(SCObjWrapper<SCSignalingCallEvent*>& e)
             bRet = false;
             goto bail;
         }
+
+		// Start session manager if not already done
+		if (!(bRet = tmedia_session_mgr_start(m_pSessionMgr)))
+		{
+			goto bail;
+		}
     }
 
 bail:

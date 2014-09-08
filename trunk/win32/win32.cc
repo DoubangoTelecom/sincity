@@ -8,7 +8,9 @@
 #define SC_LOCAL_PORT			0	// 0 means get the best
 #define SC_REMOTE_REQUEST_URI	"ws://localhost:9000/wsStringStaticMulti?roomId=0"
 #define SC_DEBUG_LEVEL			SCDebugLevel_Info
-#define SC_SSL_CERT_PATH		"SSL_Public.pem"
+#define SC_SSL_PATH_PUB			"SSL_Pub.pem"
+#define SC_SSL_PATH_PRIV		"SSL_Priv.pem"
+#define SC_SSL_PATH_CA			"SSL_CA.pem"
 #define SC_USERID_LOCAL			"001"
 #define SC_USERID_REMOTE		"002"
 
@@ -91,7 +93,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
     SCEngine::setDebugLevel(SC_DEBUG_LEVEL);
     SC_ASSERT(SCEngine::init(SC_USERID_LOCAL));
-    SC_ASSERT(SCEngine::setSSLCertificates(SC_SSL_CERT_PATH));
+	SC_ASSERT(SCEngine::setSSLCertificates(SC_SSL_PATH_PUB, SC_SSL_PATH_PRIV, SC_SSL_PATH_CA));
 
     signalSession = SCSignaling::newObj(SC_REMOTE_REQUEST_URI, SC_LOCAL_IP, SC_LOCAL_PORT);
     SC_ASSERT(signalSession);

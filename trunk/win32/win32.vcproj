@@ -203,25 +203,19 @@
 			>
 		</Filter>
 		<File
-			RelativePath="..\SSL_Public.pem"
+			RelativePath="..\SSL_CA.pem"
 			DeploymentContent="true"
 			>
-			<FileConfiguration
-				Name="Debug|Win32"
-				>
-				<Tool
-					Name="VCCustomBuildTool"
-					CommandLine=""
-				/>
-			</FileConfiguration>
-			<FileConfiguration
-				Name="Release|Win32"
-				>
-				<Tool
-					Name="VCCustomBuildTool"
-					CommandLine="copy &quot;$(InputPath)&quot; &quot;$(TargetDir)&quot;"
-				/>
-			</FileConfiguration>
+		</File>
+		<File
+			RelativePath="..\SSL_Priv.pem"
+			DeploymentContent="true"
+			>
+		</File>
+		<File
+			RelativePath="..\SSL_Pub.pem"
+			DeploymentContent="true"
+			>
 		</File>
 	</Files>
 	<Globals>
