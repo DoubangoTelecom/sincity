@@ -1,537 +1,562 @@
 #include "sincity/sc_session_call.h"
 #include "sincity/sc_engine.h"
+#include "sincity/sc_utils.h"
+#include "sincity/jsoncpp/sc_json.h"
 
 #include "tinymedia.h"
 
-#include "sincity/jsoncpp/sc_json.h"
-
 static tmedia_type_t _mediaTypeToNative(SCMediaType_t mediaType)
 {
-	tmedia_type_t type = tmedia_none;
-	if (mediaType & SCMediaType_Audio) type = (tmedia_type_t)(type | tmedia_audio);
-	if (mediaType & SCMediaType_Video) type = (tmedia_type_t)(type | tmedia_video);
-	// if (mediaType & SCMediaType_ScreenCast) type = (tmedia_type_t)(type | tmedia_bfcp_video); // FIXME
-	return type;
+    tmedia_type_t type = tmedia_none;
+    if (mediaType & SCMediaType_Audio) {
+        type = (tmedia_type_t)(type | tmedia_audio);
+    }
+    if (mediaType & SCMediaType_Video) {
+        type = (tmedia_type_t)(type | tmedia_video);
+    }
+    // if (mediaType & SCMediaType_ScreenCast) type = (tmedia_type_t)(type | tmedia_bfcp_video); // FIXME
+    return type;
 }
 
-SCSessionCall::SCSessionCall(std::string strUserId, SCObjWrapper<SCSignaling*> oSignaling)
-    : SCSession(SCSessionType_Call, strUserId, oSignaling)
-	, m_eMediaType(SCMediaType_None)
+SCSessionCall::SCSessionCall(SCObjWrapper<SCSignaling*> oSignaling)
+    : SCSession(SCSessionType_Call, oSignaling)
+    , m_eMediaType(SCMediaType_None)
 
-	, m_eActionPending(SCCallAction_None)
+    , m_eActionPending(SCCallAction_None)
 
-	, m_pIceCtxVideo(NULL)
-	, m_pIceCtxAudio(NULL)
-	
-	, m_pSessionMgr(NULL)
-	
-	, m_pSdpLocal(NULL)
-	, m_pSdpRemote(NULL)
+    , m_pIceCtxVideo(NULL)
+    , m_pIceCtxAudio(NULL)
 
-	, m_oMutex(new SCMutex())
+    , m_pSessionMgr(NULL)
+
+    , m_pSdpLocal(NULL)
+    , m_pSdpRemote(NULL)
+
+    , m_oMutex(new SCMutex())
 {
-	
+    m_strCallId = SCUtils::randomString();
 }
 
 SCSessionCall::~SCSessionCall()
 {
-	TSK_OBJECT_SAFE_FREE(m_pIceCtxVideo);
-	TSK_OBJECT_SAFE_FREE(m_pIceCtxAudio);
-	
-	TSK_OBJECT_SAFE_FREE(m_pSessionMgr);
-	
-	TSK_OBJECT_SAFE_FREE(m_pSdpLocal);
-	TSK_OBJECT_SAFE_FREE(m_pSdpRemote);
+    TSK_OBJECT_SAFE_FREE(m_pIceCtxVideo);
+    TSK_OBJECT_SAFE_FREE(m_pIceCtxAudio);
+
+    TSK_OBJECT_SAFE_FREE(m_pSessionMgr);
+
+    TSK_OBJECT_SAFE_FREE(m_pSdpLocal);
+    TSK_OBJECT_SAFE_FREE(m_pSdpRemote);
 }
 
 void SCSessionCall::lock()
 {
-	m_oMutex->lock();
+    m_oMutex->lock();
 }
-	
+
 void SCSessionCall::unlock()
 {
-	m_oMutex->unlock();
+    m_oMutex->unlock();
 }
 
-bool SCSessionCall::call(SCMediaType_t eMediaType, std::string srtDestUserId)
+bool SCSessionCall::call(SCMediaType_t eMediaType, std::string strDestUserId)
 {
-	SCAutoLock<SCSessionCall> autoLock(this);
+    SCAutoLock<SCSessionCall> autoLock(this);
 
-	if (eMediaType != SCMediaType_ScreenCast)
-	{
-		SC_DEBUG_ERROR("%d not a valid media type", eMediaType);
-		return false;
-	}
+    if (eMediaType != SCMediaType_ScreenCast) {
+        SC_DEBUG_ERROR("%d not a valid media type", eMediaType);
+        return false;
+    }
 
-	if (!m_oSignaling->isReady())
-	{
-		SC_DEBUG_ERROR("Signaling layer not ready yet");
-		return false;
-	}
+    if (!m_oSignaling->isReady()) {
+        SC_DEBUG_ERROR("Signaling layer not ready yet");
+        return false;
+    }
 
-	// Create session manager if not already done
-	if (m_pSessionMgr)
-	{
-		SC_DEBUG_ERROR("There is already an active call");
-		return false;
-	}
-	
-	// Update mediaType
-	m_eMediaType = eMediaType;
+    // Create session manager if not already done
+    if (m_pSessionMgr) {
+        SC_DEBUG_ERROR("There is already an active call");
+        return false;
+    }
 
-	SCCallAction_t eOldAction = m_eActionPending;
-	m_eActionPending = SCCallAction_Make;
+    // Update mediaType
+    m_eMediaType = eMediaType;
 
-	// Create local offer
-	if (!createLocalOffer())
-	{
-		m_eActionPending = eOldAction;
-		return false;
-	}
+    // Update destination id
+    m_strDestUserId = strDestUserId;
 
-	return true;
+    SCCallAction_t eOldAction = m_eActionPending;
+    m_eActionPending = SCCallAction_Make;
+
+    // Create local offer
+    if (!createLocalOffer()) {
+        m_eActionPending = eOldAction;
+        return false;
+    }
+
+    return true;
 }
 
 bool SCSessionCall::hangup()
 {
-	SCAutoLock<SCSessionCall> autoLock(this);
+    SCAutoLock<SCSessionCall> autoLock(this);
 
-	return false;
+    SC_DEBUG_ERROR("Not implemented yet");
+
+    return false;
+}
+
+bool SCSessionCall::handEvent(SCObjWrapper<SCSignalingCallEvent*>& e)
+{
+    SCAutoLock<SCSessionCall> autoLock(this);
+
+    if (e->getCallId().compare(m_strCallId) != 0) {
+        SC_DEBUG_ERROR("CallId mismatch: '%s'<>'%s'", e->getCallId().c_str(), m_strCallId.c_str());
+        return false;
+    }
+
+    if (e->getType() == "hangup") {
+        SC_DEBUG_ERROR("Not implemented yet");
+        return false;
+    }
+
+    if (e->getType() == "ack") {
+        SC_DEBUG_ERROR("Not implemented yet");
+        return false;
+    }
+
+    bool bRet = true;
+    tsdp_message_t* pSdp = NULL;
+
+    if (e->getType() == "offer" || e->getType() == "answer" || e->getType() == "pranswer") {
+        int iRet = 0;
+        tmedia_ro_type_t ro_type;
+
+        // Parse SDP
+        if (!(pSdp = tsdp_message_parse(e->getSdp().c_str(), e->getSdp().length()))) {
+            SC_DEBUG_ERROR("Failed to parse SDP: %s", e->getSdp().c_str());
+            bRet = false;
+            goto bail;
+        }
+
+        if (!iceIsEnabled(pSdp)) {
+            SC_DEBUG_ERROR("ICE is required. SDP='%s'", e->getSdp().c_str());
+            bRet = false;
+            goto bail;
+        }
+
+        ro_type = (e->getType() == "pranswer")
+                  ? tmedia_ro_type_provisional
+                  : (e->getType() == "answer" ? tmedia_ro_type_answer : tmedia_ro_type_offer);
+
+        if (!m_pSessionMgr) {
+            if (!createLocalOffer()) {
+                bRet = false;
+                goto bail;
+            }
+        }
+
+        if ((iRet = tmedia_session_mgr_set_ro(m_pSessionMgr, pSdp, ro_type)) != 0) {
+            SC_DEBUG_ERROR("tmedia_session_mgr_set_ro() failed with error code = %d", iRet);
+            bRet = false;
+            goto bail;
+        }
+
+        if (!iceProcessRo(pSdp, (ro_type == tmedia_ro_type_offer))) {
+            bRet = false;
+            goto bail;
+        }
+    }
+
+bail:
+    TSK_OBJECT_SAFE_FREE(pSdp);
+    return bRet;
 }
 
 bool SCSessionCall::createSessionMgr()
 {
-	SCAutoLock<SCSessionCall> autoLock(this);
+    SCAutoLock<SCSessionCall> autoLock(this);
 
-	TSK_OBJECT_SAFE_FREE(m_pSessionMgr);
+    TSK_OBJECT_SAFE_FREE(m_pSessionMgr);
 
-	TSK_OBJECT_SAFE_FREE(m_pIceCtxVideo);
-	TSK_OBJECT_SAFE_FREE(m_pIceCtxAudio);
+    TSK_OBJECT_SAFE_FREE(m_pIceCtxVideo);
+    TSK_OBJECT_SAFE_FREE(m_pIceCtxAudio);
 
-	TSK_OBJECT_SAFE_FREE(m_pSdpLocal);
-	TSK_OBJECT_SAFE_FREE(m_pSdpRemote);
+    TSK_OBJECT_SAFE_FREE(m_pSdpLocal);
+    TSK_OBJECT_SAFE_FREE(m_pSdpRemote);
 
-	// Create ICE contexts
-	if (!iceCreateCtx())
-	{
-		return false;
-	}
+    // Create ICE contexts
+    if (!iceCreateCtx()) {
+        return false;
+    }
 
-	int iRet;
-	tnet_ip_t bestsource;
-	if ((iRet = tnet_getbestsource(SCEngine::s_strStunServerAddr.empty() ? "stun.l.google.com" : SCEngine::s_strStunServerAddr.c_str(), SCEngine::s_nStunServerPort ? SCEngine::s_nStunServerPort : 19302, tnet_socket_type_udp_ipv4, &bestsource)))
-	{
-		SC_DEBUG_ERROR("Failed to get best source [%d]", iRet);
-		memcpy(bestsource, "0.0.0.0", 7);
-	}
+    int iRet;
+    tnet_ip_t bestsource;
+    if ((iRet = tnet_getbestsource(SCEngine::s_strStunServerAddr.empty() ? "stun.l.google.com" : SCEngine::s_strStunServerAddr.c_str(), SCEngine::s_nStunServerPort ? SCEngine::s_nStunServerPort : 19302, tnet_socket_type_udp_ipv4, &bestsource))) {
+        SC_DEBUG_ERROR("Failed to get best source [%d]", iRet);
+        memcpy(bestsource, "0.0.0.0", 7);
+    }
 
-	// Create media session manager
-	m_pSessionMgr = tmedia_session_mgr_create(_mediaTypeToNative(m_eMediaType),
-            bestsource, tsk_false/*IPv6*/, tsk_true/* offerer */);
-	if (!m_pSessionMgr)
-	{
-		SC_DEBUG_ERROR("Failed to create media session manager");
-		return false;
-	}
+    // Create media session manager
+    m_pSessionMgr = tmedia_session_mgr_create(_mediaTypeToNative(m_eMediaType),
+                    bestsource, tsk_false/*IPv6*/, tsk_true/* offerer */);
+    if (!m_pSessionMgr) {
+        SC_DEBUG_ERROR("Failed to create media session manager");
+        return false;
+    }
 
-	// Set ICE contexts
-	if (tmedia_session_mgr_set_ice_ctx(m_pSessionMgr, m_pIceCtxAudio, m_pIceCtxVideo) != 0)
-	{
-		SC_DEBUG_ERROR("Failed to set ICE contexts");
-		return false;
-	}
+    // Set ICE contexts
+    if (tmedia_session_mgr_set_ice_ctx(m_pSessionMgr, m_pIceCtxAudio, m_pIceCtxVideo) != 0) {
+        SC_DEBUG_ERROR("Failed to set ICE contexts");
+        return false;
+    }
 
-	return true;
+    return true;
 }
 
 bool SCSessionCall::createLocalOffer()
 {
-	SCAutoLock<SCSessionCall> autoLock(this);
+    SCAutoLock<SCSessionCall> autoLock(this);
 
-	if (!m_pSessionMgr)
-	{
-		if (!createSessionMgr())
-		{
-			return false;
-		}
-	}
-	else
-	{
-		// update media type
-		if (tmedia_session_mgr_set_media_type(m_pSessionMgr, _mediaTypeToNative(m_eMediaType)) != 0)
-		{
-			SC_DEBUG_ERROR("Failed to update media type %d->%d", m_pSessionMgr->type, _mediaTypeToNative(m_eMediaType));
-			return false;
-		}
-	}
+    if (!m_pSessionMgr) {
+        if (!createSessionMgr()) {
+            return false;
+        }
+    }
+    else {
+        // update media type
+        if (tmedia_session_mgr_set_media_type(m_pSessionMgr, _mediaTypeToNative(m_eMediaType)) != 0) {
+            SC_DEBUG_ERROR("Failed to update media type %d->%d", m_pSessionMgr->type, _mediaTypeToNative(m_eMediaType));
+            return false;
+        }
+    }
 
 #if 0
-	const tsdp_message_t* sdp_lo = tmedia_session_mgr_get_lo(m_pSessionMgr);
-	if (!sdp_lo)
-	{
-		SC_DEBUG_ERROR("Cannot get local offer");
-		return false;
-	}
-	
-	 TSK_OBJECT_SAFE_FREE(m_pSdpLocal);
-	 m_pSdpLocal = (tsdp_message_t*)tsk_object_ref((tsk_object_t*)sdp_lo);
-	 // mReadyState = (mSdpLocal && tmedia_session_mgr_get_ro(mSessionMgr)) ? ReadyStateActive : ReadyStateOpening;
+    const tsdp_message_t* sdp_lo = tmedia_session_mgr_get_lo(m_pSessionMgr);
+    if (!sdp_lo) {
+        SC_DEBUG_ERROR("Cannot get local offer");
+        return false;
+    }
+
+    TSK_OBJECT_SAFE_FREE(m_pSdpLocal);
+    m_pSdpLocal = (tsdp_message_t*)tsk_object_ref((tsk_object_t*)sdp_lo);
+    // mReadyState = (mSdpLocal && tmedia_session_mgr_get_ro(mSessionMgr)) ? ReadyStateActive : ReadyStateOpening;
 #endif
 
-	 // Start ICE
-	 if (!iceStart())
-	 {
-		 return false;
-	 }
+    // Start ICE
+    if (!iceStart()) {
+        return false;
+    }
 
-	 return true;
-	 //return sendMsgCall();
+    return true;
+    //return sendMsgCall();
 }
 
 bool SCSessionCall::iceCreateCtx()
 {
-	SCAutoLock<SCSessionCall> autoLock(this);
+    SCAutoLock<SCSessionCall> autoLock(this);
 
-	static tsk_bool_t __use_ice_jingle = tsk_false;
-	static tsk_bool_t __use_ipv6 = tsk_false;
-	static tsk_bool_t __use_ice_rtcp = tsk_true;
+    static tsk_bool_t __use_ice_jingle = tsk_false;
+    static tsk_bool_t __use_ipv6 = tsk_false;
+    static tsk_bool_t __use_ice_rtcp = tsk_true;
 
-	if (!m_pIceCtxAudio && (m_eMediaType & SCMediaType_Audio))
-	{
-		m_pIceCtxAudio = tnet_ice_ctx_create(__use_ice_jingle, __use_ipv6, __use_ice_rtcp, tsk_false/*audio*/, &SCSessionCall::iceCallback, this);
-		if (!m_pIceCtxAudio)
-		{
-			SC_DEBUG_ERROR("Failed to create ICE audio context");
-			return false;
-		}
-		tnet_ice_ctx_set_stun(
-			m_pIceCtxAudio, 
-			SCEngine::s_strStunServerAddr.c_str(), 
-			SCEngine::s_nStunServerPort, 
-			kStunSoftware, 
-			SCEngine::s_strStunUsername.empty() ? tsk_null : SCEngine::s_strStunUsername.c_str(), 
-			SCEngine::s_strStunPassword.empty() ? tsk_null : SCEngine::s_strStunPassword.c_str()
-			);
-	}
-	if (!m_pIceCtxVideo && (m_eMediaType & SCMediaType_Video))
-	{
-		m_pIceCtxVideo = tnet_ice_ctx_create(__use_ice_jingle, __use_ipv6, __use_ice_rtcp, tsk_true/*video*/, &SCSessionCall::iceCallback, this);
-		if (!m_pIceCtxVideo)
-		{
-			SC_DEBUG_ERROR("Failed to create ICE video context");
-			return false;
-		}
-		tnet_ice_ctx_set_stun(
-			m_pIceCtxVideo, 
-			SCEngine::s_strStunServerAddr.c_str(), 
-			SCEngine::s_nStunServerPort, 
-			kStunSoftware, 
-			SCEngine::s_strStunUsername.empty() ? tsk_null : SCEngine::s_strStunUsername.c_str(), 
-			SCEngine::s_strStunPassword.empty() ? tsk_null : SCEngine::s_strStunPassword.c_str()
-			);
-	}
-	
-	// For now disable timers until both parties get candidates
-	// (RECV ACK) or RECV (200 OK)
-	iceSetTimeout(-1);
-	
-	return true;
+    if (!m_pIceCtxAudio && (m_eMediaType & SCMediaType_Audio)) {
+        m_pIceCtxAudio = tnet_ice_ctx_create(__use_ice_jingle, __use_ipv6, __use_ice_rtcp, tsk_false/*audio*/, &SCSessionCall::iceCallback, this);
+        if (!m_pIceCtxAudio) {
+            SC_DEBUG_ERROR("Failed to create ICE audio context");
+            return false;
+        }
+        tnet_ice_ctx_set_stun(
+            m_pIceCtxAudio,
+            SCEngine::s_strStunServerAddr.c_str(),
+            SCEngine::s_nStunServerPort,
+            kStunSoftware,
+            SCEngine::s_strStunUsername.empty() ? tsk_null : SCEngine::s_strStunUsername.c_str(),
+            SCEngine::s_strStunPassword.empty() ? tsk_null : SCEngine::s_strStunPassword.c_str()
+        );
+    }
+    if (!m_pIceCtxVideo && (m_eMediaType & SCMediaType_Video)) {
+        m_pIceCtxVideo = tnet_ice_ctx_create(__use_ice_jingle, __use_ipv6, __use_ice_rtcp, tsk_true/*video*/, &SCSessionCall::iceCallback, this);
+        if (!m_pIceCtxVideo) {
+            SC_DEBUG_ERROR("Failed to create ICE video context");
+            return false;
+        }
+        tnet_ice_ctx_set_stun(
+            m_pIceCtxVideo,
+            SCEngine::s_strStunServerAddr.c_str(),
+            SCEngine::s_nStunServerPort,
+            kStunSoftware,
+            SCEngine::s_strStunUsername.empty() ? tsk_null : SCEngine::s_strStunUsername.c_str(),
+            SCEngine::s_strStunPassword.empty() ? tsk_null : SCEngine::s_strStunPassword.c_str()
+        );
+    }
+
+    // For now disable timers until both parties get candidates
+    // (RECV ACK) or RECV (200 OK)
+    iceSetTimeout(-1);
+
+    return true;
 }
 
 bool SCSessionCall::iceSetTimeout(int32_t timeout)
 {
-	SCAutoLock<SCSessionCall> autoLock(this);
+    SCAutoLock<SCSessionCall> autoLock(this);
 
-	if (m_pIceCtxAudio)
-	{
-		tnet_ice_ctx_set_concheck_timeout(m_pIceCtxAudio, timeout);
-	}
-	if (m_pIceCtxVideo)
-	{
-		tnet_ice_ctx_set_concheck_timeout(m_pIceCtxVideo, timeout);
-	}
-	return true;
+    if (m_pIceCtxAudio) {
+        tnet_ice_ctx_set_concheck_timeout(m_pIceCtxAudio, timeout);
+    }
+    if (m_pIceCtxVideo) {
+        tnet_ice_ctx_set_concheck_timeout(m_pIceCtxVideo, timeout);
+    }
+    return true;
 }
 
 bool SCSessionCall::iceGotLocalCandidates(struct tnet_ice_ctx_s *p_IceCtx)
 {
-	SCAutoLock<SCSessionCall> autoLock(this);
+    SCAutoLock<SCSessionCall> autoLock(this);
 
-	return (!tnet_ice_ctx_is_active(p_IceCtx) || tnet_ice_ctx_got_local_candidates(p_IceCtx));
+    return (!tnet_ice_ctx_is_active(p_IceCtx) || tnet_ice_ctx_got_local_candidates(p_IceCtx));
 }
 
 bool SCSessionCall::iceGotLocalCandidates()
 {
-	SCAutoLock<SCSessionCall> autoLock(this);
+    SCAutoLock<SCSessionCall> autoLock(this);
 
-	return iceGotLocalCandidates(m_pIceCtxAudio) && iceGotLocalCandidates(m_pIceCtxVideo);
+    return iceGotLocalCandidates(m_pIceCtxAudio) && iceGotLocalCandidates(m_pIceCtxVideo);
 }
 
 bool SCSessionCall::iceProcessRo(const struct tsdp_message_s* pc_SdpRo, bool isOffer)
 {
-	SCAutoLock<SCSessionCall> autoLock(this);
+    SCAutoLock<SCSessionCall> autoLock(this);
 
-	if (!pc_SdpRo)
-	{
-		SC_DEBUG_ERROR("Invalid argument");
-		return false;
-	}
+    if (!pc_SdpRo) {
+        SC_DEBUG_ERROR("Invalid argument");
+        return false;
+    }
 
-	char* ice_remote_candidates;
-	const tsdp_header_M_t* M;
-	tsk_size_t index;
-	const tsdp_header_A_t *A;
-	const char* sess_ufrag = tsk_null;
-	const char* sess_pwd = tsk_null;
-	int ret = 0, i;
+    char* ice_remote_candidates;
+    const tsdp_header_M_t* M;
+    tsk_size_t index;
+    const tsdp_header_A_t *A;
+    const char* sess_ufrag = tsk_null;
+    const char* sess_pwd = tsk_null;
+    int ret = 0, i;
 
-	if (!pc_SdpRo)
-	{
-		SC_DEBUG_ERROR("Invalid argument");
-		return false;
-	}
-	if (!m_pIceCtxAudio && !m_pIceCtxVideo)
-	{
-		SC_DEBUG_ERROR("Not ready yet");
-		return false;
-	}
+    if (!pc_SdpRo) {
+        SC_DEBUG_ERROR("Invalid argument");
+        return false;
+    }
+    if (!m_pIceCtxAudio && !m_pIceCtxVideo) {
+        SC_DEBUG_ERROR("Not ready yet");
+        return false;
+    }
 
-	// session level attributes
-	
-	if ((A = tsdp_message_get_headerA(pc_SdpRo, "ice-ufrag")))
-	{
-		sess_ufrag = A->value;
-	}
-	if ((A = tsdp_message_get_headerA(pc_SdpRo, "ice-pwd")))
-	{
-		sess_pwd = A->value;
-	}
-	
-	for (i = 0; i < 2; ++i)
-	{
-		if ((M = tsdp_message_find_media(pc_SdpRo, i==0 ? "audio": "video"))) // FIXME: SCreenCast
-		{
-			const char *ufrag = sess_ufrag, *pwd = sess_pwd;
-			ice_remote_candidates = tsk_null;
-			index = 0;
-			if ((A = tsdp_header_M_findA(M, "ice-ufrag")))
-			{
-				ufrag = A->value;
-			}
-			if ((A = tsdp_header_M_findA(M, "ice-pwd")))
-			{
-				pwd = A->value;
-			}
+    // session level attributes
 
-			while ((A = tsdp_header_M_findA_at(M, "candidate", index++)))
-			{
-				tsk_strcat_2(&ice_remote_candidates, "%s\r\n", A->value);
-			}
-			// ICE processing will be automatically stopped if the remote candidates are not valid
-			// ICE-CONTROLLING role if we are the offerer
-			ret = tnet_ice_ctx_set_remote_candidates(i==0 ? m_pIceCtxAudio : m_pIceCtxVideo, ice_remote_candidates, ufrag, pwd, !isOffer, tsk_false/*Jingle?*/);
-			TSK_SAFE_FREE(ice_remote_candidates);
-		}
-	}
+    if ((A = tsdp_message_get_headerA(pc_SdpRo, "ice-ufrag"))) {
+        sess_ufrag = A->value;
+    }
+    if ((A = tsdp_message_get_headerA(pc_SdpRo, "ice-pwd"))) {
+        sess_pwd = A->value;
+    }
 
-	return (ret == 0);
+    for (i = 0; i < 2; ++i) {
+        if ((M = tsdp_message_find_media(pc_SdpRo, i==0 ? "audio": "video"))) { // FIXME: SCreenCast
+            const char *ufrag = sess_ufrag, *pwd = sess_pwd;
+            ice_remote_candidates = tsk_null;
+            index = 0;
+            if ((A = tsdp_header_M_findA(M, "ice-ufrag"))) {
+                ufrag = A->value;
+            }
+            if ((A = tsdp_header_M_findA(M, "ice-pwd"))) {
+                pwd = A->value;
+            }
+
+            while ((A = tsdp_header_M_findA_at(M, "candidate", index++))) {
+                tsk_strcat_2(&ice_remote_candidates, "%s\r\n", A->value);
+            }
+            // ICE processing will be automatically stopped if the remote candidates are not valid
+            // ICE-CONTROLLING role if we are the offerer
+            ret = tnet_ice_ctx_set_remote_candidates(i==0 ? m_pIceCtxAudio : m_pIceCtxVideo, ice_remote_candidates, ufrag, pwd, !isOffer, tsk_false/*Jingle?*/);
+            TSK_SAFE_FREE(ice_remote_candidates);
+        }
+    }
+
+    return (ret == 0);
 }
 
 bool SCSessionCall::iceIsDone()
 {
-	SCAutoLock<SCSessionCall> autoLock(this);
+    SCAutoLock<SCSessionCall> autoLock(this);
 
-	return (!tnet_ice_ctx_is_active(m_pIceCtxAudio) || tnet_ice_ctx_is_connected(m_pIceCtxAudio))
-		&& (!tnet_ice_ctx_is_active(m_pIceCtxVideo) || tnet_ice_ctx_is_connected(m_pIceCtxVideo));
+    return (!tnet_ice_ctx_is_active(m_pIceCtxAudio) || tnet_ice_ctx_is_connected(m_pIceCtxAudio))
+           && (!tnet_ice_ctx_is_active(m_pIceCtxVideo) || tnet_ice_ctx_is_connected(m_pIceCtxVideo));
 }
 
 bool SCSessionCall::iceIsEnabled(const struct tsdp_message_s* pc_Sdp)
 {
-	SCAutoLock<SCSessionCall> autoLock(this);
+    SCAutoLock<SCSessionCall> autoLock(this);
 
-	bool isEnabled = false;
-	if (pc_Sdp)
-	{
-		int i = 0;
-		const tsdp_header_M_t* M;
-		while ((M = (tsdp_header_M_t*)tsdp_message_get_headerAt(pc_Sdp, tsdp_htype_M, i++)))
-		{
-			isEnabled = true; // at least one "candidate"
-			if (!tsdp_header_M_findA(M, "candidate"))
-			{
-				return false;
-			}
-		}
-	}
-	
-	return isEnabled;
+    bool isEnabled = false;
+    if (pc_Sdp) {
+        int i = 0;
+        const tsdp_header_M_t* M;
+        while ((M = (tsdp_header_M_t*)tsdp_message_get_headerAt(pc_Sdp, tsdp_htype_M, i++))) {
+            isEnabled = true; // at least one "candidate"
+            if (!tsdp_header_M_findA(M, "candidate")) {
+                return false;
+            }
+        }
+    }
+
+    return isEnabled;
 }
 
 bool SCSessionCall::iceStart()
 {
-	SCAutoLock<SCSessionCall> autoLock(this);
+    SCAutoLock<SCSessionCall> autoLock(this);
 
 #if 0
-	if (!mIceCtxAudio && !mIceCtxVideo)
-	{
-		SC_DEBUG_INFO("ICE is not enabled...");
-		mIceState = IceStateCompleted;
-		return SignalNoMoreIceCandidateToFollow(); // say to the browser that it should not wait for any ICE candidate callback
-	}
+    if (!mIceCtxAudio && !mIceCtxVideo) {
+        SC_DEBUG_INFO("ICE is not enabled...");
+        mIceState = IceStateCompleted;
+        return SignalNoMoreIceCandidateToFollow(); // say to the browser that it should not wait for any ICE candidate callback
+    }
 #endif
 
-	int iRet;
+    int iRet;
 
-	if ((m_eMediaType & SCMediaType_Audio))
-	{
-		if (m_pIceCtxAudio && (iRet = tnet_ice_ctx_start(m_pIceCtxAudio)) != 0)
-		{
-			SC_DEBUG_WARN("tnet_ice_ctx_start() failed with error code = %d", iRet);
-			return false;
-		}
-	}
-	if ((m_eMediaType & SCMediaType_Video))
-	{
-		if (m_pIceCtxVideo && (iRet = tnet_ice_ctx_start(m_pIceCtxVideo)) != 0)
-		{
-			SC_DEBUG_WARN("tnet_ice_ctx_start() failed with error code = %d", iRet);
-			return false;
-		}
-	}
+    if ((m_eMediaType & SCMediaType_Audio)) {
+        if (m_pIceCtxAudio && (iRet = tnet_ice_ctx_start(m_pIceCtxAudio)) != 0) {
+            SC_DEBUG_WARN("tnet_ice_ctx_start() failed with error code = %d", iRet);
+            return false;
+        }
+    }
+    if ((m_eMediaType & SCMediaType_Video)) {
+        if (m_pIceCtxVideo && (iRet = tnet_ice_ctx_start(m_pIceCtxVideo)) != 0) {
+            SC_DEBUG_WARN("tnet_ice_ctx_start() failed with error code = %d", iRet);
+            return false;
+        }
+    }
 
-	return true;
+    return true;
 }
 
 int SCSessionCall::iceCallback(const struct tnet_ice_event_s *e)
 {
-	int ret = 0;
-	SCSessionCall *This;
+    int ret = 0;
+    SCSessionCall *This;
 
-	This = (SCSessionCall *)e->userdata;
+    This = (SCSessionCall *)e->userdata;
 
-	SCAutoLock<SCSessionCall> autoLock(This);
+    SCAutoLock<SCSessionCall> autoLock(This);
 
-	SC_DEBUG_INFO("ICE callback: %s", e->phrase);
+    SC_DEBUG_INFO("ICE callback: %s", e->phrase);
 
-	switch (e->type)
-	{
-		case tnet_ice_event_type_started:
-			{
-				// This->mIceState = IceStateGathering;
-				break;
-			}
+    switch (e->type) {
+    case tnet_ice_event_type_started: {
+        // This->mIceState = IceStateGathering;
+        break;
+    }
 
-		case tnet_ice_event_type_gathering_completed:
-		case tnet_ice_event_type_conncheck_succeed:
-		case tnet_ice_event_type_conncheck_failed:
-		case tnet_ice_event_type_cancelled:
-			{
-				if (e->type == tnet_ice_event_type_gathering_completed)
-				{
-					if (This->iceGotLocalCandidates())
-					{
-						SC_DEBUG_INFO("!!! ICE gathering done !!!");
-						if (This->m_eActionPending == SCCallAction_Make)
-						{
-							This->sendMsgCall();
-							This->m_eActionPending = SCCallAction_None;
-						}
-						else if (This->m_eActionPending == SCCallAction_Accept)
-						{
-							
-						}
-					}
-				}
-				else if(e->type == tnet_ice_event_type_conncheck_succeed)
-				{
-					if (This->iceIsDone())
-					{
-						// This->mIceState = IceStateConnected;
-						// _Utils::PostMessage(This->GetWindowHandle(), WM_ICE_EVENT_CONNECTED, This, (void**)0);
-					}
-				}
-				else if (e->type == tnet_ice_event_type_conncheck_failed || e->type == tnet_ice_event_type_cancelled)
-				{
-					// "tnet_ice_event_type_cancelled" means remote party doesn't support ICE -> Not an error
-					//This->mIceState = (e->type == tnet_ice_event_type_conncheck_failed) ? IceStateFailed : IceStateClosed;
-                    //_Utils::PostMessage(This->GetWindowHandle(), WM_ICE_EVENT_CANCELLED, This, (void**)0);
-					//if (e->type == tnet_ice_event_type_cancelled)
-					//{
-					//	This->SignalNoMoreIceCandidateToFollow();
-					//}
-				}
-				break;
-			}
+    case tnet_ice_event_type_gathering_completed:
+    case tnet_ice_event_type_conncheck_succeed:
+    case tnet_ice_event_type_conncheck_failed:
+    case tnet_ice_event_type_cancelled: {
+        if (e->type == tnet_ice_event_type_gathering_completed) {
+            if (This->iceGotLocalCandidates()) {
+                SC_DEBUG_INFO("!!! ICE gathering done !!!");
+                if (This->m_eActionPending == SCCallAction_Make) {
+                    This->sendMsgCall();
+                    This->m_eActionPending = SCCallAction_None;
+                }
+                else if (This->m_eActionPending == SCCallAction_Accept) {
 
-		// fatal errors which discard ICE process
-		case tnet_ice_event_type_gathering_host_candidates_failed:
-		case tnet_ice_event_type_gathering_reflexive_candidates_failed:
-			{
-				// This->mIceState = IceStateFailed;
-				break;
-			}
-	}
-	
-	return ret;
+                }
+            }
+        }
+        else if(e->type == tnet_ice_event_type_conncheck_succeed) {
+            if (This->iceIsDone()) {
+                // This->mIceState = IceStateConnected;
+                // _Utils::PostMessage(This->GetWindowHandle(), WM_ICE_EVENT_CONNECTED, This, (void**)0);
+            }
+        }
+        else if (e->type == tnet_ice_event_type_conncheck_failed || e->type == tnet_ice_event_type_cancelled) {
+            // "tnet_ice_event_type_cancelled" means remote party doesn't support ICE -> Not an error
+            //This->mIceState = (e->type == tnet_ice_event_type_conncheck_failed) ? IceStateFailed : IceStateClosed;
+            //_Utils::PostMessage(This->GetWindowHandle(), WM_ICE_EVENT_CANCELLED, This, (void**)0);
+            //if (e->type == tnet_ice_event_type_cancelled)
+            //{
+            //	This->SignalNoMoreIceCandidateToFollow();
+            //}
+        }
+        break;
+    }
+
+    // fatal errors which discard ICE process
+    case tnet_ice_event_type_gathering_host_candidates_failed:
+    case tnet_ice_event_type_gathering_reflexive_candidates_failed: {
+        // This->mIceState = IceStateFailed;
+        break;
+    }
+    }
+
+    return ret;
 }
 
 bool SCSessionCall::sendMsgCall()
 {
-	SCAutoLock<SCSessionCall> autoLock(this);
+    SCAutoLock<SCSessionCall> autoLock(this);
 
-	if (!iceGotLocalCandidates())
-	{
-		SC_DEBUG_ERROR("ICE gathering not done");
-		return false;
-	}
+    if (!iceGotLocalCandidates()) {
+        SC_DEBUG_ERROR("ICE gathering not done");
+        return false;
+    }
 
-	Json::Value message;
+    Json::Value message;
 
-	// Get local now that ICE gathering is done
-	const tsdp_message_t* sdp_lo = tmedia_session_mgr_get_lo(m_pSessionMgr);
-	if (!sdp_lo)
-	{
-		SC_DEBUG_ERROR("Cannot get local offer");
-		return false;
-	}
+    // Get local now that ICE gathering is done
+    const tsdp_message_t* sdp_lo = tmedia_session_mgr_get_lo(m_pSessionMgr);
+    if (!sdp_lo) {
+        SC_DEBUG_ERROR("Cannot get local offer");
+        return false;
+    }
 
-	char* sdpStr = tsdp_message_tostring(sdp_lo);
-	if (!*sdpStr)
-	{
-		SC_DEBUG_ERROR("Cannot serialize local offer");
-		return false;
-	}
-	std::string strSdp(sdpStr);
-	TSK_FREE(sdpStr);
+    char* sdpStr = tsdp_message_tostring(sdp_lo);
+    if (!*sdpStr) {
+        SC_DEBUG_ERROR("Cannot serialize local offer");
+        return false;
+    }
+    std::string strSdp(sdpStr);
+    TSK_FREE(sdpStr);
 
-	message["type"] = "offer";
-	message["cid"] = "fake-callid";
-	message["tid"] = "fake-transaction-id";
-	message["from"] = "001";
-	message["to"] = "002";
-	message["sdp"] = strSdp;	
+    // Compute when transaction identifier for the offer
+    m_strTidOffer = SCUtils::randomString();
 
-	Json::StyledWriter writer;
-	std::string output = writer.write(message);
-	if (output.empty())
-	{
-		SC_DEBUG_ERROR("Failed serialize JSON content");
-		return false;
-	}
+    message["type"] = "offer";
+    message["cid"] = m_strCallId;
+    message["tid"] = m_strTidOffer;
+    message["from"] = SCEngine::s_strCredUserId;
+    message["to"] = m_strDestUserId;
+    message["sdp"] = strSdp;
 
-	return m_oSignaling->sendData(output.c_str(), output.length());
+    Json::StyledWriter writer;
+    std::string output = writer.write(message);
+    if (output.empty()) {
+        SC_DEBUG_ERROR("Failed serialize JSON content");
+        return false;
+    }
+
+    return m_oSignaling->sendData(output.c_str(), output.length());
 }
 
-SCObjWrapper<SCSessionCall*> SCSessionCall::newObj(std::string strUserId, SCObjWrapper<SCSignaling*> oSignaling)
+SCObjWrapper<SCSessionCall*> SCSessionCall::newObj(SCObjWrapper<SCSignaling*> oSignaling)
 {
-	if (strUserId.empty() || !oSignaling)
-	{
-		SC_DEBUG_ERROR("Invalid argument");
-		return NULL;
-	}
+    if (!oSignaling) {
+        SC_DEBUG_ERROR("Invalid argument");
+        return NULL;
+    }
 
-    SCObjWrapper<SCSessionCall*> oCall = new SCSessionCall(strUserId, oSignaling);
+    SCObjWrapper<SCSessionCall*> oCall = new SCSessionCall(oSignaling);
 
     return oCall;
 }

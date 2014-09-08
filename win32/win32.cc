@@ -12,6 +12,70 @@
 #define SC_USERID_LOCAL			"001"
 #define SC_USERID_REMOTE		"002"
 
+#define SC_DEMO_AS_CLIENT			1
+
+SCObjWrapper<SCSessionCall*>callSession;
+SCObjWrapper<SCSignaling*>signalSession;
+
+class SCSignalingCallbackDummy : public SCSignalingCallback
+{
+protected:
+    SCSignalingCallbackDummy() {
+
+    }
+public:
+    virtual ~SCSignalingCallbackDummy() {
+
+    }
+
+    virtual bool onEventNet(SCObjWrapper<SCSignalingEvent*>& e) {
+        //!\Deadlock issue: You must not call any function from 'SCSignaling' class unless you fork a new thread.
+        switch (e->getType()) {
+        case SCSignalingEventType_NetReady: {
+#if SC_DEMO_AS_CLIENT
+            if (!callSession) {
+                callSession = SCSessionCall::newObj(signalSession);
+                SC_ASSERT(callSession);
+                SC_ASSERT(callSession->call(SCMediaType_ScreenCast, SC_USERID_REMOTE));
+            }
+#endif
+            break;
+        }
+        }
+
+        return true;
+    }
+    virtual SC_INLINE const char* getObjectId() {
+        return "SCSignalingCallbackDummy";
+    }
+    virtual bool onEventCall(SCObjWrapper<SCSignalingCallEvent*>& e) {
+        //!\Deadlock issue: You must not call any function from 'SCSignaling' class unless you fork a new thread.
+        if (callSession) {
+            if (callSession->getCallId() != e->getCallId()) {
+                SC_DEBUG_ERROR("Call id mismatch: '%s'<>'%s'", callSession->getCallId().c_str(), e->getCallId().c_str());
+                return e->reject();
+            }
+            return callSession->handEvent(e);
+        }
+        else {
+            if (e->getType() == "offer") {
+#if SC_DEMO_AS_CLIENT
+                return e->reject();
+#else
+                // FIXME : to be implemented
+#endif
+            }
+            // Silently ignore any other event type
+        }
+
+        return true;
+    }
+
+    static SCObjWrapper<SCSignalingCallback*> newObj() {
+        return new SCSignalingCallbackDummy();
+    }
+};
+
 int _tmain(int argc, _TCHAR* argv[])
 {
     printf("*******************************************************************\n"
@@ -26,22 +90,17 @@ int _tmain(int argc, _TCHAR* argv[])
            , SC_VERSION_STRING);
 
     SCEngine::setDebugLevel(SC_DEBUG_LEVEL);
-    SC_ASSERT(SCEngine::init());
-	SC_ASSERT(SCEngine::setSSLCertificates(SC_SSL_CERT_PATH));
+    SC_ASSERT(SCEngine::init(SC_USERID_LOCAL));
+    SC_ASSERT(SCEngine::setSSLCertificates(SC_SSL_CERT_PATH));
 
-    SCObjWrapper<SCSignaling*>signalSession = SCSignaling::newObj(SC_REMOTE_REQUEST_URI, SC_LOCAL_IP, SC_LOCAL_PORT);
+    signalSession = SCSignaling::newObj(SC_REMOTE_REQUEST_URI, SC_LOCAL_IP, SC_LOCAL_PORT);
     SC_ASSERT(signalSession);
+
+    SC_ASSERT(signalSession->setCallback(SCSignalingCallbackDummy::newObj()));
 
     SC_ASSERT(signalSession->connect());
 
     getchar();
-
-	// SC_ASSERT(signalSession->sendData("salut", 5));
-	SCObjWrapper<SCSessionCall*>callSession = SCSessionCall::newObj(SC_USERID_LOCAL, signalSession);
-	SC_ASSERT(callSession);
-	SC_ASSERT(callSession->call(SCMediaType_ScreenCast, SC_USERID_REMOTE));
-
-	getchar();
 
     SC_ASSERT(signalSession->disConnect());
 

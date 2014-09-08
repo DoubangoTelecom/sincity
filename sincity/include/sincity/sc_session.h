@@ -9,7 +9,7 @@
 class SCSession : public SCObj
 {
 protected:
-	SCSession(SCSessionType_t eType, std::string strUserId, SCObjWrapper<SCSignaling*> oSignaling);
+	SCSession(SCSessionType_t eType, SCObjWrapper<SCSignaling*> oSignaling);
 public:
 	virtual ~SCSession();
 	virtual SC_INLINE const char* getObjectId() { return "SCSession"; }
@@ -21,7 +21,6 @@ protected:
 
 private:
 	SCSessionType_t m_eType;
-	std::string m_strUserId;
 };
 
 #endif /* SINCITY_SESSION_H */

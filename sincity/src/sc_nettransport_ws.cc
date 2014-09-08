@@ -102,38 +102,32 @@ SCWsTransport::~SCWsTransport()
 
 bool SCWsTransport::handshaking(SCObjWrapper<SCNetPeer*> oPeer, SCObjWrapper<SCUrl*> oUrl)
 {
-    if (!isConnected(oPeer->getFd()))
-	{
+    if (!isConnected(oPeer->getFd())) {
         SC_DEBUG_ERROR_EX(kSCMobuleNameWsTransport, "Peer with fd=%d not connected yet", oPeer->getFd());
         return false;
     }
-	if (!oPeer->buildWsKey())
-	{
-		return false;
-	}
+    if (!oPeer->buildWsKey()) {
+        return false;
+    }
 
-	tnet_ip_t localIP;
-	tnet_port_t local_port;
-	if (tnet_transport_get_ip_n_port(m_pWrappedTransport, oPeer->getFd(), &localIP, &local_port) != 0)
-	{
-		return false;
-	}
+    tnet_ip_t localIP;
+    tnet_port_t local_port;
+    if (tnet_transport_get_ip_n_port(m_pWrappedTransport, oPeer->getFd(), &localIP, &local_port) != 0) {
+        return false;
+    }
 
-	char* requestUri = tsk_null;
-	if (oUrl->getHPath().empty())
-	{
-		requestUri = tsk_strdup("/");
-	}
-	else
-	{
-		tsk_sprintf(&requestUri, "/%s", oUrl->getHPath().c_str());
-		if (!oUrl->getSearch().empty())
-		{
-			tsk_strcat_2(&requestUri, "?%s", oUrl->getSearch().c_str());
-		}
-	}
+    char* requestUri = tsk_null;
+    if (oUrl->getHPath().empty()) {
+        requestUri = tsk_strdup("/");
+    }
+    else {
+        tsk_sprintf(&requestUri, "/%s", oUrl->getHPath().c_str());
+        if (!oUrl->getSearch().empty()) {
+            tsk_strcat_2(&requestUri, "?%s", oUrl->getSearch().c_str());
+        }
+    }
 
-	#define WS_REQUEST_GET_FORMAT "GET %s HTTP/1.1\r\n" \
+#define WS_REQUEST_GET_FORMAT "GET %s HTTP/1.1\r\n" \
 	   "Host: %s\r\n" \
 	   "Upgrade: websocket\r\n" \
 	   "Connection: Upgrade\r\n" \
@@ -143,24 +137,23 @@ bool SCWsTransport::handshaking(SCObjWrapper<SCNetPeer*> oPeer, SCObjWrapper<SCU
 	   "Sec-WebSocket-Version: 13\r\n" \
 		"\r\n"
 
-	char* request = tsk_null;
-	tsk_sprintf(&request, WS_REQUEST_GET_FORMAT,
-		requestUri,
-		oUrl->getHost().c_str(),
-		oPeer->getWsKey(),
-		localIP);
+    char* request = tsk_null;
+    tsk_sprintf(&request, WS_REQUEST_GET_FORMAT,
+                requestUri,
+                oUrl->getHost().c_str(),
+                oPeer->getWsKey(),
+                localIP);
 
-	TSK_FREE(requestUri);
-	
-	bool ret = sendData(oPeer, request, tsk_strlen(request));
-	TSK_FREE(request);
-	return ret;
+    TSK_FREE(requestUri);
+
+    bool ret = sendData(oPeer, request, tsk_strlen(request));
+    TSK_FREE(request);
+    return ret;
 }
 
 SCObjWrapper<SCWsResult*> SCWsTransport::handleJsonContent(SCObjWrapper<SCNetPeer*> oPeer, const void* pcDataPtr, size_t nDataSize)const
 {
-    if(!pcDataPtr || !nDataSize)
-	{
+    if(!pcDataPtr || !nDataSize) {
         SC_DEBUG_ERROR_EX(kSCMobuleNameWsTransport, "Invalid parameter");
         return new SCWsResult(kSCWsResultCode_InternalError, "Invalid parameter");
     }

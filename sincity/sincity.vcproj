@@ -351,6 +351,10 @@
 				RelativePath=".\src\sc_url.cc"
 				>
 			</File>
+			<File
+				RelativePath=".\src\sc_utils.cc"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="include"
@@ -410,6 +414,10 @@
 				</File>
 				<File
 					RelativePath=".\include\sincity\sc_url.h"
+					>
+				</File>
+				<File
+					RelativePath=".\include\sincity\sc_utils.h"
 					>
 				</File>
 				<Filter

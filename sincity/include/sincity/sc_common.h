@@ -40,10 +40,12 @@ SCDebugLevel_t;
 
 typedef enum SCSignalingEventType_e
 {
-	SCSignalingEventType_Connected,
-	SCSignalingEventType_Ready,
-	SCSignalingEventType_Disconnected,
-	SCSignalingEventType_Error
+	SCSignalingEventType_NetConnected,
+	SCSignalingEventType_NetReady,
+	SCSignalingEventType_NetDisconnected,
+	SCSignalingEventType_NetError,
+
+	SCSignalingEventType_Call
 }
 SCSignalingEventType_t;
 

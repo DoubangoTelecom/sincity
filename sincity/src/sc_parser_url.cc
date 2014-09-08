@@ -478,8 +478,8 @@ _again:
         if ( ++p != pe ) {
             goto _resume;
         }
-_test_eof:
-        {}
+_test_eof: {
+        }
         if ( p == eof ) {
             const char *__acts = _sc_machine_parser_url_actions + _sc_machine_parser_url_eof_actions[cs];
             unsigned int __nacts = (unsigned int) *__acts++;
@@ -521,8 +521,8 @@ _test_eof:
             }
         }
 
-_out:
-        {}
+_out: {
+        }
     }
 
     /* #line 97 "./ragel/sc_parser_url.rl" */
