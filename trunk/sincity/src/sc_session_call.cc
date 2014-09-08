@@ -27,6 +27,8 @@ SCSessionCall::SCSessionCall(std::string strUserId, SCObjWrapper<SCSignaling*> o
 	
 	, m_pSdpLocal(NULL)
 	, m_pSdpRemote(NULL)
+
+	, m_oMutex(new SCMutex())
 {
 	
 }
@@ -42,8 +44,20 @@ SCSessionCall::~SCSessionCall()
 	TSK_OBJECT_SAFE_FREE(m_pSdpRemote);
 }
 
+void SCSessionCall::lock()
+{
+	m_oMutex->lock();
+}
+	
+void SCSessionCall::unlock()
+{
+	m_oMutex->unlock();
+}
+
 bool SCSessionCall::call(SCMediaType_t eMediaType, std::string srtDestUserId)
 {
+	SCAutoLock<SCSessionCall> autoLock(this);
+
 	if (eMediaType != SCMediaType_ScreenCast)
 	{
 		SC_DEBUG_ERROR("%d not a valid media type", eMediaType);
@@ -81,11 +95,15 @@ bool SCSessionCall::call(SCMediaType_t eMediaType, std::string srtDestUserId)
 
 bool SCSessionCall::hangup()
 {
+	SCAutoLock<SCSessionCall> autoLock(this);
+
 	return false;
 }
 
 bool SCSessionCall::createSessionMgr()
 {
+	SCAutoLock<SCSessionCall> autoLock(this);
+
 	TSK_OBJECT_SAFE_FREE(m_pSessionMgr);
 
 	TSK_OBJECT_SAFE_FREE(m_pIceCtxVideo);
@@ -129,6 +147,8 @@ bool SCSessionCall::createSessionMgr()
 
 bool SCSessionCall::createLocalOffer()
 {
+	SCAutoLock<SCSessionCall> autoLock(this);
+
 	if (!m_pSessionMgr)
 	{
 		if (!createSessionMgr())
@@ -171,6 +191,8 @@ bool SCSessionCall::createLocalOffer()
 
 bool SCSessionCall::iceCreateCtx()
 {
+	SCAutoLock<SCSessionCall> autoLock(this);
+
 	static tsk_bool_t __use_ice_jingle = tsk_false;
 	static tsk_bool_t __use_ipv6 = tsk_false;
 	static tsk_bool_t __use_ice_rtcp = tsk_true;
@@ -219,6 +241,8 @@ bool SCSessionCall::iceCreateCtx()
 
 bool SCSessionCall::iceSetTimeout(int32_t timeout)
 {
+	SCAutoLock<SCSessionCall> autoLock(this);
+
 	if (m_pIceCtxAudio)
 	{
 		tnet_ice_ctx_set_concheck_timeout(m_pIceCtxAudio, timeout);
@@ -232,16 +256,22 @@ bool SCSessionCall::iceSetTimeout(int32_t timeout)
 
 bool SCSessionCall::iceGotLocalCandidates(struct tnet_ice_ctx_s *p_IceCtx)
 {
+	SCAutoLock<SCSessionCall> autoLock(this);
+
 	return (!tnet_ice_ctx_is_active(p_IceCtx) || tnet_ice_ctx_got_local_candidates(p_IceCtx));
 }
 
 bool SCSessionCall::iceGotLocalCandidates()
 {
+	SCAutoLock<SCSessionCall> autoLock(this);
+
 	return iceGotLocalCandidates(m_pIceCtxAudio) && iceGotLocalCandidates(m_pIceCtxVideo);
 }
 
 bool SCSessionCall::iceProcessRo(const struct tsdp_message_s* pc_SdpRo, bool isOffer)
 {
+	SCAutoLock<SCSessionCall> autoLock(this);
+
 	if (!pc_SdpRo)
 	{
 		SC_DEBUG_ERROR("Invalid argument");
@@ -310,12 +340,16 @@ bool SCSessionCall::iceProcessRo(const struct tsdp_message_s* pc_SdpRo, bool isO
 
 bool SCSessionCall::iceIsDone()
 {
+	SCAutoLock<SCSessionCall> autoLock(this);
+
 	return (!tnet_ice_ctx_is_active(m_pIceCtxAudio) || tnet_ice_ctx_is_connected(m_pIceCtxAudio))
 		&& (!tnet_ice_ctx_is_active(m_pIceCtxVideo) || tnet_ice_ctx_is_connected(m_pIceCtxVideo));
 }
 
 bool SCSessionCall::iceIsEnabled(const struct tsdp_message_s* pc_Sdp)
 {
+	SCAutoLock<SCSessionCall> autoLock(this);
+
 	bool isEnabled = false;
 	if (pc_Sdp)
 	{
@@ -336,6 +370,8 @@ bool SCSessionCall::iceIsEnabled(const struct tsdp_message_s* pc_Sdp)
 
 bool SCSessionCall::iceStart()
 {
+	SCAutoLock<SCSessionCall> autoLock(this);
+
 #if 0
 	if (!mIceCtxAudio && !mIceCtxVideo)
 	{
@@ -373,6 +409,8 @@ int SCSessionCall::iceCallback(const struct tnet_ice_event_s *e)
 	SCSessionCall *This;
 
 	This = (SCSessionCall *)e->userdata;
+
+	SCAutoLock<SCSessionCall> autoLock(This);
 
 	SC_DEBUG_INFO("ICE callback: %s", e->phrase);
 
@@ -440,6 +478,8 @@ int SCSessionCall::iceCallback(const struct tnet_ice_event_s *e)
 
 bool SCSessionCall::sendMsgCall()
 {
+	SCAutoLock<SCSessionCall> autoLock(this);
+
 	if (!iceGotLocalCandidates())
 	{
 		SC_DEBUG_ERROR("ICE gathering not done");

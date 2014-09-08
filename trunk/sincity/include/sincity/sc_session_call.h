@@ -4,11 +4,13 @@
 #include "sc_config.h"
 #include "sincity/sc_session.h"
 #include "sincity/sc_signaling.h"
+#include "sincity/sc_mutex.h"
 
 #include <string>
 
 class SCSessionCall : public SCSession
 {
+	friend class SCAutoLock<SCSessionCall>;
 protected:
 	SCSessionCall(std::string strUserId, SCObjWrapper<SCSignaling*> oSignaling);
 public:
@@ -21,6 +23,9 @@ public:
 	static SCObjWrapper<SCSessionCall*> newObj(std::string strUserId, SCObjWrapper<SCSignaling*> oSignaling);
 
 private:
+	void lock();
+	void unlock();
+
 	bool createSessionMgr();
 	bool createLocalOffer();
 
@@ -48,6 +53,8 @@ private:
 
 	struct tsdp_message_s* m_pSdpLocal;
 	struct tsdp_message_s* m_pSdpRemote;
+
+	SCObjWrapper<SCMutex*> m_oMutex;
 };
 
 

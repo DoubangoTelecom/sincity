@@ -15,6 +15,7 @@ SCSignaling::SCSignaling(SCObjWrapper<SCNetTransport*>& oNetTransport, SCObjWrap
     , m_bWsHandshakingDone(false)
 	, m_pWsSendBufPtr(NULL)
 	, m_nWsSendBuffSize(0)
+	, m_oMutex(new SCMutex())
 {
     SC_ASSERT(m_oNetTransport);
     SC_ASSERT(m_oConnectionUrl);
@@ -28,13 +29,27 @@ SCSignaling::~SCSignaling()
 	TSK_FREE(m_pWsSendBufPtr);
 }
 
+void SCSignaling::lock()
+{
+	m_oMutex->lock();
+}
+	
+void SCSignaling::unlock()
+{
+	m_oMutex->unlock();
+}
+
 bool SCSignaling::isConnected()
 {
+	SCAutoLock<SCSignaling> autoLock(this);
+
     return m_oNetTransport->isConnected(m_Fd);
 }
 
 bool SCSignaling::isReady()
 {
+	SCAutoLock<SCSignaling> autoLock(this);
+
 	if (!isConnected())
 	{
 		return false;
@@ -48,6 +63,8 @@ bool SCSignaling::isReady()
 
 bool SCSignaling::connect()
 {
+	SCAutoLock<SCSignaling> autoLock(this);
+
     if (isConnected())
 	{
         SC_DEBUG_INFO_EX(kSCMobuleNameSignaling, "Already connected");
@@ -69,6 +86,8 @@ bool SCSignaling::connect()
 
 bool SCSignaling::disConnect()
 {
+	SCAutoLock<SCSignaling> autoLock(this);
+
     if (isConnected())
 	{
         bool ret = m_oNetTransport->close(m_Fd);
@@ -83,6 +102,8 @@ bool SCSignaling::disConnect()
 
 bool SCSignaling::sendData(const void* _pcData, tsk_size_t _nDataSize)
 {
+	SCAutoLock<SCSignaling> autoLock(this);
+
 	if (!_pcData || !_nDataSize)
 	{
 		SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "Invalid argument");
@@ -225,6 +246,8 @@ bail:
 
 bool SCSignaling::handleData(const char* pcData, tsk_size_t nDataSize)
 {
+	SCAutoLock<SCSignaling> autoLock(this);
+
 	return false;
 }
 
@@ -246,6 +269,8 @@ SCSignalingTransportCallback::~SCSignalingTransportCallback()
 
 bool SCSignalingTransportCallback::onData(SCObjWrapper<SCNetPeer*> oPeer, size_t &nConsumedBytes)
 {
+	SCAutoLock<SCSignaling> autoLock(const_cast<SCSignaling*>(m_pcSCSignaling));
+	
     SC_DEBUG_INFO_EX(kSCMobuleNameSignaling, "Incoming data = %.*s", oPeer->getDataSize(), oPeer->getDataPtr());
 
 	if (m_pcSCSignaling->m_oConnectionUrl->getType() != SCUrlType_WS && m_pcSCSignaling->m_oConnectionUrl->getType() != SCUrlType_WSS)
@@ -412,10 +437,14 @@ bool SCSignalingTransportCallback::onData(SCObjWrapper<SCNetPeer*> oPeer, size_t
 
 bool SCSignalingTransportCallback::onConnectionStateChanged(SCObjWrapper<SCNetPeer*> oPeer)
 {
-    if ((oPeer->getFd() == m_pcSCSignaling->m_Fd || m_pcSCSignaling->m_Fd == kSCNetFdInvalid) && oPeer->isConnected() && (m_pcSCSignaling->m_oConnectionUrl->getType() == SCUrlType_WS || m_pcSCSignaling->m_oConnectionUrl->getType() == SCUrlType_WSS)) {
+	SCAutoLock<SCSignaling> autoLock(const_cast<SCSignaling*>(m_pcSCSignaling));
+	
+    if ((oPeer->getFd() == m_pcSCSignaling->m_Fd || m_pcSCSignaling->m_Fd == kSCNetFdInvalid) && oPeer->isConnected() && (m_pcSCSignaling->m_oConnectionUrl->getType() == SCUrlType_WS || m_pcSCSignaling->m_oConnectionUrl->getType() == SCUrlType_WSS))
+	{
         const SCWsTransport* pcTransport = dynamic_cast<const SCWsTransport*>(*m_pcSCSignaling->m_oNetTransport);
         SC_ASSERT(pcTransport);
-        if (!m_pcSCSignaling->m_bWsHandshakingDone) {
+        if (!m_pcSCSignaling->m_bWsHandshakingDone)
+		{
 			return const_cast<SCWsTransport*>(pcTransport)->handshaking(oPeer, const_cast<SCSignaling*>(m_pcSCSignaling)->m_oConnectionUrl);
         }
     }
