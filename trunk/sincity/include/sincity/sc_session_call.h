@@ -8,19 +8,25 @@
 
 #include <string>
 
+class SCCallEvent;
+
 class SCSessionCall : public SCSession
 {
 	friend class SCAutoLock<SCSessionCall>;
 protected:
-	SCSessionCall(std::string strUserId, SCObjWrapper<SCSignaling*> oSignaling);
+	SCSessionCall(SCObjWrapper<SCSignaling*> oSignaling);
 public:
 	virtual ~SCSessionCall();
 	virtual SC_INLINE const char* getObjectId() { return "SCSessionCall"; }
 	
-	virtual bool call(SCMediaType_t eMediaType, std::string srtDestUserId);
+	virtual bool call(SCMediaType_t eMediaType, std::string strDestUserId);
 	virtual bool hangup();
+	virtual bool handEvent(SCObjWrapper<SCSignalingCallEvent*>& e);
+
+	virtual SC_INLINE std::string getCallId() { return m_strCallId; }
 	
-	static SCObjWrapper<SCSessionCall*> newObj(std::string strUserId, SCObjWrapper<SCSignaling*> oSignaling);
+	static SCObjWrapper<SCSessionCall*> newObj(SCObjWrapper<SCSignaling*> oSignaling);
+	// static SCObjWrapper<SCSessionCall*> newObj(SCObjWrapper<SCSignaling*> oSignaling, SCObjWrapper<SCCallEvent*>& e);
 
 private:
 	void lock();
@@ -55,7 +61,10 @@ private:
 	struct tsdp_message_s* m_pSdpRemote;
 
 	SCObjWrapper<SCMutex*> m_oMutex;
-};
 
+	std::string m_strDestUserId;
+	std::string m_strCallId;
+	std::string m_strTidOffer;
+};
 
 #endif /* SINCITY_SESSION_CALL_H */

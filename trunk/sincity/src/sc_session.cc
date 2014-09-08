@@ -2,15 +2,14 @@
 
 #include <assert.h>
 
-SCSession::SCSession(SCSessionType_t eType, std::string strUserId, SCObjWrapper<SCSignaling*> oSignaling)
+SCSession::SCSession(SCSessionType_t eType, SCObjWrapper<SCSignaling*> oSignaling)
     : m_eType(eType)
-	, m_oSignaling(oSignaling)
-	, m_strUserId(strUserId)
+    , m_oSignaling(oSignaling)
 {
-	SC_ASSERT(m_oSignaling);
+    SC_ASSERT(m_oSignaling);
 }
 
 SCSession::~SCSession()
 {
-    
+
 }

@@ -26,15 +26,14 @@ bool SCNetPeer::sendData(const void* pcDataPtr, size_t nDataSize)
 
 bool SCNetPeer::buildWsKey()
 {
-	char WsKey[30];
-	const int count = sizeof(WsKey)/sizeof(WsKey[0]);
-	for (int i = 0; i < count - 1; ++i)
-	{
-		WsKey[i] = rand() % 0xFF;
-	}
-	WsKey[count - 1] = '\0';
+    char WsKey[30];
+    const int count = sizeof(WsKey)/sizeof(WsKey[0]);
+    for (int i = 0; i < count - 1; ++i) {
+        WsKey[i] = rand() % 0xFF;
+    }
+    WsKey[count - 1] = '\0';
 
-	return tsk_base64_encode((const uint8_t*)WsKey, (count - 1), &m_pWsKey) > 0;
+    return tsk_base64_encode((const uint8_t*)WsKey, (count - 1), &m_pWsKey) > 0;
 }
 
 //
@@ -140,7 +139,7 @@ bool SCNetTransport::sendData(SCNetFd nFdFrom, const void* pcDataPtr, size_t nDa
 
 bool SCNetTransport::sendData(SCObjWrapper<SCNetPeer*> oPeer, const void* pcDataPtr, size_t nDataSize)
 {
-	return sendData(oPeer->getFd(), pcDataPtr, nDataSize);
+    return sendData(oPeer->getFd(), pcDataPtr, nDataSize);
 }
 
 bool SCNetTransport::close(SCNetFd nFd)

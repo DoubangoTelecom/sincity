@@ -11,6 +11,7 @@ class SCSignaling;
 
 class SCSignalingEvent : public SCObj
 {
+	friend class SCSignaling;
 public:
 	SCSignalingEvent(SCSignalingEventType_t eType, std::string strDescription) : m_eType(eType), m_strDescription(strDescription) {}
 	virtual ~SCSignalingEvent() {}
@@ -22,6 +23,42 @@ public:
 private:
 	SCSignalingEventType_t m_eType;
 	std::string m_strDescription;
+};
+
+class SCSignalingCallEvent : public SCSignalingEvent
+{
+	friend class SCSignaling;
+public:
+	SCSignalingCallEvent(std::string strDescription);
+	virtual ~SCSignalingCallEvent();
+	virtual SC_INLINE const char* getObjectId() { return "SCSignalingCallEvent"; }
+
+	bool reject();
+
+	SC_INLINE std::string getType() { return m_strType; }
+	SC_INLINE std::string getFrom() { return m_strFrom; }
+	SC_INLINE std::string getTo() { return m_strTo; }
+	SC_INLINE std::string getCallId() { return m_strCallId; }
+	SC_INLINE std::string getTransacId() { return m_strTransacId; }
+	SC_INLINE std::string getSdp() { return m_strSdp; }
+
+private:
+	std::string m_strFrom;
+	std::string m_strTo;
+	std::string m_strSdp;
+	std::string m_strType;
+	std::string m_strCallId;
+	std::string m_strTransacId;
+};
+
+class SCSignalingCallback : public SCObj
+{
+protected:
+	SCSignalingCallback() {}
+public:
+	virtual ~SCSignalingCallback() {}
+	virtual bool onEventNet(SCObjWrapper<SCSignalingEvent*>& e) = 0;
+	virtual bool onEventCall(SCObjWrapper<SCSignalingCallEvent*>& e) = 0;
 };
 
 class SCSignalingTransportCallback : public SCNetTransportCallback
@@ -49,6 +86,7 @@ public:
 	virtual ~SCSignaling();
 	virtual SC_INLINE const char* getObjectId() { return "SCSignaling"; }
 
+	bool setCallback(SCObjWrapper<SCSignalingCallback*> &oCallback);
 	bool isConnected();
 	bool isReady();
 	bool connect();
@@ -68,6 +106,7 @@ private:
 	SCObjWrapper<SCNetTransport*> m_oNetTransport;
 	SCObjWrapper<SCUrl*> m_oConnectionUrl;
 	SCObjWrapper<SCSignalingTransportCallback*> m_oNetCallback;
+	SCObjWrapper<SCSignalingCallback*> m_oSignCallback;
 	SCNetFd m_Fd;
 	bool m_bWsHandshakingDone;
 	void* m_pWsSendBufPtr;

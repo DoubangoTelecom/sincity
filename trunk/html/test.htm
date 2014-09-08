@@ -20,6 +20,7 @@ var sdpConstraints = {
     'OfferToReceiveVideo': true
   }
 };
+var incomingCall;
 
 function connect() {
     socket = new WebSocket("ws://localhost:9000/wsStringStaticMulti?roomId=0", "ge-webrtc-signaling");
@@ -45,6 +46,7 @@ function connect() {
         var msg = JSON.parse(e.data);
         if (msg && msg.type === "offer" && msg.sdp)
         {
+            incomingCall = msg;
             var sdpRemote = msg.sdp.replace("UDP/TLS/RTP/SAVPF", "RTP/SAVPF"); 
             pc = new RTCPeerConnection(null);
     
@@ -59,6 +61,10 @@ function connect() {
                     console.info("ICE gathering done");
                     var msg = 
                     {
+                        from: incomingCall.to,
+                        to: incomingCall.from,
+                        cid: incomingCall.cid,
+                        tid: incomingCall.tid,
                         type: pc.localDescription.type,
                         sdp: pc.localDescription.sdp.replace("RTP/SAVPF", "UDP/TLS/RTP/SAVPF")
                     };
