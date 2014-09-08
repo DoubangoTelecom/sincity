@@ -1,3 +1,4 @@
 - Add JSONCPP (MIT) to the thirdparties
 - Remove reference to wcecompact
 - WS keepAlive
+- Ask for secure WebSocket URL

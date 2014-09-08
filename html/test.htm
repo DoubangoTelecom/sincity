@@ -72,6 +72,10 @@ function connect() {
                 }
             }
             
+            pc.onaddstream = function(e) {
+                remoteVideo.src = webkitURL.createObjectURL(e.stream);
+            }
+            
             pc.setRemoteDescription(new RTCSessionDescription({ type: "offer", sdp: sdpRemote }), 
                 function() { 
                     console.info("setRemoteDescription OK"); 
