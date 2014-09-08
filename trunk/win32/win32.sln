@@ -96,6 +96,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sincity", "..\sincity\sinci
 		{6BC9B796-10C6-4CF7-A6E4-E2DACCDA84DA} = {6BC9B796-10C6-4CF7-A6E4-E2DACCDA84DA}
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HTML", "HTML", "{279CD1CC-DDE1-4091-86AA-08942EB363C4}"
+	ProjectSection(SolutionItems) = preProject
+		..\html\test.htm = ..\html\test.htm
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|GE vPC WEC7 SDK (x86) = Debug|GE vPC WEC7 SDK (x86)

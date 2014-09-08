@@ -44,9 +44,6 @@ private:
 	struct tnet_ice_ctx_s *m_pIceCtxVideo;
 	struct tnet_ice_ctx_s *m_pIceCtxAudio;
 
-	bool m_bIceCandAudioSignaled;
-	bool m_bIceCandVideoSignaled;
-
 	struct tmedia_session_mgr_s* m_pSessionMgr;
 
 	struct tsdp_message_s* m_pSdpLocal;

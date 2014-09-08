@@ -316,7 +316,7 @@ bool SCSignalingTransportCallback::onData(SCObjWrapper<SCNetPeer*> oPeer, size_t
 	else
 	{
 		/* WebSocket raw data */
-		const char* pcData = (const char*)oPeer->getDataPtr();
+		const uint8_t* pcData = (const uint8_t*)oPeer->getDataPtr();
 		const uint8_t opcode = pcData[0] & 0x0F;
 		if ((pcData[0] & 0x01)/* FIN */)
 		{
@@ -388,7 +388,7 @@ bool SCSignalingTransportCallback::onData(SCObjWrapper<SCNetPeer*> oPeer, size_t
 			}
 			
 			data_len += pay_len;
-			char* _pcData = const_cast<char*>(pcData);
+			uint8_t* _pcData = const_cast<uint8_t*>(pcData);
 
 			// unmasking the payload
 			if (mask_flag)
@@ -398,7 +398,7 @@ bool SCSignalingTransportCallback::onData(SCObjWrapper<SCNetPeer*> oPeer, size_t
 					_pcData[pay_idx] = (pcData[pay_idx] ^ mask_key[(pay_idx & 3)]);
 				}
 			}
-			return const_cast<SCSignaling*>(m_pcSCSignaling)->handleData(_pcData, (tsk_size_t)pay_len);
+			return const_cast<SCSignaling*>(m_pcSCSignaling)->handleData((const char*)_pcData, (tsk_size_t)pay_len);
 		}
 		else if (opcode == 0x08)
 		{ 
