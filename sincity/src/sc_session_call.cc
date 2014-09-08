@@ -22,9 +22,6 @@ SCSessionCall::SCSessionCall(std::string strUserId, SCObjWrapper<SCSignaling*> o
 
 	, m_pIceCtxVideo(NULL)
 	, m_pIceCtxAudio(NULL)
-
-	, m_bIceCandAudioSignaled(false)
-	, m_bIceCandVideoSignaled(false)
 	
 	, m_pSessionMgr(NULL)
 	
@@ -149,26 +146,18 @@ bool SCSessionCall::createLocalOffer()
 		}
 	}
 
+#if 0
 	const tsdp_message_t* sdp_lo = tmedia_session_mgr_get_lo(m_pSessionMgr);
 	if (!sdp_lo)
 	{
 		SC_DEBUG_ERROR("Cannot get local offer");
 		return false;
 	}
-#if 0 // FIXME
-	char* sdpStr = tsdp_message_tostring(sdp_lo);
-	if (!*sdpStr)
-	{
-		SC_DEBUG_ERROR("Cannot serialize local offer");
-		return false;
-	}
-	SC_DEBUG_INFO("local offer: %s", sdpStr);
-	TSK_FREE(sdpStr);
-#endif
 	
 	 TSK_OBJECT_SAFE_FREE(m_pSdpLocal);
 	 m_pSdpLocal = (tsdp_message_t*)tsk_object_ref((tsk_object_t*)sdp_lo);
 	 // mReadyState = (mSdpLocal && tmedia_session_mgr_get_ro(mSessionMgr)) ? ReadyStateActive : ReadyStateOpening;
+#endif
 
 	 // Start ICE
 	 if (!iceStart())
@@ -185,9 +174,6 @@ bool SCSessionCall::iceCreateCtx()
 	static tsk_bool_t __use_ice_jingle = tsk_false;
 	static tsk_bool_t __use_ipv6 = tsk_false;
 	static tsk_bool_t __use_ice_rtcp = tsk_true;
-
-	m_bIceCandAudioSignaled = false;
-	m_bIceCandVideoSignaled = false;
 
 	if (!m_pIceCtxAudio && (m_eMediaType & SCMediaType_Audio))
 	{
@@ -350,12 +336,6 @@ bool SCSessionCall::iceIsEnabled(const struct tsdp_message_s* pc_Sdp)
 
 bool SCSessionCall::iceStart()
 {
-	if (!m_pSdpLocal)
-	{
-		SC_DEBUG_ERROR("No local offer yet");
-		return false;
-	}
-
 #if 0
 	if (!mIceCtxAudio && !mIceCtxVideo)
 	{
@@ -366,8 +346,6 @@ bool SCSessionCall::iceStart()
 #endif
 
 	int iRet;
-	m_bIceCandAudioSignaled = false;
-	m_bIceCandVideoSignaled = false;
 
 	if ((m_eMediaType & SCMediaType_Audio))
 	{
@@ -413,69 +391,18 @@ int SCSessionCall::iceCallback(const struct tnet_ice_event_s *e)
 			{
 				if (e->type == tnet_ice_event_type_gathering_completed)
 				{
-					char* candidateStr = NULL;
-					const char* ufragStr = tnet_ice_ctx_get_ufrag(e->ctx);
-					const char* pwdStr = tnet_ice_ctx_get_pwd(e->ctx);
-					bool bGotAllCandidates = This->iceGotLocalCandidates();
-					const char* mediaStr;
-					if (e->ctx == This->m_pIceCtxAudio)
+					if (This->iceGotLocalCandidates())
 					{
-						mediaStr = "audio";
-						This->m_bIceCandAudioSignaled = true;
-					}
-					else if (e->ctx == This->m_pIceCtxVideo)
-					{
-						mediaStr = "video";
-						This->m_bIceCandVideoSignaled = true;
-					}
-					else
-					{
-						SC_DEBUG_ERROR("No ICE context matches");
-						break;
-					}
-					const tsdp_header_M_t* M = tsdp_message_find_media(This->m_pSdpLocal, mediaStr);
-					tnet_ice_candidate_t* pc_candidate;
-					tsk_size_t nIceCandidatesCount = tnet_ice_ctx_count_local_candidates(e->ctx);
-					
-					for (unsigned short index = 0; index < nIceCandidatesCount; ++index)
-					{
-						candidateStr = tsk_strdup(tnet_ice_candidate_tostring((pc_candidate = ((tnet_ice_candidate_t*)tnet_ice_ctx_get_local_candidate_at(e->ctx, index)))));
-						if (M)
+						SC_DEBUG_INFO("!!! ICE gathering done !!!");
+						if (This->m_eActionPending == SCCallAction_Make)
 						{
-							tsdp_header_M_add_headers((tsdp_header_M_t*)M, TSDP_HEADER_A_VA_ARGS("candidate", candidateStr), tsk_null);
-							if (M->port == 0)
-							{
-								TSDP_HEADER_M(M)->port = pc_candidate->port;
-							}
+							This->sendMsgCall();
+							This->m_eActionPending = SCCallAction_None;
 						}
-						tsk_strcat_2(&candidateStr, " webrtc4ie-ufrag %s webrtc4ie-pwd %s", ufragStr, pwdStr);
-						bool bMoreToFollow = !(
-							bGotAllCandidates 
-							&& (index == (nIceCandidatesCount - 1)) 
-							&& (!tnet_ice_ctx_is_active(This->m_pIceCtxAudio) || This->m_bIceCandAudioSignaled)
-							&& (!tnet_ice_ctx_is_active(This->m_pIceCtxVideo) || This->m_bIceCandVideoSignaled)
-							);
-
-						if (!bMoreToFollow)
+						else if (This->m_eActionPending == SCCallAction_Accept)
 						{
-							SC_DEBUG_INFO("!!! ICE gathering done !!!");
-							if (This->m_eActionPending == SCCallAction_Make)
-							{
-								This->sendMsgCall();
-								This->m_eActionPending = SCCallAction_None;
-							}
-							else if (This->m_eActionPending == SCCallAction_Accept)
-							{
-								
-							}
+							
 						}
-
-						TSK_FREE(candidateStr);
-					}
-
-					if (bGotAllCandidates)
-					{
-						// This->mIceState = IceStateCompleted;
 					}
 				}
 				else if(e->type == tnet_ice_event_type_conncheck_succeed)
@@ -513,15 +440,23 @@ int SCSessionCall::iceCallback(const struct tnet_ice_event_s *e)
 
 bool SCSessionCall::sendMsgCall()
 {
-	if (!m_pSdpLocal)
+	if (!iceGotLocalCandidates())
 	{
-		SC_DEBUG_ERROR("No local offer");
+		SC_DEBUG_ERROR("ICE gathering not done");
 		return false;
 	}
 
 	Json::Value message;
 
-	char* sdpStr = tsdp_message_tostring(m_pSdpLocal);
+	// Get local now that ICE gathering is done
+	const tsdp_message_t* sdp_lo = tmedia_session_mgr_get_lo(m_pSessionMgr);
+	if (!sdp_lo)
+	{
+		SC_DEBUG_ERROR("Cannot get local offer");
+		return false;
+	}
+
+	char* sdpStr = tsdp_message_tostring(sdp_lo);
 	if (!*sdpStr)
 	{
 		SC_DEBUG_ERROR("Cannot serialize local offer");
@@ -530,8 +465,7 @@ bool SCSessionCall::sendMsgCall()
 	std::string strSdp(sdpStr);
 	TSK_FREE(sdpStr);
 
-	message["type"] = "request";
-	message["action"] = "call";
+	message["type"] = "offer";
 	message["cid"] = "fake-callid";
 	message["tid"] = "fake-transaction-id";
 	message["from"] = "001";

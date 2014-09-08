@@ -5,33 +5,117 @@
 
 <script type="text/javascript">
 
+var RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
+var RTCSessionDescription = window.RTCSessionDescription || window.mozRTCSessionDescription || window.webkitRTCSessionDescription;
+var RTCIceCandidate = window.RTCIceCandidate || window.mozRTCIceCandidate || window.webkitRTCIceCandidate;
+
+
 var WebSocket = (window['MozWebSocket'] || window['MozWebSocket'] || WebSocket);
 var socket;
+var pc;
+var sdpAnswer;
+var sdpConstraints = {
+  'mandatory': {
+    'OfferToReceiveAudio': false,
+    'OfferToReceiveVideo': true
+  }
+};
 
 function connect() {
     socket = new WebSocket("ws://localhost:9000/wsStringStaticMulti?roomId=0", "ge-webrtc-signaling");
     socket.onopen = function() {
         console.info("onopen");
-        socket.send("data from test.html");
+        // socket.send("data from test.html");
+        
+        btnConnect.disabled = true;
+        btnClose.disabled = false;
+        btnCall.disable = false;
     }
     socket.onclose = function() {
         console.info("onclose");
+        
+        btnConnect.disabled = false;
+        btnClose.disabled = true;
+        btnCall.disable = true;
+    }
+    
+    socket.onmessage = function(e) {
+        console.info("onmessage" + e.data);
+        
+        var msg = JSON.parse(e.data);
+        if (msg && msg.type === "offer" && msg.sdp)
+        {
+            var sdpRemote = msg.sdp.replace("UDP/TLS/RTP/SAVPF", "RTP/SAVPF"); 
+            pc = new RTCPeerConnection(null);
+    
+            pc.onicecandidate  = function(e) {
+                if (e.candidate) { 
+                    pc.addIceCandidate(new RTCIceCandidate(e.candidate),
+                            function() { console.info("addIceCandidate OK"); },
+                            function(err) { console.info("addIceCandidate NOK:" + err); }
+                    );
+                }
+                else {
+                    console.info("ICE gathering done");
+                    var msg = 
+                    {
+                        type: pc.localDescription.type,
+                        sdp: pc.localDescription.sdp.replace("RTP/SAVPF", "UDP/TLS/RTP/SAVPF")
+                    };
+                    socket.send(JSON.stringify(msg));
+                }
+            }
+            
+            pc.setRemoteDescription(new RTCSessionDescription({ type: "offer", sdp: sdpRemote }), 
+                function() { 
+                    console.info("setRemoteDescription OK"); 
+                    pc.createAnswer(
+                        function(desc) {
+                            console.info("createAnswer:" + desc.sdp);
+                            sdpAnswer = desc;
+                            pc.setLocalDescription(desc, 
+                                function() { 
+                                    console.info("setLocalDescription OK");
+                                },
+                                function(err) {
+                                    console.info("setLocalDescription:" + err);
+                                });
+                        },
+                        function(err) {
+                            console.info("createAnswer:" + err);
+                        },
+                        sdpConstraints);
+                },
+                function(err) { 
+                    console.info("setRemoteDescription NOK:" + err); 
+                }
+            );
+        }
     }
 }
 
-function close() {
+function _close() {
     if (socket) {
         socket.close();
         socket = null;
     }
 }
 
+function call() {
+    btnCall.disable = true;
+    
+}
+
 </script>
 
-<body>
-    <form action=''>
-    <input type="button" value="connect" onclick='connect();' />
-    <input type="button" value="close" onclick='close();' />
-    </form>
+<body>   
+    <video id="localVideo" autoplay muted></video>
+    <video id="remoteVideo" autoplay></video>
+    
+    <div>
+        <button id="btnConnect" onclick='connect();'>connect</button>
+        <button id="btnClose" onclick='_close();' disabled>close</button>
+        <button id="btnCall" onclick='call();' disabled>call</button>
+    </div>
 </body>
 </html>
