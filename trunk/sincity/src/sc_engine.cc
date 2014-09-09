@@ -70,8 +70,8 @@ bool SCEngine::init(std::string strCredUserId, std::string strCredPassword /*= "
         SC_ASSERT(tmedia_defaults_set_srtp_mode(tmedia_srtp_mode_mandatory) == 0);
         SC_ASSERT(tmedia_defaults_set_ice_enabled(tsk_true) == 0);
 
-		SC_ASSERT(tmedia_defaults_set_pref_video_size(tmedia_pref_video_size_cif) == 0);
-        SC_ASSERT(tmedia_defaults_set_video_fps(15) == 0);
+		SC_ASSERT(tmedia_defaults_set_pref_video_size(tmedia_pref_video_size_vga) == 0);
+        SC_ASSERT(tmedia_defaults_set_video_fps(10) == 0);
 
         SC_ASSERT(tdav_set_codecs((tdav_codec_id_t)(tmedia_codec_id_vp8)) == 0);
         SC_ASSERT(tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_vp8, 0) == 0);

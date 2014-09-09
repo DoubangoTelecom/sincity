@@ -57,14 +57,18 @@ public:
                 SC_DEBUG_ERROR("Call id mismatch: '%s'<>'%s'", callSession->getCallId().c_str(), e->getCallId().c_str());
                 return e->reject();
             }
-            return callSession->handEvent(e);
+            bool ret = callSession->handEvent(e);
+			if (e->getType() == "hangup") {
+				callSession = NULL;
+			}
+			return ret;
         }
         else {
             if (e->getType() == "offer") {
 #if SC_DEMO_AS_CLIENT
                 return e->reject();
 #else
-                // FIXME : to be implemented
+				callSession = SCSessionCall::newObj(signalSession, e);
 #endif
             }
             // Silently ignore any other event type
