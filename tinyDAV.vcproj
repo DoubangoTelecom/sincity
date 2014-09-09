@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9.00"
+	Version="9,00"
 	Name="tinyDAV"
 	ProjectGUID="{8E2F0B2E-2596-4010-BF4A-2F688975B5C1}"
 	RootNamespace="tinyDAV"
@@ -49,7 +49,7 @@
 				AdditionalIncludeDirectories="thirdparties\wince\include;thirdparties\common\include;thirdparties\common\include\libyuv;..\doubango\branches\2.0\doubango\tinyRTP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyIPSec\src;..\doubango\branches\2.0\doubango\tinyDAV\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyMSRP\include;..\doubango\branches\2.0\doubango\tinyBFCP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
 				PreprocessorDefinitions="HAVE_SRTP=1;HAVE_G729=0;HAVE_BV16=0;HAVE_OPENCORE_AMR=0;HAVE_H264=0;HAVE_ILBC=0;HAVE_LIBGSM=0;HAVE_LIBOPUS=0;HAVE_DSOUND_H=0;HAVE_WAVE_API=0;HAVE_FFMPEG=0;HAVE_SPEEX_DSP=0;HAVE_WEBRTC=0;HAVE_SPEEX_JB=0;HAVE_LIB_SPEEX=0;HAVE_LIBVPX=1;HAVE_LIBYUV=1;G192BITSTREAM=0;DEBUG_LEVEL=DEBUG_LEVEL_INFO;GOTHAM_CITY = 0;SIN_CITY=1;_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;_DEBUG;_WINDOWS;_USRDLL;TINYDAV_EXPORTS;TINYMEDIA_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYBFCP_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYMSRP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE"
 				MinimalRebuild="true"
-				RuntimeLibrary="3"
+				RuntimeLibrary="1"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				WarnAsError="true"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9.00"
+	Version="9,00"
 	Name="tinyRTP"
 	ProjectGUID="{99B7D02F-8C70-4B45-AF3C-92313C3CEE15}"
 	RootNamespace="tinyRTP"
@@ -49,90 +49,11 @@
 				AdditionalIncludeDirectories="thirdparties\wince\include;thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyRTP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
 				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_INFO;HAVE_SRTP=1;_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;_DEBUG;_WINDOWS;_USRDLL;TINYRTP_EXPORTS;TINYSAK_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE"
 				MinimalRebuild="true"
-				RuntimeLibrary="3"
+				RuntimeLibrary="1"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				WarnAsError="true"
 				DebugInformationFormat="3"
-				CompileAs="1"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLibrarianTool"
-				AdditionalOptions=""
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCCodeSignTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-			<DeploymentTool
-				ForceDirty="-1"
-				RemoteDirectory=""
-				RegisterOutput="0"
-				AdditionalFiles=""
-			/>
-			<DebuggerTool
-			/>
-		</Configuration>
-		<Configuration
-			Name="Release|GE vPC WEC7 SDK (x86)"
-			OutputDirectory="$(SolutionDir)GE vPC WEC7 SDK (x86)\$(ConfigurationName)"
-			IntermediateDirectory="GE vPC WEC7 SDK (x86)\$(ConfigurationName)"
-			ConfigurationType="4"
-			CharacterSet="1"
-			WholeProgramOptimization="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				TargetEnvironment="1"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				ExecutionBucket="7"
-				Optimization="3"
-				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="thirdparties\wince\include;thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyRTP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
-				PreprocessorDefinitions="HAVE_SRTP=1;_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;NDEBUG;_WINDOWS;_USRDLL;TINYRTP_EXPORTS;TINYSAK_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE"
-				RuntimeLibrary="2"
-				EnableFunctionLevelLinking="false"
-				UsePrecompiledHeader="0"
-				WarningLevel="3"
-				WarnAsError="true"
-				DebugInformationFormat="0"
 				CompileAs="1"
 			/>
 			<Tool
@@ -238,6 +159,85 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|GE vPC WEC7 SDK (x86)"
+			OutputDirectory="$(SolutionDir)GE vPC WEC7 SDK (x86)\$(ConfigurationName)"
+			IntermediateDirectory="GE vPC WEC7 SDK (x86)\$(ConfigurationName)"
+			ConfigurationType="4"
+			CharacterSet="1"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="1"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				ExecutionBucket="7"
+				Optimization="3"
+				EnableIntrinsicFunctions="true"
+				AdditionalIncludeDirectories="thirdparties\wince\include;thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyRTP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				PreprocessorDefinitions="HAVE_SRTP=1;_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;NDEBUG;_WINDOWS;_USRDLL;TINYRTP_EXPORTS;TINYSAK_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE"
+				RuntimeLibrary="0"
+				EnableFunctionLevelLinking="false"
+				UsePrecompiledHeader="0"
+				WarningLevel="3"
+				WarnAsError="true"
+				DebugInformationFormat="0"
+				CompileAs="1"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLibrarianTool"
+				AdditionalOptions=""
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCCodeSignTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+			<DeploymentTool
+				ForceDirty="-1"
+				RemoteDirectory=""
+				RegisterOutput="0"
+				AdditionalFiles=""
+			/>
+			<DebuggerTool
 			/>
 		</Configuration>
 		<Configuration

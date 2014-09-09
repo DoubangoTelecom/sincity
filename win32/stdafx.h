@@ -7,9 +7,10 @@
 
 #include "targetver.h"
 
+#if !defined(UNDER_CE)
 #include <stdio.h>
 #include <tchar.h>
-
+#endif // UNDER_CE
 
 
 // TODO: reference additional headers your program requires here

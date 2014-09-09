@@ -6,7 +6,7 @@
 
 #define SC_LOCAL_IP			NULL // NULL means get the best
 #define SC_LOCAL_PORT			0	// 0 means get the best
-#define SC_REMOTE_REQUEST_URI	"ws://localhost:9000/wsStringStaticMulti?roomId=0"
+#define SC_REMOTE_REQUEST_URI	"ws://192.168.0.37:9000/wsStringStaticMulti?roomId=0"
 #define SC_DEBUG_LEVEL			SCDebugLevel_Info
 #define SC_SSL_PATH_PUB			"SSL_Pub.pem"
 #define SC_SSL_PATH_PRIV		"SSL_Priv.pem"
@@ -102,9 +102,16 @@ int _tmain(int argc, _TCHAR* argv[])
 
     SC_ASSERT(signalSession->connect());
 
-    getchar();
-
-    SC_ASSERT(signalSession->disConnect());
+#if SC_UNDER_WINDOWS && 0
+	MSG msg = {0};
+    while (GetMessage(&msg, NULL, 0, 0))
+    {
+        TranslateMessage(&msg);
+        DispatchMessage(&msg);
+    }
+#else 
+	getchar();
+#endif
 
     return 0;
 }
