@@ -8,32 +8,31 @@
 
 #include <string>
 
-class SCCallEvent;
-
 class SCSessionCall : public SCSession
 {
 	friend class SCAutoLock<SCSessionCall>;
 protected:
-	SCSessionCall(SCObjWrapper<SCSignaling*> oSignaling);
+	SCSessionCall(SCObjWrapper<SCSignaling*> oSignaling, std::string strCallId = "");
 public:
 	virtual ~SCSessionCall();
 	virtual SC_INLINE const char* getObjectId() { return "SCSessionCall"; }
 	
 	virtual bool call(SCMediaType_t eMediaType, std::string strDestUserId);
-	virtual bool hangup();
 	virtual bool handEvent(SCObjWrapper<SCSignalingCallEvent*>& e);
 
 	virtual SC_INLINE std::string getCallId() { return m_strCallId; }
 	
 	static SCObjWrapper<SCSessionCall*> newObj(SCObjWrapper<SCSignaling*> oSignaling);
-	// static SCObjWrapper<SCSessionCall*> newObj(SCObjWrapper<SCSignaling*> oSignaling, SCObjWrapper<SCCallEvent*>& e);
+	static SCObjWrapper<SCSessionCall*> newObj(SCObjWrapper<SCSignaling*> oSignaling, SCObjWrapper<SCSignalingCallEvent*>& e);
 
 private:
 	void lock();
 	void unlock();
 
+	bool hangup();
+
 	bool createSessionMgr();
-	bool createLocalOffer();
+	bool createLocalOffer(const struct tsdp_message_s* pc_Ro = NULL, enum tmedia_ro_type_e eRoType = (enum tmedia_ro_type_e)0);
 
 	bool iceCreateCtx();
 	bool iceSetTimeout(int32_t timeout);
@@ -45,26 +44,22 @@ private:
 	bool iceStart();
 	static int iceCallback(const struct tnet_ice_event_s *e);
 
-	bool sendMsgCall();
+	bool sendSdp();
 
 private:
 	SCMediaType_t m_eMediaType;
-
-	SCCallAction_t m_eActionPending;
 
 	struct tnet_ice_ctx_s *m_pIceCtxVideo;
 	struct tnet_ice_ctx_s *m_pIceCtxAudio;
 
 	struct tmedia_session_mgr_s* m_pSessionMgr;
 
-	struct tsdp_message_s* m_pSdpLocal;
-	struct tsdp_message_s* m_pSdpRemote;
-
 	SCObjWrapper<SCMutex*> m_oMutex;
 
 	std::string m_strDestUserId;
 	std::string m_strCallId;
 	std::string m_strTidOffer;
+	std::string m_strLocalSdpType;
 };
 
 #endif /* SINCITY_SESSION_CALL_H */
