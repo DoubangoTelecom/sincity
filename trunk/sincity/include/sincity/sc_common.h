@@ -12,11 +12,10 @@
 #	define SC_SAFE_DELETE_CPP(cpp_obj) if(cpp_obj) delete (cpp_obj), (cpp_obj) = NULL;
 #endif
 
-#if defined(NDEBUG)
-#       define SC_ASSERT(x) (void)(x)
-#else
-#       define SC_ASSERT(x) assert(x)
-#endif
+#define SC_ASSERT(x) { \
+	bool __b_ret = (x); \
+	assert(__b_ret); \
+}
 
 #define kJsonContentType "application/json"
 

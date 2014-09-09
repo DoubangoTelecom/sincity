@@ -64,17 +64,17 @@ bool SCEngine::init(std::string strCredUserId, std::string strCredPassword /*= "
             return false;
         }
 
-        SC_ASSERT((tmedia_defaults_set_profile(tmedia_profile_rtcweb)) == 0);
-        SC_ASSERT((tmedia_defaults_set_avpf_mode(tmedia_mode_mandatory)) == 0);
-        SC_ASSERT((tmedia_defaults_set_srtp_type(tmedia_srtp_type_dtls)) == 0);
-        SC_ASSERT((tmedia_defaults_set_srtp_mode(tmedia_srtp_mode_mandatory)) == 0);
-        SC_ASSERT((tmedia_defaults_set_ice_enabled(tsk_true)) == 0);
+        SC_ASSERT(tmedia_defaults_set_profile(tmedia_profile_rtcweb) == 0);
+        SC_ASSERT(tmedia_defaults_set_avpf_mode(tmedia_mode_mandatory) == 0);
+        SC_ASSERT(tmedia_defaults_set_srtp_type(tmedia_srtp_type_dtls) == 0);
+        SC_ASSERT(tmedia_defaults_set_srtp_mode(tmedia_srtp_mode_mandatory) == 0);
+        SC_ASSERT(tmedia_defaults_set_ice_enabled(tsk_true) == 0);
 
-		SC_ASSERT((tmedia_defaults_set_pref_video_size(tmedia_pref_video_size_1080p)) == 0);
-        SC_ASSERT((tmedia_defaults_set_video_fps(10)) == 0);
+		SC_ASSERT(tmedia_defaults_set_pref_video_size(tmedia_pref_video_size_cif) == 0);
+        SC_ASSERT(tmedia_defaults_set_video_fps(15) == 0);
 
-        SC_ASSERT((tdav_set_codecs((tdav_codec_id_t)(tmedia_codec_id_vp8))) == 0);
-        SC_ASSERT((tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_vp8, 0)) == 0);
+        SC_ASSERT(tdav_set_codecs((tdav_codec_id_t)(tmedia_codec_id_vp8)) == 0);
+        SC_ASSERT(tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_vp8, 0) == 0);
 
         s_strCredUserId = strCredUserId;
         s_strCredPassword = strCredPassword;
