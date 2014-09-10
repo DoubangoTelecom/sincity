@@ -14,7 +14,7 @@
 #define SC_USERID_LOCAL			"001"
 #define SC_USERID_REMOTE		"002"
 
-#define SC_DEMO_AS_CLIENT			1
+#define SC_DEMO_AS_CLIENT			0
 
 SCObjWrapper<SCSessionCall*>callSession;
 SCObjWrapper<SCSignaling*>signalSession;
