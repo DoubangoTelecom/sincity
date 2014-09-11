@@ -106,6 +106,12 @@ SCCall.prototype.acceptMsg = function(msg) {
             }
         );
     }
+    else if (msg.type === "hangup") {
+        if(This.pc) {
+            This.pc.close();
+            This.pc = null;
+        }
+    }
     else {
         throw new Error("not implemented yet");
     }
