@@ -16,7 +16,7 @@ SCUrl::SCUrl(SCUrlType_t eType, std::string strScheme, std::string strHost, std:
 
 SCUrl::~SCUrl()
 {
-
+	SC_DEBUG_INFO("*** SCUrl destroyed ***");
 }
 
 SCObjWrapper<SCUrl*> SCUrl::newObj(SCUrlType_t eType, const char* pcScheme, const char* pcHost, const char* pcHPath, const char* pcSearch, unsigned short port, SCUrlHostType_t eHostType)

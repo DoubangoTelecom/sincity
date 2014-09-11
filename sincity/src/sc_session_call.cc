@@ -55,6 +55,8 @@ SCSessionCall::SCSessionCall(SCObjWrapper<SCSignaling*> oSignaling, std::string 
 SCSessionCall::~SCSessionCall()
 {
    cleanup();
+
+   SC_DEBUG_INFO("*** SCSessionCall destroyed ***");
 }
 
 void SCSessionCall::lock()

@@ -6,7 +6,7 @@
 
 #define SC_LOCAL_IP			NULL // NULL means get the best
 #define SC_LOCAL_PORT			0	// 0 means get the best
-#define SC_REMOTE_REQUEST_URI	"ws://192.168.0.37:9000/wsStringStaticMulti?roomId=0"
+#define SC_REMOTE_REQUEST_URI	"ws://ns313841.ovh.net:9000/wsStringStaticMulti?roomId=0"
 #define SC_DEBUG_LEVEL			SCDebugLevel_Info
 #define SC_SSL_PATH_PUB			"SSL_Pub.pem"
 #define SC_SSL_PATH_PRIV		"SSL_Priv.pem"

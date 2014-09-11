@@ -68,7 +68,7 @@ function disconnect() {
 }
 
 window.onload = function() {
-    txtConnUrl.value = window.localStorage.getItem('sincity.conn_url') || "ws://192.168.0.37:9000/wsStringStaticMulti?roomId=0";
+    txtConnUrl.value = window.localStorage.getItem('sincity.conn_url') || "ws://ns313841.ovh.net:9000/wsStringStaticMulti?roomId=0";
     txtLocalId.value = window.localStorage.getItem('sincity.local_id') || "002";
     txtRemoteId.value = window.localStorage.getItem('sincity.remote_id') || "001";
     
@@ -108,6 +108,7 @@ window.onload = function() {
                         if (e.type === "hangup") {
                             callSession = null;
                             txtInfo.innerHTML = "<font color='black'>Call terminated</font>";
+                            btnCall.value = "call";
                         }
                         else {
                             txtInfo.innerHTML = "<font color='blue'>" + e.description + "</font>";
@@ -145,7 +146,7 @@ window.onload = function() {
         <tr>
             <td><label>ConnectionURL:&nbsp;&nbsp;</label></td>
             <td style="width: 100%;"><input type="text" style="width: 100%;" id="txtConnUrl"
-                                placeholder="ws://192.168.0.37:9000/wsStringStaticMulti?roomId=0" /></td>
+                                placeholder="ws://ns313841.ovh.net:9000/wsStringStaticMulti?roomId=0" /></td>
         </tr>
         <tr>
             <td>LocalId:&nbsp;&nbsp;</td>
