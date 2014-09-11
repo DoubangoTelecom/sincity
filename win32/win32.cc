@@ -68,7 +68,8 @@ public:
 #if SC_DEMO_AS_CLIENT
                 return e->reject();
 #else
-				callSession = SCSessionCall::newObj(signalSession, e);
+				SC_ASSERT(callSession = SCSessionCall::newObj(signalSession, e));
+				SC_ASSERT(callSession->handEvent(e));
 #endif
             }
             // Silently ignore any other event type

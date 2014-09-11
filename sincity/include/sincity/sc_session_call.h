@@ -19,17 +19,18 @@ public:
 	
 	virtual bool call(SCMediaType_t eMediaType, std::string strDestUserId);
 	virtual bool handEvent(SCObjWrapper<SCSignalingCallEvent*>& e);
+	virtual bool hangup();
 
 	virtual SC_INLINE std::string getCallId() { return m_strCallId; }
 	
 	static SCObjWrapper<SCSessionCall*> newObj(SCObjWrapper<SCSignaling*> oSignaling);
-	static SCObjWrapper<SCSessionCall*> newObj(SCObjWrapper<SCSignaling*> oSignaling, SCObjWrapper<SCSignalingCallEvent*>& e);
+	static SCObjWrapper<SCSessionCall*> newObj(SCObjWrapper<SCSignaling*> oSignaling, SCObjWrapper<SCSignalingCallEvent*>& offer);
 
 private:
 	void lock();
 	void unlock();
 
-	bool hangup();
+	bool cleanup();
 
 	bool createSessionMgr();
 	bool createLocalOffer(const struct tsdp_message_s* pc_Ro = NULL, enum tmedia_ro_type_e eRoType = (enum tmedia_ro_type_e)0);

@@ -193,6 +193,7 @@ int SCNetTransport::SCNetTransportCb_Stream(const tnet_transport_event_t* e)
     SCNetTransport* This = (SCNetTransport*)e->callback_data;
 
     switch (e->type) {
+	case event_removed:
     case event_closed: {
         oPeer = (This)->getPeerByFd(e->local_fd);
         if (oPeer) {

@@ -2,3 +2,4 @@
 - Remove reference to wcecompact
 - WS keepAlive
 - Ask for secure WebSocket URL
+- WEBRTC2SIP and TELEPRESENCE: event_removed, event_closed

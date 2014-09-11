@@ -5,6 +5,8 @@
 
 #include "sincity/sc_engine.h"
 #include "sincity/sc_session_call.h"
+#include "sincity/sc_utils.h"
 #include "sincity/sc_signaling.h"
+#include "sincity/jsoncpp/sc_json.h"
 
 #endif /* SINCITY_API_H */

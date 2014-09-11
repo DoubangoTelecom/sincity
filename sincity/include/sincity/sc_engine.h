@@ -22,15 +22,21 @@ public:
 	static bool isInitialized() { return s_bInitialized; }
 	static bool setDebugLevel(SCDebugLevel_t eLevel);
 	static bool setSSLCertificates(const char* strPublicKey, const char* strPrivateKey = NULL, const char* strCA = NULL, bool bMutualAuth = false);
+	static bool setVideoPrefSize(const char* strPrefVideoSize);
+	static bool setVideoFps(int fps);
+	static bool setVideoBandwidthUpMax(int bandwwidthMax);
+	static bool setVideoBandwidthDownMax(int bandwwidthMax);
+	static bool setVideoMotionRank(int motionRank);
+	static bool setVideoCongestionCtrlEnabled(bool congestionCtrl);
+	static bool setNattStunServer(const char* host, unsigned short port = 3478);
+	static bool setNattStunCredentials(const char* username, const char* password);
+	static bool setNattIceStunEnabled(bool enabled);
+	static bool setNattIceTurnEnabled(bool enabled);
 
 private:
 	static bool s_bInitialized;
 	static std::string s_strCredUserId;
 	static std::string s_strCredPassword;
-	static std::string s_strStunServerAddr;
-	static unsigned short s_nStunServerPort;
-	static std::string s_strStunUsername;
-	static std::string s_strStunPassword;
 };
 
 #endif /* SINCITY_ENGINE_H */

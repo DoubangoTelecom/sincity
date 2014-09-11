@@ -5,6 +5,8 @@
 
 #include "tinymedia.h"
 
+#include <assert.h>
+
 static tmedia_type_t _mediaTypeToNative(SCMediaType_t mediaType)
 {
     tmedia_type_t type = tmedia_none;
@@ -52,10 +54,7 @@ SCSessionCall::SCSessionCall(SCObjWrapper<SCSignaling*> oSignaling, std::string 
 
 SCSessionCall::~SCSessionCall()
 {
-    TSK_OBJECT_SAFE_FREE(m_pIceCtxVideo);
-    TSK_OBJECT_SAFE_FREE(m_pIceCtxAudio);
-
-    TSK_OBJECT_SAFE_FREE(m_pSessionMgr);
+   cleanup();
 }
 
 void SCSessionCall::lock()
@@ -115,7 +114,7 @@ bool SCSessionCall::handEvent(SCObjWrapper<SCSignalingCallEvent*>& e)
     }
 
     if (e->getType() == "hangup") {
-        return hangup();
+		return cleanup();
     }
 
     if (e->getType() == "ack") {
@@ -174,6 +173,35 @@ bail:
 bool SCSessionCall::hangup()
 {
 	SCAutoLock<SCSessionCall> autoLock(this);
+	
+	Json::Value message;
+
+	message["type"] = "hangup";
+    message["cid"] = m_strCallId;
+	message["tid"] = SCUtils::randomString();
+    message["from"] = SCEngine::s_strCredUserId;
+    message["to"] = m_strDestUserId;
+
+    Json::StyledWriter writer;
+    std::string output = writer.write(message);
+    if (output.empty()) {
+        SC_DEBUG_ERROR("Failed serialize JSON content");
+        return false;
+    }
+
+    if (!m_oSignaling->sendData(output.c_str(), output.length()))
+	{
+		return false;
+	}
+
+	cleanup();
+
+	return true;
+}
+
+bool SCSessionCall::cleanup()
+{
+	SCAutoLock<SCSessionCall> autoLock(this);
 
 	TSK_OBJECT_SAFE_FREE(m_pSessionMgr);
 
@@ -201,7 +229,7 @@ bool SCSessionCall::createSessionMgr()
 
     int iRet;
     tnet_ip_t bestsource;
-    if ((iRet = tnet_getbestsource(SCEngine::s_strStunServerAddr.empty() ? "stun.l.google.com" : SCEngine::s_strStunServerAddr.c_str(), SCEngine::s_nStunServerPort ? SCEngine::s_nStunServerPort : 19302, tnet_socket_type_udp_ipv4, &bestsource))) {
+    if ((iRet = tnet_getbestsource("stun.l.google.com", 19302, tnet_socket_type_udp_ipv4, &bestsource))) {
         SC_DEBUG_ERROR("Failed to get best source [%d]", iRet);
         memcpy(bestsource, "0.0.0.0", 7);
     }
@@ -269,6 +297,13 @@ bool SCSessionCall::iceCreateCtx()
     static tsk_bool_t __use_ipv6 = tsk_false;
     static tsk_bool_t __use_ice_rtcp = tsk_true;
 
+	const char* stun_server_ip = "stun.l.google.com";
+	uint16_t stun_server_port = 19302;
+	const char* stun_usr_name = tsk_null;
+	const char* stun_usr_pwd = tsk_null;
+	SC_ASSERT(tmedia_defaults_get_stun_server(&stun_server_ip, &stun_server_port) == 0);
+	SC_ASSERT(tmedia_defaults_get_stun_cred(&stun_usr_name, &stun_usr_pwd) == 0);
+
     if (!m_pIceCtxAudio && (m_eMediaType & SCMediaType_Audio)) {
         m_pIceCtxAudio = tnet_ice_ctx_create(__use_ice_jingle, __use_ipv6, __use_ice_rtcp, tsk_false/*audio*/, &SCSessionCall::iceCallback, this);
         if (!m_pIceCtxAudio) {
@@ -277,12 +312,14 @@ bool SCSessionCall::iceCreateCtx()
         }
         tnet_ice_ctx_set_stun(
             m_pIceCtxAudio,
-            SCEngine::s_strStunServerAddr.c_str(),
-            SCEngine::s_nStunServerPort,
+            stun_server_ip,
+            stun_server_port,
             kStunSoftware,
-            SCEngine::s_strStunUsername.empty() ? tsk_null : SCEngine::s_strStunUsername.c_str(),
-            SCEngine::s_strStunPassword.empty() ? tsk_null : SCEngine::s_strStunPassword.c_str()
+            stun_usr_name,
+            stun_usr_pwd
         );
+		tnet_ice_ctx_set_stun_enabled(m_pIceCtxAudio, tmedia_defaults_get_icestun_enabled());
+		tnet_ice_ctx_set_turn_enabled(m_pIceCtxAudio, tmedia_defaults_get_iceturn_enabled());
     }
     if (!m_pIceCtxVideo && (m_eMediaType & SCMediaType_Video)) {
         m_pIceCtxVideo = tnet_ice_ctx_create(__use_ice_jingle, __use_ipv6, __use_ice_rtcp, tsk_true/*video*/, &SCSessionCall::iceCallback, this);
@@ -292,12 +329,14 @@ bool SCSessionCall::iceCreateCtx()
         }
         tnet_ice_ctx_set_stun(
             m_pIceCtxVideo,
-            SCEngine::s_strStunServerAddr.c_str(),
-            SCEngine::s_nStunServerPort,
+            stun_server_ip,
+            stun_server_port,
             kStunSoftware,
-            SCEngine::s_strStunUsername.empty() ? tsk_null : SCEngine::s_strStunUsername.c_str(),
-            SCEngine::s_strStunPassword.empty() ? tsk_null : SCEngine::s_strStunPassword.c_str()
+            stun_usr_name,
+            stun_usr_pwd
         );
+		tnet_ice_ctx_set_stun_enabled(m_pIceCtxVideo, tmedia_defaults_get_icestun_enabled());
+		tnet_ice_ctx_set_turn_enabled(m_pIceCtxVideo, tmedia_defaults_get_iceturn_enabled());
     }
 
     // For now disable timers until both parties get candidates
@@ -545,7 +584,7 @@ bool SCSessionCall::sendSdp()
 
 	message["type"] = m_strLocalSdpType.empty() ? "offer" : m_strLocalSdpType;
     message["cid"] = m_strCallId;
-    message["tid"] = m_strTidOffer;
+	message["tid"] = m_strTidOffer.empty() ? SCUtils::randomString() : m_strTidOffer;
     message["from"] = SCEngine::s_strCredUserId;
     message["to"] = m_strDestUserId;
     message["sdp"] = strSdp;
@@ -576,25 +615,21 @@ SCObjWrapper<SCSessionCall*> SCSessionCall::newObj(SCObjWrapper<SCSignaling*> oS
     return oCall;
 }
 
-SCObjWrapper<SCSessionCall*> SCSessionCall::newObj(SCObjWrapper<SCSignaling*> oSignaling, SCObjWrapper<SCSignalingCallEvent*>& e)
+SCObjWrapper<SCSessionCall*> SCSessionCall::newObj(SCObjWrapper<SCSignaling*> oSignaling, SCObjWrapper<SCSignalingCallEvent*>& offer)
 {
 	if (!oSignaling) {
         SC_DEBUG_ERROR("Invalid argument");
         return NULL;
     }
-	if (e->getType() != "offer") {
-		SC_DEBUG_ERROR("Call event with type='%s' cannot be used to create a call session", e->getType().c_str());
+	if (offer->getType() != "offer") {
+		SC_DEBUG_ERROR("Call event with type='%s' cannot be used to create a call session", offer->getType().c_str());
         return NULL;
 	}
 
-	SCObjWrapper<SCSessionCall*> oCall = new SCSessionCall(oSignaling, e->getCallId());
+	SCObjWrapper<SCSessionCall*> oCall = new SCSessionCall(oSignaling, offer->getCallId());
 	if (oCall)
 	{
-		oCall->m_strDestUserId = e->getFrom();
-		if (!oCall->handEvent(e))
-		{
-			oCall = NULL;
-		}
+		oCall->m_strDestUserId = offer->getFrom();
 	}
 
 	return oCall;
