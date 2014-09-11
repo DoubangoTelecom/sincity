@@ -1,0 +1,3 @@
+*** Linux testing ***
+Image: http://downloads.sourceforge.net/virtualboximage/ubuntu-6.06.1-x86-2.7z
+Active user account(s) (username/password): ubuntu/reverse
