@@ -10,6 +10,8 @@ class SCUtils
 {
 public:
 	static std::string randomString();
+	static bool fileExists(const char* path);
+	static const char* currentDirectoryPath();
 };
 
 #endif /* SINCITY_UTILS_H */

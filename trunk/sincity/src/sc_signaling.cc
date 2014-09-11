@@ -116,7 +116,7 @@ bool SCSignaling::disConnect()
     if (isConnected()) {
         bool ret = m_oNetTransport->close(m_Fd);
         if (ret) {
-            m_Fd = kSCNetFdInvalid;
+            // m_Fd = kSCNetFdInvalid;
         }
         return ret;
     }

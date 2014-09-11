@@ -42,7 +42,8 @@
 				Name="VCCLCompilerTool"
 				ExecutionBucket="7"
 				Optimization="0"
-				PreprocessorDefinitions="_DEBUG;_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;DEBUG;_WINDOWS;$(ARCHFAM);$(_ARCHFAM_);_UNICODE;UNICODE;STANDARDSHELL_UI_MODEL"
+				AdditionalIncludeDirectories=".;../../sincity/include;..\../thirdparties\wince\include;..\../thirdparties\common\include;..\..\..\doubango\branches\2.0\doubango\tinyNET\src;..\..\..\doubango\branches\2.0\doubango\tinySAK\src;..\..\..\doubango\branches\2.0\doubango\tinyHTTP\include;..\..\..\doubango\branches\2.0\doubango\tinyDAV\include;..\..\..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\..\..\doubango\branches\2.0\doubango\tinyRTP\include;..\..\..\doubango\branches\2.0\doubango\tinySDP\include"
+				PreprocessorDefinitions="_DEBUG;_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;DEBUG;_WINDOWS;$(ARCHFAM);$(_ARCHFAM_);_UNICODE;UNICODE;STANDARDSHELL_UI_MODEL;TINYSAK_IMPORTS_IGNORE;TINYHTTP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;TINYDAV_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
 				MinimalRebuild="true"
 				RuntimeLibrary="1"
 				UsePrecompiledHeader="2"
@@ -64,8 +65,10 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions=" /subsystem:windowsce,7.00"
+				AdditionalDependencies="ws2.lib iphlpapi.lib mmtimer.lib libeay32.lib ssleay32.lib wcecompat.lib libyuv.lib libvpx.lib libsrtp.lib tinySAK.lib tinyNET.lib tinySDP.lib tinyMEDIA.lib tinyDAV.lib tinyRTP.lib tinyBFCP.lib tinyMSRP.lib tinyHTTP.lib"
 				OutputFile="$(OutDir)/PoC.exe"
 				LinkIncremental="2"
+				AdditionalLibraryDirectories="..\..\thirdparties\wince\lib\x86;&quot;..\$(OutDir)&quot;"
 				DelayLoadDLLs="$(NOINHERIT)"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/PoC.pdb"
@@ -129,7 +132,8 @@
 				ExecutionBucket="7"
 				Optimization="2"
 				FavorSizeOrSpeed="2"
-				PreprocessorDefinitions="NDEBUG;_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;_WINDOWS;$(ARCHFAM);$(_ARCHFAM_);_UNICODE;UNICODE;STANDARDSHELL_UI_MODEL"
+				AdditionalIncludeDirectories=".;../../sincity/include;..\../thirdparties\wince\include;..\../thirdparties\common\include;..\..\..\doubango\branches\2.0\doubango\tinyNET\src;..\..\..\doubango\branches\2.0\doubango\tinySAK\src;..\..\..\doubango\branches\2.0\doubango\tinyHTTP\include;..\..\..\doubango\branches\2.0\doubango\tinyDAV\include;..\..\..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\..\..\doubango\branches\2.0\doubango\tinyRTP\include;..\..\..\doubango\branches\2.0\doubango\tinySDP\include"
+				PreprocessorDefinitions="NDEBUG;_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;_WINDOWS;$(ARCHFAM);$(_ARCHFAM_);_UNICODE;UNICODE;STANDARDSHELL_UI_MODEL;TINYSAK_IMPORTS_IGNORE;TINYHTTP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;TINYDAV_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
 				RuntimeLibrary="0"
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
@@ -150,8 +154,10 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions=" /subsystem:windowsce,7.00"
+				AdditionalDependencies="ws2.lib iphlpapi.lib mmtimer.lib libeay32.lib ssleay32.lib wcecompat.lib libyuv.lib libvpx.lib libsrtp.lib tinySAK.lib tinyNET.lib tinySDP.lib tinyMEDIA.lib tinyDAV.lib tinyRTP.lib tinyBFCP.lib tinyMSRP.lib tinyHTTP.lib"
 				OutputFile="$(OutDir)/PoC.exe"
 				LinkIncremental="1"
+				AdditionalLibraryDirectories="..\..\thirdparties\wince\lib\x86;&quot;..\$(OutDir)&quot;"
 				DelayLoadDLLs="$(NOINHERIT)"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/PoC.pdb"
@@ -254,26 +260,32 @@
 			<File
 				RelativePath=".\PoC.rc"
 				>
-				<FileConfiguration
-					Name="Debug|GE vPC WEC7 SDK (x86)"
-					>
-					<Tool
-						Name="VCResourceCompilerTool"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|GE vPC WEC7 SDK (x86)"
-					>
-					<Tool
-						Name="VCResourceCompilerTool"
-					/>
-				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\PoC.rc2"
 				>
 			</File>
 		</Filter>
+		<File
+			RelativePath="..\..\config.json"
+			DeploymentContent="true"
+			>
+		</File>
+		<File
+			RelativePath="..\..\SSL_CA.pem"
+			DeploymentContent="true"
+			>
+		</File>
+		<File
+			RelativePath="..\..\SSL_Priv.pem"
+			DeploymentContent="true"
+			>
+		</File>
+		<File
+			RelativePath="..\..\SSL_Pub.pem"
+			DeploymentContent="true"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>
