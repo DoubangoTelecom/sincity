@@ -67,6 +67,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PoC", "PoC\PoC.vcproj", "{7
 		{03558F98-27DE-45C6-8972-8C708FE04D60} = {03558F98-27DE-45C6-8972-8C708FE04D60}
 	EndProjectSection
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PoC_cab", "PoC_cab\PoC_cab.vdproj", "{6CCDB89B-D035-4698-9494-9AF5AA369E1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|GE vPC WEC7 SDK (x86) = Debug|GE vPC WEC7 SDK (x86)
@@ -309,6 +311,22 @@ Global
 		{7C2AE35E-4E41-4BFA-A164-4C95BF8627DF}.Static_Release|GE vPC WEC7 SDK (x86).Build.0 = Release|GE vPC WEC7 SDK (x86)
 		{7C2AE35E-4E41-4BFA-A164-4C95BF8627DF}.Static_Release|GE vPC WEC7 SDK (x86).Deploy.0 = Release|GE vPC WEC7 SDK (x86)
 		{7C2AE35E-4E41-4BFA-A164-4C95BF8627DF}.Static_Release|Win32.ActiveCfg = Release|GE vPC WEC7 SDK (x86)
+		{6CCDB89B-D035-4698-9494-9AF5AA369E1B}.Debug|GE vPC WEC7 SDK (x86).ActiveCfg = Debug
+		{6CCDB89B-D035-4698-9494-9AF5AA369E1B}.Debug|GE vPC WEC7 SDK (x86).Build.0 = Debug
+		{6CCDB89B-D035-4698-9494-9AF5AA369E1B}.Debug|Win32.ActiveCfg = Debug
+		{6CCDB89B-D035-4698-9494-9AF5AA369E1B}.Debug|Win32.Build.0 = Debug
+		{6CCDB89B-D035-4698-9494-9AF5AA369E1B}.Release|GE vPC WEC7 SDK (x86).ActiveCfg = Release
+		{6CCDB89B-D035-4698-9494-9AF5AA369E1B}.Release|GE vPC WEC7 SDK (x86).Build.0 = Release
+		{6CCDB89B-D035-4698-9494-9AF5AA369E1B}.Release|Win32.ActiveCfg = Release
+		{6CCDB89B-D035-4698-9494-9AF5AA369E1B}.Release|Win32.Build.0 = Release
+		{6CCDB89B-D035-4698-9494-9AF5AA369E1B}.Static_Debug|GE vPC WEC7 SDK (x86).ActiveCfg = Debug
+		{6CCDB89B-D035-4698-9494-9AF5AA369E1B}.Static_Debug|GE vPC WEC7 SDK (x86).Build.0 = Debug
+		{6CCDB89B-D035-4698-9494-9AF5AA369E1B}.Static_Debug|Win32.ActiveCfg = Debug
+		{6CCDB89B-D035-4698-9494-9AF5AA369E1B}.Static_Debug|Win32.Build.0 = Debug
+		{6CCDB89B-D035-4698-9494-9AF5AA369E1B}.Static_Release|GE vPC WEC7 SDK (x86).ActiveCfg = Release
+		{6CCDB89B-D035-4698-9494-9AF5AA369E1B}.Static_Release|GE vPC WEC7 SDK (x86).Build.0 = Release
+		{6CCDB89B-D035-4698-9494-9AF5AA369E1B}.Static_Release|Win32.ActiveCfg = Release
+		{6CCDB89B-D035-4698-9494-9AF5AA369E1B}.Static_Release|Win32.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
