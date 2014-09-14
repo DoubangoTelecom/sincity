@@ -170,6 +170,7 @@ fi
 
 AC_OUTPUT(
 Makefile
+libsincity.pc
 )
 
 
