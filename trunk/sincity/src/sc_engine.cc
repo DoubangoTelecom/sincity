@@ -5,8 +5,8 @@
 
 #include "tinynet.h"
 
-#include "tinydav.h"
-#include "tinydav.h"
+#include "tinydav/tdav.h"
+#include "tinymedia.h"
 
 #include <assert.h>
 
