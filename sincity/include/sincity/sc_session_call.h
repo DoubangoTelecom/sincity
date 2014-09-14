@@ -8,6 +8,8 @@
 
 #include <string>
 
+typedef int SCRoType; // mapped to "enum tmedia_ro_type_e"
+
 class SCSessionCall : public SCSession
 {
 	friend class SCAutoLock<SCSessionCall>;
@@ -33,7 +35,7 @@ private:
 	bool cleanup();
 
 	bool createSessionMgr();
-	bool createLocalOffer(const struct tsdp_message_s* pc_Ro = NULL, enum tmedia_ro_type_e eRoType = (enum tmedia_ro_type_e)0);
+	bool createLocalOffer(const struct tsdp_message_s* pc_Ro = NULL, SCRoType eRoType = 0);
 
 	bool iceCreateCtx();
 	bool iceSetTimeout(int32_t timeout);
