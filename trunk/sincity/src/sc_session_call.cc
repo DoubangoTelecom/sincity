@@ -253,9 +253,11 @@ bool SCSessionCall::createSessionMgr()
     return true;
 }
 
-bool SCSessionCall::createLocalOffer(const struct tsdp_message_s* pc_Ro /*= NULL*/, enum tmedia_ro_type_e eRoType /*= 0*/)
+bool SCSessionCall::createLocalOffer(const struct tsdp_message_s* pc_Ro /*= NULL*/, SCRoType _eRoType /*= 0*/)
 {
     SCAutoLock<SCSessionCall> autoLock(this);
+
+    enum tmedia_ro_type_e eRoType = (enum tmedia_ro_type_e)_eRoType;
 
     if (!m_pSessionMgr) {
         if (!createSessionMgr()) {
