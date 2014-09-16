@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9.00"
+	Version="9,00"
 	Name="win32"
 	ProjectGUID="{B5230818-E958-4942-9AD9-8641B6DEA15E}"
 	RootNamespace="win32"
@@ -51,6 +51,7 @@
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
+				WarnAsError="true"
 				DebugInformationFormat="4"
 			/>
 			<Tool
@@ -338,11 +339,11 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\stdafx.cc"
+				RelativePath="..\main.cc"
 				>
 			</File>
 			<File
-				RelativePath=".\win32.cc"
+				RelativePath=".\stdafx.cc"
 				>
 			</File>
 		</Filter>
@@ -366,6 +367,10 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 		</Filter>
+		<File
+			RelativePath="..\config.json"
+			>
+		</File>
 		<File
 			RelativePath="..\SSL_CA.pem"
 			DeploymentContent="true"

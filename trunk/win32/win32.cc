@@ -58,18 +58,18 @@ public:
                 return e->reject();
             }
             bool ret = callSession->handEvent(e);
-			if (e->getType() == "hangup") {
-				callSession = NULL;
-			}
-			return ret;
+            if (e->getType() == "hangup") {
+                callSession = NULL;
+            }
+            return ret;
         }
         else {
             if (e->getType() == "offer") {
 #if SC_DEMO_AS_CLIENT
                 return e->reject();
 #else
-				SC_ASSERT(callSession = SCSessionCall::newObj(signalSession, e));
-				SC_ASSERT(callSession->handEvent(e));
+                SC_ASSERT(callSession = SCSessionCall::newObj(signalSession, e));
+                SC_ASSERT(callSession->handEvent(e));
 #endif
             }
             // Silently ignore any other event type
@@ -98,7 +98,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
     SCEngine::setDebugLevel(SC_DEBUG_LEVEL);
     SC_ASSERT(SCEngine::init(SC_USERID_LOCAL));
-	SC_ASSERT(SCEngine::setSSLCertificates(SC_SSL_PATH_PUB, SC_SSL_PATH_PRIV, SC_SSL_PATH_CA));
+    SC_ASSERT(SCEngine::setSSLCertificates(SC_SSL_PATH_PUB, SC_SSL_PATH_PRIV, SC_SSL_PATH_CA));
 
     signalSession = SCSignaling::newObj(SC_REMOTE_REQUEST_URI, SC_LOCAL_IP, SC_LOCAL_PORT);
     SC_ASSERT(signalSession);
@@ -108,14 +108,13 @@ int _tmain(int argc, _TCHAR* argv[])
     SC_ASSERT(signalSession->connect());
 
 #if SC_UNDER_WINDOWS && 0
-	MSG msg = {0};
-    while (GetMessage(&msg, NULL, 0, 0))
-    {
+    MSG msg = {0};
+    while (GetMessage(&msg, NULL, 0, 0)) {
         TranslateMessage(&msg);
         DispatchMessage(&msg);
     }
-#else 
-	getchar();
+#else
+    getchar();
 #endif
 
     return 0;

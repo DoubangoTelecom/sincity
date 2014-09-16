@@ -1,6 +1,6 @@
 {
 	"debug_level": 4,
-	"connection_url": "ws://ns313841.ovh.net:9000/wsStringStaticMulti?roomId=0",
+	"connection_url": "ws://ns313841.ovh.net:9000/wsStringStaticMulti?roomId=1",
 	"local_id": "001",
 	"remote_id": "002",
 	"ssl_file_pub": "SSL_Pub.pem",

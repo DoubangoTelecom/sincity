@@ -517,9 +517,3 @@ SCSignalingCallEvent::~SCSignalingCallEvent()
 {
 
 }
-
-bool SCSignalingCallEvent::reject()
-{
-    SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling,"Not implemented yet");
-    return false;
-}

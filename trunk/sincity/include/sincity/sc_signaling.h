@@ -33,8 +33,6 @@ public:
 	virtual ~SCSignalingCallEvent();
 	virtual SC_INLINE const char* getObjectId() { return "SCSignalingCallEvent"; }
 
-	bool reject();
-
 	SC_INLINE std::string getType() { return m_strType; }
 	SC_INLINE std::string getFrom() { return m_strFrom; }
 	SC_INLINE std::string getTo() { return m_strTo; }
