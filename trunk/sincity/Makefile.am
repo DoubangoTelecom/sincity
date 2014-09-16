@@ -7,7 +7,7 @@ libsincity_la_LIBADD = \
 	${TINYDAV_LIBS} \
 	${TINYSDP_LIBS} \
 	${TINYBFCP_LIBS} \
-	${TINYMEDIA_LIBS} \
+	${sincity_LIBS} \
 	${TINYMSRP_LIBS} \
 	${TINYRTP_LIBS} \
 	${TINYIPSEC_LIBS}
@@ -20,12 +20,10 @@ libsincity_la_CPPFLAGS = \
 	${TINYDAV_CFLAGS} \
 	${TINYSDP_CFLAGS} \
 	${TINYBFCP_CFLAGS} \
-	${TINYMEDIA_CFLAGS} \
+	${sincity_CFLAGS} \
 	${TINYMSRP_CFLAGS} \
 	${TINYRTP_CFLAGS} \
 	${TINYIPSEC_CFLAGS}
-
-libsincity_la_LDFLAGS = ${LDFLAGS}
 
 libsincity_la_SOURCES  = \
 	src/sc_engine.cc \
@@ -40,6 +38,15 @@ libsincity_la_SOURCES  = \
 	src/sc_signaling.cc \
 	src/sc_url.cc \
 	src/sc_utils.cc
+	
+libsincity_la_LDFLAGS = $LDFLAGS -no-undefined
+
+_includedir = $(includedir)/sincity
+_include_HEADERS = include/*.h
+__includedir = $(includedir)/sincity/sincity
+__include_HEADERS = include/sincity/*.h
+content_includedir = $(includedir)/sincity/sincity/content
+content_include_HEADERS = include/sincity/content/*.h
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libsincity.pc
