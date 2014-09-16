@@ -84,7 +84,7 @@ public:
 	virtual ~SCSignaling();
 	virtual SC_INLINE const char* getObjectId() { return "SCSignaling"; }
 
-	bool setCallback(SCObjWrapper<SCSignalingCallback*> &oCallback);
+	bool setCallback(SCObjWrapper<SCSignalingCallback*> oCallback);
 	bool isConnected();
 	bool isReady();
 	bool connect();
