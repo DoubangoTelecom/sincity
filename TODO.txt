@@ -3,3 +3,11 @@
 - WS keepAlive
 - Ask for secure WebSocket URL
 - WEBRTC2SIP and TELEPRESENCE: event_removed, event_closed
+
+
+libvpx:
+Using v1.3.0
+LIBYUV r1081
+YASM 1.1.0
+
+package v4l-conf contains "v4l-info"

@@ -83,7 +83,7 @@ SCWsResult::~SCWsResult()
     TSK_FREE(m_pPhrase);
     TSK_FREE(m_pDataPtr);
 
-	SC_DEBUG_INFO("*** SCWsResult destroyed ***");
+    SC_DEBUG_INFO("*** SCWsResult destroyed ***");
 }
 
 //
@@ -101,7 +101,7 @@ SCWsTransport::~SCWsTransport()
 {
     setCallback(NULL);
 
-	SC_DEBUG_INFO("*** SCWsTransport destroyed ***");
+    SC_DEBUG_INFO("*** SCWsTransport destroyed ***");
 }
 
 bool SCWsTransport::handshaking(SCObjWrapper<SCNetPeer*> oPeer, SCObjWrapper<SCUrl*> oUrl)

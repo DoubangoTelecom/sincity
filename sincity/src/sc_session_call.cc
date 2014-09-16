@@ -42,21 +42,20 @@ SCSessionCall::SCSessionCall(SCObjWrapper<SCSignaling*> oSignaling, std::string 
 
     , m_pSessionMgr(NULL)
 
-	, m_strCallId(strCallId)
+    , m_strCallId(strCallId)
 
     , m_oMutex(new SCMutex())
 {
-	if (m_strCallId.empty())
-	{
-		m_strCallId = SCUtils::randomString();
-	}
+    if (m_strCallId.empty()) {
+        m_strCallId = SCUtils::randomString();
+    }
 }
 
 SCSessionCall::~SCSessionCall()
 {
-   cleanup();
+    cleanup();
 
-   SC_DEBUG_INFO("*** SCSessionCall destroyed ***");
+    SC_DEBUG_INFO("*** SCSessionCall destroyed ***");
 }
 
 void SCSessionCall::lock()
@@ -89,8 +88,8 @@ bool SCSessionCall::call(SCMediaType_t eMediaType, std::string strDestUserId)
         return false;
     }
 
-	// Set local SDP type
-	m_strLocalSdpType = "offer";
+    // Set local SDP type
+    m_strLocalSdpType = "offer";
 
     // Update mediaType
     m_eMediaType = eMediaType;
@@ -106,7 +105,7 @@ bool SCSessionCall::call(SCMediaType_t eMediaType, std::string strDestUserId)
     return true;
 }
 
-bool SCSessionCall::handEvent(SCObjWrapper<SCSignalingCallEvent*>& e)
+bool SCSessionCall::acceptEvent(SCObjWrapper<SCSignalingCallEvent*>& e)
 {
     SCAutoLock<SCSessionCall> autoLock(this);
 
@@ -116,7 +115,7 @@ bool SCSessionCall::handEvent(SCObjWrapper<SCSignalingCallEvent*>& e)
     }
 
     if (e->getType() == "hangup") {
-		return cleanup();
+        return cleanup();
     }
 
     if (e->getType() == "ack") {
@@ -130,7 +129,7 @@ bool SCSessionCall::handEvent(SCObjWrapper<SCSignalingCallEvent*>& e)
     if (e->getType() == "offer" || e->getType() == "answer" || e->getType() == "pranswer") {
         int iRet = 0;
         tmedia_ro_type_t ro_type;
-		SCMediaType_t newMediaType;
+        SCMediaType_t newMediaType;
 
         // Parse SDP
         if (!(pSdp = tsdp_message_parse(e->getSdp().c_str(), e->getSdp().length()))) {
@@ -149,22 +148,21 @@ bool SCSessionCall::handEvent(SCObjWrapper<SCSignalingCallEvent*>& e)
                   ? tmedia_ro_type_provisional
                   : (e->getType() == "answer" ? tmedia_ro_type_answer : tmedia_ro_type_offer);
 
-		newMediaType = _mediaTypeFromNative(tmedia_type_from_sdp(pSdp));
+        newMediaType = _mediaTypeFromNative(tmedia_type_from_sdp(pSdp));
 
-		m_eMediaType = (SCMediaType_t)(newMediaType & SCMediaType_Video); // FIXME: remove all media types except "Video"
+        m_eMediaType = (SCMediaType_t)(newMediaType & SCMediaType_Video); // FIXME: remove all media types except "Video"
         if (!createLocalOffer(pSdp, ro_type)) {
             bRet = false;
             goto bail;
         }
 
-		// Start session manager if ICE done and not already started
-		if (iceIsDone() && e->getType() != "offer")
-		{
-			if (!iceProcessRo(pSdp, (ro_type == tmedia_ro_type_offer))) {
-				bRet = false;
-				goto bail;
-			}
-		}
+        // Start session manager if ICE done and not already started
+        if (iceIsDone() && e->getType() != "offer") {
+            if (!iceProcessRo(pSdp, (ro_type == tmedia_ro_type_offer))) {
+                bRet = false;
+                goto bail;
+            }
+        }
     }
 
 bail:
@@ -172,15 +170,49 @@ bail:
     return bRet;
 }
 
+bool SCSessionCall::rejectEvent(SCObjWrapper<SCSignaling*> oSignaling, SCObjWrapper<SCSignalingCallEvent*>& e)
+{
+	if (!oSignaling || !e) {
+		SC_DEBUG_ERROR("Invalid argument");
+		return false;
+	}
+
+	if (e->getType() == "offer") {
+		Json::Value message;
+
+		message["type"] = "hangup";
+		message["cid"] = e->getCallId();
+		message["tid"] = SCUtils::randomString();
+		message["from"] = e->getTo();
+		message["to"] = e->getFrom();
+
+		Json::StyledWriter writer;
+		std::string output = writer.write(message);
+		if (output.empty()) {
+			SC_DEBUG_ERROR("Failed serialize JSON content");
+			return false;
+		}
+
+		if (!oSignaling->sendData(output.c_str(), output.length())) {
+			return false;
+		}
+	}
+	else {
+		SC_DEBUG_WARN("Event with type='%s' cannot be rejected", e->getType().c_str());
+	}
+
+    return true;
+}
+
 bool SCSessionCall::hangup()
 {
-	SCAutoLock<SCSessionCall> autoLock(this);
-	
-	Json::Value message;
+    SCAutoLock<SCSessionCall> autoLock(this);
 
-	message["type"] = "hangup";
+    Json::Value message;
+
+    message["type"] = "hangup";
     message["cid"] = m_strCallId;
-	message["tid"] = SCUtils::randomString();
+    message["tid"] = SCUtils::randomString();
     message["from"] = SCEngine::s_strCredUserId;
     message["to"] = m_strDestUserId;
 
@@ -191,28 +223,27 @@ bool SCSessionCall::hangup()
         return false;
     }
 
-    if (!m_oSignaling->sendData(output.c_str(), output.length()))
-	{
-		return false;
-	}
+    if (!m_oSignaling->sendData(output.c_str(), output.length())) {
+        return false;
+    }
 
-	cleanup();
+    cleanup();
 
-	return true;
+    return true;
 }
 
 bool SCSessionCall::cleanup()
 {
-	SCAutoLock<SCSessionCall> autoLock(this);
+    SCAutoLock<SCSessionCall> autoLock(this);
 
-	TSK_OBJECT_SAFE_FREE(m_pSessionMgr);
+    TSK_OBJECT_SAFE_FREE(m_pSessionMgr);
 
     TSK_OBJECT_SAFE_FREE(m_pIceCtxVideo);
     TSK_OBJECT_SAFE_FREE(m_pIceCtxAudio);
 
-	m_strLocalSdpType = "";
+    m_strLocalSdpType = "";
 
-	return true;
+    return true;
 }
 
 bool SCSessionCall::createSessionMgr()
@@ -272,18 +303,17 @@ bool SCSessionCall::createLocalOffer(const struct tsdp_message_s* pc_Ro /*= NULL
         }
     }
 
-	if (pc_Ro) {
-		if (tmedia_session_mgr_set_ro(m_pSessionMgr, pc_Ro, eRoType) != 0) {
-			SC_DEBUG_ERROR("Failed to set remote offer");
+    if (pc_Ro) {
+        if (tmedia_session_mgr_set_ro(m_pSessionMgr, pc_Ro, eRoType) != 0) {
+            SC_DEBUG_ERROR("Failed to set remote offer");
             return false;
-		}
-		if (!iceProcessRo(pc_Ro, (eRoType == tmedia_ro_type_offer)))
-		{
-			return false;
-		}
-	}
+        }
+        if (!iceProcessRo(pc_Ro, (eRoType == tmedia_ro_type_offer))) {
+            return false;
+        }
+    }
 
-	m_strLocalSdpType = (eRoType == tmedia_ro_type_offer) ? "answer" : "offer";
+    m_strLocalSdpType = (eRoType == tmedia_ro_type_offer) ? "answer" : "offer";
 
     // Start ICE
     if (!iceStart()) {
@@ -301,12 +331,12 @@ bool SCSessionCall::iceCreateCtx()
     static tsk_bool_t __use_ipv6 = tsk_false;
     static tsk_bool_t __use_ice_rtcp = tsk_true;
 
-	const char* stun_server_ip = "stun.l.google.com";
-	uint16_t stun_server_port = 19302;
-	const char* stun_usr_name = tsk_null;
-	const char* stun_usr_pwd = tsk_null;
-	SC_ASSERT(tmedia_defaults_get_stun_server(&stun_server_ip, &stun_server_port) == 0);
-	SC_ASSERT(tmedia_defaults_get_stun_cred(&stun_usr_name, &stun_usr_pwd) == 0);
+    const char* stun_server_ip = "stun.l.google.com";
+    uint16_t stun_server_port = 19302;
+    const char* stun_usr_name = tsk_null;
+    const char* stun_usr_pwd = tsk_null;
+    SC_ASSERT(tmedia_defaults_get_stun_server(&stun_server_ip, &stun_server_port) == 0);
+    SC_ASSERT(tmedia_defaults_get_stun_cred(&stun_usr_name, &stun_usr_pwd) == 0);
 
     if (!m_pIceCtxAudio && (m_eMediaType & SCMediaType_Audio)) {
         m_pIceCtxAudio = tnet_ice_ctx_create(__use_ice_jingle, __use_ipv6, __use_ice_rtcp, tsk_false/*audio*/, &SCSessionCall::iceCallback, this);
@@ -322,8 +352,8 @@ bool SCSessionCall::iceCreateCtx()
             stun_usr_name,
             stun_usr_pwd
         );
-		tnet_ice_ctx_set_stun_enabled(m_pIceCtxAudio, tmedia_defaults_get_icestun_enabled());
-		tnet_ice_ctx_set_turn_enabled(m_pIceCtxAudio, tmedia_defaults_get_iceturn_enabled());
+        tnet_ice_ctx_set_stun_enabled(m_pIceCtxAudio, tmedia_defaults_get_icestun_enabled());
+        tnet_ice_ctx_set_turn_enabled(m_pIceCtxAudio, tmedia_defaults_get_iceturn_enabled());
     }
     if (!m_pIceCtxVideo && (m_eMediaType & SCMediaType_Video)) {
         m_pIceCtxVideo = tnet_ice_ctx_create(__use_ice_jingle, __use_ipv6, __use_ice_rtcp, tsk_true/*video*/, &SCSessionCall::iceCallback, this);
@@ -339,8 +369,8 @@ bool SCSessionCall::iceCreateCtx()
             stun_usr_name,
             stun_usr_pwd
         );
-		tnet_ice_ctx_set_stun_enabled(m_pIceCtxVideo, tmedia_defaults_get_icestun_enabled());
-		tnet_ice_ctx_set_turn_enabled(m_pIceCtxVideo, tmedia_defaults_get_iceturn_enabled());
+        tnet_ice_ctx_set_stun_enabled(m_pIceCtxVideo, tmedia_defaults_get_icestun_enabled());
+        tnet_ice_ctx_set_turn_enabled(m_pIceCtxVideo, tmedia_defaults_get_iceturn_enabled());
     }
 
     // For now disable timers until both parties get candidates
@@ -519,8 +549,8 @@ int SCSessionCall::iceCallback(const struct tnet_ice_event_s *e)
             if (This->iceGotLocalCandidates()) {
                 SC_DEBUG_INFO("!!! ICE gathering done !!!");
                 //if (This->m_eActionPending == SCCallAction_Make) {
-                    This->sendSdp();
-                    //This->m_eActionPending = SCCallAction_None;
+                This->sendSdp();
+                //This->m_eActionPending = SCCallAction_None;
                 //}
                 //else if (This->m_eActionPending == SCCallAction_Accept) {
 
@@ -531,8 +561,8 @@ int SCSessionCall::iceCallback(const struct tnet_ice_event_s *e)
             if (This->iceIsDone()) {
                 // This->mIceState = IceStateConnected;
                 // _Utils::PostMessage(This->GetWindowHandle(), WM_ICE_EVENT_CONNECTED, This, (void**)0);
-				tmedia_session_mgr_start(This->m_pSessionMgr);
-			}
+                tmedia_session_mgr_start(This->m_pSessionMgr);
+            }
         }
         else if (e->type == tnet_ice_event_type_conncheck_failed || e->type == tnet_ice_event_type_cancelled) {
             // "tnet_ice_event_type_cancelled" means remote party doesn't support ICE -> Not an error
@@ -586,9 +616,9 @@ bool SCSessionCall::sendSdp()
     // Compute when transaction identifier for the offer
     m_strTidOffer = SCUtils::randomString();
 
-	message["type"] = m_strLocalSdpType.empty() ? "offer" : m_strLocalSdpType;
+    message["type"] = m_strLocalSdpType.empty() ? "offer" : m_strLocalSdpType;
     message["cid"] = m_strCallId;
-	message["tid"] = m_strTidOffer.empty() ? SCUtils::randomString() : m_strTidOffer;
+    message["tid"] = m_strTidOffer.empty() ? SCUtils::randomString() : m_strTidOffer;
     message["from"] = SCEngine::s_strCredUserId;
     message["to"] = m_strDestUserId;
     message["sdp"] = strSdp;
@@ -600,11 +630,10 @@ bool SCSessionCall::sendSdp()
         return false;
     }
 
-    if (!m_oSignaling->sendData(output.c_str(), output.length()))
-	{
-		return false;
-	}
-	return true;
+    if (!m_oSignaling->sendData(output.c_str(), output.length())) {
+        return false;
+    }
+    return true;
 }
 
 SCObjWrapper<SCSessionCall*> SCSessionCall::newObj(SCObjWrapper<SCSignaling*> oSignaling)
@@ -621,20 +650,19 @@ SCObjWrapper<SCSessionCall*> SCSessionCall::newObj(SCObjWrapper<SCSignaling*> oS
 
 SCObjWrapper<SCSessionCall*> SCSessionCall::newObj(SCObjWrapper<SCSignaling*> oSignaling, SCObjWrapper<SCSignalingCallEvent*>& offer)
 {
-	if (!oSignaling) {
+    if (!oSignaling) {
         SC_DEBUG_ERROR("Invalid argument");
         return NULL;
     }
-	if (offer->getType() != "offer") {
-		SC_DEBUG_ERROR("Call event with type='%s' cannot be used to create a call session", offer->getType().c_str());
+    if (offer->getType() != "offer") {
+        SC_DEBUG_ERROR("Call event with type='%s' cannot be used to create a call session", offer->getType().c_str());
         return NULL;
-	}
+    }
 
-	SCObjWrapper<SCSessionCall*> oCall = new SCSessionCall(oSignaling, offer->getCallId());
-	if (oCall)
-	{
-		oCall->m_strDestUserId = offer->getFrom();
-	}
+    SCObjWrapper<SCSessionCall*> oCall = new SCSessionCall(oSignaling, offer->getCallId());
+    if (oCall) {
+        oCall->m_strDestUserId = offer->getFrom();
+    }
 
-	return oCall;
+    return oCall;
 }

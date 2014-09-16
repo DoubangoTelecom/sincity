@@ -20,7 +20,8 @@ public:
 	virtual SC_INLINE const char* getObjectId() { return "SCSessionCall"; }
 	
 	virtual bool call(SCMediaType_t eMediaType, std::string strDestUserId);
-	virtual bool handEvent(SCObjWrapper<SCSignalingCallEvent*>& e);
+	virtual bool acceptEvent(SCObjWrapper<SCSignalingCallEvent*>& e);
+	static bool rejectEvent(SCObjWrapper<SCSignaling*> oSignaling, SCObjWrapper<SCSignalingCallEvent*>& e);
 	virtual bool hangup();
 
 	virtual SC_INLINE std::string getCallId() { return m_strCallId; }
