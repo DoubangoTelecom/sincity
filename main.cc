@@ -2,7 +2,6 @@
 
 #include <assert.h>
 #include <stdio.h>
-#include <io.h>
 #include <fcntl.h>
 
 #if defined(_MSC_VER)
