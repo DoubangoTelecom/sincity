@@ -282,7 +282,7 @@ SCWsTransportCallback::~SCWsTransportCallback()
 
 bool SCWsTransportCallback::onData(SCObjWrapper<SCNetPeer*> oPeer, size_t &nConsumedBytes)
 {
-    SC_DEBUG_INFO_EX(kSCMobuleNameWsTransport, "Incoming data = %.*s", oPeer->getDataSize(), oPeer->getDataPtr());
+    SC_DEBUG_INFO_EX(kSCMobuleNameWsTransport, "Incoming data = %.*s", oPeer->getDataSize(), (const char*)oPeer->getDataPtr());
     return false; // FIXME
 #if 0
     size_t nDataSize;
