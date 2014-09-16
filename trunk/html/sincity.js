@@ -241,6 +241,7 @@ SCEngine.init = function(config) {
 }
 
 SCEngine.connect = function(url) {
+    console.info("connecting to: " + url);
     if (SCEngine.socket) {
         throw new Error("already connected"); 
     }
