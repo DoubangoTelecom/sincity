@@ -5,8 +5,8 @@
 # This file is part of Doubango Open Source SIP TelePresence System <https://code.google.com/p/telepresence/>
 #
 
-AC_PREREQ([1.0])
-AC_INIT(sincity, 1.0, opensincity(at)googlegroups(dot)com)
+AC_PREREQ([2.68])
+AC_INIT(sincity, 1.0.0, opensincity(at)googlegroups(dot)com)
 AM_INIT_AUTOMAKE
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS([config.h])
@@ -52,9 +52,9 @@ AC_ARG_ENABLE(debug,
 [])
 
 
-###########
-# DOUBANGO
-###########
+###########################
+# DOUBANGO AND LIBSINCITY
+###########################
 AC_SUBST(have_libsincity, no)
 AC_SUBST(have_tinysak, no)
 AC_SUBST(have_tinynet, no)
@@ -67,7 +67,6 @@ AC_SUBST(have_tinyipsec, no)
 AC_SUBST(have_tinymsrp, no)
 AC_SUBST(have_tinyrtp, no)
 
-PKG_CHECK_MODULES(LIBSINCITY, libsincity >= ${LIBSINCITY_MINVER}, AC_SUBST(have_libsincity, yes), AC_MSG_WARN(Cannot find sincity >= ${LIBSINCITY_MINVER} using pkg-config))
 PKG_CHECK_MODULES(TINYSAK, tinySAK >= ${DOUBANGO_MINVER}, AC_SUBST(have_tinysak, yes), AC_MSG_WARN(Cannot find tinySAK >= ${DOUBANGO_MINVER} using pkg-config))
 PKG_CHECK_MODULES(TINYNET, tinyNET >= ${DOUBANGO_MINVER}, AC_SUBST(have_tinynet, yes), AC_MSG_WARN(Cannot find tinyNET >= ${DOUBANGO_MINVER} using pkg-config))
 PKG_CHECK_MODULES(TINYHTTP, tinyHTTP >= ${DOUBANGO_MINVER}, AC_SUBST(have_tinyhttp, yes), AC_MSG_WARN(Cannot find tinyHTTP >= ${DOUBANGO_MINVER} using pkg-config))
@@ -78,8 +77,9 @@ PKG_CHECK_MODULES(TINYMEDIA, tinyMEDIA >= ${DOUBANGO_MINVER}, AC_SUBST(have_tiny
 PKG_CHECK_MODULES(TINYMSRP, tinyMSRP >= ${DOUBANGO_MINVER}, AC_SUBST(have_tinymsrp, yes), AC_MSG_WARN(Cannot find tinyMSRP >= ${DOUBANGO_MINVER} using pkg-config))
 PKG_CHECK_MODULES(TINYRTP, tinyRTP >= ${DOUBANGO_MINVER}, AC_SUBST(have_tinyrtp, yes), AC_MSG_WARN(Cannot find tinyRTP >= ${DOUBANGO_MINVER} using pkg-config))
 PKG_CHECK_MODULES(TINYIPSEC, tinyIPSec >= ${DOUBANGO_MINVER}, AC_SUBST(have_tinyipsec, yes), AC_MSG_WARN(Cannot find tinyIPSec >= ${DOUBANGO_MINVER} using pkg-config))
+PKG_CHECK_MODULES(LIBSINCITY, libsincity >= ${LIBSINCITY_MINVER}, AC_SUBST(have_libsincity, yes), AC_MSG_WARN(Cannot find sincity >= ${LIBSINCITY_MINVER} using pkg-config))
 
-if test $have_libsincity:$have_tinysak:$have_tinynet:$have_tinyhttp:$have_tinysip:$have_tinydav:$have_tinysdp:$have_tinybfcp:$have_tinysigcomp:$have_tinymedia:$have_tinyxcap:$have_tinysms:$have_tinymsrp:$have_tinyrtp:$have_tinyipsec != yes:yes:yes:yes:yes:yes:yes:yes:yes:yes:yes:yes:yes ; then
+if test $have_libsincity:$have_tinysak:$have_tinynet:$have_tinyhttp:$have_tinydav:$have_tinysdp:$have_tinybfcp:$have_tinymedia:$have_tinymsrp:$have_tinyrtp:$have_tinyipsec != yes:yes:yes:yes:yes:yes:yes:yes:yes:yes:yes ; then
 	AC_MSG_WARN([
 ***
 *** Failed to find all DOUBANGO libraries using pkg-config.
