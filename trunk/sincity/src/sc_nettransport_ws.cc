@@ -168,7 +168,7 @@ SCObjWrapper<SCWsResult*> SCWsTransport::handleJsonContent(SCObjWrapper<SCNetPee
     // Parse JSON content
     bool parsingSuccessful = reader.parse((const char*)pcDataPtr, (((const char*)pcDataPtr) + nDataSize), root);
     if (!parsingSuccessful) {
-        SC_DEBUG_ERROR_EX(kSCMobuleNameWsTransport, "Failed to parse JSON content: %.*s", nDataSize, pcDataPtr);
+        SC_DEBUG_ERROR_EX(kSCMobuleNameWsTransport, "Failed to parse JSON content: %.*s", nDataSize, (const char*)pcDataPtr);
         return new SCWsResult(kSCWsResultCode_ParsingFailed, kSCWsResultPhrase_ParsingFailed);
     }
 
