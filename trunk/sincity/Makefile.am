@@ -45,8 +45,6 @@ _includedir = $(includedir)/sincity
 _include_HEADERS = include/*.h
 __includedir = $(includedir)/sincity/sincity
 __include_HEADERS = include/sincity/*.h
-content_includedir = $(includedir)/sincity/sincity/content
-content_include_HEADERS = include/sincity/content/*.h
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = libsincity.pc
