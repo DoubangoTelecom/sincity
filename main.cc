@@ -260,7 +260,7 @@ static bool loadConfig()
     FILE* p_file = fopen(config_file_path, "rb");
     if (!p_file) {
         SC_DEBUG_ERROR("Failed to open file at %s", config_file_path);
-        return FALSE;
+        return false;
     }
     fseek(p_file, 0, SEEK_END);
     long fsize = ftell(p_file);
