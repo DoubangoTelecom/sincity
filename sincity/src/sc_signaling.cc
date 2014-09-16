@@ -61,7 +61,7 @@ void SCSignaling::unlock()
     m_oMutex->unlock();
 }
 
-bool SCSignaling::setCallback(SCObjWrapper<SCSignalingCallback*> &oCallback)
+bool SCSignaling::setCallback(SCObjWrapper<SCSignalingCallback*> oCallback)
 {
     SCAutoLock<SCSignaling> autoLock(this);
 
