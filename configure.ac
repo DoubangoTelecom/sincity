@@ -26,7 +26,7 @@ AC_PROG_MAKE_SET
 PKG_PROG_PKG_CONFIG
 
 AC_SUBST(DOUBANGO_MINVER, 2.0.1089)
-AC_SUBST(SINCITY_MINVER, 1.0.0)
+AC_SUBST(LIBSINCITY_MINVER, 1.0.0)
 
 target_cpu=`uname -m`
 target_os=`uname -s`
@@ -55,7 +55,7 @@ AC_ARG_ENABLE(debug,
 ###########
 # DOUBANGO
 ###########
-AC_SUBST(have_sincity, no)
+AC_SUBST(have_libsincity, no)
 AC_SUBST(have_tinysak, no)
 AC_SUBST(have_tinynet, no)
 AC_SUBST(have_tinyhttp, no)
@@ -67,7 +67,7 @@ AC_SUBST(have_tinyipsec, no)
 AC_SUBST(have_tinymsrp, no)
 AC_SUBST(have_tinyrtp, no)
 
-PKG_CHECK_MODULES(SINCITY, sincity >= ${SINCITY_MINVER}, AC_SUBST(have_sincity, yes), AC_MSG_WARN(Cannot find sincity >= ${SINCITY_MINVER} using pkg-config))
+PKG_CHECK_MODULES(LIBSINCITY, libsincity >= ${LIBSINCITY_MINVER}, AC_SUBST(have_libsincity, yes), AC_MSG_WARN(Cannot find sincity >= ${LIBSINCITY_MINVER} using pkg-config))
 PKG_CHECK_MODULES(TINYSAK, tinySAK >= ${DOUBANGO_MINVER}, AC_SUBST(have_tinysak, yes), AC_MSG_WARN(Cannot find tinySAK >= ${DOUBANGO_MINVER} using pkg-config))
 PKG_CHECK_MODULES(TINYNET, tinyNET >= ${DOUBANGO_MINVER}, AC_SUBST(have_tinynet, yes), AC_MSG_WARN(Cannot find tinyNET >= ${DOUBANGO_MINVER} using pkg-config))
 PKG_CHECK_MODULES(TINYHTTP, tinyHTTP >= ${DOUBANGO_MINVER}, AC_SUBST(have_tinyhttp, yes), AC_MSG_WARN(Cannot find tinyHTTP >= ${DOUBANGO_MINVER} using pkg-config))
@@ -79,7 +79,7 @@ PKG_CHECK_MODULES(TINYMSRP, tinyMSRP >= ${DOUBANGO_MINVER}, AC_SUBST(have_tinyms
 PKG_CHECK_MODULES(TINYRTP, tinyRTP >= ${DOUBANGO_MINVER}, AC_SUBST(have_tinyrtp, yes), AC_MSG_WARN(Cannot find tinyRTP >= ${DOUBANGO_MINVER} using pkg-config))
 PKG_CHECK_MODULES(TINYIPSEC, tinyIPSec >= ${DOUBANGO_MINVER}, AC_SUBST(have_tinyipsec, yes), AC_MSG_WARN(Cannot find tinyIPSec >= ${DOUBANGO_MINVER} using pkg-config))
 
-if test $have_sincity:$have_tinysak:$have_tinynet:$have_tinyhttp:$have_tinysip:$have_tinydav:$have_tinysdp:$have_tinybfcp:$have_tinysigcomp:$have_tinymedia:$have_tinyxcap:$have_tinysms:$have_tinymsrp:$have_tinyrtp:$have_tinyipsec != yes:yes:yes:yes:yes:yes:yes:yes:yes:yes:yes:yes:yes ; then
+if test $have_libsincity:$have_tinysak:$have_tinynet:$have_tinyhttp:$have_tinysip:$have_tinydav:$have_tinysdp:$have_tinybfcp:$have_tinysigcomp:$have_tinymedia:$have_tinyxcap:$have_tinysms:$have_tinymsrp:$have_tinyrtp:$have_tinyipsec != yes:yes:yes:yes:yes:yes:yes:yes:yes:yes:yes:yes:yes ; then
 	AC_MSG_WARN([
 ***
 *** Failed to find all DOUBANGO libraries using pkg-config.
@@ -118,9 +118,9 @@ AC_SUBST(TINYRTP_LIBS,-ltinyRTP) AC_SUBST(TINYRTP_CFLAGS,-I${DOUBANGO_INCLUDES_P
 AC_SUBST(TINYIPSEC_LIBS,-ltinyIPSec) AC_SUBST(TINYIPSEC_CFLAGS,-I${DOUBANGO_INCLUDES_PATH}/tinyipsec)
 fi
 
-if test $have_sincity != yes; then
+if test $have_libsincity != yes; then
 	AC_CHECK_HEADERS(sincity/sc_config.h, 
-		AC_CHECK_LIB(sincity, SCEngine, AC_SUBST(have_sincity, yes), AC_MSG_ERROR(Failed to find libsincity), [${LIBDL}])
+		AC_CHECK_LIB(sincity, SCEngine, AC_SUBST(have_libsincity, yes), AC_MSG_ERROR(Failed to find libsincity), [${LIBDL}])
 	)
 fi
 if test $have_tinysak != yes; then
@@ -191,7 +191,7 @@ Install prefix:                                ${prefix}
 Compiler:                                      ${CC}
 
 SINCITY
-     SINCITY:                                  ${have_sincity}
+     LIBSINCITY:                               ${have_libsincity}
 
 DOUBANGO
      MIN_VER:                                  ${DOUBANGO_MINVER}
