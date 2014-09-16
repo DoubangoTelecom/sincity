@@ -245,7 +245,7 @@ SCObjWrapper<SCSignaling*> SCSignaling::newObj(const char* pcRequestUri, const c
         break;
     }
     default: {
-        SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "Url type=%d not supported yet. Url=%s", oUrl->getType());
+        SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "Url type=%d not supported yet. Url=%s", oUrl->getType(), pcRequestUri);
         goto bail;
     }
     }
@@ -335,7 +335,7 @@ bool SCSignalingTransportCallback::onData(SCObjWrapper<SCNetPeer*> oPeer, size_t
 {
     SCAutoLock<SCSignaling> autoLock(const_cast<SCSignaling*>(m_pcSCSignaling));
 
-    SC_DEBUG_INFO_EX(kSCMobuleNameSignaling, "Incoming data = %.*s", oPeer->getDataSize(), oPeer->getDataPtr());
+    SC_DEBUG_INFO_EX(kSCMobuleNameSignaling, "Incoming data = %.*s", oPeer->getDataSize(), (const char*)oPeer->getDataPtr());
 
     if (m_pcSCSignaling->m_oConnectionUrl->getType() != SCUrlType_WS && m_pcSCSignaling->m_oConnectionUrl->getType() != SCUrlType_WSS) {
         SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "Not implemented yet");
