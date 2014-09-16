@@ -1,6 +1,6 @@
-sbin_PROGRAMS = sincity
+sbin_PROGRAMS = sintest
 
-sincity_CPPFLAGS = \
+sintest_CPPFLAGS = \
 ${TINYSAK_CFLAGS} \
 ${TINYNET_CFLAGS} \
 ${TINYHTTP_CFLAGS} \
@@ -14,7 +14,7 @@ ${TINYRTP_CFLAGS} \
 ${TINYIPSEC_CFLAGS} \
 -Iinclude
 
-sincity_LDADD = \
+sintest_LDADD = \
 ${DOUBANGO_LIBS_FALLBACK} \
 ${TINYSAK_LIBS} \
 ${TINYNET_LIBS} \
@@ -27,7 +27,7 @@ ${TINYMSRP_LIBS} \
 ${TINYRTP_LIBS} \
 ${TINYIPSEC_LIBS}
 
-sincity_SOURCES = main.cc
+sintest_SOURCES = main.cc
 
 samples:
 	cp -f ./SSL_CA.pem ${exec_prefix}/sbin
