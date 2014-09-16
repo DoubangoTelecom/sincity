@@ -63,6 +63,11 @@ bool SCEngine::init(std::string strCredUserId, std::string strCredPassword /*= "
 
         SC_ASSERT(tmedia_defaults_set_pref_video_size(tmedia_pref_video_size_vga) == 0);
         SC_ASSERT(tmedia_defaults_set_video_fps(10) == 0);
+#if SC_UNDER_WINDOWS
+#else
+		SC_ASSERT(tmedia_producer_set_friendly_name(tmedia_video, "/dev/video") == 0);
+		SC_ASSERT(tmedia_producer_set_friendly_name(tmedia_bfcp_video, "/dev/video") == 0);
+#endif
 
         SC_ASSERT(tdav_set_codecs((tdav_codec_id_t)(tmedia_codec_id_vp8)) == 0);
         SC_ASSERT(tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_vp8, 0) == 0);
