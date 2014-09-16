@@ -7,7 +7,7 @@ Name : libsincity
 Description : SinCity library
 Version : @PACKAGE_VERSION@
 Requires: 
-Requires.private: tinySAK = @DOUBANGO_MINVER@ tinyNET = @DOUBANGO_MINVER@ tinySDP = @DOUBANGO_MINVER@ tinyBFCP = @DOUBANGO_MINVER@ tinyRTP = @DOUBANGO_MINVER@ tinyMEDIA = @DOUBANGO_MINVER@ tinyMSRP = @DOUBANGO_MINVER@ tinyDAV = @DOUBANGO_MINVER@
+Requires.private: tinySAK >= @DOUBANGO_MINVER@ tinyNET >= @DOUBANGO_MINVER@ tinySDP >= @DOUBANGO_MINVER@ tinyBFCP >= @DOUBANGO_MINVER@ tinyRTP >= @DOUBANGO_MINVER@ tinyMEDIA >= @DOUBANGO_MINVER@ tinyMSRP >= @DOUBANGO_MINVER@ tinyDAV >= @DOUBANGO_MINVER@
 Conflicts:
 Cflags : -I${includedir}/sincity
 Libs : -L${libdir} -lsincity

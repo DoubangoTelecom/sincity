@@ -5,8 +5,8 @@
 # This file is part of Doubango Open Source SIP TelePresence System <https://code.google.com/p/telepresence/>
 #
 
-AC_PREREQ([1.0])
-AC_INIT(libsincity, 1.0, opensincity(at)googlegroups(dot)com)
+AC_PREREQ([2.68])
+AC_INIT(libsincity, 1.0.0, opensincity(at)googlegroups(dot)com)
 AM_INIT_AUTOMAKE
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS([config.h])
