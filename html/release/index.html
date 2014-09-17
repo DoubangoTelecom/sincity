@@ -1,0 +1,174 @@
+<html>
+<head>
+    <title>GE WebRTC viewer (Phase 1: Google Chrome only)</title>
+    <script src="sincity.js" type="text/javascript"> </script>
+</head>
+
+<script type="text/javascript">
+
+var callSession = null;
+var pendingOffer = null;
+
+function save() {
+    window.localStorage.setItem('sincity.conn_url', txtConnUrl.value);
+    window.localStorage.setItem('sincity.local_id', txtLocalId.value);
+    window.localStorage.setItem('sincity.remote_id', txtRemoteId.value);
+}
+
+function connect() {
+    save();
+    
+    SCEngine.init (
+        { 
+            "local_id": txtLocalId.value,
+            "remote_video": remoteVideo,
+            "iceServers":  [{ url: 'stun:stun.l.google.com:19302' }]
+        }
+    );
+    SCEngine.connect(txtConnUrl.value);
+}
+
+function call() {
+    save();
+    
+    if (callSession) { // already in call?
+        callSession.hangup();
+        callSession = null;
+        btnCall.value = "call";
+        return;
+    }
+    
+    if (pendingOffer) { // is there a pending offer?
+        var po = pendingOffer;
+        pendingOffer = null;
+        callSession = SCEngine.newCall(po);
+        callSession.acceptMsg(po);
+    }
+    else {
+        callSession = SCEngine.newCall(txtRemoteId.value);
+        if (!callSession) {
+            txtInfo.innerHTML = "<font color='red'>Failed to make call(1)</font>";
+            return;
+        }
+        if (!callSession.call()) {
+            txtInfo.innerHTML = "<font color='red'>Failed to make call(2)</font>";
+            return;
+        }
+    }
+    btnCall.value = "hangup";
+}
+
+function disconnect() {
+    if (callSession) {
+        callSession.hangup();
+        callSession = null;
+        btnCall.value = "call";
+    }
+    SCEngine.disconnect();
+}
+
+window.onload = function() {
+    txtConnUrl.value = window.localStorage.getItem('sincity.conn_url') || "ws://ns313841.ovh.net:9000/wsStringStaticMulti?roomId=0";
+    txtLocalId.value = window.localStorage.getItem('sincity.local_id') || "002";
+    txtRemoteId.value = window.localStorage.getItem('sincity.remote_id') || "001";
+    
+    SCEngine.onconnected = function() {
+        btnConnect.disabled = true;
+        btnDisConnect.disabled = false;
+        btnCall.disabled = false;
+        
+        txtInfo.innerHTML = "<font color='green'>Connected</font>";
+    }
+
+    SCEngine.ondisconnected = function() {
+        btnConnect.disabled = false;
+        btnDisConnect.disabled = true;
+        btnCall.disabled = true;
+        
+        txtInfo.innerHTML = "<font color='red'>Disconnected</font>";
+    }
+
+    SCEngine.oncall = function(e) {
+        switch(e.type) {
+            case "offer":
+                {
+                    // to reject the call:
+                    // SCCall.rejectMsg(e.msg); 
+                    pendingOffer = e.msg;
+                    txtInfo.innerHTML = "<font color='blue'>" + e.description + "</font>";
+                    btnCall.value = "accept";
+                    break;
+                }
+            case "answer":
+            case "pranswer":
+            case "hangup":
+                {
+                    if (callSession && callSession.cid == e.msg.cid) {
+                        callSession.acceptMsg(e.msg);
+                        if (e.type === "hangup") {
+                            callSession = null;
+                            txtInfo.innerHTML = "<font color='black'>Call terminated</font>";
+                            btnCall.value = "call";
+                        }
+                        else {
+                            txtInfo.innerHTML = "<font color='blue'>" + e.description + "</font>";
+                        }
+                    }
+                    else {
+                        if (e.type === "hangup" && pendingOffer && pendingOffer.cid == e.msg.cid) {
+                            pendingOffer = null;
+                            txtInfo.innerHTML = "<font color='blue'>cancelled</font>";
+                        }
+                        else {
+                            txtInfo.innerHTML = "<font color='red'>Failed to match call session</font>";
+                        }
+                    }
+                    break;
+                }
+            case "error":
+                {
+                    if (callSession && callSession.cid == e.call.cid) {
+                        callSession.hangup();
+                        callSession = null;
+                        btnCall.value = "call";
+                        txtInfo.innerHTML = "<font color='red'>" + e.description + "</font>";
+                    }
+                    break;
+                }
+        }
+    }
+}
+
+</script>
+
+<body>
+    <table width="90%">
+        <tr>
+            <td><label>ConnectionURL:&nbsp;&nbsp;</label></td>
+            <td style="width: 100%;"><input type="text" style="width: 100%;" id="txtConnUrl"
+                                placeholder="ws://ns313841.ovh.net:9000/wsStringStaticMulti?roomId=0" /></td>
+        </tr>
+        <tr>
+            <td>LocalId:&nbsp;&nbsp;</td>
+            <td style="width: 100%;"><input type="text" style="width: 100%;" id="txtLocalId"/></td>
+        </tr>
+        <tr>
+            <td>RemoteId:&nbsp;&nbsp;</td>
+            <td style="width: 100%;"><input type="text" style="width: 100%;" id="txtRemoteId"/></td>
+        </tr>
+        <tr>
+            <td><label style="width: 100%;" align="center" id="txtInfo"> </label></td>
+        </tr>
+    </table>
+    <br />
+    <br />
+    
+    <input type="button" id="btnConnect" onclick='connect();' value="connect" />
+    <input type="button" id="btnCall" onclick='call();' disabled value="call" />
+    <input type="button" id="btnDisConnect" onclick='disconnect();' disabled value="disconnect" />
+    <hr />
+    <hr />
+    
+    <video id="remoteVideo" autoplay></video>
+</body>
+</html>
