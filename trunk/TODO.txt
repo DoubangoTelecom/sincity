@@ -2,7 +2,7 @@
 - Remove reference to wcecompact
 - WS keepAlive
 - Ask for secure WebSocket URL
-- WEBRTC2SIP and TELEPRESENCE: event_removed, event_closed
+- V4L2: adds setting frame rate: TIP: http://stackoverflow.com/questions/13981933/v4l2-fcntl-ioctl-vidioc-s-parm-for-setting-fps-and-resolution-of-camera-capture
 
 
 libvpx:

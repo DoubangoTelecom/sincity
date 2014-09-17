@@ -7,6 +7,9 @@
 #include "sincity/sc_session_call.h"
 #include "sincity/sc_signaling.h"
 
+/**
+* Static class used to configure the media engine.
+*/
 class SCEngine : public SCObj
 {
 	friend class SCSessionCall;
@@ -21,7 +24,7 @@ public:
 	static bool deInit();
 	static bool isInitialized() { return s_bInitialized; }
 	static bool setDebugLevel(SCDebugLevel_t eLevel);
-	static bool setSSLCertificates(const char* strPublicKey, const char* strPrivateKey = NULL, const char* strCA = NULL, bool bMutualAuth = false);
+	static bool setSSLCertificates(const char* strPublicKey, const char* strPrivateKey, const char* strCA, bool bMutualAuth = false);
 	static bool setVideoPrefSize(const char* strPrefVideoSize);
 	static bool setVideoFps(int fps);
 	static bool setVideoBandwidthUpMax(int bandwwidthMax);
