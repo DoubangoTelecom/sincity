@@ -1,0 +1,147 @@
+<html>
+<head>
+    <title>Test Websockets</title>
+</head>
+
+<script type="text/javascript">
+
+var RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
+var RTCSessionDescription = window.RTCSessionDescription || window.mozRTCSessionDescription || window.webkitRTCSessionDescription;
+var RTCIceCandidate = window.RTCIceCandidate || window.mozRTCIceCandidate || window.webkitRTCIceCandidate;
+
+
+var WebSocket = (window['MozWebSocket'] || window['MozWebSocket'] || WebSocket);
+var socket;
+var pc;
+var sdpConstraints = {
+  'mandatory': {
+    'OfferToReceiveAudio': false,
+    'OfferToReceiveVideo': true
+  }
+};
+var pcConfig =  { 
+    "iceServers":  [{ url: 'stun:stun.l.google.com:19302' }] 
+};
+
+var outgoingCallConfig = {
+    from: "002",
+    to: "001",
+    cid: "incomingCall.cid",
+    tid: "incomingCall.tid"
+};
+
+function connect() {
+    socket = new WebSocket("ws://localhost:9000/wsStringStaticMulti?roomId=0", "ge-webrtc-signaling");
+    socket.onopen = function() {
+        console.info("onopen");
+        // socket.send("data from test.html");
+        
+        btnConnect.disabled = true;
+        btnClose.disabled = false;
+        btnCall.disabled = false;
+    }
+    socket.onclose = function() {
+        console.info("onclose");
+        
+        btnConnect.disabled = false;
+        btnClose.disabled = true;
+        btnCall.disabled = true;
+    }
+    
+    socket.onmessage = function(e) {
+        console.info("onmessage" + e.data);
+        
+        var msg = JSON.parse(e.data);
+        if (msg && (msg.type === "answer" || msg.type == "pranswer") && msg.sdp)
+        {
+            incomingAnswer = msg;
+            var sdpRemote = msg.sdp.replace("UDP/TLS/RTP/SAVPF", "RTP/SAVPF");
+            
+            pc.setRemoteDescription(new RTCSessionDescription({ type: msg.type, sdp: sdpRemote }), 
+                function() { 
+                    console.info("setRemoteDescription OK"); 
+                },
+                function(err) { 
+                    console.info("setRemoteDescription NOK:" + err); 
+                }
+            );
+        }
+    }
+}
+
+function _close() {
+    if (socket) {
+        if (pc) {
+            socket.send(JSON.stringify({type: "hangup", from:outgoingCallConfig.from, to:outgoingCallConfig.to, cid: outgoingCallConfig.cid, tid:"null"}));
+        }
+    
+        socket.close();
+        socket = null;
+    }
+    if (pc) {
+        pc.close();
+        pc = null;
+    }
+}
+
+function call() {
+    btnCall.disable = true;
+    
+    pc = new RTCPeerConnection(pcConfig);
+    
+    pc.onicecandidate  = function(e) {
+        if (e.candidate) { 
+            pc.addIceCandidate(new RTCIceCandidate(e.candidate),
+                    function() { console.info("addIceCandidate OK"); },
+                    function(err) { console.info("addIceCandidate NOK:" + err); }
+            );
+        }
+        else {
+            console.info("ICE gathering done");
+            var msg = 
+            {
+                from: outgoingCallConfig.from,
+                to: outgoingCallConfig.to,
+                cid: outgoingCallConfig.cid,
+                tid: outgoingCallConfig.tid,
+                type: pc.localDescription.type, // "offer"
+                sdp: pc.localDescription.sdp.replace("RTP/SAVPF", "UDP/TLS/RTP/SAVPF")
+            };
+            socket.send(JSON.stringify(msg));
+        }
+    }
+    
+    pc.onaddstream = function(e) {
+        remoteVideo.src = webkitURL.createObjectURL(e.stream);
+    }
+    
+    pc.createOffer(
+        function(desc) {
+            console.info("createOffer:" + desc.sdp);
+            pc.setLocalDescription(desc, 
+                function() { 
+                    console.info("setLocalDescription OK");
+                },
+                function(err) {
+                    console.info("setLocalDescription:" + err);
+                });
+        },
+        function(err) {
+            console.info("createOffer:" + err);
+        },
+        sdpConstraints);
+}
+
+</script>
+
+<body>   
+    <video id="localVideo" autoplay muted></video>
+    <video id="remoteVideo" autoplay></video>
+    
+    <div>
+        <button id="btnConnect" onclick='connect();'>connect</button>
+        <button id="btnCall" onclick='call();' disabled>call</button>
+        <button id="btnClose" onclick='_close();' disabled>close</button>
+    </div>
+</body>
+</html>
