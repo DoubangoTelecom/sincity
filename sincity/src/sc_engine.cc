@@ -28,17 +28,34 @@ bool SCEngine::s_bInitialized = false;
 std::string SCEngine::s_strCredUserId = "";
 std::string SCEngine::s_strCredPassword = "";
 
+/**@defgroup _Group_CPP_Engine Engine
+* @brief Static class used to configure the media and signaling engines.
+*/
 
+
+/*
+* Constructor for the engine.
+* Must never be called.
+*/
 SCEngine::SCEngine()
 {
 
 }
 
+/*
+* Destructor for the engine.
+*/
 SCEngine::~SCEngine()
 {
 
 }
 
+/**@ingroup _Group_CPP_Engine
+* Initializes the media and network layers. This function must be the first one to call.
+* @param strCredUserId User (or device) identifer. This parameter is required and must not be null or empty.
+* @param strCredPassword User (or device) password. This parameter is optional.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCEngine::init(std::string strCredUserId, std::string strCredPassword /*= ""*/)
 {
     if (strCredUserId.empty()) {
@@ -81,6 +98,10 @@ bool SCEngine::init(std::string strCredUserId, std::string strCredPassword /*= "
     return true;
 }
 
+/**@ingroup _Group_CPP_Engine
+* Cleanups the media and network layers. This function must be the last one to call.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCEngine::deInit()
 {
     if (s_bInitialized) {
@@ -93,13 +114,27 @@ bool SCEngine::deInit()
     return true;
 }
 
+/**@ingroup _Group_CPP_Engine
+* Sets the debug level.
+* @param eLevel The new debug level.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCEngine::setDebugLevel(SCDebugLevel_t eLevel)
 {
     tsk_debug_set_level((int)eLevel);
     return true;
 }
 
-bool SCEngine::setSSLCertificates(const char* strPublicKey, const char* strPrivateKey /*= NULL*/, const char* strCA /*= NULL*/, bool bMutualAuth /*= false*/)
+/**@ingroup _Group_CPP_Engine
+* Sets the paths to the SSL certificates used to secure the signaling (WebSocket) an media (DTLS-SRTP) layers.
+* The library comes with default self-signed certificates: <b>SSL_Pub.pem</b>, <b>SSL_Priv.pem</b> and <b>SSL_CA.pem</b>. These certificates could be used for testing.
+* @param strPublicKey Path (relative or absolute) to the public SSL key (PEM format) used for both DTLS-SRTP (media) and WSS (signaling) connections. <b>Required</b>.
+* @param strPrivateKey Path (relative or absolute) to the private SSL key (PEM format) used for both DTLS-SRTP (media) and WSS (signaling) connections. <b>Required</b>.
+* @param strCA Path (relative or absolute) to the certificate authority used to sign the private and public keys. Used for both DTLS-SRTP (media) and WSS (signaling) connections. <b>Required</b>.
+* @param bMutualAuth Whether to enable mutual authentication (apply to the signaling only).
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
+bool SCEngine::setSSLCertificates(const char* strPublicKey, const char* strPrivateKey, const char* strCA, bool bMutualAuth /*= false*/)
 {
 #if SC_UNDER_WINDOWS
     char ssl_file_priv[MAX_PATH] = { '\0' };
@@ -129,6 +164,24 @@ bool SCEngine::setSSLCertificates(const char* strPublicKey, const char* strPriva
     return (tmedia_defaults_set_ssl_certs(strPrivateKey, strPublicKey, strCA, bMutualAuth ? tsk_true : tsk_false) == 0);
 }
 
+/**@ingroup _Group_CPP_Engine
+* Sets the default prefered video size.
+* @param strPrefVideoSize The prefered size. Accepted values:<br />
+* "sqcif"(128x98)<br />
+* "qcif"(176x144)<br />
+* "qvga"(320x240)<br />
+* "cif"(352x288)<br />
+* "hvga"(480x320)<br />
+* "vga"(640x480)<br />
+* "4cif"(704x576)<br />
+* "svga"(800x600)<br />
+* "480p"(852x480)<br />
+* "720p"(1280x720)<br />
+* "16cif"(1408x1152)<br />
+* "1080p"(1920x1080)<br />
+* "2160p"(3840x2160)<br />
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCEngine::setVideoPrefSize(const char* strPrefVideoSize)
 {
     SC_ASSERT(strPrefVideoSize);
@@ -167,41 +220,89 @@ bool SCEngine::setVideoPrefSize(const char* strPrefVideoSize)
     return false;
 }
 
+/**@ingroup _Group_CPP_Engine
+* Sets the default video frame rate.
+* @param fps The frame rate (frames per second). Range: [1, 120].
+* @retval <b>true</b> if no error; otherwise <b>false</b>. 
+*/
 bool SCEngine::setVideoFps(int fps)
 {
     return ((tmedia_defaults_set_video_fps(fps) == 0));
 }
 
+/**@ingroup _Group_CPP_Engine
+* Sets the maximum bandwidth (kbps) to use for outgoing video stream. <br />
+* If congestion control is enabled then, the bandwidth will be updated based on the network conditions but these new values will never be higher than what you defined using this function.
+* @param bandwwidthMax The new maximum bandwidth. Negative value means "compute best value".
+* @retval <b>true</b> if no error; otherwise <b>false</b>. 
+*/
 bool SCEngine::setVideoBandwidthUpMax(int bandwwidthMax)
 {
     return ((tmedia_defaults_set_bandwidth_video_upload_max(bandwwidthMax) == 0));
 }
 
+/**@ingroup _Group_CPP_Engine
+* Sets the maximum bandwidth (kbps) to use for incoming video stream. <br />
+* If congestion control is enabled then, the bandwidth will be updated based on the network conditions but these new values will never be higher than what you defined using this function.
+* @param bandwwidthMax The new maximum bandwidth. Negative value means "compute best value".
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCEngine::setVideoBandwidthDownMax(int bandwwidthMax)
 {
     return ((tmedia_defaults_set_bandwidth_video_download_max(bandwwidthMax) == 0));
 }
 
+/**@ingroup _Group_CPP_Engine
+* Sets the video type. Supported values: 1 (low, e.g. home video security systems), 2 (medium, e.g conference call) or 3 (high, e.g. basketball game). <br />
+* Formula:
+* @code
+* [[video-max-upload-bandwidth (kbps) = ((video-width * video-height * video-fps * motion-rank * 0.07) / 1024)]]
+* @endcode
+* @param motionRank New motion rank value.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCEngine::setVideoMotionRank(int motionRank)
 {
     return ((tmedia_defaults_set_video_motion_rank(motionRank) == 0));
 }
 
+/**@ingroup _Group_CPP_Engine
+* Defines whether to adapt the bandwidth usage based on the congestion (packet loss/retransmission/delay). This mainly use non-standard algorithms and partially implements draft-alvestrand-rtcweb-congestion-03 and draft-alvestrand-rmcat-remb-01.
+* @param congestionCtrl Enable/disable congestion control. Default: <b>false</b>.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCEngine::setVideoCongestionCtrlEnabled(bool congestionCtrl)
 {
     return ((tmedia_defaults_set_congestion_ctrl_enabled(congestionCtrl ? tsk_true : tsk_false) == 0));
 }
 
+/**@ingroup _Group_CPP_Engine
+* Sets the STUN/TURN server address. This server is used for NAT Traversal.
+* @param host Hostname or IP address.
+* @param port Port number. Range: [1024-65555].
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCEngine::setNattStunServer(const char* host, unsigned short port /*= 3478*/)
 {
     return ((tmedia_defaults_set_stun_server(host, port) == 0));
 }
 
+/**@ingroup _Group_CPP_Engine
+* Sets the STUN/TURN credentials. These credentials are used for long-term authentication. Required for TURN and optional for STUN.
+* @param username Username.
+* @param password Pasword.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCEngine::setNattStunCredentials(const char* username, const char* password)
 {
     return ((tmedia_defaults_set_stun_cred(username, password) == 0));
 }
 
+/**@ingroup _Group_CPP_Engine
+* Defines whether to gather ICE reflexive candidates.
+* @param enabled
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCEngine::setNattIceStunEnabled(bool enabled)
 {
     return ((tmedia_defaults_set_icestun_enabled(enabled ? tsk_true : tsk_false) == 0));
