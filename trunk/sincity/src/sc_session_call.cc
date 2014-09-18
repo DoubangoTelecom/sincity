@@ -7,7 +7,7 @@
 
 #include <assert.h>
 
-/**@defgroup _Group_CPP_Call Call session
+/**@defgroup _Group_CPP_SessionCall Call session
 * @brief Call session class.
 */
 
@@ -75,7 +75,7 @@ SCSessionCall::~SCSessionCall()
 }
 
 /*
-* Locks the session object to avoid conccurent access. The mutex is recurssive.
+* Locks the call session object to avoid conccurent access. The mutex is recurssive.
 */
 void SCSessionCall::lock()
 {
@@ -90,7 +90,7 @@ void SCSessionCall::unlock()
     m_oMutex->unlock();
 }
 
-/**@ingroup _Group_CPP_Call
+/**@ingroup _Group_CPP_SessionCall
 * Makes a call to the specified destination id.
 * @param eMediaType The session media type. In phase1 only @ref SCMediaType_ScreenCast is supported. You can combine several media types using a binary OR(|).
 * @param strDestUserId The destination id.
@@ -133,7 +133,7 @@ bool SCSessionCall::call(SCMediaType_t eMediaType, std::string strDestUserId)
     return true;
 }
 
-/**@ingroup _Group_CPP_Call
+/**@ingroup _Group_CPP_SessionCall
 * Accepts an incoming event receive through the signaling layer. If this is an <b>offer</b> then, the incoming call will be accepted. To reject the event use @ref rejectEvent().
 * @param e The event to accept.
 * @retval <b>true</b> if no error; otherwise <b>false</b>.
@@ -204,7 +204,7 @@ bail:
     return bRet;
 }
 
-/**@ingroup _Group_CPP_Call
+/**@ingroup _Group_CPP_SessionCall
 * Rejects the incoming event received through the signaling layer. If this is an <b>offer</b> then, it will be rejects and a <b>hangup</b> message will be sent.
 * Use @ref acceptEvent() to accept the event.
 * @param signalingSession The signaling object to use to sent the <b>reject</b> message.
@@ -246,7 +246,7 @@ bool SCSessionCall::rejectEvent(SCObjWrapper<SCSignaling*> signalingSession, SCO
     return true;
 }
 
-/**@ingroup _Group_CPP_Call
+/**@ingroup _Group_CPP_SessionCall
 * Terminates the call session. Send <b>hangup</b> message and teardown the media sessions.
 * @retval <b>true</b> if no error; otherwise <b>false</b>.
 */
@@ -463,17 +463,24 @@ bool SCSessionCall::iceSetTimeout(int32_t timeout)
 }
 
 /*
-* Checks whether gathering ICE candidates (host, reflexive and relayed) is done.
-* @param p_IceCtx ICE context for which to check the gathering state. NULL means check for all contexts
+* Checks whether gathering ICE candidates (host, reflexive and relayed) for a context is done.
+* @param p_IceCtx ICE context for which to check the gathering state.
 * @retval <b>true</b> if done; otherwise <b>false</b>.
 */
-bool SCSessionCall::iceGotLocalCandidates(struct tnet_ice_ctx_s *p_IceCtx /*= NULL*/)
+bool SCSessionCall::iceGotLocalCandidates(struct tnet_ice_ctx_s *p_IceCtx)
 {
     SCAutoLock<SCSessionCall> autoLock(this);
+	
+	return (!tnet_ice_ctx_is_active(p_IceCtx) || tnet_ice_ctx_got_local_candidates(p_IceCtx));
+}
 
-	if (p_IceCtx) {
-		return (!tnet_ice_ctx_is_active(p_IceCtx) || tnet_ice_ctx_got_local_candidates(p_IceCtx));
-	}
+/*
+* Checks whether gathering ICE candidates (host, reflexive and relayed) for all contexts are done.
+* @retval <b>true</b> if done; otherwise <b>false</b>.
+*/
+bool SCSessionCall::iceGotLocalCandidatesAll()
+{
+	SCAutoLock<SCSessionCall> autoLock(this);
 	return iceGotLocalCandidates(m_pIceCtxAudio) && iceGotLocalCandidates(m_pIceCtxVideo);
 }
 
@@ -640,7 +647,7 @@ int SCSessionCall::iceCallback(const struct tnet_ice_event_s *e)
     case tnet_ice_event_type_conncheck_failed:
     case tnet_ice_event_type_cancelled: {
         if (e->type == tnet_ice_event_type_gathering_completed) {
-            if (This->iceGotLocalCandidates()) {
+            if (This->iceGotLocalCandidatesAll()) {
                 SC_DEBUG_INFO("!!! ICE gathering done !!!");
                 //if (This->m_eActionPending == SCCallAction_Make) {
                 This->sendSdp();
@@ -689,7 +696,7 @@ bool SCSessionCall::sendSdp()
 {
     SCAutoLock<SCSessionCall> autoLock(this);
 
-    if (!iceGotLocalCandidates()) {
+    if (!iceGotLocalCandidatesAll()) {
         SC_DEBUG_ERROR("ICE gathering not done");
         return false;
     }
@@ -734,7 +741,7 @@ bool SCSessionCall::sendSdp()
     return true;
 }
 
-/**@ingroup _Group_CPP_Call
+/**@ingroup _Group_CPP_SessionCall
 * Creates a new call session ex-nihilo. This kind of session must be created to make an initial outgoing call.
 * @param signalingSession The signaling session to use.
 * @retval <b>newobject</b> if no error; otherwise <b>NULL</b>.
@@ -751,7 +758,7 @@ SCObjWrapper<SCSessionCall*> SCSessionCall::newObj(SCObjWrapper<SCSignaling*> si
     return oCall;
 }
 
-/**@ingroup _Group_CPP_Call
+/**@ingroup _Group_CPP_SessionCall
 * Creates a new call session from an offer. This kind of session must be created to accept an offer. Use @ref rejectEvent() to reject the offer.
 * @param signalingSession The signaling session to use.
 * @param offer The offer.

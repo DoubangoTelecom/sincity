@@ -88,8 +88,8 @@ public:
 	bool isConnected();
 	bool isReady();
 	bool connect();
-	bool disConnect();
 	bool sendData(const void* pcData, tsk_size_t nDataSize);
+	bool disConnect();
 
 	static SCObjWrapper<SCSignaling*> newObj(const char* pcRequestUri, const char* pcLocalIP = NULL, unsigned short nLocalPort = 0);
 
