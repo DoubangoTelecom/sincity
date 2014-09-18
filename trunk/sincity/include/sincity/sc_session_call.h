@@ -26,8 +26,8 @@ public:
 
 	virtual SC_INLINE std::string getCallId() { return m_strCallId; }
 	
-	static SCObjWrapper<SCSessionCall*> newObj(SCObjWrapper<SCSignaling*> oSignaling);
-	static SCObjWrapper<SCSessionCall*> newObj(SCObjWrapper<SCSignaling*> oSignaling, SCObjWrapper<SCSignalingCallEvent*>& offer);
+	static SCObjWrapper<SCSessionCall*> newObj(SCObjWrapper<SCSignaling*> signalingSession);
+	static SCObjWrapper<SCSessionCall*> newObj(SCObjWrapper<SCSignaling*> signalingSession, SCObjWrapper<SCSignalingCallEvent*>& offer);
 
 private:
 	void lock();
@@ -40,8 +40,7 @@ private:
 
 	bool iceCreateCtx();
 	bool iceSetTimeout(int32_t timeout);
-	bool iceGotLocalCandidates(struct tnet_ice_ctx_s *p_IceCtx);
-	bool iceGotLocalCandidates();
+	bool iceGotLocalCandidates(struct tnet_ice_ctx_s *p_IceCtx = NULL);
 	bool iceProcessRo(const struct tsdp_message_s* pc_SdpRo, bool isOffer);
 	bool iceIsDone();
 	bool iceIsEnabled(const struct tsdp_message_s* pc_Sdp);
