@@ -31,6 +31,7 @@ bool connected = false;
 #	endif
 #endif
 
+static void printHelp();
 static bool loadConfig();
 static char config_file_path[MAX_PATH < 260 ? 260 : MAX_PATH] = { "./config.json" };
 
@@ -113,6 +114,7 @@ int main(int argc, char* argv[])
 #endif
 {
 	char command[1024] = { 0 };
+	char remoteId[25];
 
     printf("*******************************************************************\n"
            "Copyright (C) 2014 Doubango Telecom (VoIP division)\n"
@@ -190,29 +192,45 @@ int main(int argc, char* argv[])
     SC_ASSERT(signalSession->setCallback(SCSignalingCallbackDummy::newObj()));
     SC_ASSERT(signalSession->connect());
 
+	/* print help */
+	printHelp();
+
 	while (fgets(command, sizeof(command), stdin) != NULL) {
 #define CHECK_CONNECTED() if (!connected){ SC_DEBUG_INFO("+++ not connected yet +++"); continue; }
 		if (strnicmp(command, "quit", 4) == 0) {
 			SC_DEBUG_INFO("+++ quit() +++");
 			break;
 		}
+		else if (strnicmp(command, "help", 4) == 0) {
+			SC_DEBUG_INFO("+++ help() +++");
+			printHelp();
+		}
 		else if (strnicmp(command, "call", 4) == 0) {
+			std::string strRemoteId = jsonConfig["remote_id"].asString();
 			CHECK_CONNECTED();
 			if (callSession) {
 				SC_DEBUG_INFO("+++ already on call +++");
 				continue;
 			}
-			SC_DEBUG_INFO("+++ call() +++");
+			if (sscanf(command, "call %24s", remoteId) != EOF && strlen(remoteId) > 0) {
+				strRemoteId = std::string(remoteId);
+			}
+			SC_DEBUG_INFO("+++ call(%s) +++", strRemoteId.c_str());
 			SC_ASSERT(callSession = SCSessionCall::newObj(signalSession));
-			SC_ASSERT(callSession->call(SCMediaType_ScreenCast, jsonConfig["remote_id"].asString()));
+			SC_ASSERT(callSession->call(SCMediaType_ScreenCast, strRemoteId));
 		}
-		else if (strnicmp(command, "hangup", 6) == 0) {
+		else if (strnicmp(command, "hangup", 6) == 0 || strnicmp(command, "reject", 6) == 0) {
 			CHECK_CONNECTED();
 			if (callSession) {
 				SC_DEBUG_INFO("+++ hangup() +++");
 				SC_ASSERT(callSession->hangup());
                 callSession = NULL;
 			}
+			else if (pendingOffer) {
+				SC_DEBUG_INFO("+++ reject() +++");
+				SC_ASSERT(SCSessionCall::rejectEvent(signalSession, pendingOffer));
+                pendingOffer = NULL;
+            }
 		}
 		else if (strnicmp(command, "accept", 6) == 0) {
 			CHECK_CONNECTED();
@@ -223,18 +241,12 @@ int main(int argc, char* argv[])
                 pendingOffer = NULL;
             }
 		}
-		else if (strnicmp(command, "reject", 6) == 0) {
-			CHECK_CONNECTED();
-			if (pendingOffer) {
-				SC_DEBUG_INFO("+++ reject() +++");
-				SC_ASSERT(SCSessionCall::rejectEvent(signalSession, pendingOffer));
-                pendingOffer = NULL;
-            }
-		}
     }
 
-	// destroy sessions (MUST: signaling last)
-	callSession = NULL;
+	if (callSession) {
+		SC_ASSERT(callSession->hangup());
+		callSession = NULL;
+	}
 	signalSession = NULL;
 
     return 0;
@@ -277,4 +289,19 @@ static bool loadConfig()
     SC_ASSERT(reader.parse(jsonText, jsonConfig, false));
 
     return true;
+}
+
+static void printHelp()
+{
+	printf("----------------------------------------------------------------------------\n"
+		   "                               COMMANDS                                     \n"
+		   "----------------------------------------------------------------------------\n"
+           "\"help\"         Prints this message\n"
+		   "\"call [dest]\"  Makes call to \"dest\" (optional, default from config.json)\n"
+		   "\"hangup\"       Terminates the active call\n"
+		   "\"accept\"       Accepts the incoming call\n"
+		   "\"reject\"       Rejects the incoming call\n"
+		   "\"quit\"         Teminates the application\n"
+           "--------------------------------------------------------------------------\n\n"
+           );
 }

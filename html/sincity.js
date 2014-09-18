@@ -39,6 +39,7 @@ SCCall.prototype.call = function() {
             This.pc.setLocalDescription(desc, 
                 function() { 
                     console.info("setLocalDescription OK");
+                    SCUtils.raiseCallEvent(This, "info", "gathering ICE candidates...");
                 },
                 function(err) {
                     console.error("setLocalDescription:" + err);
@@ -63,7 +64,7 @@ SCCall.prototype.acceptMsg = function(msg) {
         var sdpRemote = msg.sdp.replace("UDP/TLS/RTP/SAVPF", "RTP/SAVPF");
         this.pc.setRemoteDescription(new RTCSessionDescription({ type: msg.type, sdp: sdpRemote }), 
             function() { 
-                console.info("setRemoteDescription OK"); 
+                console.info("setRemoteDescription OK");
             },
             function(err) { 
                 console.error("setRemoteDescription NOK:" + err); 
@@ -88,6 +89,7 @@ SCCall.prototype.acceptMsg = function(msg) {
                         This.pc.setLocalDescription(desc, 
                             function() { 
                                 console.info("setLocalDescription OK");
+                                SCUtils.raiseCallEvent(This, "info", "gathering ICE candidates...");
                             },
                             function(err) {
                                 console.error("setLocalDescription:" + err);
@@ -133,6 +135,10 @@ SCCall.rejectMsg = function(msg) {
     return true;
 }
 SCCall.prototype.hangup = function() {
+    if(this.pc) {
+        this.pc.close();
+        this.pc = null;
+    }
     if (!SCEngine.connected) {
         throw new Error("not connected"); 
     }
@@ -150,19 +156,26 @@ SCCall.prototype.hangup = function() {
 
 var SCWebRtcEvents = {
     onicecandidate: function(call, e) {
+        var This = call;
         if (e.candidate) { 
             call.pc.addIceCandidate(new RTCIceCandidate(e.candidate),
                 function() { console.info("addIceCandidate OK"); },
                 function(err) { 
                     console.error("addIceCandidate NOK:" + err); 
-                    SCUtils.raiseCallEvent(call, "error", err);
+                    SCUtils.raiseCallEvent(This, "error", err);
                 }
             );
         }
         else {
+            if (!call.pc) {
+                // closing the peerconnection could raise this event with null candidate --> ignore
+                console.info("ICE gathering done...but pc is null");
+                return;
+            }
             console.info("ICE gathering done");
+            SCUtils.raiseCallEvent(This, "info", "gathering ICE candidates done!");
             if (!SCEngine.connected) {
-                SCUtils.raiseCallEvent(call, "error", "ICE gathering done but signaling transport not connected");
+                SCUtils.raiseCallEvent(This, "error", "ICE gathering done but signaling transport not connected");
                 return;
             }
             var msg = 
@@ -184,6 +197,7 @@ var SCWebRtcEvents = {
         if (remoteVideo) {
             remoteVideo.src = webkitURL.createObjectURL(e.stream);
         }
+        SCUtils.raiseCallEvent(call, "info", "media started!");
     }
 };
 
