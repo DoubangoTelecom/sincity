@@ -204,7 +204,6 @@ Report issues at https://groups.google.com/group/sincity
 Next steps
   1) run 'make' to build the source
   2) run 'make install' to install binaries
-  3) run 'make samples' to install sample files (required at least once)
 -------------------------------------------------------------------------
 
 ])
