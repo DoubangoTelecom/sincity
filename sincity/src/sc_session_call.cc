@@ -7,6 +7,13 @@
 
 #include <assert.h>
 
+/**@defgroup _Group_CPP_Call Call session
+* @brief Call session class.
+*/
+
+/*
+* Converts the media type from local (SinCity) to native (Doubango). 
+*/
 static tmedia_type_t _mediaTypeToNative(SCMediaType_t mediaType)
 {
     tmedia_type_t type = tmedia_none;
@@ -20,6 +27,9 @@ static tmedia_type_t _mediaTypeToNative(SCMediaType_t mediaType)
     return type;
 }
 
+/*
+* Converts the media type from native (Doubango) to local (SinCity). 
+*/
 static SCMediaType_t _mediaTypeFromNative(tmedia_type_t mediaType)
 {
     SCMediaType_t type = SCMediaType_None;
@@ -33,6 +43,9 @@ static SCMediaType_t _mediaTypeFromNative(tmedia_type_t mediaType)
     return type;
 }
 
+/*
+* Private constructor for Call session class. You must use @ref SCSessionCall::newObj() to create new instance.
+*/
 SCSessionCall::SCSessionCall(SCObjWrapper<SCSignaling*> oSignaling, std::string strCallId /*= ""*/)
     : SCSession(SCSessionType_Call, oSignaling)
     , m_eMediaType(SCMediaType_None)
@@ -51,6 +64,9 @@ SCSessionCall::SCSessionCall(SCObjWrapper<SCSignaling*> oSignaling, std::string 
     }
 }
 
+/*
+* Call session destructor.
+*/
 SCSessionCall::~SCSessionCall()
 {
     cleanup();
@@ -58,16 +74,28 @@ SCSessionCall::~SCSessionCall()
     SC_DEBUG_INFO("*** SCSessionCall destroyed ***");
 }
 
+/*
+* Locks the session object to avoid conccurent access. The mutex is recurssive.
+*/
 void SCSessionCall::lock()
 {
     m_oMutex->lock();
 }
 
+/*
+* Unlocks the call session object. The mutex is recurssive.
+*/
 void SCSessionCall::unlock()
 {
     m_oMutex->unlock();
 }
 
+/**@ingroup _Group_CPP_Call
+* Makes a call to the specified destination id.
+* @param eMediaType The session media type. In phase1 only @ref SCMediaType_ScreenCast is supported. You can combine several media types using a binary OR(|).
+* @param strDestUserId The destination id.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCSessionCall::call(SCMediaType_t eMediaType, std::string strDestUserId)
 {
     SCAutoLock<SCSessionCall> autoLock(this);
@@ -105,6 +133,12 @@ bool SCSessionCall::call(SCMediaType_t eMediaType, std::string strDestUserId)
     return true;
 }
 
+/**@ingroup _Group_CPP_Call
+* Accepts an incoming event receive through the signaling layer. If this is an <b>offer</b> then, the incoming call will be accepted. To reject the event use @ref rejectEvent().
+* @param e The event to accept.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+* @sa @ref rejectEvent()
+*/
 bool SCSessionCall::acceptEvent(SCObjWrapper<SCSignalingCallEvent*>& e)
 {
     SCAutoLock<SCSessionCall> autoLock(this);
@@ -170,9 +204,17 @@ bail:
     return bRet;
 }
 
-bool SCSessionCall::rejectEvent(SCObjWrapper<SCSignaling*> oSignaling, SCObjWrapper<SCSignalingCallEvent*>& e)
+/**@ingroup _Group_CPP_Call
+* Rejects the incoming event received through the signaling layer. If this is an <b>offer</b> then, it will be rejects and a <b>hangup</b> message will be sent.
+* Use @ref acceptEvent() to accept the event.
+* @param signalingSession The signaling object to use to sent the <b>reject</b> message.
+* @param e The event to reject.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+* @sa @ref acceptEvent()
+*/
+bool SCSessionCall::rejectEvent(SCObjWrapper<SCSignaling*> signalingSession, SCObjWrapper<SCSignalingCallEvent*>& e)
 {
-	if (!oSignaling || !e) {
+	if (!signalingSession || !e) {
 		SC_DEBUG_ERROR("Invalid argument");
 		return false;
 	}
@@ -193,7 +235,7 @@ bool SCSessionCall::rejectEvent(SCObjWrapper<SCSignaling*> oSignaling, SCObjWrap
 			return false;
 		}
 
-		if (!oSignaling->sendData(output.c_str(), output.length())) {
+		if (!signalingSession->sendData(output.c_str(), output.length())) {
 			return false;
 		}
 	}
@@ -204,6 +246,10 @@ bool SCSessionCall::rejectEvent(SCObjWrapper<SCSignaling*> oSignaling, SCObjWrap
     return true;
 }
 
+/**@ingroup _Group_CPP_Call
+* Terminates the call session. Send <b>hangup</b> message and teardown the media sessions.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCSessionCall::hangup()
 {
     SCAutoLock<SCSessionCall> autoLock(this);
@@ -232,6 +278,10 @@ bool SCSessionCall::hangup()
     return true;
 }
 
+/*
+* Cleanup the media sessions and ICE contexts.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCSessionCall::cleanup()
 {
     SCAutoLock<SCSessionCall> autoLock(this);
@@ -246,6 +296,10 @@ bool SCSessionCall::cleanup()
     return true;
 }
 
+/*
+* Creates a new media session manager.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCSessionCall::createSessionMgr()
 {
     SCAutoLock<SCSessionCall> autoLock(this);
@@ -284,6 +338,12 @@ bool SCSessionCall::createSessionMgr()
     return true;
 }
 
+/*
+* Creates a new local SDP offer.
+* @param pc_RO Remote offer.
+* @param _eRoType Remote offer type.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCSessionCall::createLocalOffer(const struct tsdp_message_s* pc_Ro /*= NULL*/, SCRoType _eRoType /*= 0*/)
 {
     SCAutoLock<SCSessionCall> autoLock(this);
@@ -323,6 +383,10 @@ bool SCSessionCall::createLocalOffer(const struct tsdp_message_s* pc_Ro /*= NULL
     return true;
 }
 
+/*
+* Creates the ICE contexts. There will be as meany contexts as sessions (one per RTP session).
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCSessionCall::iceCreateCtx()
 {
     SCAutoLock<SCSessionCall> autoLock(this);
@@ -380,6 +444,11 @@ bool SCSessionCall::iceCreateCtx()
     return true;
 }
 
+/*
+* Sets the ICE timeouts.
+* @param timeout Timeout value. Negative number means endless.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCSessionCall::iceSetTimeout(int32_t timeout)
 {
     SCAutoLock<SCSessionCall> autoLock(this);
@@ -393,20 +462,27 @@ bool SCSessionCall::iceSetTimeout(int32_t timeout)
     return true;
 }
 
-bool SCSessionCall::iceGotLocalCandidates(struct tnet_ice_ctx_s *p_IceCtx)
+/*
+* Checks whether gathering ICE candidates (host, reflexive and relayed) is done.
+* @param p_IceCtx ICE context for which to check the gathering state. NULL means check for all contexts
+* @retval <b>true</b> if done; otherwise <b>false</b>.
+*/
+bool SCSessionCall::iceGotLocalCandidates(struct tnet_ice_ctx_s *p_IceCtx /*= NULL*/)
 {
     SCAutoLock<SCSessionCall> autoLock(this);
 
-    return (!tnet_ice_ctx_is_active(p_IceCtx) || tnet_ice_ctx_got_local_candidates(p_IceCtx));
+	if (p_IceCtx) {
+		return (!tnet_ice_ctx_is_active(p_IceCtx) || tnet_ice_ctx_got_local_candidates(p_IceCtx));
+	}
+	return iceGotLocalCandidates(m_pIceCtxAudio) && iceGotLocalCandidates(m_pIceCtxVideo);
 }
 
-bool SCSessionCall::iceGotLocalCandidates()
-{
-    SCAutoLock<SCSessionCall> autoLock(this);
-
-    return iceGotLocalCandidates(m_pIceCtxAudio) && iceGotLocalCandidates(m_pIceCtxVideo);
-}
-
+/*
+* Process the SDP sent by the remote peer.
+* @param pc_SdpRo the SDP.
+* @param isOffer Whether it's an offer (<b>true</b>:offer, <b>false</b>:answer).
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCSessionCall::iceProcessRo(const struct tsdp_message_s* pc_SdpRo, bool isOffer)
 {
     SCAutoLock<SCSessionCall> autoLock(this);
@@ -467,6 +543,10 @@ bool SCSessionCall::iceProcessRo(const struct tsdp_message_s* pc_SdpRo, bool isO
     return (ret == 0);
 }
 
+/*
+* Checks that both ICE gathering and connection checks are dones.
+* @retval <b>true</b> if done; otherwise <b>false</b>.
+*/
 bool SCSessionCall::iceIsDone()
 {
     SCAutoLock<SCSessionCall> autoLock(this);
@@ -475,6 +555,11 @@ bool SCSessionCall::iceIsDone()
            && (!tnet_ice_ctx_is_active(m_pIceCtxVideo) || tnet_ice_ctx_is_connected(m_pIceCtxVideo));
 }
 
+/*
+* Checks whether ICE is enabled.
+* @param pc_Sdp SDP sent by the remote peer for which to check if ICE is enabled (looks for SDP "a=candidate" candidates).
+* @retval <b>true</b> if enabled; otherwise <b>false</b>.
+*/
 bool SCSessionCall::iceIsEnabled(const struct tsdp_message_s* pc_Sdp)
 {
     SCAutoLock<SCSessionCall> autoLock(this);
@@ -494,6 +579,10 @@ bool SCSessionCall::iceIsEnabled(const struct tsdp_message_s* pc_Sdp)
     return isEnabled;
 }
 
+/*
+* Starts the ICE contexts.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCSessionCall::iceStart()
 {
     SCAutoLock<SCSessionCall> autoLock(this);
@@ -524,6 +613,11 @@ bool SCSessionCall::iceStart()
     return true;
 }
 
+/*
+* ICE callback function
+* @param e New event.
+* @retval <b>0</b> if no error; otherwise <b>error code</b>.
+*/
 int SCSessionCall::iceCallback(const struct tnet_ice_event_s *e)
 {
     int ret = 0;
@@ -587,6 +681,10 @@ int SCSessionCall::iceCallback(const struct tnet_ice_event_s *e)
     return ret;
 }
 
+/*
+* Sends the pending SDP.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCSessionCall::sendSdp()
 {
     SCAutoLock<SCSessionCall> autoLock(this);
@@ -636,21 +734,32 @@ bool SCSessionCall::sendSdp()
     return true;
 }
 
-SCObjWrapper<SCSessionCall*> SCSessionCall::newObj(SCObjWrapper<SCSignaling*> oSignaling)
+/**@ingroup _Group_CPP_Call
+* Creates a new call session ex-nihilo. This kind of session must be created to make an initial outgoing call.
+* @param signalingSession The signaling session to use.
+* @retval <b>newobject</b> if no error; otherwise <b>NULL</b>.
+*/
+SCObjWrapper<SCSessionCall*> SCSessionCall::newObj(SCObjWrapper<SCSignaling*> signalingSession)
 {
-    if (!oSignaling) {
+    if (!signalingSession) {
         SC_DEBUG_ERROR("Invalid argument");
         return NULL;
     }
 
-    SCObjWrapper<SCSessionCall*> oCall = new SCSessionCall(oSignaling);
+    SCObjWrapper<SCSessionCall*> oCall = new SCSessionCall(signalingSession);
 
     return oCall;
 }
 
-SCObjWrapper<SCSessionCall*> SCSessionCall::newObj(SCObjWrapper<SCSignaling*> oSignaling, SCObjWrapper<SCSignalingCallEvent*>& offer)
+/**@ingroup _Group_CPP_Call
+* Creates a new call session from an offer. This kind of session must be created to accept an offer. Use @ref rejectEvent() to reject the offer.
+* @param signalingSession The signaling session to use.
+* @param offer The offer.
+* @retval <b>newobject</b> if no error; otherwise <b>NULL</b>.
+*/
+SCObjWrapper<SCSessionCall*> SCSessionCall::newObj(SCObjWrapper<SCSignaling*> signalingSession, SCObjWrapper<SCSignalingCallEvent*>& offer)
 {
-    if (!oSignaling) {
+    if (!signalingSession) {
         SC_DEBUG_ERROR("Invalid argument");
         return NULL;
     }
@@ -659,7 +768,7 @@ SCObjWrapper<SCSessionCall*> SCSessionCall::newObj(SCObjWrapper<SCSignaling*> oS
         return NULL;
     }
 
-    SCObjWrapper<SCSessionCall*> oCall = new SCSessionCall(oSignaling, offer->getCallId());
+    SCObjWrapper<SCSessionCall*> oCall = new SCSessionCall(signalingSession, offer->getCallId());
     if (oCall) {
         oCall->m_strDestUserId = offer->getFrom();
     }
