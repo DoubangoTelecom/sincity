@@ -49,13 +49,18 @@ private:
 	std::string m_strTransacId;
 };
 
+/**@ingroup _Group_CPP_Signaling
+* Callback class for the signaling session. You must override this call.
+*/
 class SCSignalingCallback : public SCObj
 {
 protected:
 	SCSignalingCallback() {}
 public:
 	virtual ~SCSignalingCallback() {}
+	/** Raised to signal events releated to the network connection states */
 	virtual bool onEventNet(SCObjWrapper<SCSignalingEvent*>& e) = 0;
+	/** Raised to signal events related to the call states */
 	virtual bool onEventCall(SCObjWrapper<SCSignalingCallEvent*>& e) = 0;
 };
 
