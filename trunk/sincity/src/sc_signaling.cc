@@ -277,10 +277,15 @@ bool SCSignaling::handleData(const char* pcData, tsk_size_t nDataSize)
     SC_JSON_GET(root, to, "to", isString, false);
 
     if (to.asString() != SCEngine::s_strCredUserId) {
-        SC_DEBUG_INFO_EX(kSCMobuleNameSignaling, "Failed to match destination id: '%s'<>'%s'", to.asString().c_str(), SCEngine::s_strCredUserId.c_str());
+		if (from.asString() == SCEngine::s_strCredUserId) {
+			SC_DEBUG_INFO_EX(kSCMobuleNameSignaling, "Ignoring loopback message with type='%s', call-id='%s', to='%s'", type.asCString(), cid.asCString(), to.asCString());
+		}
+		else {
+			SC_DEBUG_INFO_EX(kSCMobuleNameSignaling, "Failed to match destination id: '%s'<>'%s'", to.asCString(), SCEngine::s_strCredUserId.c_str());
+		}
         return false;
     }
-
+	
     bool bIsCallEventRequiringSdp = (type.asString().compare("offer") == 0 || type.asString().compare("answer") == 0 || type.asString().compare("pranswer") == 0);
     if (bIsCallEventRequiringSdp || type.asString().compare("hangup") == 0) {
         if (m_oSignCallback) {
