@@ -9,6 +9,10 @@
 
 #include <assert.h>
 
+/**@defgroup _Group_CPP_Signaling Signaling
+* @brief Signaling session class.
+*/
+
 #define SC_JSON_GET(fieldParent, fieldVarName, fieldName, typeTestFun, couldBeNull) \
 	if(!fieldParent.isObject()) \
 	{ \
@@ -30,6 +34,9 @@
 		return false; \
 	}
 
+/*
+* Protected constructor to create new signaling session.
+*/
 SCSignaling::SCSignaling(SCObjWrapper<SCNetTransport*>& oNetTransport, SCObjWrapper<SCUrl*>& oConnectionUrl)
     : m_oNetTransport(oNetTransport)
     , m_oConnectionUrl(oConnectionUrl)
@@ -46,29 +53,49 @@ SCSignaling::SCSignaling(SCObjWrapper<SCNetTransport*>& oNetTransport, SCObjWrap
     m_oNetTransport->setCallback(*m_oNetCallback);
 }
 
+/*
+* Signaling session destructor.
+*/
 SCSignaling::~SCSignaling()
 {
     TSK_FREE(m_pWsSendBufPtr);
 }
 
+/*
+* Locks the signaling session object to avoid conccurent access. The mutex is recurssive.
+*/
 void SCSignaling::lock()
 {
     m_oMutex->lock();
 }
 
+/*
+* Unlocks the signaling session object. The mutex is recurssive.
+*/
 void SCSignaling::unlock()
 {
     m_oMutex->unlock();
 }
 
-bool SCSignaling::setCallback(SCObjWrapper<SCSignalingCallback*> oCallback)
+/**@ingroup _Group_CPP_Signaling
+* Sets the callback object.
+* @param callback Callback object.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
+bool SCSignaling::setCallback(SCObjWrapper<SCSignalingCallback*> callback)
 {
     SCAutoLock<SCSignaling> autoLock(this);
 
-    m_oSignCallback = oCallback;
+    m_oSignCallback = callback;
     return true;
 }
 
+/**@ingroup _Group_CPP_Signaling
+* Checks whether the signaling session is connected to the network. Being connected doesn't mean the handshaking is done.
+* Use @ref isReady() to check if the session is ready to send/receive data.
+* @retval <b>true</b> if connected; otherwise <b>false</b>.
+* @sa @ref isReady()
+*/
 bool SCSignaling::isConnected()
 {
     SCAutoLock<SCSignaling> autoLock(this);
@@ -76,6 +103,11 @@ bool SCSignaling::isConnected()
     return m_oNetTransport->isConnected(m_Fd);
 }
 
+/**@ingroup _Group_CPP_Signaling
+* Checks whether the signaling session is ready to send/receive data. A signaling session using WebSocket transport will be ready when the handshaking is done.
+* @retval <b>true</b> if ready; otherwise <b>false</b>.
+* @sa @ref isConnected()
+*/
 bool SCSignaling::isReady()
 {
     SCAutoLock<SCSignaling> autoLock(this);
@@ -89,6 +121,12 @@ bool SCSignaling::isReady()
     return true;
 }
 
+/**@ingroup _Group_CPP_Signaling
+* Connects the signaling session to the remove server. The connection will be done asynchronously and you need to use @ref setCallback() to register a new callback
+* object to listen for network events. When WebSocket transport is used this function will start the handshaking phase once the TCP/TLS socket is connected.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+* @sa @ref disConnect()
+*/
 bool SCSignaling::connect()
 {
     SCAutoLock<SCSignaling> autoLock(this);
@@ -109,6 +147,11 @@ bool SCSignaling::connect()
     return SCNetFd_IsValid(m_Fd);
 }
 
+/**@ingroup _Group_CPP_Signaling
+* Disconnect the signaling session.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+* @sa @ref connect()
+*/
 bool SCSignaling::disConnect()
 {
     SCAutoLock<SCSignaling> autoLock(this);
@@ -123,6 +166,12 @@ bool SCSignaling::disConnect()
     return true;
 }
 
+/**@ingroup _Group_CPP_Signaling
+* Sends data to the server.
+* @param _pcData Pointer to the data to send.
+* @param _nDataSize Size (in bytes) of the data to send.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCSignaling::sendData(const void* _pcData, tsk_size_t _nDataSize)
 {
     SCAutoLock<SCSignaling> autoLock(this);
@@ -132,8 +181,8 @@ bool SCSignaling::sendData(const void* _pcData, tsk_size_t _nDataSize)
         return false;
     }
 
-    if (!isConnected()) {
-        SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "Not connected yet");
+    if (!isReady()) {
+        SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "Not ready yet");
         return false;
     }
 
@@ -210,6 +259,13 @@ bool SCSignaling::sendData(const void* _pcData, tsk_size_t _nDataSize)
     }
 }
 
+/**@ingroup _Group_CPP_Signaling
+* Creates new signaling session object.
+* @param pcRequestUri A valid request URI (e.g. <b>ws://localhost:9000/wsStringStaticMulti?roomId=0</b>).
+* @param pcLocalIP Local IP address to bind to. Best one will be used if not defined.
+* @param nLocalPort Local Port to bind to. Best one will be used if not defined.
+* @retval <b>newobject</b> if no error; otherwise <b>NULL</b>.
+*/
 SCObjWrapper<SCSignaling*> SCSignaling::newObj(const char* pcRequestUri, const char* pcLocalIP /*= NULL*/, unsigned short nLocalPort /*= 0*/)
 {
     SCObjWrapper<SCSignaling*> oSignaling;
@@ -256,6 +312,12 @@ bail:
     return oSignaling;
 }
 
+/*
+* Process incoming data
+* @param pcData
+* @param nDataSize
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCSignaling::handleData(const char* pcData, tsk_size_t nDataSize)
 {
     SCAutoLock<SCSignaling> autoLock(this);
@@ -310,6 +372,12 @@ bool SCSignaling::handleData(const char* pcData, tsk_size_t nDataSize)
     return true;
 }
 
+/*
+* Raises an event.
+* @param eType
+* @param strDescription
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCSignaling::raiseEvent(SCSignalingEventType_t eType, std::string strDescription)
 {
     SCAutoLock<SCSignaling> autoLock(this);

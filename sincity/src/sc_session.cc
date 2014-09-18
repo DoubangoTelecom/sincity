@@ -2,6 +2,10 @@
 
 #include <assert.h>
 
+/**@defgroup _Group_CPP_Session Base session
+* @brief Base session class.
+*/
+
 SCSession::SCSession(SCSessionType_t eType, SCObjWrapper<SCSignaling*> oSignaling)
     : m_eType(eType)
     , m_oSignaling(oSignaling)

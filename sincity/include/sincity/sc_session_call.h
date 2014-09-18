@@ -40,7 +40,8 @@ private:
 
 	bool iceCreateCtx();
 	bool iceSetTimeout(int32_t timeout);
-	bool iceGotLocalCandidates(struct tnet_ice_ctx_s *p_IceCtx = NULL);
+	bool iceGotLocalCandidates(struct tnet_ice_ctx_s *p_IceCtx);
+	bool iceGotLocalCandidatesAll();
 	bool iceProcessRo(const struct tsdp_message_s* pc_SdpRo, bool isOffer);
 	bool iceIsDone();
 	bool iceIsEnabled(const struct tsdp_message_s* pc_Sdp);
