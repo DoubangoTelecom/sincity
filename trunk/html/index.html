@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>GE WebRTC viewer (Phase 1: Google Chrome only)</title>
+    <title>GEWebRTC (Phase 1: Google Chrome only)</title>
     <script src="sincity.js" type="text/javascript"> </script>
 </head>
 
@@ -11,7 +11,7 @@ var pendingOffer = null;
 
 function save() {
     window.localStorage.setItem('sincity.conn_url', txtConnUrl.value);
-    window.localStorage.setItem('sincity.local_id', txtLocalId.value);
+    window.localStorage.setItem('sincity.localId', txtLocalId.value);
     window.localStorage.setItem('sincity.remote_id', txtRemoteId.value);
 }
 
@@ -20,8 +20,8 @@ function connect() {
     
     SCEngine.init (
         { 
-            "local_id": txtLocalId.value,
-            "remote_video": remoteVideo,
+            "localId": txtLocalId.value,
+            "remoteVideo": remoteVideo,
             "iceServers":  [{ url: 'stun:stun.l.google.com:19302' }]
         }
     );
@@ -70,7 +70,7 @@ function disconnect() {
 
 window.onload = function() {
     txtConnUrl.value = window.localStorage.getItem('sincity.conn_url') || "ws://ns313841.ovh.net:9000/wsStringStaticMulti?roomId=0";
-    txtLocalId.value = window.localStorage.getItem('sincity.local_id') || "002";
+    txtLocalId.value = window.localStorage.getItem('sincity.localId') || "002";
     txtRemoteId.value = window.localStorage.getItem('sincity.remote_id') || "001";
 
     SCEngine.onconnected = function() {
