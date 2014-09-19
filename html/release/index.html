@@ -35,6 +35,7 @@ function call() {
         callSession.hangup();
         callSession = null;
         btnCall.value = "call";
+        txtInfo.innerHTML = "Call terminated";
         return;
     }
     
@@ -71,12 +72,12 @@ window.onload = function() {
     txtConnUrl.value = window.localStorage.getItem('sincity.conn_url') || "ws://ns313841.ovh.net:9000/wsStringStaticMulti?roomId=0";
     txtLocalId.value = window.localStorage.getItem('sincity.local_id') || "002";
     txtRemoteId.value = window.localStorage.getItem('sincity.remote_id') || "001";
-    
+
     SCEngine.onconnected = function() {
         btnConnect.disabled = true;
         btnDisConnect.disabled = false;
         btnCall.disabled = false;
-        
+
         txtInfo.innerHTML = "<font color='green'>Connected</font>";
     }
 
@@ -84,12 +85,12 @@ window.onload = function() {
         btnConnect.disabled = false;
         btnDisConnect.disabled = true;
         btnCall.disabled = true;
-        
+
         txtInfo.innerHTML = "<font color='red'>Disconnected</font>";
     }
 
     SCEngine.oncall = function(e) {
-        switch(e.type) {
+        switch (e.type) {
             case "offer":
                 {
                     // to reject the call:
@@ -135,6 +136,11 @@ window.onload = function() {
                     }
                     break;
                 }
+            case "info":
+                {
+                    txtInfo.innerHTML = "<font color='gray'>" + e.description + "</font>";
+                    break;
+                }
         }
     }
 }
@@ -157,7 +163,7 @@ window.onload = function() {
             <td style="width: 100%;"><input type="text" style="width: 100%;" id="txtRemoteId"/></td>
         </tr>
         <tr>
-            <td><label style="width: 100%;" align="center" id="txtInfo"> </label></td>
+            <td colspan="2"><label style="width: 100%;" id="txtInfo"> </label></td>
         </tr>
     </table>
     <br />

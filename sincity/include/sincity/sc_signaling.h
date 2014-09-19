@@ -9,6 +9,9 @@
 
 class SCSignaling;
 
+/**@ingroup _Group_CPP_Signaling
+* Signaling event.
+*/
 class SCSignalingEvent : public SCObj
 {
 	friend class SCSignaling;
@@ -17,7 +20,9 @@ public:
 	virtual ~SCSignalingEvent() {}
 	virtual SC_INLINE const char* getObjectId() { return "SCSignalingEvent"; }
 
+	/**< The event type */
 	virtual SC_INLINE SCSignalingEventType_t getType()const { return m_eType; }
+	/**< The event description */
 	virtual SC_INLINE std::string getDescription()const { return m_strDescription; }
 
 private:
@@ -25,6 +30,10 @@ private:
 	std::string m_strDescription;
 };
 
+
+/**@ingroup _Group_CPP_Signaling
+* Signaling event for call sessions.
+*/
 class SCSignalingCallEvent : public SCSignalingEvent
 {
 	friend class SCSignaling;
@@ -33,11 +42,17 @@ public:
 	virtual ~SCSignalingCallEvent();
 	virtual SC_INLINE const char* getObjectId() { return "SCSignalingCallEvent"; }
 
+	/**< The event type. e.g. "offer", "answer", "hangup"... */
 	SC_INLINE std::string getType() { return m_strType; }
+	/**< The source identifier */ 
 	SC_INLINE std::string getFrom() { return m_strFrom; }
+	/**< The destination identifier */
 	SC_INLINE std::string getTo() { return m_strTo; }
+	/**< The call identifier */
 	SC_INLINE std::string getCallId() { return m_strCallId; }
+	/**< The transaction identifier */
 	SC_INLINE std::string getTransacId() { return m_strTransacId; }
+	/**< The session description. Could be NULL. */
 	SC_INLINE std::string getSdp() { return m_strSdp; }
 
 private:

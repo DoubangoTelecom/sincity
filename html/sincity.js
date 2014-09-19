@@ -1,32 +1,67 @@
+/**
+@fileoverview This is SinCity WebRTC "library".
+
+@name        libsincity
+@author      Doubango Telecom
+@version     1.0.0
+*/
+
 var RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
 var RTCSessionDescription = window.RTCSessionDescription || window.mozRTCSessionDescription || window.webkitRTCSessionDescription;
 var RTCIceCandidate = window.RTCIceCandidate || window.mozRTCIceCandidate || window.webkitRTCIceCandidate;
 var WebSocket = (window['MozWebSocket'] || window['MozWebSocket'] || WebSocket);
 
+/**
+@namespace
+@description Engine
+*/
 var SCEngine = {
+    /**
+    Raised when the engine is connected to the signaling server.
+    @event
+    */
     onconnected: null,
+    /**
+    Raised when the engine is disconnected to the signaling server.
+    @event
+    */
     ondisconnected: null,
+     /**
+    Raised to signal an event related to a call session.
+    @event
+    @param {SCEventCall} e The event.
+    */
     oncall: null,
     
-    socket: null,
-    config: null,
-    connected: false
+    /** @private */socket: null,
+    /** @private */config: null,
+    /** @private */connected: false
 };
+/**
+@namespace
+@description Call session
+*/
 var SCCall = function (){
     /*from: null,
     to: null,
     cid: null,
     tid: null,
     pc: null,
-    remote_video:null,
+    remoteVideo:null,
     pendingOffer:null*/
 };
+/**
+Makes an outgoing call.
+@returns {Boolean} <i>true</i> if succeed; otherwise <i>false</i>
+@throws {ERR_NOT_CONNECTED}
+@throws {ERR_NOT_ALREADY_INCALL}
+*/
 SCCall.prototype.call = function() {
     if (!SCEngine.connected) {
         throw new Error("not connected"); 
     }
     if (this.pc) {
-        throw new Error("already connected"); 
+        throw new Error("already in call"); 
     }
     
     var This = this;
@@ -55,6 +90,12 @@ SCCall.prototype.call = function() {
     return true;
 }
 
+/**
+Accepts an incoming message received from the signaling server.
+@param {SCMessage} message The message to accept.
+@throws {ERR_NOT_CONNECTED}
+@throws {ERR_NOT_NOT_IMPLEMENTED}
+*/
 SCCall.prototype.acceptMsg = function(msg) {
     if (!SCEngine.connected) {
         throw new Error("not connected"); 
@@ -119,6 +160,11 @@ SCCall.prototype.acceptMsg = function(msg) {
     }
     return true;
 }
+/**
+Rejects an incoming message received from the signaling server.
+@param {SCMessage} message The message to reject.
+@throws {ERR_NOT_CONNECTED}
+*/
 SCCall.rejectMsg = function(msg) {
     if (!SCEngine.connected) {
         throw new Error("not connected"); 
@@ -134,6 +180,10 @@ SCCall.rejectMsg = function(msg) {
     SCEngine.socket.send(msg_text);
     return true;
 }
+/**
+Terminates the call session.
+@throws {ERR_NOT_CONNECTED}
+*/
 SCCall.prototype.hangup = function() {
     if(this.pc) {
         this.pc.close();
@@ -154,6 +204,7 @@ SCCall.prototype.hangup = function() {
     return true;
 }
 
+/** @private */
 var SCWebRtcEvents = {
     onicecandidate: function(call, e) {
         var This = call;
@@ -193,14 +244,21 @@ var SCWebRtcEvents = {
         }
     },
     onaddstream: function(call, e) {
-        var remoteVideo = (call.remote_video || SCEngine.config.remote_video);
+        var remoteVideo = (call.remoteVideo || SCEngine.config.remoteVideo);
         if (remoteVideo) {
-            remoteVideo.src = webkitURL.createObjectURL(e.stream);
+            if (window.webkitURL) { // Chrome
+                remoteVideo.src = webkitURL.createObjectURL(e.stream);
+            }
+            else if (remoteVideo.mozSrcObject) { // FF
+                remoteVideo.mozSrcObject = e.stream;
+                remoteVideo.play();
+            }
         }
         SCUtils.raiseCallEvent(call, "info", "media started!");
     }
 };
 
+/** @private */
 var SCUtils = {
     stringFormat: function(s_str) {
         for (var i = 1; i < arguments.length; i++) {
@@ -250,10 +308,19 @@ var SCUtils = {
     },
 };
 
+/**
+Initialize the engine. Must be the first function to call.
+@param {SCConfigEngine} config
+*/
 SCEngine.init = function(config) {
     SCEngine.config = config;
 }
 
+/**
+Connects to the signaling server. Must be called before making any call.
+@param {String} url A WebSocket URL.e.g. "ws://localhost:9000/wsStringStaticMulti?roomId=0"
+@throws {ERR_ALREADY_CONNECTED}
+*/
 SCEngine.connect = function(url) {
     console.info("connecting to: " + url);
     if (SCEngine.socket) {
@@ -282,7 +349,7 @@ SCEngine.connect = function(url) {
         var msg = JSON.parse(e.data);
         if (msg)
         {
-            if (msg.from == SCEngine.config.local_id) {
+            if (msg.from == SCEngine.config.localId) {
                 console.info("message loopback for " + msg.from);
                 return;
             }
@@ -306,7 +373,7 @@ SCEngine.newCall = function(dest) {
     var newCall;
     if (typeof dest == "string") { 
         newCall = new SCCall();
-        newCall.from = SCEngine.config.local_id;
+        newCall.from = SCEngine.config.localId;
         newCall.to = dest;
         newCall.cid = SCUtils.stringRandomUuid();
         newCall.tid = SCUtils.stringRandomUuid();
@@ -320,3 +387,36 @@ SCEngine.newCall = function(dest) {
     }
     return newCall;
 }
+
+
+/**
+JSON message from the server.
+@namespace SCMessage
+@name SCMessage
+@property {String} type The message type. Possible values: "offer", "answer", "pranswer" or "hangup". <b>Required</b>.
+@property {String} to The destination identifer. <b>Required</b>.
+@property {String} from The source identifier. <b>Required</b>.
+@property {String} cid The call (dialog) id. <b>Required</b>.
+@property {String} tid The transaction id. <b>Required</b>.
+@property {String} sdp The session description. <i>Optional</i>.
+*/
+
+/**
+Event object.
+@namespace SCEventCall
+@name SCEventCall
+@property {String} type The event type. Possible values: "offer", "answer", "pranswer", "hangup", "error" or "info".
+@property {SCCall} call The call object associated to this event.
+@property {String} description The event description.
+@property {SCMessage} msg The message associated to this event.
+*/
+
+/**
+Engine configuration object.
+@namespace SCConfigEngine
+@name SCConfigEngine
+@property {String} localId Local user/device identifier.
+@property {HTMLVideoElement} remoteVideo HTML5 <video /> element used to display the video sent by the remote party.
+@property {Array} iceServers Array of STUN/TURN servers to use. The format is as explained at http://www.w3.org/TR/webrtc/#rtciceserver-type  
+Example: [{ url: 'stun:stun.l.google.com:19302'}, { url:'turn:user@numb.viagenie.ca', credential:'myPassword'}] 
+*/
