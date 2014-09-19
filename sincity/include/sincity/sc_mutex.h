@@ -2,9 +2,8 @@
 #define SINCITY_MUTEX_H
 
 #include "sc_config.h"
+#include "sincity/sc_common.h"
 #include "sincity/sc_obj.h"
-
-#include "tsk_mutex.h"
 
 class SCMutex : public SCObj
 {	
@@ -16,7 +15,7 @@ public:
 	bool unlock();
 
 private:
-	tsk_mutex_handle_t* m_phOTMutex;
+	SCNativeMutexHandle_t* m_phOTMutex;
 };
 
 #endif /* SINCITY_MUTEX_H */

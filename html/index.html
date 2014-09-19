@@ -42,11 +42,11 @@ function call() {
     if (pendingOffer) { // is there a pending offer?
         var po = pendingOffer;
         pendingOffer = null;
-        callSession = SCEngine.newCall(po);
+        callSession = SCCall.build(po);
         callSession.acceptMsg(po);
     }
     else {
-        callSession = SCEngine.newCall(txtRemoteId.value);
+        callSession = SCCall.build(txtRemoteId.value);
         if (!callSession) {
             txtInfo.innerHTML = "<font color='red'>Failed to make call(1)</font>";
             return;

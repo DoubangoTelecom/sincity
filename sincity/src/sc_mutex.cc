@@ -1,5 +1,7 @@
 #include "sincity/sc_mutex.h"
 
+#include "tsk_mutex.h"
+
 SCMutex::SCMutex(bool bRecursive /*= true*/)
 {
     m_phOTMutex = tsk_mutex_create_2(bRecursive ? tsk_true : tsk_false);

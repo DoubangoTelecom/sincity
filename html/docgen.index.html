@@ -1,17 +1,12 @@
 ﻿<!DOCTYPE html>
-<!--
-* Copyright (C) 2012 Doubango Telecom <http://www.doubango.org>
-* License: BSD
-* This file is part of Open Source sipML5 solution <http://www.sipml5.org>
--->
 <html>
 <!-- head -->
 <head>
     <meta charset="utf-8" />
-    <title>sipML5 Programmer's guide</title>
+    <title>GEWebRTC JS API</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="Keywords" content="doubango, sipML5, VoIP, HTML5, WebRTC, RTCWeb, SIP, IMS, Video chat, VP8, live demo " />
-    <meta name="Description" content="HTML5 SIP client using WebRTC framework" />
+    <meta name="Keywords" content="GE, WebRTC " />
+    <meta name="Description" content="GEWebRTC JS API" />
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta name="author" content="Doubango Telecom" />
 
@@ -40,10 +35,11 @@
                 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
                     class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                 </a>
-                <a class="brand" href="./index.html">Doubango Telecom</a>
+                <a class="brand" href="docgen/symbols/_global_.html">JS API</a>
                 <div class="nav-collapse">
                     <ul class="nav">
-                        <li><a href="../index.html?svn=224">Home</a></li>
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="/sincity/">Sample</a></li>
                     </ul>
                 </div>
                 <!--/.nav-collapse -->
@@ -53,14 +49,10 @@
     <div class="container">
         <h1>Forword</h1>
         <p>
-            This document has been written by us (<a href="http://www.doubango.org">Doubango Telecom</a>) to help developers to quickly create innovative multimedia applications
-            for the desktop and mobile platforms. If you are a developer and is looking for the best way to develop a plugin-free NGN (VoIP, Messaging, Video Conferencing, ...) applications for these platforms
-            then, your are at the right place. <br />
-            If you want to get help or have some feedbacks then please visit the <a href="http://code.google.com/p/sipml5/">developer's website</a> or subscribe to our <a href="http://groups.google.com/group/doubango/"> developer mailing list</a>. <br />
-            We highly recommend checking other SIPML5 components: <a target=_blank href="http://www.webrtc2sip.org">webrtc2sip</a>, <a target=_blank href="http://click2dial.org">click-to-call</a>, <a target=_blank href="http://code.google.com/p/webrtc4all/">webrtc4all</a> and <a target=_blank href="http://conf-call.org/">SIP TelePresence (Video Group chat) client</a>. <br />
-            <br />
+            This is a short document explaining how to use the JavaScript API.
+            <br /> <br /> 
             <font size="3">
-                <strong>The complete API is available <a href="docgen/symbols/SIPml.html">here</a></strong><br/>
+                <strong>The complete API is available <a href="docgen/symbols/_global_.html">here</a></strong><br/>
             </font>
         </p>
         <hr />
@@ -88,7 +80,7 @@
         <h1>Programing with the API</h1>
         <p>
             This section is a quick overview of the main features and may lack details. For more information on each function please click on it. <br />
-            A fully featured demo is hosted at <a href="http://sipml5.org/call.htm">http://sipml5.org/call.htm</a>.<br />
+            A demo is hosted <a href="/sincity/">here</a>.<br />
             Below, a very compact code showing how to initialize the engine, start the stack and make video call from <i>bob</i> to <i>alice</i> in <b>less than 15 lines</b>:
         </p>
         <pre><code>

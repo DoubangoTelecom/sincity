@@ -44,7 +44,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="../sincity/include;..\..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\..\doubango\branches\2.0\doubango\thirdparties\common\include;..\..\doubango\branches\2.0\doubango\tinyNET\src;..\..\doubango\branches\2.0\doubango\tinySAK\src;..\..\doubango\branches\2.0\doubango\tinyHTTP\include"
+				AdditionalIncludeDirectories="../sincity/include;..\..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\..\doubango\branches\2.0\doubango\thirdparties\common\include;..\..\doubango\branches\2.0\doubango\tinySAK\src"
 				PreprocessorDefinitions="WIN32;_DEBUG;_CONSOLE;TINYSAK_IMPORTS_IGNORE;TINYHTTP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;TINYDAV_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -121,7 +121,7 @@
 				Name="VCCLCompilerTool"
 				ExecutionBucket="7"
 				Optimization="0"
-				AdditionalIncludeDirectories="../sincity/include;../thirdparties\wince\include;../thirdparties\common\include;..\..\doubango\branches\2.0\doubango\tinyNET\src;..\..\doubango\branches\2.0\doubango\tinySAK\src;..\..\doubango\branches\2.0\doubango\tinyHTTP\include"
+				AdditionalIncludeDirectories="../sincity/include;../thirdparties\wince\include;../thirdparties\common\include;..\..\doubango\branches\2.0\doubango\tinySAK\src"
 				PreprocessorDefinitions="_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;_DEBUG;_CONSOLE;TINYSAK_IMPORTS_IGNORE;TINYHTTP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;TINYDAV_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
 				MinimalRebuild="true"
 				RuntimeLibrary="1"
