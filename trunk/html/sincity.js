@@ -204,6 +204,31 @@ SCCall.prototype.hangup = function() {
     return true;
 }
 
+/**
+Builds a new <a href="SCCall.html">SCCall</a> object.
+@param {String / SCMessage} dest Could be a <b>String</b> or a <a href="SCMessage.html">SCMessage</a> object with <a href="SCMessage.html#type">type</a> equal to "offer". <br />
+The <b>String</b> verstion is for outgoing calls while the <a href="SCMessage.html">SCMessage</a> version is for incoming calls.
+@returns {SCCall} new call session.
+*/
+SCCall.build = function(dest) {
+    var newCall;
+    if (typeof dest == "string") { 
+        newCall = new SCCall();
+        newCall.from = SCEngine.config.localId;
+        newCall.to = dest;
+        newCall.cid = SCUtils.stringRandomUuid();
+        newCall.tid = SCUtils.stringRandomUuid();
+    }
+    else if (dest.type == "offer"){
+        newCall = new SCCall();
+        newCall.from = dest.to;
+        newCall.to = dest.from;
+        newCall.cid = dest.cid;
+        newCall.tid = dest.tid;
+    }
+    return newCall;
+}
+
 /** @private */
 var SCWebRtcEvents = {
     onicecandidate: function(call, e) {
@@ -361,6 +386,9 @@ SCEngine.connect = function(url) {
     return true;
 }
 
+/**
+Disconnect the engine from the signaling server.
+*/
 SCEngine.disconnect = function() {
     if (SCEngine.socket) {
         SCEngine.socket.close();
@@ -368,26 +396,6 @@ SCEngine.disconnect = function() {
     }
     return true;
 }
-
-SCEngine.newCall = function(dest) {
-    var newCall;
-    if (typeof dest == "string") { 
-        newCall = new SCCall();
-        newCall.from = SCEngine.config.localId;
-        newCall.to = dest;
-        newCall.cid = SCUtils.stringRandomUuid();
-        newCall.tid = SCUtils.stringRandomUuid();
-    }
-    else if (dest.type == "offer"){
-        newCall = new SCCall();
-        newCall.from = dest.to;
-        newCall.to = dest.from;
-        newCall.cid = dest.cid;
-        newCall.tid = dest.tid;
-    }
-    return newCall;
-}
-
 
 /**
 JSON message from the server.
@@ -416,7 +424,7 @@ Engine configuration object.
 @namespace SCConfigEngine
 @name SCConfigEngine
 @property {String} localId Local user/device identifier.
-@property {HTMLVideoElement} remoteVideo HTML5 <video /> element used to display the video sent by the remote party.
-@property {Array} iceServers Array of STUN/TURN servers to use. The format is as explained at http://www.w3.org/TR/webrtc/#rtciceserver-type  
+@property {HTMLVideoElement} [remoteVideo] <a href="https://developer.mozilla.org/en-US/docs/DOM/HTMLVideoElement">HTMLVideoElement<a> where to display the remote video stream.
+@property {Array} iceServers Array of STUN/TURN servers to use. The format is as explained at <a href="http://www.w3.org/TR/webrtc/#rtciceserver-type" target=_blank>http://www.w3.org/TR/webrtc/#rtciceserver-type</a> <br />
 Example: [{ url: 'stun:stun.l.google.com:19302'}, { url:'turn:user@numb.viagenie.ca', credential:'myPassword'}] 
 */

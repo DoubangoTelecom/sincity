@@ -158,4 +158,7 @@ protected:
 	T* obj_;
 };
 
+typedef void SCNativeMutexHandle_t; // Mapping to "tsk_mutex_handle_t"
+typedef void SCNativeNetTransportHandle_t; // Mapping to "tnet_transport_handle_t"
+
 #endif /* SINCITY_COMMON_H */
