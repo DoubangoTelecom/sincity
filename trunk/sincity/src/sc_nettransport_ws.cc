@@ -158,7 +158,7 @@ bool SCWsTransport::handshaking(SCObjWrapper<SCNetPeer*> oPeer, SCObjWrapper<SCU
 SCObjWrapper<SCWsResult*> SCWsTransport::handleJsonContent(SCObjWrapper<SCNetPeer*> oPeer, const void* pcDataPtr, size_t nDataSize)const
 {
 	SC_DEBUG_ERROR_EX(kSCMobuleNameWsTransport, "Not implemented");
-    return false;
+    return NULL;
 }
 
 bool SCWsTransport::sendResult(SCObjWrapper<SCNetPeer*> oPeer, SCObjWrapper<SCWsResult*> oResult)const
