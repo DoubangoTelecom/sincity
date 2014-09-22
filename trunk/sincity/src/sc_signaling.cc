@@ -261,12 +261,12 @@ bool SCSignaling::sendData(const void* _pcData, tsk_size_t _nDataSize)
 
 /**@ingroup _Group_CPP_Signaling
 * Creates new signaling session object.
-* @param pcRequestUri A valid request URI (e.g. <b>ws://localhost:9000/wsStringStaticMulti?roomId=0</b>).
+* @param pcConnectionUri A valid request URI (e.g. <b>ws://localhost:9000/wsStringStaticMulti?roomId=0</b>).
 * @param pcLocalIP Local IP address to bind to. Best one will be used if not defined.
 * @param nLocalPort Local Port to bind to. Best one will be used if not defined.
 * @retval <b>newobject</b> if no error; otherwise <b>NULL</b>.
 */
-SCObjWrapper<SCSignaling*> SCSignaling::newObj(const char* pcRequestUri, const char* pcLocalIP /*= NULL*/, unsigned short nLocalPort /*= 0*/)
+SCObjWrapper<SCSignaling*> SCSignaling::newObj(const char* pcConnectionUri, const char* pcLocalIP /*= NULL*/, unsigned short nLocalPort /*= 0*/)
 {
     SCObjWrapper<SCSignaling*> oSignaling;
     SCObjWrapper<SCUrl*> oUrl;
@@ -277,18 +277,18 @@ SCObjWrapper<SCSignaling*> SCSignaling::newObj(const char* pcRequestUri, const c
         goto bail;
     }
 
-    if (tsk_strnullORempty(pcRequestUri)) {
+    if (tsk_strnullORempty(pcConnectionUri)) {
         SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "RequestUri is null or empty");
         goto bail;
     }
 
-    oUrl = sc_url_parse(pcRequestUri, tsk_strlen(pcRequestUri));
+    oUrl = sc_url_parse(pcConnectionUri, tsk_strlen(pcConnectionUri));
     if (!oUrl) {
-        SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "Failed to parse request Uri: %s", pcRequestUri);
+        SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "Failed to parse request Uri: %s", pcConnectionUri);
         goto bail;
     }
     if (oUrl->getHostType() == SCUrlHostType_None) {
-        SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "Invalid host type: %s // %d", pcRequestUri, oUrl->getHostType());
+        SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "Invalid host type: %s // %d", pcConnectionUri, oUrl->getHostType());
         goto bail;
     }
     switch (oUrl->getType()) {
@@ -301,7 +301,7 @@ SCObjWrapper<SCSignaling*> SCSignaling::newObj(const char* pcRequestUri, const c
         break;
     }
     default: {
-        SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "Url type=%d not supported yet. Url=%s", oUrl->getType(), pcRequestUri);
+        SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "Url type=%d not supported yet. Url=%s", oUrl->getType(), pcConnectionUri);
         goto bail;
     }
     }

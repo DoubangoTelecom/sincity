@@ -1,0 +1,191 @@
+/**@page _Page_CPP_Overview Overview
+This page is about the C++ libraries for the GEWebRTC project. <b>v1.0.0</b> is the current version and targets <b>Phase #1</b> features only. <br />
+Full technical description could be found <a href="/sincity/docs/draft-gewertc-phase1.pdf" target=_blank>here</a>. This document also explain how to use <b>sintest</b> a command-line sample app. <br />
+Information about the JavaScript API can be found <a href="/sincity/docs/js/" target=_blank>here</a>. The sample HTML5 app is <a href="/sincity/" target=_blank>here</a>.<br />
+Information about how to use the C++ API can be found @ref _Page_CPP_Getting_Started "here". The sample app is named <b>sintest</b> and can be used as explained in the <a href="/sincity/docs/draft-gewertc-phase1.pdf" target=_blank>technical guide</a>. <br />
+*/
+
+
+/**@page _Page_CPP_Getting_Started Getting started (sample code)
+This is a short guide showing how to use the library to make a call from *bob* to *alice*.
+
+ - @ref _Anchor_Page_CPP_Getting_Started_API_Header "1/ API header"
+ - @ref _Anchor_Page_CPP_Getting_Started_Global_Variables "2/ Global variables"
+ - @ref _Anchor_Page_CPP_Getting_Started_Init "3/ Initialization"
+ - @ref _Anchor_Page_CPP_Getting_Callback "4/ Signaling callback"
+ - @ref _Anchor_Page_CPP_Getting_Started_Singaling_Session "5/ Signaling session"
+ - @ref _Anchor_Page_CPP_Getting_Started_Call_Mgr "6/ Call management"
+
+<h2>@anchor _Anchor_Page_CPP_Getting_Started_API_Header 1/ API header</h2>
+Single header file is needed to add all API functions.
+@code
+#include "sincity/sc_api.h"
+@endcode
+
+<h2>@anchor _Anchor_Page_CPP_Getting_Started_Global_Variables 2/ Global variables</h2>
+@code
+SCObjWrapper<SCSessionCall*> callSession; // call session (could have multiple sessions)
+SCObjWrapper<SCSignaling*> signalSession; // signaling session singleton
+SCObjWrapper<SCSignalingCallEvent*> pendingOffer; // incoming offer
+@endcode
+
+<h2>@anchor _Anchor_Page_CPP_Getting_Started_Init 3/ Initialization</h2>
+Initialize the engine:
+@code
+SC_ASSERT(SCEngine::init("bob")); // "bob" is our identifier
+@endcode
+Set default settings:
+@code
+// Set SSL certificates used for DTLS-SRTP(media) and WSS (signaling). REQUIRED.
+SC_ASSERT(SCEngine::setSSLCertificates("./SSL_Pub.pem", "./SSL_Priv.pem", "./SSL_CA.pem"));
+
+// Set preferred video size
+SC_ASSERT(SCEngine::setVideoPrefSize("svga")); // 800x600
+// Set video frame rate (frames per second)
+SC_ASSERT(SCEngine::setVideoFps(15));
+// Set maximum bandwidth (Upload) in kbps
+SC_ASSERT(SCEngine::setVideoBandwidthUpMax(-1)); // -1 to let the stack compute the best value (recommended)
+// Set maximum bandwidth (Down) in kbps.
+SC_ASSERT(SCEngine::setVideoBandwidthDownMax(-1)); // -1 to let the stack compute the best value (recommended)
+// Motion rank (check the technical documentation for more information about this value)
+SC_ASSERT(SCEngine::setVideoMotionRank(2)); // 2: medium
+// Do not enable/disable congestion control
+SC_ASSERT(SCEngine::setVideoCongestionCtrlEnabled(false));
+
+// STUN/TURN server address
+SC_ASSERT(SCEngine::setNattStunServer("stun.l.google.com", 19302));
+// TURN credentials
+SC_ASSERT(SCEngine::setNattStunCredentials("myusername", "mypassword"));
+// Enable/disable gathering ICE reflexive candidates
+SC_ASSERT(SCEngine::setNattIceStunEnabled(true));
+// Enable/disable gathering ICE relayed candidates
+SC_ASSERT(SCEngine::setNattIceTurnEnabled(false));
+@endcode
+
+<h2>@anchor _Anchor_Page_CPP_Getting_Callback 4/ Signaling callback</h2>
+Callback object for the signaling singleton.
+@code
+class SCSignalingCallbackDummy : public SCSignalingCallback
+{
+protected:
+    SCSignalingCallbackDummy() {
+
+    }
+public:
+    virtual ~SCSignalingCallbackDummy() {
+
+    }
+
+    virtual bool onEventNet(SCObjWrapper<SCSignalingEvent*>& e) {
+        //!\Deadlock issue: You must not call any function from 'SCSignaling' class unless you fork a new thread.
+        switch (e->getType()) {
+        case SCSignalingEventType_NetReady: {
+			// Connection is done and WebSocket handshaking successfully completed.
+            break;
+        }
+        case SCSignalingEventType_NetDisconnected: {
+			// Network socket disconnected.
+            break;
+        }
+        case SCSignalingEventType_NetError: {
+            // Network error occured.
+            break;
+        }
+        }
+
+        return true;
+    }
+    virtual SC_INLINE const char* getObjectId() {
+        return "SCSignalingCallbackDummy"; // Unique identifier for this object (could be any string)
+    }
+    virtual bool onEventCall(SCObjWrapper<SCSignalingCallEvent*>& e) {
+        //!\Deadlock issue: You must not call any function from 'SCSignaling' class unless you fork a new thread.
+        if (callSession) {
+            if (callSession->getCallId() == e->getCallId()) { // compare call identifiers
+                bool ret = callSession->acceptEvent(e); // accept the event
+				if (e->getType() == "hangup") { // remote party is terminating the call?
+					callSession = NULL;
+				}
+            }
+            return true;
+        }
+        else {
+            if (e->getType() == "offer") { // means "Incoming call"
+                if (callSession || pendingOffer) { // already in call?
+                    return SCSessionCall::rejectEvent(signalSession, e); // do not accept this new call
+                }
+                pendingOffer = e;
+            }
+			if (e->getType() == "hangup") {
+				if (pendingOffer && pendingOffer->getCallId() == e->getCallId()) { // pending call terminated -> means cancel
+					pendingOffer = NULL;
+				}
+			}
+			
+            // Silently ignore any other event type
+        }
+
+        return true;
+    }
+
+    static SCObjWrapper<SCSignalingCallback*> newObj() {
+        return new SCSignalingCallbackDummy();
+    }
+};
+@endcode
+
+<h2>@anchor _Anchor_Page_CPP_Getting_Started_Singaling_Session 5/ Signaling session</h2>
+Create the signaling session object:
+@code
+signalSession = SCSignaling::newObj("ws://localhost:9000/wsStringStaticMulti?roomId=0"); // use "wss://" for secure signaling
+SC_ASSERT(signalSession);
+@endcode
+Connect to the signaling server:
+@code
+SC_ASSERT(signalSession->setCallback(SCSignalingCallbackDummy::newObj()));
+SC_ASSERT(signalSession->connect()); // check callback to be notified when the session is connected and ready to send data
+@endcode
+
+<h2>@anchor _Anchor_Page_CPP_Getting_Started_Call_Mgr 6/ Call management</h2>
+To make an *outgoing call* to "alice":
+@code
+SC_ASSERT(callSession = SCSessionCall::newObj(signalSession)); // create the session
+SC_ASSERT(callSession->call(SCMediaType_ScreenCast, "alice")); // start sharing your screen."ScreenCast" is the only media type supported in phase 1.
+To hangup the call:
+@code
+SC_ASSERT(callSession->hangup());
+callSession = NULL; // destroy/free the object
+@endcode
+To *accept* an incoming call:
+@code
+// "pendingOffer" was defined by the callback function when we received an incoming "offer". See above.
+SC_ASSERT(callSession = SCSessionCall::newObj(signalSession, pendingOffer));
+SC_ASSERT(callSession->acceptEvent(pendingOffer));
+pendingOffer = NULL; // destroy/free the object
+@endcode
+To *reject* an incoming call:
+@code
+// "pendingOffer" was defined by the callback function when we received an incoming "offer". See above.
+SC_ASSERT(SCSessionCall::rejectEvent(signalSession, pendingOffer));
+pendingOffer = NULL; // destroy/free the object
+@endcode
+*/
+
+/**@page _Page_CPP_FAQ (FAQ)
+ - @ref _Anchor_CPP_FAQ_Building_Source "How to build the C++ libraries?"
+ - @ref _Anchor_CPP_FAQ_Sample "Is there any C++ sample app?"
+ - @ref _Anchor_CPP_FAQ_HTML5_Sample "Where is the HTLM5 sample client?"
+ - @ref _Anchor_CPP_FAQ_HTML5_API "Where is the JavaScript API documentation?"
+ 
+<h2>@anchor _Anchor_CPP_FAQ_Building_Source How to build the C++ libraries?</h2>
+Check the technical guide hosted <a href="/sincity/docs/draft-gewertc-phase1.pdf" target="_blank">here</a>.
+
+<h2>@anchor _Anchor_CPP_FAQ_Sample Is there any C++ sample app?</h2>
+Yes. It's name is *sintest*. For more information, check the technical guide hosted <a href="/sincity/docs/draft-gewertc-phase1.pdf" target="_blank">here</a>.
+
+<h2>@anchor _Anchor_CPP_FAQ_HTML5_Sample Where is the HTLM5 sample client?</h2>
+It's hosted <a href="/sincity/" target="_blank">here</a>
+
+<h2>@anchor _Anchor_CPP_FAQ_HTML5_API Where is the JavaScript API documentation?</h2>
+It's hosted <a href="/sincity/docs/js/" target="_blank">here</a>
+*/

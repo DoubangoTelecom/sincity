@@ -12,7 +12,7 @@ var RTCIceCandidate = window.RTCIceCandidate || window.mozRTCIceCandidate || win
 var WebSocket = (window['MozWebSocket'] || window['MozWebSocket'] || WebSocket);
 
 /**
-@namespace
+@namespace Anonymous
 @description Engine
 */
 var SCEngine = {
@@ -38,7 +38,7 @@ var SCEngine = {
     /** @private */connected: false
 };
 /**
-@namespace
+@namespace Anonymous
 @description Call session
 */
 var SCCall = function (){
@@ -399,7 +399,7 @@ SCEngine.disconnect = function() {
 
 /**
 JSON message from the server.
-@namespace SCMessage
+@namespace Anonymous
 @name SCMessage
 @property {String} type The message type. Possible values: "offer", "answer", "pranswer" or "hangup". <b>Required</b>.
 @property {String} to The destination identifer. <b>Required</b>.
@@ -411,7 +411,7 @@ JSON message from the server.
 
 /**
 Event object.
-@namespace SCEventCall
+@namespace Anonymous
 @name SCEventCall
 @property {String} type The event type. Possible values: "offer", "answer", "pranswer", "hangup", "error" or "info".
 @property {SCCall} call The call object associated to this event.
@@ -421,7 +421,7 @@ Event object.
 
 /**
 Engine configuration object.
-@namespace SCConfigEngine
+@namespace Anonymous
 @name SCConfigEngine
 @property {String} localId Local user/device identifier.
 @property {HTMLVideoElement} [remoteVideo] <a href="https://developer.mozilla.org/en-US/docs/DOM/HTMLVideoElement">HTMLVideoElement<a> where to display the remote video stream.

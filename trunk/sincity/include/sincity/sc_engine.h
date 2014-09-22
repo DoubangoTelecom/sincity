@@ -31,6 +31,9 @@ public:
 	static bool setVideoBandwidthDownMax(int bandwwidthMax);
 	static bool setVideoMotionRank(int motionRank);
 	static bool setVideoCongestionCtrlEnabled(bool congestionCtrl);
+	static bool setVideoJbEnabled(bool enabled);
+	static bool setVideoAvpfTail(int min, int max);
+	static bool setVideoZeroArtifactsEnabled(bool enabled);
 	static bool setNattStunServer(const char* host, unsigned short port = 3478);
 	static bool setNattStunCredentials(const char* username, const char* password);
 	static bool setNattIceStunEnabled(bool enabled);
