@@ -137,6 +137,7 @@ int main(int argc, char* argv[])
         "debug_level",
         "ssl_file_pub", "ssl_file_priv", "ssl_file_ca", "connection_url", "local_id", "remote_id",
         "video_pref_size", "video_fps", "video_bandwidth_up_max", "video_bandwidth_down_max", "video_motion_rank", "video_congestion_ctrl_enabled",
+		"video_jb_enabled", "video_zeroartifacts_enabled", "video_avpf_tail",
         "natt_stun_server_host", "natt_stun_server_port", "natt_stun_username", "natt_stun_password", "natt_ice_stun_enabled", "natt_ice_turn_enabled"
     };
     for (size_t i = 0; i < sizeof(__entries)/sizeof(__entries[0]); ++i) {
@@ -171,6 +172,20 @@ int main(int argc, char* argv[])
     if (jsonConfig["video_congestion_ctrl_enabled"].isBool()) {
         SC_ASSERT(SCEngine::setVideoCongestionCtrlEnabled(jsonConfig["video_congestion_ctrl_enabled"].asBool()));
     }
+	if (jsonConfig["video_jb_enabled"].isBool()) {
+        SC_ASSERT(SCEngine::setVideoJbEnabled(jsonConfig["video_jb_enabled"].asBool()));
+    }
+	if (jsonConfig["video_zeroartifacts_enabled"].isBool()) {
+        SC_ASSERT(SCEngine::setVideoZeroArtifactsEnabled(jsonConfig["video_zeroartifacts_enabled"].asBool()));
+    }
+	if (jsonConfig["video_avpf_tail"].isString()) {
+		char min[24], max[24];
+		SC_ASSERT(sscanf(jsonConfig["video_avpf_tail"].asCString(), "%23s %23s", min, max) != EOF);
+        SC_ASSERT(SCEngine::setVideoAvpfTail(atoi(min), atoi(max)));
+    }
+	
+	
+
     if (jsonConfig["natt_stun_server_host"].isString() && jsonConfig["natt_stun_server_port"].isNumeric()) {
         SC_ASSERT(SCEngine::setNattStunServer(jsonConfig["natt_stun_server_host"].asCString(), jsonConfig["natt_stun_server_port"].asInt()));
     }

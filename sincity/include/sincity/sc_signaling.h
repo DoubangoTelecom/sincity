@@ -111,7 +111,7 @@ public:
 	bool sendData(const void* pcData, tsk_size_t nDataSize);
 	bool disConnect();
 
-	static SCObjWrapper<SCSignaling*> newObj(const char* pcRequestUri, const char* pcLocalIP = NULL, unsigned short nLocalPort = 0);
+	static SCObjWrapper<SCSignaling*> newObj(const char* pcConnectionUri, const char* pcLocalIP = NULL, unsigned short nLocalPort = 0);
 
 private:
 	bool handleData(const char* pcData, tsk_size_t nDataSize);

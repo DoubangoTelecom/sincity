@@ -277,6 +277,39 @@ bool SCEngine::setVideoCongestionCtrlEnabled(bool congestionCtrl)
 }
 
 /**@ingroup _Group_CPP_Engine
+* Whether to enable or disable video jitter buffer. It's highly recommended to enable video jitter buffer because it's required to have RTCP-FB (NACK, FIR, PLI... as per RFC 5104) fully functional. Enabling video jitter buffer gives better quality and improves smoothness. For example, no RTCP-NACK messages will be sent to request dropped RTP packets if this option is disabled. It’s also up to the jitter buffer to reorder RTP packets. <br />
+* In "phase 1", this is useless as we always have half-duplex (From device to Browser) video.
+* @param enabled Enable/disable video jitter buffer. Default: <b>true</b>.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
+bool SCEngine::setVideoJbEnabled(bool enabled)
+{
+	return ((tmedia_defaults_set_videojb_enabled(enabled ? tsk_true : tsk_false) == 0));
+}
+
+/**@ingroup _Group_CPP_Engine
+* Defines the maximum and minimum queue length used to store the outgoing RTP packets. The stored packets are used to honor incoming RTCP-NACK requests. Check the technical documentation for more information. <br />
+* In "phase 1", this is useless as we always have half-duplex (From device to Browser) video.
+* @param min The minimum value. Default: 20.
+* @param max The manimum value. Default 160.
+*/
+bool SCEngine::setVideoAvpfTail(int min, int max)
+{
+	return ((tmedia_defaults_set_avpf_tail(min, max) == 0));
+}
+
+/**@ingroup _Group_CPP_Engine
+* Artifacts are introduced in video stream when RTP packets are lost. Enabling zero-artifact feature fix this issue (see technical guide for more information).
+* In "phase 1", this is useless as we always have half-duplex (From device to Browser) video.
+* @param enabled Enable/disable zero-artifact feature. Default: <b>true</b>.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
+bool SCEngine::setVideoZeroArtifactsEnabled(bool enabled)
+{
+	return ((tmedia_defaults_set_video_zeroartifacts_enabled(enabled ? tsk_true : tsk_false) == 0));
+}
+
+/**@ingroup _Group_CPP_Engine
 * Sets the STUN/TURN server address. This server is used for NAT Traversal.
 * @param host Hostname or IP address.
 * @param port Port number. Range: [1024-65555].
@@ -308,6 +341,11 @@ bool SCEngine::setNattIceStunEnabled(bool enabled)
     return ((tmedia_defaults_set_icestun_enabled(enabled ? tsk_true : tsk_false) == 0));
 }
 
+/**@ingroup _Group_CPP_Engine
+* Defines whether to gather ICE relayed candidates.
+* @param enabled
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
 bool SCEngine::setNattIceTurnEnabled(bool enabled)
 {
     return ((tmedia_defaults_set_iceturn_enabled(enabled ? tsk_true : tsk_false) == 0));
