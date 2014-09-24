@@ -2,18 +2,15 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9,00"
-	Name="win32"
-	ProjectGUID="{B5230818-E958-4942-9AD9-8641B6DEA15E}"
-	RootNamespace="win32"
+	Name="wes8"
+	ProjectGUID="{508FDE95-1947-4E3E-A9AF-B9361B3EFAC7}"
+	RootNamespace="wes8"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
 	<Platforms>
 		<Platform
 			Name="Win32"
-		/>
-		<Platform
-			Name="GE vPC WEC7 SDK (x86)"
 		/>
 	</Platforms>
 	<ToolFiles>
@@ -51,7 +48,6 @@
 				RuntimeLibrary="1"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
-				WarnAsError="true"
 				DebugInformationFormat="4"
 			/>
 			<Tool
@@ -66,6 +62,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="Winmm.lib ws2_32.lib Shlwapi.lib IPHLPAPI.lib libeay32.lib ssleay32.lib vpxmt.lib libsrtp.a libyuv.lib sincity.lib libgcc.a"
+				OutputFile="$(OutDir)\sintest.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="&quot;$(OutDir)&quot;;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib;..\..\doubango\branches\2.0\doubango\thirdparties\win32\lib\openssl;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\vpx;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\srtp;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\libyuv"
 				IgnoreDefaultLibraryNames="LIBCMTD.lib"
@@ -93,86 +90,6 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Debug|GE vPC WEC7 SDK (x86)"
-			OutputDirectory="$(SolutionDir)GE vPC WEC7 SDK (x86)\$(ConfigurationName)"
-			IntermediateDirectory="GE vPC WEC7 SDK (x86)\$(ConfigurationName)"
-			ConfigurationType="1"
-			CharacterSet="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				TargetEnvironment="1"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				ExecutionBucket="7"
-				Optimization="0"
-				AdditionalIncludeDirectories="../sincity/include;../thirdparties\wince\include;../thirdparties\common\include;..\..\doubango\branches\2.0\doubango\tinySAK\src"
-				PreprocessorDefinitions="_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;_DEBUG;_CONSOLE;TINYSAK_IMPORTS_IGNORE;TINYHTTP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;TINYDAV_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
-				MinimalRebuild="true"
-				RuntimeLibrary="1"
-				UsePrecompiledHeader="0"
-				WarningLevel="3"
-				DebugInformationFormat="3"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="ws2.lib iphlpapi.lib mmtimer.lib libeay32.lib ssleay32.lib wcecompat.lib libyuv.lib libvpx.lib libsrtp.lib tinySAK.lib tinyNET.lib tinySDP.lib tinyMEDIA.lib tinyDAV.lib tinyRTP.lib tinyBFCP.lib tinyMSRP.lib tinyHTTP.lib"
-				LinkIncremental="2"
-				AdditionalLibraryDirectories="..\thirdparties\wince\lib\x86;&quot;$(OutDir)&quot;"
-				GenerateDebugInformation="true"
-				SubSystem="1"
-				TargetMachine="0"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCCodeSignTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-			<DeploymentTool
-				ForceDirty="-1"
-				RemoteDirectory=""
-				RegisterOutput="0"
-				AdditionalFiles=""
-			/>
-			<DebuggerTool
 			/>
 		</Configuration>
 		<Configuration
@@ -222,6 +139,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="Winmm.lib ws2_32.lib Shlwapi.lib IPHLPAPI.lib libeay32.lib ssleay32.lib vpxmt.lib libsrtp.a libyuv.lib sincity.lib libgcc.a"
+				OutputFile="$(OutDir)\sintest.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="&quot;$(OutDir)&quot;;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib;..\..\doubango\branches\2.0\doubango\thirdparties\win32\lib\openssl;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\vpx;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\srtp;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\libyuv"
 				IgnoreDefaultLibraryNames="LIBCMT.lib"
@@ -253,87 +171,6 @@
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
-		<Configuration
-			Name="Release|GE vPC WEC7 SDK (x86)"
-			OutputDirectory="$(SolutionDir)GE vPC WEC7 SDK (x86)\$(ConfigurationName)"
-			IntermediateDirectory="GE vPC WEC7 SDK (x86)\$(ConfigurationName)"
-			ConfigurationType="1"
-			CharacterSet="1"
-			WholeProgramOptimization="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-				TargetEnvironment="1"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				ExecutionBucket="7"
-				Optimization="2"
-				EnableIntrinsicFunctions="true"
-				PreprocessorDefinitions="_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;NDEBUG;_CONSOLE"
-				RuntimeLibrary="0"
-				EnableFunctionLevelLinking="true"
-				UsePrecompiledHeader="0"
-				WarningLevel="3"
-				DebugInformationFormat="3"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLinkerTool"
-				LinkIncremental="1"
-				GenerateDebugInformation="true"
-				SubSystem="1"
-				OptimizeReferences="2"
-				EnableCOMDATFolding="2"
-				TargetMachine="0"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCCodeSignTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-			<DeploymentTool
-				ForceDirty="-1"
-				RemoteDirectory=""
-				RegisterOutput="0"
-				AdditionalFiles=""
-			/>
-			<DebuggerTool
-			/>
-		</Configuration>
 	</Configurations>
 	<References>
 	</References>
@@ -347,24 +184,12 @@
 				RelativePath="..\main.cc"
 				>
 			</File>
-			<File
-				RelativePath=".\stdafx.cc"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<File
-				RelativePath=".\stdafx.h"
-				>
-			</File>
-			<File
-				RelativePath=".\targetver.h"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
@@ -372,25 +197,6 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 		</Filter>
-		<File
-			RelativePath="..\config.json"
-			>
-		</File>
-		<File
-			RelativePath="..\SSL_CA.pem"
-			DeploymentContent="true"
-			>
-		</File>
-		<File
-			RelativePath="..\SSL_Priv.pem"
-			DeploymentContent="true"
-			>
-		</File>
-		<File
-			RelativePath="..\SSL_Pub.pem"
-			DeploymentContent="true"
-			>
-		</File>
 	</Files>
 	<Globals>
 	</Globals>
