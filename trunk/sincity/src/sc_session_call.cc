@@ -286,8 +286,17 @@ bool SCSessionCall::cleanup()
 {
     SCAutoLock<SCSessionCall> autoLock(this);
 
+	if (m_pSessionMgr) {
+		tmedia_session_mgr_stop(m_pSessionMgr);
+	}
     TSK_OBJECT_SAFE_FREE(m_pSessionMgr);
 
+	if (m_pIceCtxVideo) {
+		tnet_ice_ctx_stop(m_pIceCtxVideo);
+	}
+	if (m_pIceCtxAudio) {
+		tnet_ice_ctx_stop(m_pIceCtxVideo);
+	}
     TSK_OBJECT_SAFE_FREE(m_pIceCtxVideo);
     TSK_OBJECT_SAFE_FREE(m_pIceCtxAudio);
 
@@ -399,8 +408,13 @@ bool SCSessionCall::iceCreateCtx()
     uint16_t stun_server_port = 19302;
     const char* stun_usr_name = tsk_null;
     const char* stun_usr_pwd = tsk_null;
+	const char* ssl_priv_path = tsk_null;
+	const char* ssl_pub_path = tsk_null;
+	const char* ssl_ca_path = tsk_null;
+	tsk_bool_t ssl_verify = tsk_false;
     SC_ASSERT(tmedia_defaults_get_stun_server(&stun_server_ip, &stun_server_port) == 0);
     SC_ASSERT(tmedia_defaults_get_stun_cred(&stun_usr_name, &stun_usr_pwd) == 0);
+	SC_ASSERT(tmedia_defaults_get_ssl_certs(&ssl_priv_path, &ssl_pub_path, &ssl_ca_path, &ssl_verify) == 0);
 
     if (!m_pIceCtxAudio && (m_eMediaType & SCMediaType_Audio)) {
         m_pIceCtxAudio = tnet_ice_ctx_create(__use_ice_jingle, __use_ipv6, __use_ice_rtcp, tsk_false/*audio*/, &SCSessionCall::iceCallback, this);
@@ -408,14 +422,23 @@ bool SCSessionCall::iceCreateCtx()
             SC_DEBUG_ERROR("Failed to create ICE audio context");
             return false;
         }
-        tnet_ice_ctx_set_stun(
-            m_pIceCtxAudio,
-            stun_server_ip,
-            stun_server_port,
-            kStunSoftware,
-            stun_usr_name,
-            stun_usr_pwd
-        );
+		// Add ICE servers
+		SCEngine::s_listIceServersMutex->lock();
+		for (std::list<SCObjWrapper<SCIceServer*> >::const_iterator it = SCEngine::s_listIceServers.begin(); it != SCEngine::s_listIceServers.end(); ++it) {
+			tnet_ice_ctx_add_server(
+				m_pIceCtxAudio,
+				(*it)->getTransport(),
+				(*it)->getServerHost(),
+				(*it)->getServerPort(),
+				(*it)->isTurnEnabled(),
+				(*it)->isStunEnabled(),
+				(*it)->getUsername(),
+				(*it)->getPassword());
+		}
+		SCEngine::s_listIceServersMutex->unlock();
+		// Set SSL certificates
+		tnet_ice_ctx_set_ssl_certs(m_pIceCtxAudio, ssl_priv_path, ssl_pub_path, ssl_ca_path, ssl_verify);
+		// Enable/Disable TURN/STUN
         tnet_ice_ctx_set_stun_enabled(m_pIceCtxAudio, tmedia_defaults_get_icestun_enabled());
         tnet_ice_ctx_set_turn_enabled(m_pIceCtxAudio, tmedia_defaults_get_iceturn_enabled());
     }
@@ -425,14 +448,23 @@ bool SCSessionCall::iceCreateCtx()
             SC_DEBUG_ERROR("Failed to create ICE video context");
             return false;
         }
-        tnet_ice_ctx_set_stun(
-            m_pIceCtxVideo,
-            stun_server_ip,
-            stun_server_port,
-            kStunSoftware,
-            stun_usr_name,
-            stun_usr_pwd
-        );
+        // Add ICE servers
+		SCEngine::s_listIceServersMutex->lock();
+		for (std::list<SCObjWrapper<SCIceServer*> >::const_iterator it = SCEngine::s_listIceServers.begin(); it != SCEngine::s_listIceServers.end(); ++it) {
+			tnet_ice_ctx_add_server(
+				m_pIceCtxVideo,
+				(*it)->getTransport(),
+				(*it)->getServerHost(),
+				(*it)->getServerPort(),
+				(*it)->isTurnEnabled(),
+				(*it)->isStunEnabled(),
+				(*it)->getUsername(),
+				(*it)->getPassword());
+		}
+		SCEngine::s_listIceServersMutex->unlock();
+		// Set SSL certificates
+		tnet_ice_ctx_set_ssl_certs(m_pIceCtxVideo, ssl_priv_path, ssl_pub_path, ssl_ca_path, ssl_verify);
+		// Enable/Disable TURN/STUN
         tnet_ice_ctx_set_stun_enabled(m_pIceCtxVideo, tmedia_defaults_get_icestun_enabled());
         tnet_ice_ctx_set_turn_enabled(m_pIceCtxVideo, tmedia_defaults_get_iceturn_enabled());
     }

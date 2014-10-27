@@ -60,6 +60,10 @@ public:
 			SC_DEBUG_INFO("***Signaling module disconnected ***");
             break;
         }
+		case SCSignalingEventType_NetData: {
+			SC_DEBUG_INFO("***Signaling module passthrough DATA:%.*s ***", e->getDataSize(), e->getDataPtr());
+			break;
+		}
         }
 
         return true;
@@ -138,15 +142,10 @@ int main(int argc, char* argv[])
         "ssl_file_pub", "ssl_file_priv", "ssl_file_ca", "connection_url", "local_id", "remote_id",
         "video_pref_size", "video_fps", "video_bandwidth_up_max", "video_bandwidth_down_max", "video_motion_rank", "video_congestion_ctrl_enabled",
 		"video_jb_enabled", "video_zeroartifacts_enabled", "video_avpf_tail",
-        "natt_stun_server_host", "natt_stun_server_port", "natt_stun_username", "natt_stun_password", "natt_ice_stun_enabled", "natt_ice_turn_enabled"
+        "natt_ice_servers", "natt_ice_stun_enabled", "natt_ice_turn_enabled"
     };
     for (size_t i = 0; i < sizeof(__entries)/sizeof(__entries[0]); ++i) {
-        if (jsonConfig[__entries[i]].isString()) {
-            SC_DEBUG_INFO("%s: %s", __entries[i], jsonConfig[__entries[i]].asCString());
-        }
-        else if (jsonConfig[__entries[i]].isNumeric()) {
-            SC_DEBUG_INFO("%s: %d", __entries[i], jsonConfig[__entries[i]].asInt());
-        }
+		SC_DEBUG_INFO_EX("CONFIG", "%s: %s", __entries[i], jsonConfig[__entries[i]].toStyledString().c_str());
     }
 
     SC_ASSERT(SCEngine::setSSLCertificates(
@@ -184,15 +183,30 @@ int main(int argc, char* argv[])
         SC_ASSERT(SCEngine::setVideoAvpfTail(atoi(min), atoi(max)));
     }
 	
-	
-
-    if (jsonConfig["natt_stun_server_host"].isString() && jsonConfig["natt_stun_server_port"].isNumeric()) {
+#if 0 // Deprecated in release 1.A
+	if (jsonConfig["natt_stun_server_host"].isString() && jsonConfig["natt_stun_server_port"].isNumeric()) {
         SC_ASSERT(SCEngine::setNattStunServer(jsonConfig["natt_stun_server_host"].asCString(), jsonConfig["natt_stun_server_port"].asInt()));
     }
     SC_ASSERT(SCEngine::setNattStunCredentials(
                   jsonConfig["natt_stun_username"].isString() ? jsonConfig["natt_stun_username"].asCString() : NULL,
                   jsonConfig["natt_stun_password"].isString() ? jsonConfig["natt_stun_password"].asCString() : NULL
               ));
+#else
+	if (jsonConfig["natt_ice_servers"].isArray() && jsonConfig["natt_ice_servers"].size() > 0) {
+		for (Json::ArrayIndex IceServerIndex = 0; IceServerIndex < jsonConfig["natt_ice_servers"].size(); ++IceServerIndex) {
+			SC_ASSERT(SCEngine::addNattIceServer(
+				jsonConfig["natt_ice_servers"][IceServerIndex]["protocol"].asCString(),
+				jsonConfig["natt_ice_servers"][IceServerIndex]["host"].asCString(),
+				jsonConfig["natt_ice_servers"][IceServerIndex]["port"].asUInt(),
+				jsonConfig["natt_ice_servers"][IceServerIndex]["enable_turn"].asBool(),
+				jsonConfig["natt_ice_servers"][IceServerIndex]["enable_stun"].asBool(),
+				jsonConfig["natt_ice_servers"][IceServerIndex]["login"].asCString(),
+				jsonConfig["natt_ice_servers"][IceServerIndex]["password"].asCString()
+			));
+		}
+	}
+#endif
+    
     if (jsonConfig["natt_ice_stun_enabled"].isBool()) {
         SC_ASSERT(SCEngine::setNattIceStunEnabled(jsonConfig["natt_ice_stun_enabled"].asBool()));
     }

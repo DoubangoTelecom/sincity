@@ -6,7 +6,7 @@
 #
 
 AC_PREREQ([2.0])
-AC_INIT(libsincity, 1.0.0, opensincity(at)googlegroups(dot)com)
+AC_INIT(libsincity, 1.1.0, opensincity(at)googlegroups(dot)com)
 AM_INIT_AUTOMAKE
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS([config.h])
@@ -28,7 +28,7 @@ AC_PROG_MAKE_SET
 
 PKG_PROG_PKG_CONFIG
 
-AC_SUBST(DOUBANGO_MINVER, 2.0.1147)
+AC_SUBST(DOUBANGO_MINVER, 2.0.1158)
 
 target_cpu=`uname -m`
 target_os=`uname -s`

@@ -16,18 +16,23 @@ class SCSignalingEvent : public SCObj
 {
 	friend class SCSignaling;
 public:
-	SCSignalingEvent(SCSignalingEventType_t eType, std::string strDescription) : m_eType(eType), m_strDescription(strDescription) {}
-	virtual ~SCSignalingEvent() {}
+	SCSignalingEvent(SCSignalingEventType_t eType, std::string strDescription, const void* pcDataPtr = NULL, size_t nDataSize = 0);
+	virtual ~SCSignalingEvent();
 	virtual SC_INLINE const char* getObjectId() { return "SCSignalingEvent"; }
 
 	/**< The event type */
 	virtual SC_INLINE SCSignalingEventType_t getType()const { return m_eType; }
 	/**< The event description */
 	virtual SC_INLINE std::string getDescription()const { return m_strDescription; }
+	/**< The event data pointer */
+	virtual SC_INLINE const void* getDataPtr()const { return m_pDataPtr; }
+	virtual SC_INLINE size_t getDataSize()const { return m_nDataSize; }
 
 private:
 	SCSignalingEventType_t m_eType;
 	std::string m_strDescription;
+	void* m_pDataPtr;
+	size_t m_nDataSize;
 };
 
 
@@ -115,7 +120,7 @@ public:
 
 private:
 	bool handleData(const char* pcData, tsk_size_t nDataSize);
-	bool raiseEvent(SCSignalingEventType_t eType, std::string strDescription);
+	bool raiseEvent(SCSignalingEventType_t eType, std::string strDescription, const void* pcDataPtr = NULL, size_t nDataSize = 0);
 
 	void lock();
 	void unlock();

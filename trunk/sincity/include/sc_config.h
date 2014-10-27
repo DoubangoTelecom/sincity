@@ -48,16 +48,26 @@
 #	pragma warning( disable : 4290 4800 4251 )
 #endif
 
+/* define "TNET_DEPRECATED(func)" macro */
+#if defined(__GNUC__)
+#	define SC_DEPRECATED(func) func __attribute__ ((deprecated))
+#elif defined(_MSC_VER)
+#	define SC_DEPRECATED(func) __declspec(deprecated) func
+#else
+#	pragma message("WARNING: Deprecated not supported for this compiler")
+#	define SC_DEPRECATED(func) func
+#endif
+
 #include "tsk_debug.h"
 #define SC_DEBUG_INFO(FMT, ...) TSK_DEBUG_INFO("[SINCITY] " FMT, ##__VA_ARGS__)
 #define SC_DEBUG_WARN(FMT, ...) TSK_DEBUG_WARN("[SINCITY] " FMT, ##__VA_ARGS__)
 #define SC_DEBUG_ERROR(FMT, ...) TSK_DEBUG_ERROR("[SINCITY] " FMT, ##__VA_ARGS__)
 #define SC_DEBUG_FATAL(FMT, ...) TSK_DEBUG_FATAL("[SINCITY] " FMT, ##__VA_ARGS__)
 
-#define SC_DEBUG_INFO_EX(MODULE, FMT, ...) TSK_DEBUG_INFO("[" MODULE "] " FMT, ##__VA_ARGS__)
-#define SC_DEBUG_WARN_EX(MODULE, FMT, ...) TSK_DEBUG_WARN("[" MODULE "] " FMT, ##__VA_ARGS__)
-#define SC_DEBUG_ERROR_EX(MODULE, FMT, ...) TSK_DEBUG_ERROR("[" MODULE "] " FMT, ##__VA_ARGS__)
-#define SC_DEBUG_FATAL_EX(MODULE, FMT, ...) TSK_DEBUG_FATAL("[" MODULE "] " FMT, ##__VA_ARGS__)
+#define SC_DEBUG_INFO_EX(MODULE, FMT, ...) SC_DEBUG_INFO("[" MODULE "] " FMT, ##__VA_ARGS__)
+#define SC_DEBUG_WARN_EX(MODULE, FMT, ...) SC_DEBUG_WARN("[" MODULE "] " FMT, ##__VA_ARGS__)
+#define SC_DEBUG_ERROR_EX(MODULE, FMT, ...) SC_DEBUG_ERROR("[" MODULE "] " FMT, ##__VA_ARGS__)
+#define SC_DEBUG_FATAL_EX(MODULE, FMT, ...) SC_DEBUG_FATAL("[" MODULE "] " FMT, ##__VA_ARGS__)
 
 #if SC_UNDER_WINDOWS
 #	define _WINSOCKAPI_
