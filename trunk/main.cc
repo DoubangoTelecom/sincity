@@ -61,7 +61,7 @@ public:
             break;
         }
 		case SCSignalingEventType_NetData: {
-			SC_DEBUG_INFO("***Signaling module passthrough DATA:%.*s ***", e->getDataSize(), e->getDataPtr());
+			SC_DEBUG_INFO("***Signaling module passthrough DATA:%.*s ***", e->getDataSize(), (const char*)e->getDataPtr());
 			break;
 		}
         }
