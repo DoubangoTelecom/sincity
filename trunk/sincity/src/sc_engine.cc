@@ -358,7 +358,7 @@ bool SCEngine::addNattIceServer(const char* strTransportProto, const char* strSe
 		return false;
 	}
 	if (!tsk_striequals(strTransportProto, "udp") && !tsk_striequals(strTransportProto, "tcp") && !tsk_striequals(strTransportProto, "tls")) {
-		SC_DEBUG_ERROR("'%s' not valid as ICE server transport protocol");
+		SC_DEBUG_ERROR("'%s' not valid as ICE server transport protocol", strTransportProto);
 		return false;
 	}
 

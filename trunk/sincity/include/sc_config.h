@@ -50,7 +50,7 @@
 
 /* define "TNET_DEPRECATED(func)" macro */
 #if defined(__GNUC__)
-#	define SC_DEPRECATED(func) func __attribute__ ((deprecated))
+#	define SC_DEPRECATED(func) __attribute__ ((deprecated)) func
 #elif defined(_MSC_VER)
 #	define SC_DEPRECATED(func) __declspec(deprecated) func
 #else
