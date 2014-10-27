@@ -28,7 +28,7 @@
 			return false; \
 		}\
 	} \
-	if(!(fieldVarName).typeTestFun()) \
+	else if(!(fieldVarName).typeTestFun()) \
 	{ \
 		SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "JSON '%s' has invalid type", (fieldName)); \
 		return false; \
@@ -337,7 +337,8 @@ bool SCSignaling::handleData(const char* pcData, tsk_size_t nDataSize)
     SC_JSON_GET(root, tid, "tid", isString, false);
     SC_JSON_GET(root, from, "from", isString, false);
     SC_JSON_GET(root, to, "to", isString, false);
-
+	SC_JSON_GET(root, passthrough, "passthrough", isBool, true);
+	
     if (to.asString() != SCEngine::s_strCredUserId) {
 		if (from.asString() == SCEngine::s_strCredUserId) {
 			SC_DEBUG_INFO_EX(kSCMobuleNameSignaling, "Ignoring loopback message with type='%s', call-id='%s', to='%s'", type.asCString(), cid.asCString(), to.asCString());
@@ -347,6 +348,13 @@ bool SCSignaling::handleData(const char* pcData, tsk_size_t nDataSize)
 		}
         return false;
     }
+
+	if (passthrough.isBool() && passthrough.asBool() == true) {
+		if (m_oSignCallback) {
+			return raiseEvent(SCSignalingEventType_NetData, "'passthrough' JSON data", (const void*)pcData, nDataSize);
+		}
+		return false;
+	}
 	
     bool bIsCallEventRequiringSdp = (type.asString().compare("offer") == 0 || type.asString().compare("answer") == 0 || type.asString().compare("pranswer") == 0);
     if (bIsCallEventRequiringSdp || type.asString().compare("hangup") == 0) {
@@ -378,12 +386,12 @@ bool SCSignaling::handleData(const char* pcData, tsk_size_t nDataSize)
 * @param strDescription
 * @retval <b>true</b> if no error; otherwise <b>false</b>.
 */
-bool SCSignaling::raiseEvent(SCSignalingEventType_t eType, std::string strDescription)
+bool SCSignaling::raiseEvent(SCSignalingEventType_t eType, std::string strDescription, const void* pcDataPtr /*= NULL*/, size_t nDataSize /*= 0*/)
 {
     SCAutoLock<SCSignaling> autoLock(this);
 
     if (m_oSignCallback) {
-        SCObjWrapper<SCSignalingEvent*> e = new SCSignalingEvent(eType, strDescription);
+        SCObjWrapper<SCSignalingEvent*> e = new SCSignalingEvent(eType, strDescription, pcDataPtr, nDataSize);
         return m_oSignCallback->onEventNet(e);
     }
     return true;
@@ -574,6 +582,26 @@ bool SCSignalingTransportCallback::onConnectionStateChanged(SCObjWrapper<SCNetPe
     }
 
     return true;
+}
+
+//
+// SCSignalingEvent
+//
+
+SCSignalingEvent::SCSignalingEvent(SCSignalingEventType_t eType, std::string strDescription, const void* pcDataPtr /*= NULL*/, size_t nDataSize /*= 0*/)
+: m_eType(eType), m_strDescription(strDescription), m_pDataPtr(NULL), m_nDataSize(0)
+{
+	if (pcDataPtr && nDataSize) {
+		if ((m_pDataPtr = tsk_malloc(nDataSize))) {
+			memcpy(m_pDataPtr, pcDataPtr, nDataSize);
+			m_nDataSize = nDataSize;
+		}
+	}
+}
+
+SCSignalingEvent::~SCSignalingEvent()
+{
+	TSK_FREE(m_pDataPtr);
 }
 
 //

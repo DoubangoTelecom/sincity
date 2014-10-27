@@ -41,6 +41,7 @@ typedef enum SCSignalingEventType_e
 {
 	SCSignalingEventType_NetConnected,
 	SCSignalingEventType_NetReady,
+	SCSignalingEventType_NetData, // "passthrough" data: https://code.google.com/p/sincity/issues/detail?id=2
 	SCSignalingEventType_NetDisconnected,
 	SCSignalingEventType_NetError,
 

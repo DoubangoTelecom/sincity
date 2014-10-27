@@ -67,6 +67,13 @@
     </member>
     <member kind="define">
       <type>#define</type>
+      <name>SC_DEPRECATED</name>
+      <anchorfile>sc__config_8h.html</anchorfile>
+      <anchor>aaea94703214a9212e36dd9e84b254bdd</anchor>
+      <arglist>(func)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
       <name>SC_DEBUG_INFO</name>
       <anchorfile>sc__config_8h.html</anchorfile>
       <anchor>ad617ec1e62998f3219d8aae0abd9a1fe</anchor>
@@ -1035,6 +1042,7 @@
     <includes id="sc__common_8h" name="sc_common.h" local="yes" imported="no">sincity/sc_common.h</includes>
     <includes id="sc__session__call_8h" name="sc_session_call.h" local="yes" imported="no">sincity/sc_session_call.h</includes>
     <includes id="sc__signaling_8h" name="sc_signaling.h" local="yes" imported="no">sincity/sc_signaling.h</includes>
+    <class kind="class">SCIceServer</class>
     <class kind="class">SCEngine</class>
   </compound>
   <compound kind="file">
@@ -1639,17 +1647,17 @@
     </member>
     <member kind="function" static="yes">
       <type>static bool</type>
-      <name>setNattStunServer</name>
+      <name>addNattIceServer</name>
       <anchorfile>group_____group___c_p_p___engine.html</anchorfile>
-      <anchor>gae438bd55faeda1c6b5d1b64054306d67</anchor>
-      <arglist>(const char *host, unsigned short port=3478)</arglist>
+      <anchor>gab5d7a6d35292b23554c945603342236d</anchor>
+      <arglist>(const char *strTransportProto, const char *strServerHost, unsigned short serverPort, bool useTurn=false, bool useStun=true, const char *strUsername=NULL, const char *strPassword=NULL)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static bool</type>
-      <name>setNattStunCredentials</name>
+      <name>clearNattIceServers</name>
       <anchorfile>group_____group___c_p_p___engine.html</anchorfile>
-      <anchor>ga1722346945ba50eb00d67a08081dd82d</anchor>
-      <arglist>(const char *username, const char *password)</arglist>
+      <anchor>ga7844341b2c37c5ad12f7b49781725380</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static bool</type>
@@ -2129,18 +2137,32 @@
       <arglist>(bool enabled)</arglist>
     </member>
     <member kind="function" static="yes">
-      <type>static bool</type>
+      <type>static bool SC_DEPRECATED()</type>
       <name>setNattStunServer</name>
-      <anchorfile>group_____group___c_p_p___engine.html</anchorfile>
-      <anchor>gae438bd55faeda1c6b5d1b64054306d67</anchor>
+      <anchorfile>class_s_c_engine.html</anchorfile>
+      <anchor>aeb354afd2ccaa80a414ec56a25da4820</anchor>
       <arglist>(const char *host, unsigned short port=3478)</arglist>
     </member>
     <member kind="function" static="yes">
-      <type>static bool</type>
+      <type>static bool SC_DEPRECATED()</type>
       <name>setNattStunCredentials</name>
-      <anchorfile>group_____group___c_p_p___engine.html</anchorfile>
-      <anchor>ga1722346945ba50eb00d67a08081dd82d</anchor>
+      <anchorfile>class_s_c_engine.html</anchorfile>
+      <anchor>a7676457f864c5b3049867b726726389a</anchor>
       <arglist>(const char *username, const char *password)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>addNattIceServer</name>
+      <anchorfile>group_____group___c_p_p___engine.html</anchorfile>
+      <anchor>gab5d7a6d35292b23554c945603342236d</anchor>
+      <arglist>(const char *strTransportProto, const char *strServerHost, unsigned short serverPort, bool useTurn=false, bool useStun=true, const char *strUsername=NULL, const char *strPassword=NULL)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>clearNattIceServers</name>
+      <anchorfile>group_____group___c_p_p___engine.html</anchorfile>
+      <anchor>ga7844341b2c37c5ad12f7b49781725380</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static bool</type>
@@ -2175,6 +2197,88 @@
       <name>SCSignaling</name>
       <anchorfile>class_s_c_engine.html</anchorfile>
       <anchor>a8e964b8fb430313bc12db78d2620e7ab</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>SCIceServer</name>
+    <filename>class_s_c_ice_server.html</filename>
+    <base>SCObj</base>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~SCIceServer</name>
+      <anchorfile>class_s_c_ice_server.html</anchorfile>
+      <anchor>a0c800fa6e7f39f7e5d6bc3d6fe0cbb37</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual SC_INLINE const char *</type>
+      <name>getObjectId</name>
+      <anchorfile>class_s_c_ice_server.html</anchorfile>
+      <anchor>a4fdc248005614f95434bb76fe4018afe</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>SC_INLINE const char *</type>
+      <name>getTransport</name>
+      <anchorfile>class_s_c_ice_server.html</anchorfile>
+      <anchor>ac342d5c007cb1a959f049bfbf519ee18</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>SC_INLINE const char *</type>
+      <name>getServerHost</name>
+      <anchorfile>class_s_c_ice_server.html</anchorfile>
+      <anchor>aad5c8fb612cb91e7c42f03ed6651f92e</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>SC_INLINE unsigned short</type>
+      <name>getServerPort</name>
+      <anchorfile>class_s_c_ice_server.html</anchorfile>
+      <anchor>a45ea35491d19425dea742db55d136f30</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>SC_INLINE bool</type>
+      <name>isTurnEnabled</name>
+      <anchorfile>class_s_c_ice_server.html</anchorfile>
+      <anchor>a7034d98c7a6521cfc7f4cad3af969728</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>SC_INLINE bool</type>
+      <name>isStunEnabled</name>
+      <anchorfile>class_s_c_ice_server.html</anchorfile>
+      <anchor>a0e1a1c07afc2e38e3c3df35890b1475d</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>SC_INLINE const char *</type>
+      <name>getUsername</name>
+      <anchorfile>class_s_c_ice_server.html</anchorfile>
+      <anchor>ae39fb69fa351e6a6ab4a2d662e4c50eb</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function">
+      <type>SC_INLINE const char *</type>
+      <name>getPassword</name>
+      <anchorfile>class_s_c_ice_server.html</anchorfile>
+      <anchor>a18af91355ff75dadbec678b084ccabd0</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type></type>
+      <name>SCIceServer</name>
+      <anchorfile>class_s_c_ice_server.html</anchorfile>
+      <anchor>af1a1c63656a2c14cb1c4bf7776da2a9a</anchor>
+      <arglist>(std::string strTransport, std::string strServerHost, unsigned short serverPort, bool useTurn, bool useStun, std::string strUsername, std::string strPassword)</arglist>
+    </member>
+    <member kind="friend" protection="private">
+      <type>friend class</type>
+      <name>SCEngine</name>
+      <anchorfile>class_s_c_ice_server.html</anchorfile>
+      <anchor>a245c3c6028dad057ea0daac90d44b6fc</anchor>
       <arglist></arglist>
     </member>
   </compound>

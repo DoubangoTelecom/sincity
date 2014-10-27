@@ -27,6 +27,8 @@ bool SCEngine::s_bInitialized = false;
 
 std::string SCEngine::s_strCredUserId = "";
 std::string SCEngine::s_strCredPassword = "";
+std::list<SCObjWrapper<SCIceServer*> > SCEngine::s_listIceServers;
+SCObjWrapper<SCMutex*> SCEngine::s_listIceServersMutex = new SCMutex();
 
 /**@defgroup _Group_CPP_Engine Engine
 * @brief Static class used to configure the media and signaling engines.
@@ -174,6 +176,7 @@ bool SCEngine::setSSLCertificates(const char* strPublicKey, const char* strPriva
 * "hvga"(480x320)<br />
 * "vga"(640x480)<br />
 * "4cif"(704x576)<br />
+* "wvga"(800x480)<br />
 * "svga"(800x600)<br />
 * "480p"(852x480)<br />
 * "720p"(1280x720)<br />
@@ -200,6 +203,7 @@ bool SCEngine::setVideoPrefSize(const char* strPrefVideoSize)
         {"hvga", tmedia_pref_video_size_hvga, 480, 320}, // 480 x 320
         {"vga", tmedia_pref_video_size_vga, 640, 480}, // 640 x 480
         {"4cif", tmedia_pref_video_size_4cif, 704, 576}, // 704 x 576
+		{"wvga", tmedia_pref_video_size_wvga, 800, 480}, // 800 x 480
         {"svga", tmedia_pref_video_size_svga, 800, 600}, // 800 x 600
         {"480p", tmedia_pref_video_size_480p, 852, 480}, // 852 x 480
         {"720p", tmedia_pref_video_size_720p, 1280, 720}, // 1280 x 720
@@ -310,25 +314,83 @@ bool SCEngine::setVideoZeroArtifactsEnabled(bool enabled)
 }
 
 /**@ingroup _Group_CPP_Engine
-* Sets the STUN/TURN server address. This server is used for NAT Traversal.
+* Sets the STUN/TURN server address. This server is used for NAT Traversal. <br />
+* <b>This function is deprecated since release 1.A. Please use @ref addIceServer() instead.</b>
 * @param host Hostname or IP address.
 * @param port Port number. Range: [1024-65555].
 * @retval <b>true</b> if no error; otherwise <b>false</b>.
 */
-bool SCEngine::setNattStunServer(const char* host, unsigned short port /*= 3478*/)
+bool SC_DEPRECATED(SCEngine::setNattStunServer)(const char* host, unsigned short port /*= 3478*/)
 {
+	SC_DEBUG_WARN("This function is deprecated");
     return ((tmedia_defaults_set_stun_server(host, port) == 0));
 }
 
 /**@ingroup _Group_CPP_Engine
-* Sets the STUN/TURN credentials. These credentials are used for long-term authentication. Required for TURN and optional for STUN.
+* Sets the STUN/TURN credentials. These credentials are used for long-term authentication. Required for TURN and optional for STUN. <br />
+* <b>This function is deprecated since release 1.A. Please use @ref addIceServer() instead.</b>
 * @param username Username.
 * @param password Pasword.
 * @retval <b>true</b> if no error; otherwise <b>false</b>.
 */
-bool SCEngine::setNattStunCredentials(const char* username, const char* password)
+bool SC_DEPRECATED(SCEngine::setNattStunCredentials)(const char* username, const char* password)
 {
+	SC_DEBUG_WARN("This function is deprecated");
     return ((tmedia_defaults_set_stun_cred(username, password) == 0));
+}
+
+/**@ingroup _Group_CPP_Engine
+* Adds a new ICE server to try when gathering candidates. You can add as many servers as you want. The servers will be tried in FIFT (First In First to Try) order. <br />
+* Available since <b>1.0.1</b>.
+* @param strTransportProto The transport protocol. Must be <b>udp</b>, <b>tcp</b> or <b>tls</b>. This parameter is case-insensitive.
+* @param strServerHost ICE server hostname or IP address.
+* @param serverPort ICE server port.
+* @param useTurn Whether to use this ICE server to gather relayed candidates.
+* @param useStun Whether to use this ICE server to gather reflexive candidates.
+* @param strUsername Username used for long-term credentials. Required for TURN allocation.
+* @param strPassword Password used for long-term credentials. Required for TURN allocation.
+* @sa @ref clearNattIceServers()
+*/
+bool SCEngine::addNattIceServer(const char* strTransportProto, const char* strServerHost, unsigned short serverPort, bool useTurn /*= false*/, bool useStun /*= true*/, const char* strUsername /*= NULL*/, const char* strPassword /*= NULL*/)
+{
+	if (tsk_strnullORempty(strTransportProto) || tsk_strnullORempty(strServerHost) || !serverPort || (!useTurn && !useStun)) {
+		SC_DEBUG_ERROR("Invalid paramter");
+		return false;
+	}
+	if (!tsk_striequals(strTransportProto, "udp") && !tsk_striequals(strTransportProto, "tcp") && !tsk_striequals(strTransportProto, "tls")) {
+		SC_DEBUG_ERROR("'%s' not valid as ICE server transport protocol");
+		return false;
+	}
+
+	SCObjWrapper<SCIceServer*>iceServer = new SCIceServer(
+		std::string(strTransportProto),
+		std::string(strServerHost),
+		serverPort,
+		useTurn,
+		useStun,
+		tsk_strnullORempty(strUsername) ? "" : std::string(strUsername),
+		tsk_strnullORempty(strPassword) ? "" : std::string(strPassword));
+	if (iceServer) {
+		SCEngine::s_listIceServersMutex->lock();
+		SCEngine::s_listIceServers.push_back(iceServer);
+		SCEngine::s_listIceServersMutex->unlock();
+		return true;
+	}
+	return false;
+}
+
+/**@ingroup _Group_CPP_Engine
+* Clears (removes) all ICE servers added using @ref addNattIceServer() <br />
+* Available since <b>1.0.1</b>.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+* @sa @ref addNattIceServer()
+*/
+bool SCEngine::clearNattIceServers()
+{
+	SCEngine::s_listIceServersMutex->lock();
+	SCEngine::s_listIceServers.clear();
+	SCEngine::s_listIceServersMutex->unlock();
+	return true;
 }
 
 /**@ingroup _Group_CPP_Engine

@@ -15,10 +15,26 @@
 	"video_zeroartifacts_enabled": true,
 	"video_avpf_tail": "20 160",
 	"video_congestion_ctrl_enabled": false,
-	"natt_stun_server_host": "stun.l.google.com",
-	"natt_stun_server_port": 19302,
-	"natt_stun_username": "",
-	"natt_stun_password": "",
+	"natt_ice_servers": [
+		{
+			"protocol": "udp",
+			"enable_turn": false,
+			"enable_stun": true,
+			"host": "stun.l.google.com",
+			"port": 19302,
+			"login": "",
+			"password": ""
+		},
+		{
+			"protocol": "udp",
+			"enable_turn": true,
+			"enable_stun": true,
+			"host": "ns313841.ovh.net",
+			"port": 3478,
+			"login": "ge.com",
+			"password": "sincity"
+		}
+	],
 	"natt_ice_stun_enabled": true,
-	"natt_ice_turn_enabled": false
+	"natt_ice_turn_enabled": true
 }
