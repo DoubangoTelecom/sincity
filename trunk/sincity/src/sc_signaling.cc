@@ -331,15 +331,23 @@ bool SCSignaling::handleData(const char* pcData, tsk_size_t nDataSize)
         SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "Failed to parse JSON content: %.*s", nDataSize, pcData);
         return false;
     }
-
-    SC_JSON_GET(root, type, "type", isString, false);
+    
+	SC_JSON_GET(root, passthrough, "passthrough", isBool, true);
+	
+    if (passthrough.isBool() && passthrough.asBool() == true) {
+		if (m_oSignCallback) {
+			return raiseEvent(SCSignalingEventType_NetData, "'passthrough' JSON data", (const void*)pcData, nDataSize);
+		}
+		return false;
+	}
+	
+	SC_JSON_GET(root, type, "type", isString, false);
     SC_JSON_GET(root, cid, "cid", isString, false);
     SC_JSON_GET(root, tid, "tid", isString, false);
     SC_JSON_GET(root, from, "from", isString, false);
     SC_JSON_GET(root, to, "to", isString, false);
-	SC_JSON_GET(root, passthrough, "passthrough", isBool, true);
 	
-    if (to.asString() != SCEngine::s_strCredUserId) {
+	if (to.asString() != SCEngine::s_strCredUserId) {
 		if (from.asString() == SCEngine::s_strCredUserId) {
 			SC_DEBUG_INFO_EX(kSCMobuleNameSignaling, "Ignoring loopback message with type='%s', call-id='%s', to='%s'", type.asCString(), cid.asCString(), to.asCString());
 		}
@@ -348,13 +356,6 @@ bool SCSignaling::handleData(const char* pcData, tsk_size_t nDataSize)
 		}
         return false;
     }
-
-	if (passthrough.isBool() && passthrough.asBool() == true) {
-		if (m_oSignCallback) {
-			return raiseEvent(SCSignalingEventType_NetData, "'passthrough' JSON data", (const void*)pcData, nDataSize);
-		}
-		return false;
-	}
 	
     bool bIsCallEventRequiringSdp = (type.asString().compare("offer") == 0 || type.asString().compare("answer") == 0 || type.asString().compare("pranswer") == 0);
     if (bIsCallEventRequiringSdp || type.asString().compare("hangup") == 0) {
