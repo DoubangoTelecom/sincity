@@ -3,12 +3,9 @@
 
 @name        libsincity
 @author      Doubango Telecom
-@version     1.0.0
+@version     1.2.0
 */
-
-var RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
-var RTCSessionDescription = window.RTCSessionDescription || window.mozRTCSessionDescription || window.webkitRTCSessionDescription;
-var RTCIceCandidate = window.RTCIceCandidate || window.mozRTCIceCandidate || window.webkitRTCIceCandidate;
+document.write(unescape("%3Cscript src='adapter.js' type='text/javascript'%3E%3C/script%3E"));
 var WebSocket = (window['MozWebSocket'] || window['MozWebSocket'] || WebSocket);
 
 /**
@@ -47,9 +44,40 @@ var SCCall = function (){
     cid: null,
     tid: null,
     pc: null,
+    config: null,
+    localStream: null,
     remoteVideo:null,
     pendingOffer:null*/
+    this.config = 
+    { 
+        audio_send: false, 
+        audio_recv: false,
+        audio_remote_elt: null,
+        video_send: false,
+        video_recv: true,
+        video_local_elt: null,
+        video_remote_elt: null
+    };
 };
+
+
+
+/**
+Sets the call config.
+@param {SCConfigCall} config Call config
+*/
+SCCall.prototype.setConfig = function(config) {
+    if (config) {    
+        this.config.audio_send = (config.audio_send !== undefined) ? config.audio_send : false;
+        this.config.audio_recv = (config.audio_recv !== undefined) ? config.audio_recv : false;
+        this.config.audio_remote_elt = (config.audio_remote_elt || SCEngine.config.remoteAudio);
+        this.config.video_send = (config.video_send !== undefined) ? config.video_send : false;
+        this.config.video_recv = (config.video_recv !== undefined) ? config.video_recv : true;
+        this.config.video_local_elt = (config.video_local_elt || SCEngine.config.localVideo);
+        this.config.video_remote_elt = (config.video_remote_elt || SCEngine.config.remoteVideo);
+    }
+}
+
 /**
 Makes an outgoing call.
 @returns {Boolean} <i>true</i> if succeed; otherwise <i>false</i>
@@ -65,28 +93,24 @@ SCCall.prototype.call = function() {
     }
     
     var This = this;
-    this.pc = new RTCPeerConnection(SCUtils.buildPeerConnConfig());
-    this.pc.onicecandidate  = function(e) { SCWebRtcEvents.onicecandidate(This, e); }
-    this.pc.onaddstream = function(e) { SCWebRtcEvents.onaddstream(This, e); }
-    this.pc.createOffer(
-        function(desc) {
-            console.info("createOffer:" + desc.sdp);
-            This.pc.setLocalDescription(desc, 
-                function() { 
-                    console.info("setLocalDescription OK");
-                    SCUtils.raiseCallEvent(This, "info", "gathering ICE candidates...");
+    if (this.config.audio_send || this.config.video_send) {
+        console.info("getUserMedia(audio:" + this.config.audio_send + ", video:" + this.config.video_send + ")");
+        getUserMedia(
+                SCUtils.buildConstraintsGUM(this.config), 
+                function(stream) { 
+                    console.info("getUserMedia OK");
+                    SCWebRtcEvents.ongotstream(This, stream);
+                    SCUtils.makeOffer(This); // send offer
                 },
-                function(err) {
-                    console.error("setLocalDescription:" + err);
+                function (err) { 
+                    console.error("getUserMedia:" + err);
                     SCUtils.raiseCallEvent(This, "error", err);
-                });
-        },
-        function(err) {
-            console.error("createOffer:" + err);
-            SCUtils.raiseCallEvent(This, "error", err);
-        },
-        SCUtils.buildSdpConstraints());
-    
+                }
+            );
+    }
+    else {
+        SCUtils.makeOffer(This); // send offer
+    }
     return true;
 }
 
@@ -98,62 +122,45 @@ Accepts an incoming message received from the signaling server.
 */
 SCCall.prototype.acceptMsg = function(msg) {
     if (!SCEngine.connected) {
-        throw new Error("not connected"); 
+        throw new Error("not connected");
     }
     var This = this;
     if (msg.type === "answer" || msg.type === "pranswer") {
-        var sdpRemote = msg.sdp.replace("UDP/TLS/RTP/SAVPF", "RTP/SAVPF");
-        this.pc.setRemoteDescription(new RTCSessionDescription({ type: msg.type, sdp: sdpRemote }), 
-            function() { 
+        var sdpRemote = msg.sdp.replace(/UDP\/TLS\/RTP\/SAVPF/g, 'RTP/SAVPF');
+        this.pc.setRemoteDescription(new RTCSessionDescription({ type: msg.type, sdp: sdpRemote }),
+            function() {
                 console.info("setRemoteDescription OK");
             },
-            function(err) { 
-                console.error("setRemoteDescription NOK:" + err); 
+            function(err) {
+                console.error("setRemoteDescription NOK:" + err);
                 SCUtils.raiseCallEvent(This, "error", err);
             }
         );
     }
     else if (msg.type === "offer") {
         var This = this;
-        if (!this.pc) {
-            this.pc = new RTCPeerConnection(SCUtils.buildPeerConnConfig());
-            this.pc.onicecandidate  = function(e) { SCWebRtcEvents.onicecandidate(This, e); }
-            this.pc.onaddstream = function(e) { SCWebRtcEvents.onaddstream(This, e); }
+        var Msg = msg;
+        if (this.config.audio_send || this.config.video_send) {
+            console.info("getUserMedia(audio:" + this.config.audio_send + ", video:" + this.config.video_send + ")");
+            getUserMedia(
+                SCUtils.buildConstraintsGUM(this.config),
+                function(stream) {
+                    console.info("getUserMedia OK");
+                    SCWebRtcEvents.ongotstream(This, stream);
+                    SCUtils.makeAnswer(This, Msg); // send answer
+                },
+                function(err) {
+                    console.error("getUserMedia:" + err);
+                    SCUtils.raiseCallEvent(This, "error", err);
+                }
+            );
         }
-        var sdpRemote = msg.sdp.replace("UDP/TLS/RTP/SAVPF", "RTP/SAVPF");
-        this.pc.setRemoteDescription(new RTCSessionDescription({ type: "offer", sdp: sdpRemote }), 
-            function() { 
-                console.info("setRemoteDescription OK");
-                This.pc.createAnswer(
-                    function(desc) {
-                        console.info("createAnswer:" + desc.sdp);
-                        This.pc.setLocalDescription(desc, 
-                            function() { 
-                                console.info("setLocalDescription OK");
-                                SCUtils.raiseCallEvent(This, "info", "gathering ICE candidates...");
-                            },
-                            function(err) {
-                                console.error("setLocalDescription:" + err);
-                                SCUtils.raiseCallEvent(This, "error", err);
-                            });
-                    },
-                    function(err) {
-                        console.info("createAnswer:" + err);
-                        SCUtils.raiseCallEvent(This, "error", err);
-                    },
-                    SCUtils.buildSdpConstraints());
-            },
-            function(err) { 
-                console.info("setRemoteDescription NOK:" + err);
-                SCUtils.raiseCallEvent(This, "error", err);
-            }
-        );
+        else {
+            SCUtils.makeAnswer(This, Msg); // send answer
+        }
     }
     else if (msg.type === "hangup") {
-        if(This.pc) {
-            This.pc.close();
-            This.pc = null;
-        }
+        SCUtils.closeMedia(This);
     }
     else {
         throw new Error("not implemented yet");
@@ -185,10 +192,7 @@ Terminates the call session.
 @throws {ERR_NOT_CONNECTED}
 */
 SCCall.prototype.hangup = function() {
-    if(this.pc) {
-        this.pc.close();
-        this.pc = null;
-    }
+    SCUtils.closeMedia(this);
     if (!SCEngine.connected) {
         throw new Error("not connected"); 
     }
@@ -206,11 +210,12 @@ SCCall.prototype.hangup = function() {
 
 /**
 Builds a new <a href="SCCall.html">SCCall</a> object.
-@param {String / SCMessage} dest Could be a <b>String</b> or a <a href="SCMessage.html">SCMessage</a> object with <a href="SCMessage.html#type">type</a> equal to "offer". <br />
+@param {String / SCMessage} dest Could be a <b>String</b> or a <a href="SCMessage.html">SCMessage</a> object with <a href="SCMessage.html#type">type</a> equal to "offer".
+@param {SCConfigCall} [config] Call config <br />
 The <b>String</b> verstion is for outgoing calls while the <a href="SCMessage.html">SCMessage</a> version is for incoming calls.
 @returns {SCCall} new call session.
 */
-SCCall.build = function(dest) {
+SCCall.build = function(dest, config) {
     var newCall;
     if (typeof dest == "string") { 
         newCall = new SCCall();
@@ -226,6 +231,9 @@ SCCall.build = function(dest) {
         newCall.cid = dest.cid;
         newCall.tid = dest.tid;
     }
+    if (newCall && config) {
+        newCall.setConfig(config);
+    }
     return newCall;
 }
 
@@ -233,16 +241,16 @@ SCCall.build = function(dest) {
 var SCWebRtcEvents = {
     onicecandidate: function(call, e) {
         var This = call;
-        if (e.candidate) { 
-            call.pc.addIceCandidate(new RTCIceCandidate(e.candidate),
+        if (e.candidate) {
+            /*call.pc.addIceCandidate(new RTCIceCandidate(e.candidate),
                 function() { console.info("addIceCandidate OK"); },
-                function(err) { 
-                    console.error("addIceCandidate NOK:" + err); 
+                function(err) {
+                    console.error("addIceCandidate NOK:" + err);
                     SCUtils.raiseCallEvent(This, "error", err);
                 }
-            );
+            );*/
         }
-        else {
+        if (!e.candidate || (call.pc && (call.pc.iceState === "completed" || call.pc.iceGatheringState === "completed"))) {
             if (!call.pc) {
                 // closing the peerconnection could raise this event with null candidate --> ignore
                 console.info("ICE gathering done...but pc is null");
@@ -254,32 +262,30 @@ var SCWebRtcEvents = {
                 SCUtils.raiseCallEvent(This, "error", "ICE gathering done but signaling transport not connected");
                 return;
             }
-            var msg = 
+            var msg =
             {
                 from: call.from,
                 to: call.to,
                 cid: call.cid,
                 tid: call.tid,
-                type: call.pc.localDescription.type, // "offer"
-                sdp: call.pc.localDescription.sdp.replace("RTP/SAVPF", "UDP/TLS/RTP/SAVPF")
+                type: call.pc.localDescription.type, // "offer"/"answer"/"pranswer"
+                sdp: SCUtils.stringLocalSdp(call.pc)
             };
             var msg_text = JSON.stringify(msg);
             console.info("send: " + msg_text);
             SCEngine.socket.send(msg_text);
         }
     },
-    onaddstream: function(call, e) {
-        var remoteVideo = (call.remoteVideo || SCEngine.config.remoteVideo);
-        if (remoteVideo) {
-            if (window.webkitURL) { // Chrome
-                remoteVideo.src = webkitURL.createObjectURL(e.stream);
-            }
-            else if (remoteVideo.mozSrcObject) { // FF
-                remoteVideo.mozSrcObject = e.stream;
-                remoteVideo.play();
-            }
-        }
+    onaddstream: function(call, e) { // remote stream
+        SCUtils.attachStream(call, e.stream, false/*remote*/);
         SCUtils.raiseCallEvent(call, "info", "media started!");
+    },
+    ongotstream: function(call, stream) { // local stream
+        call.localStream = stream;
+        if (call.pc) {
+            call.pc.addStream(stream);
+            SCUtils.attachStream(call, stream, true/*local*/);
+        }
     }
 };
 
@@ -309,28 +315,173 @@ var SCUtils = {
         return SCUtils.stringFormat("{0}-{1}-{2}-{3}-{4}",
                 SCUtils.stringRandomFromDict(8, s_dict),
                 SCUtils.stringRandomFromDict(4, s_dict),
-                SCUtils.stringRandomFromDict(4, s_dict), 
+                SCUtils.stringRandomFromDict(4, s_dict),
                 SCUtils.stringRandomFromDict(4, s_dict),
                 SCUtils.stringRandomFromDict(12, s_dict));
+    },
+    stringLocalSdp: function(pc) {
+        if (pc && pc.localDescription && pc.localDescription.sdp) {
+            var sdp = pc.localDescription.sdp.replace(/RTP\/SAVPF/g, 'UDP/TLS/RTP/SAVPF');
+            var arrayPosOfVideo = [];
+            var posOfVideo, indexOfVideoStart, indexOfVideo, indexOfVideoNext, indexOfContentSlides;
+            // Find video positions to consider as "screencast"
+            if (pc.remoteDescription && pc.remoteDescription.sdp) {
+                posOfVideo = 0;
+                indexOfVideoStart = 0;
+                while ((indexOfVideo = pc.remoteDescription.sdp.indexOf("m=video ", indexOfVideoStart)) > 0) {
+                    if ((indexOfContentSlides = pc.remoteDescription.sdp.indexOf("a=content:slides", indexOfVideo)) > 0 || (indexOfContentSlides = pc.remoteDescription.sdp.indexOf("label:doubango@bfcpvideo", indexOfVideo)) > 0) {
+                        indexOfVideoNext = pc.remoteDescription.sdp.indexOf("m=video ", indexOfVideo + 1);
+                        if (indexOfVideoNext == -1 || indexOfContentSlides < indexOfVideoNext) {
+                            // Video at "posOfVideo" is "screencast"
+                            arrayPosOfVideo.push(posOfVideo);
+                        }
+                    }
+                    indexOfVideoStart = indexOfVideo + 1;
+                    ++posOfVideo;
+                }
+            }
+            // Patch the SDP to have it looks like "screencast"
+            for (var i = 0; i < arrayPosOfVideo.length; ++i) {
+                posOfVideo = 0;
+                indexOfVideoStart = 0;
+                while ((indexOfVideo = sdp.indexOf("m=video ", indexOfVideoStart)) > 0) {
+                    if (posOfVideo == arrayPosOfVideo[i]) {
+                        var endOfLine = sdp.indexOf("\r\n", indexOfVideo);
+                        if (endOfLine > 0) {
+                            sdp = sdp.substring(0, (endOfLine + 2)) + "a=content:slides\r\n" + sdp.substring((endOfLine + 2), sdp.length);
+                        }
+                    }
+                    indexOfVideoStart = indexOfVideo + 1;
+                    ++posOfVideo;
+                }
+            }
+
+            return sdp;
+        }
     },
     buildPeerConnConfig: function() {
         return {
             iceServers: SCEngine.config.iceServers
         };
     },
-    buildSdpConstraints: function() {
+    buildConstraintsSDP: function(callConfig) {
         return {
-              'mandatory': {
-                'OfferToReceiveAudio': false,
-                'OfferToReceiveVideo': true
-              }
+            'mandatory': {
+                'OfferToReceiveAudio': (callConfig && callConfig.audio_recv !== undefined) ? callConfig.audio_recv : false,
+                'OfferToReceiveVideo': (callConfig && callConfig.video_recv !== undefined) ? callConfig.video_recv : true
+            }
         };
+    },
+    buildConstraintsGUM: function(callConfig) {
+        return {
+            'audio': (callConfig && callConfig.audio_send),
+            'video': (callConfig && callConfig.video_send)
+        };
+    },
+    attachStream: function(call, stream, local) {
+        var htmlElementVideo = local ? (call.config.video_local_elt || SCEngine.config.localVideo) : (call.config.video_remote_elt || SCEngine.config.remoteVideo);
+        var htmlElementAudio = local ? (call.config.audio_local_elt || SCEngine.config.localAudio) : (call.config.audio_remote_elt || SCEngine.config.remoteAudio);
+
+        if (htmlElementAudio) {
+            attachMediaStream(htmlElementAudio, stream);
+        }
+        if (htmlElementVideo) {
+            attachMediaStream(htmlElementVideo, stream);
+        }
+    },
+    closeMedia: function(call) {
+        if (call) {
+            if (call.pc) {
+                if (call.localStream) {
+                    try { call.pc.removeStream(call.localStream); } catch (e) { }
+                }
+                call.pc.close();
+                call.pc = null;
+            }
+            if (call.localStream) {
+                call.localStream.stop();
+                call.localStream = null;
+            }
+
+            SCUtils.attachStream(call, null, false/*remote*/);
+            SCUtils.attachStream(call, null, true/*local*/);
+        }
+    },
+    makeOffer: function(call) {
+        var This = call;
+        if (!call.pc) {
+            call.pc = new RTCPeerConnection(SCUtils.buildPeerConnConfig());
+            if (call.localStream) {
+                call.pc.addStream(call.localStream);
+                SCUtils.attachStream(call, call.localStream, true/*local*/);
+            }
+        }
+        call.pc.onicecandidate = function(e) { SCWebRtcEvents.onicecandidate(This, e); }
+        call.pc.onaddstream = function(e) { SCWebRtcEvents.onaddstream(This, e); }
+        call.pc.createOffer(
+            function(desc) {
+                console.info("createOffer:" + desc.sdp);
+                This.pc.setLocalDescription(desc,
+                    function() {
+                        console.info("setLocalDescription OK");
+                        SCUtils.raiseCallEvent(This, "info", "gathering ICE candidates...");
+                    },
+                    function(err) {
+                        console.error("setLocalDescription:" + err);
+                        SCUtils.raiseCallEvent(This, "error", err);
+                    });
+            },
+            function(err) {
+                console.error("createOffer:" + err);
+                SCUtils.raiseCallEvent(This, "error", err);
+            },
+            SCUtils.buildConstraintsSDP(This.config));
+    },
+    makeAnswer: function(call, Msg) {
+        var This = call;
+        if (!call.pc) {
+            call.pc = new RTCPeerConnection(SCUtils.buildPeerConnConfig());
+            if (call.localStream) {
+                call.pc.addStream(call.localStream);
+                SCUtils.attachStream(call, call.localStream, true/*local*/);
+            }
+        }
+        call.pc.onicecandidate = function(e) { SCWebRtcEvents.onicecandidate(This, e); }
+        call.pc.onaddstream = function(e) { SCWebRtcEvents.onaddstream(This, e); }
+        var sdpRemote = Msg.sdp.replace(/UDP\/TLS\/RTP\/SAVPF/g, 'RTP/SAVPF');
+        call.pc.setRemoteDescription(new RTCSessionDescription({ type: "offer", sdp: sdpRemote }),
+            function() {
+                console.info("setRemoteDescription OK");
+                This.pc.createAnswer(
+                    function(desc) {
+                        console.info("createAnswer:" + desc.sdp);
+                        This.pc.setLocalDescription(desc,
+                            function() {
+                                console.info("setLocalDescription OK");
+                                SCUtils.raiseCallEvent(This, "info", "gathering ICE candidates...");
+                            },
+                            function(err) {
+                                console.error("setLocalDescription:" + err);
+                                SCUtils.raiseCallEvent(This, "error", err);
+                            });
+                    },
+                    function(err) {
+                        console.info("createAnswer:" + err);
+                        SCUtils.raiseCallEvent(This, "error", err);
+                    },
+                    SCUtils.buildConstraintsSDP(This.config));
+            },
+            function(err) {
+                console.info("setRemoteDescription NOK:" + err);
+                SCUtils.raiseCallEvent(This, "error", err);
+            }
+        );
     },
     raiseCallEvent: function(call, type, description, msg) {
         if (SCEngine.oncall) {
-            SCEngine.oncall({ "type": type, "call": call, "description": description, "msg": msg});
+            SCEngine.oncall({ "type": type, "call": call, "description": description, "msg": msg });
         }
-    },
+    }
 };
 
 /**
@@ -424,7 +575,23 @@ Engine configuration object.
 @namespace Anonymous
 @name SCConfigEngine
 @property {String} localId Local user/device identifier.
+@property {HTMLVideoElement} [localVideo] <a href="https://developer.mozilla.org/en-US/docs/DOM/HTMLVideoElement">HTMLVideoElement<a> where to display the local video stream.
 @property {HTMLVideoElement} [remoteVideo] <a href="https://developer.mozilla.org/en-US/docs/DOM/HTMLVideoElement">HTMLVideoElement<a> where to display the remote video stream.
+@property {HTMLAudioElement} [remoteAudio] <a href="https://developer.mozilla.org/en-US/docs/DOM/HTMLAudioElement">HTMLAudioElement<a> used to playback the remote audio stream.
 @property {Array} iceServers Array of STUN/TURN servers to use. The format is as explained at <a href="http://www.w3.org/TR/webrtc/#rtciceserver-type" target=_blank>http://www.w3.org/TR/webrtc/#rtciceserver-type</a> <br />
 Example: [{ url: 'stun:stun.l.google.com:19302'}, { url:'turn:user@numb.viagenie.ca', credential:'myPassword'}] 
+*/
+
+/**
+Call configuration object.
+@namespace Anonymous
+@name SCConfigCall
+@property {Boolean} [audio_send] Defines whether to send audio. Default value: <b>false</b>.
+@property {Boolean} [audio_recv] Defines whether to accept incoming audio. Default value: <b>false</b>.
+@property {HTMLAudioElement} [audio_remote_elt] <a href="https://developer.mozilla.org/en-US/docs/DOM/HTMLAudioElement">HTMLAudioElement<a> used to playback the remote audio stream.
+@property {Boolean} [video_send] Defines whether to send video. Default value: <b>false</b>.
+@property {Boolean} [video_recv] Defines whether to accept incoming video.  Default value: <b>true</b>.
+@property {HTMLVideoElement} [video_local_elt] <a href="https://developer.mozilla.org/en-US/docs/DOM/HTMLVideoElement">HTMLVideoElement<a> where to display the local video stream.
+@property {HTMLVideoElement} [video_remote_elt] <a href="https://developer.mozilla.org/en-US/docs/DOM/HTMLVideoElement">HTMLVideoElement<a> where to display the remote video stream.<br />
+Example: { audio_send: true, audio_recv: true, video_send: false, video_recv: true }
 */

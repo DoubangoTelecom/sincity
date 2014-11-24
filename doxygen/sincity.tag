@@ -507,6 +507,7 @@
     <includes id="sc__utils_8h" name="sc_utils.h" local="yes" imported="no">sincity/sc_utils.h</includes>
     <includes id="sc__signaling_8h" name="sc_signaling.h" local="yes" imported="no">sincity/sc_signaling.h</includes>
     <includes id="sc__json_8h" name="sc_json.h" local="yes" imported="no">sincity/jsoncpp/sc_json.h</includes>
+    <includes id="sc__thread_8h" name="sc_thread.h" local="yes" imported="no">sincity/sc_thread.h</includes>
   </compound>
   <compound kind="file">
     <name>sc_common.h</name>
@@ -600,6 +601,20 @@
     </member>
     <member kind="define">
       <type>#define</type>
+      <name>SCVideoDisplay</name>
+      <anchorfile>sc__common_8h.html</anchorfile>
+      <anchor>a56d62addd71d1710ee6ced8c5af86f34</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>SC_STDCALL</name>
+      <anchorfile>sc__common_8h.html</anchorfile>
+      <anchor>a16fdb4b39ad43d7854eca0f8a877a9d2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
       <name>kSCMobuleNameNetTransport</name>
       <anchorfile>sc__common_8h.html</anchorfile>
       <anchor>a40e3cb56949bd2a409a72657fe7e4170</anchor>
@@ -617,6 +632,13 @@
       <name>kSCMobuleNameSignaling</name>
       <anchorfile>sc__common_8h.html</anchorfile>
       <anchor>a5435c6ac02399bfd95714896dc5ea625</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>kSCMobuleNameFakeDisplay</name>
+      <anchorfile>sc__common_8h.html</anchorfile>
+      <anchor>ab22387b975b723dc8901c9ca03de93c8</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
@@ -638,6 +660,13 @@
       <name>SCNativeNetTransportHandle_t</name>
       <anchorfile>sc__common_8h.html</anchorfile>
       <anchor>a7fbd7b243e9c39a18f0b814fc43f3859</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>void</type>
+      <name>SCNativeThreadHandle_t</name>
+      <anchorfile>sc__common_8h.html</anchorfile>
+      <anchor>a9ca9b17f97aa0c3b5fe2c583056cdb45</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumeration">
@@ -694,6 +723,13 @@
       <name>SCSignalingEventType_NetReady</name>
       <anchorfile>sc__common_8h.html</anchorfile>
       <anchor>adb79614205130f8859437a56771d0991a85f8dd15e5615fdd03167a260f7399e9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SCSignalingEventType_NetData</name>
+      <anchorfile>sc__common_8h.html</anchorfile>
+      <anchor>adb79614205130f8859437a56771d0991a25cac7352bd0b2e94fa85daaacccd64a</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumvalue">
@@ -1034,6 +1070,19 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>sc_display_fake.h</name>
+    <path>C:/Projects/sincity/sincity/include/sincity/</path>
+    <filename>sc__display__fake_8h</filename>
+    <includes id="sc__config_8h" name="sc_config.h" local="yes" imported="no">sc_config.h</includes>
+    <member kind="variable">
+      <type>const struct tmedia_consumer_plugin_def_s *</type>
+      <name>sc_display_fake_plugin_def_t</name>
+      <anchorfile>sc__display__fake_8h.html</anchorfile>
+      <anchor>af6ff9ed5d89ae908fba7e1ac6faf9276</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>sc_engine.h</name>
     <path>C:/Projects/sincity/sincity/include/sincity/</path>
     <filename>sc__engine_8h</filename>
@@ -1159,6 +1208,15 @@
     <class kind="class">SCSignaling</class>
   </compound>
   <compound kind="file">
+    <name>sc_thread.h</name>
+    <path>C:/Projects/sincity/sincity/include/sincity/</path>
+    <filename>sc__thread_8h</filename>
+    <includes id="sc__config_8h" name="sc_config.h" local="yes" imported="no">sc_config.h</includes>
+    <includes id="sc__common_8h" name="sc_common.h" local="yes" imported="no">sincity/sc_common.h</includes>
+    <includes id="sc__obj_8h" name="sc_obj.h" local="yes" imported="no">sincity/sc_obj.h</includes>
+    <class kind="class">SCThread</class>
+  </compound>
+  <compound kind="file">
     <name>sc_url.h</name>
     <path>C:/Projects/sincity/sincity/include/sincity/</path>
     <filename>sc__url_8h</filename>
@@ -1176,11 +1234,27 @@
     <class kind="class">SCUtils</class>
   </compound>
   <compound kind="file">
+    <name>sc_display_fake.cc</name>
+    <path>C:/Projects/sincity/sincity/src/</path>
+    <filename>sc__display__fake_8cc</filename>
+    <includes id="sc__display__fake_8h" name="sc_display_fake.h" local="yes" imported="no">sincity/sc_display_fake.h</includes>
+    <includes id="sc__utils_8h" name="sc_utils.h" local="yes" imported="no">sincity/sc_utils.h</includes>
+    <includes id="sc__common_8h" name="sc_common.h" local="yes" imported="no">sincity/sc_common.h</includes>
+    <member kind="variable">
+      <type>const tmedia_consumer_plugin_def_t *</type>
+      <name>sc_display_fake_plugin_def_t</name>
+      <anchorfile>sc__display__fake_8cc.html</anchorfile>
+      <anchor>a06ba4f35f9c4e42460ee94464a25418f</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>sc_engine.cc</name>
     <path>C:/Projects/sincity/sincity/src/</path>
     <filename>sc__engine_8cc</filename>
     <includes id="sc__engine_8h" name="sc_engine.h" local="yes" imported="no">sincity/sc_engine.h</includes>
     <includes id="sc__utils_8h" name="sc_utils.h" local="yes" imported="no">sincity/sc_utils.h</includes>
+    <includes id="sc__display__fake_8h" name="sc_display_fake.h" local="yes" imported="no">sincity/sc_display_fake.h</includes>
     <member kind="define">
       <type>#define</type>
       <name>stricmp</name>
@@ -1507,6 +1581,12 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>sc_thread.cc</name>
+    <path>C:/Projects/sincity/sincity/src/</path>
+    <filename>sc__thread_8cc</filename>
+    <includes id="sc__thread_8h" name="sc_thread.h" local="yes" imported="no">sincity/sc_thread.h</includes>
+  </compound>
+  <compound kind="file">
     <name>sc_url.cc</name>
     <path>C:/Projects/sincity/sincity/src/</path>
     <filename>sc__url_8cc</filename>
@@ -1647,6 +1727,20 @@
     </member>
     <member kind="function" static="yes">
       <type>static bool</type>
+      <name>setAudioEchoSuppEnabled</name>
+      <anchorfile>group_____group___c_p_p___engine.html</anchorfile>
+      <anchor>gaf1fe423596f748656c71f9c6425673ef</anchor>
+      <arglist>(bool enabled)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>setAudioEchoTail</name>
+      <anchorfile>group_____group___c_p_p___engine.html</anchorfile>
+      <anchor>ga3fccd0bd4b5c9bd9ba5dee41519dd314</anchor>
+      <arglist>(int tailLength)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
       <name>addNattIceServer</name>
       <anchorfile>group_____group___c_p_p___engine.html</anchorfile>
       <anchor>gab5d7a6d35292b23554c945603342236d</anchor>
@@ -1683,6 +1777,13 @@
     <name>_Group_CPP_SessionCall</name>
     <title>Call session</title>
     <filename>group_____group___c_p_p___session_call.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>setVideoDisplays</name>
+      <anchorfile>group_____group___c_p_p___session_call.html</anchorfile>
+      <anchor>gaaf28eee61a2465876febdcb3a65de8a0</anchor>
+      <arglist>(SCMediaType_t eVideoType, SCVideoDisplay displayLocal=NULL, SCVideoDisplay displayRemote=NULL)</arglist>
+    </member>
     <member kind="function" virtualness="virtual">
       <type>virtual bool</type>
       <name>call</name>
@@ -1787,14 +1888,14 @@
       <type></type>
       <name>SCSignalingEvent</name>
       <anchorfile>group_____group___c_p_p___signaling.html</anchorfile>
-      <anchor>a0b65fd0bfd72d257b20ebbba51996284</anchor>
-      <arglist>(SCSignalingEventType_t eType, std::string strDescription)</arglist>
+      <anchor>aa82dc12b6402e70f1350466a30cc5abb</anchor>
+      <arglist>(SCSignalingEventType_t eType, std::string strDescription, const void *pcDataPtr=NULL, size_t nDataSize=0)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
       <name>~SCSignalingEvent</name>
       <anchorfile>group_____group___c_p_p___signaling.html</anchorfile>
-      <anchor>aabdaa56a7b742c85e1c36c8b3bbb856b</anchor>
+      <anchor>aafd90949a8b1dbdd2f2a345eee36176a</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" virtualness="virtual">
@@ -1816,6 +1917,20 @@
       <name>getDescription</name>
       <anchorfile>group_____group___c_p_p___signaling.html</anchorfile>
       <anchor>aa93e50862b2ab41d8cb359850373dbb3</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual SC_INLINE const void *</type>
+      <name>getDataPtr</name>
+      <anchorfile>group_____group___c_p_p___signaling.html</anchorfile>
+      <anchor>a2ee11b08a206fcf7bb90e885be21a3b8</anchor>
+      <arglist>() const </arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual SC_INLINE size_t</type>
+      <name>getDataSize</name>
+      <anchorfile>group_____group___c_p_p___signaling.html</anchorfile>
+      <anchor>a709c70d7367d163c3ef2119d6f4c6747</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
@@ -2135,6 +2250,20 @@
       <anchorfile>group_____group___c_p_p___engine.html</anchorfile>
       <anchor>ga855808a17c9a10dced391ea84ab735b4</anchor>
       <arglist>(bool enabled)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>setAudioEchoSuppEnabled</name>
+      <anchorfile>group_____group___c_p_p___engine.html</anchorfile>
+      <anchor>gaf1fe423596f748656c71f9c6425673ef</anchor>
+      <arglist>(bool enabled)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>setAudioEchoTail</name>
+      <anchorfile>group_____group___c_p_p___engine.html</anchorfile>
+      <anchor>ga3fccd0bd4b5c9bd9ba5dee41519dd314</anchor>
+      <arglist>(int tailLength)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static bool SC_DEPRECATED()</type>
@@ -2906,6 +3035,13 @@
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual bool</type>
+      <name>setVideoDisplays</name>
+      <anchorfile>group_____group___c_p_p___session_call.html</anchorfile>
+      <anchor>gaaf28eee61a2465876febdcb3a65de8a0</anchor>
+      <arglist>(SCMediaType_t eVideoType, SCVideoDisplay displayLocal=NULL, SCVideoDisplay displayRemote=NULL)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
       <name>call</name>
       <anchorfile>group_____group___c_p_p___session_call.html</anchorfile>
       <anchor>ga7e7778a3d5b463bf1f8ab2f6453f1268</anchor>
@@ -2930,6 +3066,13 @@
       <name>getCallId</name>
       <anchorfile>class_s_c_session_call.html</anchorfile>
       <anchor>a25e58826b227d11bf48e789cf530fb56</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual SC_INLINE SCMediaType_t</type>
+      <name>getMediaType</name>
+      <anchorfile>class_s_c_session_call.html</anchorfile>
+      <anchor>af1c534da8c459a4eaeaeea73734bd21e</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" static="yes">
@@ -3095,6 +3238,46 @@
       <anchorfile>class_s_c_signaling_transport_callback.html</anchorfile>
       <anchor>a056b4a466d77c03f51f2a549092cb2ce</anchor>
       <arglist>(SCObjWrapper&lt; SCNetPeer * &gt; oPeer)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>SCThread</name>
+    <filename>class_s_c_thread.html</filename>
+    <base>SCObj</base>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~SCThread</name>
+      <anchorfile>class_s_c_thread.html</anchorfile>
+      <anchor>adb1f89db6b9c08bede18df743f087e52</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual SC_INLINE const char *</type>
+      <name>getObjectId</name>
+      <anchorfile>class_s_c_thread.html</anchorfile>
+      <anchor>ac1c1583903e024561dd6ef26a2b942f6</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>join</name>
+      <anchorfile>class_s_c_thread.html</anchorfile>
+      <anchor>a326634f39ef1283052c0fde13eadcd9f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static SCObjWrapper&lt; SCThread * &gt;</type>
+      <name>newObj</name>
+      <anchorfile>class_s_c_thread.html</anchorfile>
+      <anchor>aeb40165f4a8d7f0c6d788bd4b26a65ed</anchor>
+      <arglist>(void *(SC_STDCALL *start)(void *), void *arg=NULL)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type></type>
+      <name>SCThread</name>
+      <anchorfile>class_s_c_thread.html</anchorfile>
+      <anchor>ab86215742d788074acac9d85cec95f78</anchor>
+      <arglist>(SCNativeThreadHandle_t *phThread)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -4944,6 +5127,7 @@
     <dir>C:/Projects/sincity/sincity/include/sincity/jsoncpp</dir>
     <file>sc_api.h</file>
     <file>sc_common.h</file>
+    <file>sc_display_fake.h</file>
     <file>sc_engine.h</file>
     <file>sc_mutex.h</file>
     <file>sc_nettransport.h</file>
@@ -4953,6 +5137,7 @@
     <file>sc_session.h</file>
     <file>sc_session_call.h</file>
     <file>sc_signaling.h</file>
+    <file>sc_thread.h</file>
     <file>sc_url.h</file>
     <file>sc_utils.h</file>
   </compound>
@@ -4967,6 +5152,7 @@
     <name>C:/Projects/sincity/sincity/src</name>
     <path>C:/Projects/sincity/sincity/src/</path>
     <filename>dir_81ef8421d90cc8142a3d391a2dffc215.html</filename>
+    <file>sc_display_fake.cc</file>
     <file>sc_engine.cc</file>
     <file>sc_jsoncpp.cc</file>
     <file>sc_mutex.cc</file>
@@ -4977,6 +5163,7 @@
     <file>sc_session.cc</file>
     <file>sc_session_call.cc</file>
     <file>sc_signaling.cc</file>
+    <file>sc_thread.cc</file>
     <file>sc_url.cc</file>
     <file>sc_utils.cc</file>
   </compound>

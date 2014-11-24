@@ -310,6 +310,10 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\src\sc_display_fake.cc"
+				>
+			</File>
+			<File
 				RelativePath=".\src\sc_engine.cc"
 				>
 			</File>
@@ -350,6 +354,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\src\sc_thread.cc"
+				>
+			</File>
+			<File
 				RelativePath=".\src\sc_url.cc"
 				>
 			</File>
@@ -376,6 +384,10 @@
 				</File>
 				<File
 					RelativePath=".\include\sincity\sc_common.h"
+					>
+				</File>
+				<File
+					RelativePath=".\include\sincity\sc_display_fake.h"
 					>
 				</File>
 				<File
@@ -412,6 +424,10 @@
 				</File>
 				<File
 					RelativePath=".\include\sincity\sc_signaling.h"
+					>
+				</File>
+				<File
+					RelativePath=".\include\sincity\sc_thread.h"
 					>
 				</File>
 				<File

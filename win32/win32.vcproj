@@ -65,9 +65,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Winmm.lib ws2_32.lib Shlwapi.lib IPHLPAPI.lib libeay32.lib ssleay32.lib vpxmt.lib libsrtp.a libyuv.lib sincity.lib libgcc.a"
+				AdditionalDependencies="Winmm.lib ws2_32.lib Shlwapi.lib IPHLPAPI.lib libeay32.lib ssleay32.lib vpxmt.lib libsrtp.a libspeexdsp.a libyuv.lib libopus.a audio_processing.lib common_audio.lib system_wrappers.lib sincity.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="&quot;$(OutDir)&quot;;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib;..\..\doubango\branches\2.0\doubango\thirdparties\win32\lib\openssl;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\vpx;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\srtp;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\libyuv"
+				AdditionalLibraryDirectories="&quot;$(OutDir)&quot;;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib;..\..\doubango\branches\2.0\doubango\thirdparties\win32\lib\openssl;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\vpx;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\srtp;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\libyuv;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\speex;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\webrtc;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\opus"
 				IgnoreDefaultLibraryNames="LIBCMTD.lib"
 				GenerateDebugInformation="true"
 				SubSystem="1"
@@ -221,9 +221,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Winmm.lib ws2_32.lib Shlwapi.lib IPHLPAPI.lib libeay32.lib ssleay32.lib vpxmt.lib libsrtp.a libyuv.lib sincity.lib libgcc.a"
+				AdditionalDependencies="Winmm.lib ws2_32.lib Shlwapi.lib IPHLPAPI.lib libeay32.lib ssleay32.lib vpxmt.lib libsrtp.a libyuv.lib libopus.a libspeexdsp.a audio_processing.lib common_audio.lib system_wrappers.lib sincity.lib"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="&quot;$(OutDir)&quot;;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib;..\..\doubango\branches\2.0\doubango\thirdparties\win32\lib\openssl;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\vpx;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\srtp;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\libyuv"
+				AdditionalLibraryDirectories="&quot;$(OutDir)&quot;;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib;..\..\doubango\branches\2.0\doubango\thirdparties\win32\lib\openssl;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\vpx;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\srtp;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\libyuv;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\speex;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\webrtc;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\opus"
 				IgnoreDefaultLibraryNames="LIBCMT.lib"
 				GenerateDebugInformation="true"
 				SubSystem="1"

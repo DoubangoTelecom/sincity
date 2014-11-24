@@ -79,6 +79,8 @@ public:
 	static bool setVideoJbEnabled(bool enabled);
 	static bool setVideoAvpfTail(int min, int max);
 	static bool setVideoZeroArtifactsEnabled(bool enabled);
+	static bool setAudioEchoSuppEnabled(bool enabled);
+	static bool setAudioEchoTail(int tailLength);
 	static bool SC_DEPRECATED(setNattStunServer)(const char* host, unsigned short port = 3478);
 	static bool SC_DEPRECATED(setNattStunCredentials)(const char* username, const char* password);
 	static bool addNattIceServer(const char* strTransportProto, const char* strServerHost, unsigned short serverPort, bool useTurn = false, bool useStun = true, const char* strUsername = NULL, const char* strPassword = NULL);

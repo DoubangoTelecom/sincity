@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="include\sincity">
+      <UniqueIdentifier>{86e5f53c-175c-49d2-84ef-db3b3b539e86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\sincity\jsoncpp">
+      <UniqueIdentifier>{34691c89-80ee-4f40-8c2b-a00c11c8e950}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="ragel">
+      <UniqueIdentifier>{9a003081-cd27-40e5-91d0-8298e8f67072}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\sc_display_fake.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sc_engine.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sc_jsoncpp.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sc_mutex.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sc_nettransport.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sc_nettransport_ws.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sc_obj.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sc_parser_url.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sc_session.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sc_session_call.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sc_signaling.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sc_thread.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sc_url.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sc_utils.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\sc_config.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sincity\sc_api.h">
+      <Filter>include\sincity</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sincity\sc_common.h">
+      <Filter>include\sincity</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sincity\sc_display_fake.h">
+      <Filter>include\sincity</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sincity\sc_engine.h">
+      <Filter>include\sincity</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sincity\sc_mutex.h">
+      <Filter>include\sincity</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sincity\sc_nettransport.h">
+      <Filter>include\sincity</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sincity\sc_nettransport_ws.h">
+      <Filter>include\sincity</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sincity\sc_obj.h">
+      <Filter>include\sincity</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sincity\sc_parser_url.h">
+      <Filter>include\sincity</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sincity\sc_session.h">
+      <Filter>include\sincity</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sincity\sc_session_call.h">
+      <Filter>include\sincity</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sincity\sc_signaling.h">
+      <Filter>include\sincity</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sincity\sc_thread.h">
+      <Filter>include\sincity</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sincity\sc_url.h">
+      <Filter>include\sincity</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sincity\sc_utils.h">
+      <Filter>include\sincity</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sincity\jsoncpp\sc_json-forwards.h">
+      <Filter>include\sincity\jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="include\sincity\jsoncpp\sc_json.h">
+      <Filter>include\sincity\jsoncpp</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ragel\sc_machine_utils.rl">
+      <Filter>ragel</Filter>
+    </None>
+    <None Include="ragel\sc_parser_url.rl">
+      <Filter>ragel</Filter>
+    </None>
+  </ItemGroup>
+</Project>

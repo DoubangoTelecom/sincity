@@ -123,7 +123,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;thirdparties\common\include\libyuv;..\doubango\branches\2.0\doubango\tinyRTP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyIPSec\src;..\doubango\branches\2.0\doubango\tinyDAV\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyMSRP\include;..\doubango\branches\2.0\doubango\tinyBFCP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
-				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_INFO;HAVE_SRTP=1;HAVE_G729=0;HAVE_BV16=0;HAVE_OPENCORE_AMR=0;HAVE_H264=0;HAVE_ILBC=0;HAVE_LIBGSM=0;HAVE_LIBOPUS=0;HAVE_DSOUND_H=0;HAVE_WAVE_API=0;HAVE_FFMPEG=0;HAVE_SPEEX_DSP=0;HAVE_WEBRTC=0;HAVE_SPEEX_JB=0;HAVE_LIB_SPEEX=0;HAVE_LIBVPX=1;HAVE_LIBYUV=1;G192BITSTREAM=0;GOTHAM_CITY = 0;SIN_CITY=1;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;TINYDAV_EXPORTS;TINYMEDIA_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYBFCP_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYMSRP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
+				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_INFO;HAVE_SRTP=1;HAVE_G729=0;HAVE_BV16=0;HAVE_OPENCORE_AMR=0;HAVE_H264=0;HAVE_ILBC=0;HAVE_LIBGSM=0;HAVE_LIBOPUS=1;HAVE_DSOUND_H=1;HAVE_WAVE_API=1;HAVE_FFMPEG=0;HAVE_SPEEX_DSP=1;HAVE_WEBRTC=1;HAVE_SPEEX_JB=1;HAVE_LIB_SPEEX=0;HAVE_LIBVPX=1;HAVE_LIBYUV=1;G192BITSTREAM=0;GOTHAM_CITY = 0;SIN_CITY=1;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;TINYDAV_EXPORTS;TINYMEDIA_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYBFCP_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYMSRP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -270,7 +270,7 @@
 				Optimization="3"
 				EnableIntrinsicFunctions="true"
 				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\thirdparties\common\include\libyuv;..\doubango\branches\2.0\doubango\tinyRTP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyIPSec\src;..\doubango\branches\2.0\doubango\tinyDAV\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyMSRP\include;..\doubango\branches\2.0\doubango\tinyBFCP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
-				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_WARN;WIN32;_WIN32_WINNT=0x0501;NDEBUG;_WINDOWS;_USRDLL;TINYDAV_EXPORTS;HAVE_SRTP=1;HAVE_G729=0;HAVE_BV16=0;HAVE_H264=0;HAVE_OPENCORE_AMR=0;HAVE_ILBC=0;HAVE_LIBGSM=0;HAVE_LIBOPUS=0;HAVE_DSOUND_H=0;HAVE_WAVE_API=0;HAVE_FFMPEG=0;HAVE_WEBRTC=0;HAVE_SPEEX_DSP=0;HAVE_SPEEX_JB=0;HAVE_LIB_SPEEX=0;HAVE_LIBVPX=1;HAVE_LIBYUV=1;G192BITSTREAM=0;SIN_CITY=1;TINYMEDIA_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYBFCP_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYMSRP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
+				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_WARN;WIN32;_WIN32_WINNT=0x0501;NDEBUG;_WINDOWS;_USRDLL;TINYDAV_EXPORTS;HAVE_SRTP=1;HAVE_G729=0;HAVE_BV16=0;HAVE_H264=0;HAVE_OPENCORE_AMR=0;HAVE_ILBC=0;HAVE_LIBGSM=0;HAVE_LIBOPUS=1;HAVE_DSOUND_H=1;HAVE_WAVE_API=1;HAVE_FFMPEG=0;HAVE_WEBRTC=1;HAVE_SPEEX_DSP=1;HAVE_SPEEX_JB=1;HAVE_LIB_SPEEX=0;HAVE_LIBVPX=1;HAVE_LIBYUV=1;G192BITSTREAM=0;SIN_CITY=1;TINYMEDIA_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYBFCP_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYMSRP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="false"
 				UsePrecompiledHeader="0"
@@ -989,6 +989,14 @@
 				<Filter
 					Name="oss"
 					>
+					<File
+						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\oss\tdav_consumer_oss.c"
+						>
+					</File>
+					<File
+						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\oss\tdav_producer_oss.c"
+						>
+					</File>
 				</Filter>
 				<Filter
 					Name="waveapi"
@@ -1023,6 +1031,22 @@
 					</File>
 					<File
 						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\coreaudio\tdav_producer_audiounit.c"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="alsa"
+					>
+					<File
+						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\alsa\tdav_common_alsa.c"
+						>
+					</File>
+					<File
+						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\alsa\tdav_consumer_alsa.c"
+						>
+					</File>
+					<File
+						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\alsa\tdav_producer_alsa.c"
 						>
 					</File>
 				</Filter>
@@ -1065,6 +1089,10 @@
 				<Filter
 					Name="v4linux"
 					>
+					<File
+						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\video\v4linux\tdav_producer_video_v4l2.c"
+						>
+					</File>
 				</Filter>
 				<Filter
 					Name="jb"

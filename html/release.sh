@@ -86,6 +86,9 @@ AppendScripts $API_FILE_PATH.tmp.js
 CompressFile $API_FILE_PATH.tmp.js $API_FILE_PATH
 rm -rf $API_FILE_PATH.tmp.js
 
+# adapter.js
+DeployFile adapter.js $API_FOLDER_NAME/adapter.js
+
 # generate and deploy documentation
 ./docgen.sh
 DeployFolder docgen

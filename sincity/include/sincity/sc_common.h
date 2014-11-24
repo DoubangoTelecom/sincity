@@ -28,6 +28,18 @@ typedef int32_t SCNetFd;
 #define SCNetFd_IsValid(self)	((self) > 0)
 #define kSCNetFdInvalid			-1
 
+#if SC_UNDER_WINDOWS
+#	define SCVideoDisplay HWND
+#	if SC_UNDER_WINDOWS_CE
+#		define SC_STDCALL __cdecl
+#	else
+#		define SC_STDCALL __stdcall
+#	endif /* SC_UNDER_WINDOWS_CE */
+#else
+#	define SCVideoDisplay void*
+#	define SC_STDCALL 
+#endif /* SC_UNDER_WINDOWS */
+
 typedef enum SCDebugLevel_e
 {
 	SCDebugLevel_Info = 4,
@@ -63,7 +75,7 @@ typedef enum SCMediaType_e
 	SCMediaType_None = 0x00,
 	SCMediaType_Audio = (0x01<<0),
 	SCMediaType_Video = (0x01<<1),
-	SCMediaType_ScreenCast = SCMediaType_Video/*(0x02<<1)*/, // FIXME
+	SCMediaType_ScreenCast = (0x01<<2),
 	SCMediaType_AudioVideo = (SCMediaType_Audio | SCMediaType_Video),
 
 	SCMediaType_All = 0xFF,
@@ -148,6 +160,7 @@ static bool SC_INLINE SCNetTransporType_isStream(SCNetTransporType_t eType)
 #define kSCMobuleNameNetTransport "NetTransport"
 #define kSCMobuleNameWsTransport "WebSocketTransport"
 #define kSCMobuleNameSignaling "Signaling"
+#define kSCMobuleNameFakeDisplay "Fake display"
 
 
 template <typename T>
@@ -161,5 +174,6 @@ protected:
 
 typedef void SCNativeMutexHandle_t; // Mapping to "tsk_mutex_handle_t"
 typedef void SCNativeNetTransportHandle_t; // Mapping to "tnet_transport_handle_t"
+typedef void SCNativeThreadHandle_t; // Mapping to "tsk_thread_handle_t"
 
 #endif /* SINCITY_COMMON_H */

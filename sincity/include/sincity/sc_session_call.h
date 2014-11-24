@@ -19,12 +19,14 @@ public:
 	virtual ~SCSessionCall();
 	virtual SC_INLINE const char* getObjectId() { return "SCSessionCall"; }
 	
+	virtual bool setVideoDisplays(SCMediaType_t eVideoType, SCVideoDisplay displayLocal = NULL, SCVideoDisplay displayRemote = NULL);
 	virtual bool call(SCMediaType_t eMediaType, std::string strDestUserId);
 	virtual bool acceptEvent(SCObjWrapper<SCSignalingCallEvent*>& e);
 	static bool rejectEvent(SCObjWrapper<SCSignaling*> oSignaling, SCObjWrapper<SCSignalingCallEvent*>& e);
 	virtual bool hangup();
 
-	virtual SC_INLINE std::string getCallId() { return m_strCallId; }
+	virtual SC_INLINE std::string getCallId() { return m_strCallId; } /**< Gets the call identifier */
+	virtual SC_INLINE SCMediaType_t getMediaType() { return m_eMediaType; } /**< Gets the active (negotiated) media type */
 	
 	static SCObjWrapper<SCSessionCall*> newObj(SCObjWrapper<SCSignaling*> signalingSession);
 	static SCObjWrapper<SCSessionCall*> newObj(SCObjWrapper<SCSignaling*> signalingSession, SCObjWrapper<SCSignalingCallEvent*>& offer);
@@ -37,8 +39,10 @@ private:
 
 	bool createSessionMgr();
 	bool createLocalOffer(const struct tsdp_message_s* pc_Ro = NULL, SCRoType eRoType = 0);
+	bool attachVideoDisplays();
 
-	bool iceCreateCtx();
+	struct tnet_ice_ctx_s* iceCreateCtx(bool bVideo);
+	bool iceCreateCtxAll();
 	bool iceSetTimeout(int32_t timeout);
 	bool iceGotLocalCandidates(struct tnet_ice_ctx_s *p_IceCtx);
 	bool iceGotLocalCandidatesAll();
@@ -54,11 +58,17 @@ private:
 	SCMediaType_t m_eMediaType;
 
 	struct tnet_ice_ctx_s *m_pIceCtxVideo;
+	struct tnet_ice_ctx_s *m_pIceCtxScreenCast;
 	struct tnet_ice_ctx_s *m_pIceCtxAudio;
 
 	struct tmedia_session_mgr_s* m_pSessionMgr;
 
 	SCObjWrapper<SCMutex*> m_oMutex;
+
+	SCVideoDisplay m_VideoDisplayLocal;
+	SCVideoDisplay m_VideoDisplayRemote;
+	SCVideoDisplay m_ScreenCastDisplayLocal;
+	SCVideoDisplay m_ScreenCastDisplayRemote;
 
 	std::string m_strDestUserId;
 	std::string m_strCallId;
