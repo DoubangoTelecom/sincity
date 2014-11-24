@@ -18,27 +18,27 @@
 
 SCNetPeer::SCNetPeer(SCNetFd nFd, bool bConnected /*= false*/, const void* pcData /*= NULL*/, size_t nDataSize /*= 0*/)
 {
-	m_bConnected = bConnected;
-	m_nFd = nFd;
-	m_pWrappedBuffer = tsk_buffer_create(pcData, nDataSize);
-	m_bRawContent = false;
-	m_pWsKey = tsk_null;
+    m_bConnected = bConnected;
+    m_nFd = nFd;
+    m_pWrappedBuffer = tsk_buffer_create(pcData, nDataSize);
+    m_bRawContent = false;
+    m_pWsKey = tsk_null;
 }
 
 SCNetPeer::~SCNetPeer()
 {
-	TSK_OBJECT_SAFE_FREE(m_pWrappedBuffer);
-	TSK_FREE(m_pWsKey);
+    TSK_OBJECT_SAFE_FREE(m_pWrappedBuffer);
+    TSK_FREE(m_pWsKey);
 }
 
-const void* SCNetPeer::getDataPtr() 
-{ 
-	return m_pWrappedBuffer ? m_pWrappedBuffer->data : NULL; 
+const void* SCNetPeer::getDataPtr()
+{
+    return m_pWrappedBuffer ? m_pWrappedBuffer->data : NULL;
 }
- 
+
 size_t SCNetPeer::getDataSize()
 {
-	return m_pWrappedBuffer ? m_pWrappedBuffer->size : 0;
+    return m_pWrappedBuffer ? m_pWrappedBuffer->size : 0;
 }
 
 #if 0
@@ -71,18 +71,18 @@ bool SCNetPeer::buildWsKey()
 //
 
 bool SCNetPeerStream::appenData(const void* pcData, size_t nDataSize)
-{ 
-	return m_pWrappedBuffer ? tsk_buffer_append(m_pWrappedBuffer, pcData, nDataSize) == 0 : false; 
+{
+    return m_pWrappedBuffer ? tsk_buffer_append(m_pWrappedBuffer, pcData, nDataSize) == 0 : false;
 }
 
 bool SCNetPeerStream::remoteData(size_t nPosition, size_t nSize)
-{ 
-	return m_pWrappedBuffer ? tsk_buffer_remove(m_pWrappedBuffer, nPosition, nSize) == 0 : false; 
+{
+    return m_pWrappedBuffer ? tsk_buffer_remove(m_pWrappedBuffer, nPosition, nSize) == 0 : false;
 }
 
 bool SCNetPeerStream::cleanupData()
 {
-	return m_pWrappedBuffer ? tsk_buffer_cleanup(m_pWrappedBuffer) == 0 : false;
+    return m_pWrappedBuffer ? tsk_buffer_cleanup(m_pWrappedBuffer) == 0 : false;
 }
 
 

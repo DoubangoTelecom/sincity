@@ -185,7 +185,9 @@ bool SCSignaling::sendData(const void* _pcData, tsk_size_t _nDataSize)
         SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "Not ready yet");
         return false;
     }
-
+	
+	SC_DEBUG_INFO_EX(kSCMobuleNameSignaling, "Send DATA:%.*s", _nDataSize, _pcData);
+	
     if (m_oConnectionUrl->getType() == SCUrlType_WS || m_oConnectionUrl->getType() == SCUrlType_WSS) {
         if (!m_bWsHandshakingDone) {
             SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "WebSocket handshaking not done yet");
@@ -331,32 +333,32 @@ bool SCSignaling::handleData(const char* pcData, tsk_size_t nDataSize)
         SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "Failed to parse JSON content: %.*s", nDataSize, pcData);
         return false;
     }
-    
-	SC_JSON_GET(root, passthrough, "passthrough", isBool, true);
-	
+
+    SC_JSON_GET(root, passthrough, "passthrough", isBool, true);
+
     if (passthrough.isBool() && passthrough.asBool() == true) {
-		if (m_oSignCallback) {
-			return raiseEvent(SCSignalingEventType_NetData, "'passthrough' JSON data", (const void*)pcData, nDataSize);
-		}
-		return false;
-	}
-	
-	SC_JSON_GET(root, type, "type", isString, false);
+        if (m_oSignCallback) {
+            return raiseEvent(SCSignalingEventType_NetData, "'passthrough' JSON data", (const void*)pcData, nDataSize);
+        }
+        return false;
+    }
+
+    SC_JSON_GET(root, type, "type", isString, false);
     SC_JSON_GET(root, cid, "cid", isString, false);
     SC_JSON_GET(root, tid, "tid", isString, false);
     SC_JSON_GET(root, from, "from", isString, false);
     SC_JSON_GET(root, to, "to", isString, false);
-	
-	if (to.asString() != SCEngine::s_strCredUserId) {
-		if (from.asString() == SCEngine::s_strCredUserId) {
-			SC_DEBUG_INFO_EX(kSCMobuleNameSignaling, "Ignoring loopback message with type='%s', call-id='%s', to='%s'", type.asCString(), cid.asCString(), to.asCString());
-		}
-		else {
-			SC_DEBUG_INFO_EX(kSCMobuleNameSignaling, "Failed to match destination id: '%s'<>'%s'", to.asCString(), SCEngine::s_strCredUserId.c_str());
-		}
+
+    if (to.asString() != SCEngine::s_strCredUserId) {
+        if (from.asString() == SCEngine::s_strCredUserId) {
+            SC_DEBUG_INFO_EX(kSCMobuleNameSignaling, "Ignoring loopback message with type='%s', call-id='%s', to='%s'", type.asCString(), cid.asCString(), to.asCString());
+        }
+        else {
+            SC_DEBUG_INFO_EX(kSCMobuleNameSignaling, "Failed to match destination id: '%s'<>'%s'", to.asCString(), SCEngine::s_strCredUserId.c_str());
+        }
         return false;
     }
-	
+
     bool bIsCallEventRequiringSdp = (type.asString().compare("offer") == 0 || type.asString().compare("answer") == 0 || type.asString().compare("pranswer") == 0);
     if (bIsCallEventRequiringSdp || type.asString().compare("hangup") == 0) {
         if (m_oSignCallback) {
@@ -590,19 +592,19 @@ bool SCSignalingTransportCallback::onConnectionStateChanged(SCObjWrapper<SCNetPe
 //
 
 SCSignalingEvent::SCSignalingEvent(SCSignalingEventType_t eType, std::string strDescription, const void* pcDataPtr /*= NULL*/, size_t nDataSize /*= 0*/)
-: m_eType(eType), m_strDescription(strDescription), m_pDataPtr(NULL), m_nDataSize(0)
+    : m_eType(eType), m_strDescription(strDescription), m_pDataPtr(NULL), m_nDataSize(0)
 {
-	if (pcDataPtr && nDataSize) {
-		if ((m_pDataPtr = tsk_malloc(nDataSize))) {
-			memcpy(m_pDataPtr, pcDataPtr, nDataSize);
-			m_nDataSize = nDataSize;
-		}
-	}
+    if (pcDataPtr && nDataSize) {
+        if ((m_pDataPtr = tsk_malloc(nDataSize))) {
+            memcpy(m_pDataPtr, pcDataPtr, nDataSize);
+            m_nDataSize = nDataSize;
+        }
+    }
 }
 
 SCSignalingEvent::~SCSignalingEvent()
 {
-	TSK_FREE(m_pDataPtr);
+    TSK_FREE(m_pDataPtr);
 }
 
 //

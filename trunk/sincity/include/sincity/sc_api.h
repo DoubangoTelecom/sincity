@@ -8,5 +8,6 @@
 #include "sincity/sc_utils.h"
 #include "sincity/sc_signaling.h"
 #include "sincity/jsoncpp/sc_json.h"
+#include "sincity/sc_thread.h"
 
 #endif /* SINCITY_API_H */

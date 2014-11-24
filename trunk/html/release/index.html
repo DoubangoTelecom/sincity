@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>GE WebRTC viewer (Phase 1: Google Chrome only)</title>
+    <title>GEWebRTC (Phase 1: Google Chrome only)</title>
     <script src="sincity.js" type="text/javascript"> </script>
 </head>
 
@@ -11,7 +11,7 @@ var pendingOffer = null;
 
 function save() {
     window.localStorage.setItem('sincity.conn_url', txtConnUrl.value);
-    window.localStorage.setItem('sincity.local_id', txtLocalId.value);
+    window.localStorage.setItem('sincity.localId', txtLocalId.value);
     window.localStorage.setItem('sincity.remote_id', txtRemoteId.value);
 }
 
@@ -19,10 +19,12 @@ function connect() {
     save();
     
     SCEngine.init (
-        { 
-            "local_id": txtLocalId.value,
-            "remote_video": remoteVideo,
-            "iceServers":  [{ url: 'stun:stun.l.google.com:19302' }]
+        {
+            "localId": txtLocalId.value,
+            "localVideo": localVideo,
+            "remoteVideo": remoteVideo,
+            "remoteAudio": remoteAudio,
+            "iceServers": [{ url: 'stun:stun.l.google.com:19302' }, { url: 'turn:ns313841.ovh.net:3478?transport=tcp', username: 'ge.com', credential: 'sincity'}]
         }
     );
     SCEngine.connect(txtConnUrl.value);
@@ -30,6 +32,17 @@ function connect() {
 
 function call() {
     save();
+    var buildCallConfig = function() {
+        return {
+                audio_send: cbAudioSend.checked,
+                audio_recv: cbAudioReceive.checked,
+                audio_remote_elt: remoteAudio,
+                video_send: cbVideoSend.checked,
+                video_recv: cbVideoReceive.checked,
+                video_local_elt: localVideo,
+                video_remote_elt: remoteVideo
+            };
+    }
     
     if (callSession) { // already in call?
         callSession.hangup();
@@ -42,11 +55,11 @@ function call() {
     if (pendingOffer) { // is there a pending offer?
         var po = pendingOffer;
         pendingOffer = null;
-        callSession = SCEngine.newCall(po);
+        callSession = SCCall.build(po, buildCallConfig());
         callSession.acceptMsg(po);
     }
     else {
-        callSession = SCEngine.newCall(txtRemoteId.value);
+        callSession = SCCall.build(txtRemoteId.value, buildCallConfig());
         if (!callSession) {
             txtInfo.innerHTML = "<font color='red'>Failed to make call(1)</font>";
             return;
@@ -68,11 +81,30 @@ function disconnect() {
     SCEngine.disconnect();
 }
 
+function checkboxClick(cb) {
+    if (cb === cbAudioSend) {
+        window.localStorage.setItem('sincity.audio_send', cbAudioSend.checked ? "true" : "false");
+    }
+    else if (cb === cbAudioReceive) {
+        window.localStorage.setItem('sincity.audio_receive', cbAudioReceive.checked ? "true" : "false");
+    }
+    else if (cb === cbVideoSend) {
+        window.localStorage.setItem('sincity.video_send', cbVideoSend.checked ? "true" : "false");
+    }
+    else if (cb === cbVideoReceive) {
+        window.localStorage.setItem('sincity.video_receive', cbVideoReceive.checked ? "true" : "false");
+    }
+}
+
 window.onload = function() {
     txtConnUrl.value = window.localStorage.getItem('sincity.conn_url') || "ws://ns313841.ovh.net:9000/wsStringStaticMulti?roomId=0";
-    txtLocalId.value = window.localStorage.getItem('sincity.local_id') || "002";
+    txtLocalId.value = window.localStorage.getItem('sincity.localId') || "002";
     txtRemoteId.value = window.localStorage.getItem('sincity.remote_id') || "001";
-
+    cbAudioSend.checked = window.localStorage.getItem('sincity.audio_send') === "true";
+    cbAudioReceive.checked = window.localStorage.getItem('sincity.audio_receive') === "true";
+    cbVideoSend.checked = window.localStorage.getItem('sincity.video_send') === "true";
+    cbVideoReceive.checked = (window.localStorage.getItem('sincity.video_receive') !== "false"); // backward compatibility
+    
     SCEngine.onconnected = function() {
         btnConnect.disabled = true;
         btnDisConnect.disabled = false;
@@ -165,16 +197,26 @@ window.onload = function() {
         <tr>
             <td colspan="2"><label style="width: 100%;" id="txtInfo"> </label></td>
         </tr>
+        <tr>
+            <td colspan="2">
+                <hr />
+                <input type="checkbox" id="cbAudioSend" name="cbAudioSend" onclick='checkboxClick(this);'/>&nbsp;Send <font color='red'>audio</font> <br />
+                <input type="checkbox" id="cbAudioReceive" name="cbAudioReceive" onclick='checkboxClick(this);' />&nbsp;Receive <font color='red'>audio</font> <br />
+                <input type="checkbox" id="cbVideoSend" name="cbVideoSend" onclick='checkboxClick(this);' />&nbsp;Send <font color='blue'>video</font> <br />
+                <input type="checkbox" id="cbVideoReceive" name="cbVideoReceive" onclick='checkboxClick(this);' />&nbsp;Receive <font color='blue'>video</font>
+            </td>
+        </tr>
     </table>
-    <br />
-    <br />
+    <hr />
     
     <input type="button" id="btnConnect" onclick='connect();' value="connect" />
     <input type="button" id="btnCall" onclick='call();' disabled value="call" />
     <input type="button" id="btnDisConnect" onclick='disconnect();' disabled value="disconnect" />
-    <hr />
-    <hr />
     
-    <video id="remoteVideo" autoplay></video>
+    <hr />
+    <video id="localVideo" width="44px" height="36px" autoplay="autoplay" muted="true"></video>
+    <hr />
+    <video id="remoteVideo" autoplay="autoplay"></video>
+    <audio id="remoteAudio" autoplay="autoplay" />
 </body>
 </html>

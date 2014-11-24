@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>sincity</ProjectName>
+    <ProjectGuid>{03558F98-27DE-45C6-8972-8C708FE04D60}</ProjectGuid>
+    <RootNamespace>sincity</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>include;..\..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\..\doubango\branches\2.0\doubango\thirdparties\common\include;..\..\doubango\branches\2.0\doubango\tinyNET\src;..\..\doubango\branches\2.0\doubango\tinySAK\src;..\..\doubango\branches\2.0\doubango\tinyHTTP\include;..\..\doubango\branches\2.0\doubango\tinyDAV\include;..\..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\..\doubango\branches\2.0\doubango\tinyRTP\include;..\..\doubango\branches\2.0\doubango\tinySDP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;TINYSAK_IMPORTS_IGNORE;TINYHTTP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;TINYDAV_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>include;..\..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\..\doubango\branches\2.0\doubango\thirdparties\common\include;..\..\doubango\branches\2.0\doubango\tinyNET\src;..\..\doubango\branches\2.0\doubango\tinySAK\src;..\..\doubango\branches\2.0\doubango\tinyHTTP\include;..\..\doubango\branches\2.0\doubango\tinyDAV\include;..\..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\..\doubango\branches\2.0\doubango\tinyRTP\include;..\..\doubango\branches\2.0\doubango\tinySDP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;TINYSAK_IMPORTS_IGNORE;TINYHTTP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;TINYDAV_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\sc_display_fake.cc" />
+    <ClCompile Include="src\sc_engine.cc" />
+    <ClCompile Include="src\sc_jsoncpp.cc" />
+    <ClCompile Include="src\sc_mutex.cc" />
+    <ClCompile Include="src\sc_nettransport.cc" />
+    <ClCompile Include="src\sc_nettransport_ws.cc" />
+    <ClCompile Include="src\sc_obj.cc" />
+    <ClCompile Include="src\sc_parser_url.cc" />
+    <ClCompile Include="src\sc_session.cc" />
+    <ClCompile Include="src\sc_session_call.cc" />
+    <ClCompile Include="src\sc_signaling.cc" />
+    <ClCompile Include="src\sc_thread.cc" />
+    <ClCompile Include="src\sc_url.cc" />
+    <ClCompile Include="src\sc_utils.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\sc_config.h" />
+    <ClInclude Include="include\sincity\jsoncpp\sc_json-forwards.h" />
+    <ClInclude Include="include\sincity\jsoncpp\sc_json.h" />
+    <ClInclude Include="include\sincity\sc_api.h" />
+    <ClInclude Include="include\sincity\sc_common.h" />
+    <ClInclude Include="include\sincity\sc_display_fake.h" />
+    <ClInclude Include="include\sincity\sc_engine.h" />
+    <ClInclude Include="include\sincity\sc_mutex.h" />
+    <ClInclude Include="include\sincity\sc_nettransport.h" />
+    <ClInclude Include="include\sincity\sc_nettransport_ws.h" />
+    <ClInclude Include="include\sincity\sc_obj.h" />
+    <ClInclude Include="include\sincity\sc_parser_url.h" />
+    <ClInclude Include="include\sincity\sc_session.h" />
+    <ClInclude Include="include\sincity\sc_session_call.h" />
+    <ClInclude Include="include\sincity\sc_signaling.h" />
+    <ClInclude Include="include\sincity\sc_thread.h" />
+    <ClInclude Include="include\sincity\sc_url.h" />
+    <ClInclude Include="include\sincity\sc_utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ragel\sc_machine_utils.rl" />
+    <None Include="ragel\sc_parser_url.rl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

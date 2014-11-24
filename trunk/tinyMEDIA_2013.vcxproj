@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>tinyMEDIA</ProjectName>
+    <ProjectGuid>{52814B0D-7DCA-45B8-9A16-8B147040D619}</ProjectGuid>
+    <RootNamespace>tinyMEDIA</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_INFO;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;TINYMEDIA_EXPORTS;FLIP_ENCODED_PICT=1;FLIP_DECODED_PICT=0;TINYSAK_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <TargetEnvironment>Win32</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0501;NDEBUG;_WINDOWS;_USRDLL;TINYMEDIA_EXPORTS;FLIP_ENCODED_PICT=1;FLIP_DECODED_PICT=0;TINYSAK_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat />
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\content\tmedia_content.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\content\tmedia_content_cpim.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\content\tmedia_content_multipart.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\content\tmedia_content_sip_frag.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_codec.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_codec_dummy.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_common.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_consumer.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_converter_video.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_defaults.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_denoise.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_imageattr.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_jitterbuffer.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_params.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_producer.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_qos.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_resampler.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_session.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_session_dummy.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_session_ghost.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_vad.h" />
+    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia_config.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\content\tmedia_content.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\content\tmedia_content_cpim.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\content\tmedia_content_multipart.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\content\tmedia_content_sip_frag.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_codec.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_codec_dummy.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_common.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_consumer.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_converter_video.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_defaults.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_denoise.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_imageattr.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_jitterbuffer.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_params.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_producer.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_qos.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_resampler.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_session.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_session_dummy.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_session_ghost.c" />
+    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_vad.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ragel\tmedia_content_cpim.rl" />
+    <None Include="ragel\tmedia_imageattr.rl" />
+    <None Include="ragel\tmedia_machine_utils.rl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,11 +1,13 @@
 #include "sincity/sc_engine.h"
 #include "sincity/sc_utils.h"
+#include "sincity/sc_display_fake.h"
 
 #include "tsk_debug.h"
 
 #include "tinynet.h"
 
 #include "tinydav/tdav.h"
+#include "tinydav/bfcp/tdav_session_bfcp.h"
 #include "tinymedia.h"
 
 #include <assert.h>
@@ -81,15 +83,31 @@ bool SCEngine::init(std::string strCredUserId, std::string strCredPassword /*= "
         SC_ASSERT(tmedia_defaults_set_ice_enabled(tsk_true) == 0);
 
         SC_ASSERT(tmedia_defaults_set_pref_video_size(tmedia_pref_video_size_vga) == 0);
-        SC_ASSERT(tmedia_defaults_set_video_fps(10) == 0);
+        SC_ASSERT(tmedia_defaults_set_video_fps(15) == 0);
 #if SC_UNDER_WINDOWS
 #else
-		SC_ASSERT(tmedia_producer_set_friendly_name(tmedia_video, "/dev/video") == 0);
-		SC_ASSERT(tmedia_producer_set_friendly_name(tmedia_bfcp_video, "/dev/video") == 0);
+        SC_ASSERT(tmedia_producer_set_friendly_name(tmedia_video, "/dev/video") == 0);
+        SC_ASSERT(tmedia_producer_set_friendly_name(tmedia_bfcp_video, "/dev/video") == 0);
 #endif
 
-        SC_ASSERT(tdav_set_codecs((tdav_codec_id_t)(tmedia_codec_id_vp8)) == 0);
+		SC_ASSERT(tmedia_defaults_set_echo_supp_enabled(tsk_true) == 0);
+		SC_ASSERT(tmedia_defaults_set_echo_skew(0) == 0);
+		SC_ASSERT(tmedia_defaults_set_echo_tail(100) == 0);
+
+		SC_ASSERT(tmedia_defaults_set_opus_maxcapturerate(16000) == 0);
+		SC_ASSERT(tmedia_defaults_set_opus_maxplaybackrate(16000) == 0);
+		
+		SC_ASSERT(tdav_set_codecs((tdav_codec_id_t)(tmedia_codec_id_vp8 | tmedia_codec_id_pcma | tmedia_codec_id_pcmu | tmedia_codec_id_opus)) == 0);
         SC_ASSERT(tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_vp8, 0) == 0);
+		SC_ASSERT(tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_opus, 1) == 0);
+		SC_ASSERT(tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_pcma, 2) == 0);
+		SC_ASSERT(tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_opus, 3) == 0);
+		
+		// Do not use BFCP signaling: Chrome will reject SDP with "m=application 56906 UDP/BFCP *\r\n"
+		tmedia_session_plugin_unregister(tdav_session_bfcp_plugin_def_t);
+		
+		// Register fake display (Video consumer)
+		SC_ASSERT(tmedia_consumer_plugin_register(sc_display_fake_plugin_def_t) == 0);
 
         s_bInitialized = true;
     }
@@ -203,7 +221,7 @@ bool SCEngine::setVideoPrefSize(const char* strPrefVideoSize)
         {"hvga", tmedia_pref_video_size_hvga, 480, 320}, // 480 x 320
         {"vga", tmedia_pref_video_size_vga, 640, 480}, // 640 x 480
         {"4cif", tmedia_pref_video_size_4cif, 704, 576}, // 704 x 576
-		{"wvga", tmedia_pref_video_size_wvga, 800, 480}, // 800 x 480
+        {"wvga", tmedia_pref_video_size_wvga, 800, 480}, // 800 x 480
         {"svga", tmedia_pref_video_size_svga, 800, 600}, // 800 x 600
         {"480p", tmedia_pref_video_size_480p, 852, 480}, // 852 x 480
         {"720p", tmedia_pref_video_size_720p, 1280, 720}, // 1280 x 720
@@ -227,7 +245,7 @@ bool SCEngine::setVideoPrefSize(const char* strPrefVideoSize)
 /**@ingroup _Group_CPP_Engine
 * Sets the default video frame rate.
 * @param fps The frame rate (frames per second). Range: [1, 120].
-* @retval <b>true</b> if no error; otherwise <b>false</b>. 
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
 */
 bool SCEngine::setVideoFps(int fps)
 {
@@ -238,7 +256,7 @@ bool SCEngine::setVideoFps(int fps)
 * Sets the maximum bandwidth (kbps) to use for outgoing video stream. <br />
 * If congestion control is enabled then, the bandwidth will be updated based on the network conditions but these new values will never be higher than what you defined using this function.
 * @param bandwwidthMax The new maximum bandwidth. Negative value means "compute best value".
-* @retval <b>true</b> if no error; otherwise <b>false</b>. 
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
 */
 bool SCEngine::setVideoBandwidthUpMax(int bandwwidthMax)
 {
@@ -288,7 +306,7 @@ bool SCEngine::setVideoCongestionCtrlEnabled(bool congestionCtrl)
 */
 bool SCEngine::setVideoJbEnabled(bool enabled)
 {
-	return ((tmedia_defaults_set_videojb_enabled(enabled ? tsk_true : tsk_false) == 0));
+    return ((tmedia_defaults_set_videojb_enabled(enabled ? tsk_true : tsk_false) == 0));
 }
 
 /**@ingroup _Group_CPP_Engine
@@ -299,7 +317,7 @@ bool SCEngine::setVideoJbEnabled(bool enabled)
 */
 bool SCEngine::setVideoAvpfTail(int min, int max)
 {
-	return ((tmedia_defaults_set_avpf_tail(min, max) == 0));
+    return ((tmedia_defaults_set_avpf_tail(min, max) == 0));
 }
 
 /**@ingroup _Group_CPP_Engine
@@ -310,7 +328,27 @@ bool SCEngine::setVideoAvpfTail(int min, int max)
 */
 bool SCEngine::setVideoZeroArtifactsEnabled(bool enabled)
 {
-	return ((tmedia_defaults_set_video_zeroartifacts_enabled(enabled ? tsk_true : tsk_false) == 0));
+    return ((tmedia_defaults_set_video_zeroartifacts_enabled(enabled ? tsk_true : tsk_false) == 0));
+}
+
+/**@ingroup _Group_CPP_Engine
+* Whether to enable or disable audio echo suppression (AEC). It's highly recommended to enable this feature. <br />
+* @param enabled Enable/disable audio echo suppression. Default: <b>true</b>.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
+bool SCEngine::setAudioEchoSuppEnabled(bool enabled)
+{
+	return ((tmedia_defaults_set_echo_supp_enabled(enabled ? tsk_true : tsk_false) == 0));
+}
+
+/**@ingroup _Group_CPP_Engine
+* Defines the maximum tail length (in milliseconds) used for echo cancellation (AEC module). Value must be in <b>]0-500]</b> and should be <b>100</b> <br />
+* @param tailLength The echo tail value. Default: 100.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
+bool SCEngine::setAudioEchoTail(int tailLength)
+{
+	return(tmedia_defaults_set_echo_tail(tailLength) == 0);
 }
 
 /**@ingroup _Group_CPP_Engine
@@ -322,7 +360,7 @@ bool SCEngine::setVideoZeroArtifactsEnabled(bool enabled)
 */
 bool SC_DEPRECATED(SCEngine::setNattStunServer)(const char* host, unsigned short port /*= 3478*/)
 {
-	SC_DEBUG_WARN("This function is deprecated");
+    SC_DEBUG_WARN("This function is deprecated");
     return ((tmedia_defaults_set_stun_server(host, port) == 0));
 }
 
@@ -335,7 +373,7 @@ bool SC_DEPRECATED(SCEngine::setNattStunServer)(const char* host, unsigned short
 */
 bool SC_DEPRECATED(SCEngine::setNattStunCredentials)(const char* username, const char* password)
 {
-	SC_DEBUG_WARN("This function is deprecated");
+    SC_DEBUG_WARN("This function is deprecated");
     return ((tmedia_defaults_set_stun_cred(username, password) == 0));
 }
 
@@ -353,30 +391,30 @@ bool SC_DEPRECATED(SCEngine::setNattStunCredentials)(const char* username, const
 */
 bool SCEngine::addNattIceServer(const char* strTransportProto, const char* strServerHost, unsigned short serverPort, bool useTurn /*= false*/, bool useStun /*= true*/, const char* strUsername /*= NULL*/, const char* strPassword /*= NULL*/)
 {
-	if (tsk_strnullORempty(strTransportProto) || tsk_strnullORempty(strServerHost) || !serverPort || (!useTurn && !useStun)) {
-		SC_DEBUG_ERROR("Invalid paramter");
-		return false;
-	}
-	if (!tsk_striequals(strTransportProto, "udp") && !tsk_striequals(strTransportProto, "tcp") && !tsk_striequals(strTransportProto, "tls")) {
-		SC_DEBUG_ERROR("'%s' not valid as ICE server transport protocol", strTransportProto);
-		return false;
-	}
+    if (tsk_strnullORempty(strTransportProto) || tsk_strnullORempty(strServerHost) || !serverPort || (!useTurn && !useStun)) {
+        SC_DEBUG_ERROR("Invalid paramter");
+        return false;
+    }
+    if (!tsk_striequals(strTransportProto, "udp") && !tsk_striequals(strTransportProto, "tcp") && !tsk_striequals(strTransportProto, "tls")) {
+        SC_DEBUG_ERROR("'%s' not valid as ICE server transport protocol", strTransportProto);
+        return false;
+    }
 
-	SCObjWrapper<SCIceServer*>iceServer = new SCIceServer(
-		std::string(strTransportProto),
-		std::string(strServerHost),
-		serverPort,
-		useTurn,
-		useStun,
-		tsk_strnullORempty(strUsername) ? "" : std::string(strUsername),
-		tsk_strnullORempty(strPassword) ? "" : std::string(strPassword));
-	if (iceServer) {
-		SCEngine::s_listIceServersMutex->lock();
-		SCEngine::s_listIceServers.push_back(iceServer);
-		SCEngine::s_listIceServersMutex->unlock();
-		return true;
-	}
-	return false;
+    SCObjWrapper<SCIceServer*>iceServer = new SCIceServer(
+        std::string(strTransportProto),
+        std::string(strServerHost),
+        serverPort,
+        useTurn,
+        useStun,
+        tsk_strnullORempty(strUsername) ? "" : std::string(strUsername),
+        tsk_strnullORempty(strPassword) ? "" : std::string(strPassword));
+    if (iceServer) {
+        SCEngine::s_listIceServersMutex->lock();
+        SCEngine::s_listIceServers.push_back(iceServer);
+        SCEngine::s_listIceServersMutex->unlock();
+        return true;
+    }
+    return false;
 }
 
 /**@ingroup _Group_CPP_Engine
@@ -387,10 +425,10 @@ bool SCEngine::addNattIceServer(const char* strTransportProto, const char* strSe
 */
 bool SCEngine::clearNattIceServers()
 {
-	SCEngine::s_listIceServersMutex->lock();
-	SCEngine::s_listIceServers.clear();
-	SCEngine::s_listIceServersMutex->unlock();
-	return true;
+    SCEngine::s_listIceServersMutex->lock();
+    SCEngine::s_listIceServers.clear();
+    SCEngine::s_listIceServersMutex->unlock();
+    return true;
 }
 
 /**@ingroup _Group_CPP_Engine

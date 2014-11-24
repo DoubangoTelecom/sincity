@@ -26,6 +26,7 @@ libsincity_la_CPPFLAGS = \
 	${TINYIPSEC_CFLAGS}
 
 libsincity_la_SOURCES  = \
+	src/sc_display_fake_cc \
 	src/sc_engine.cc \
 	src/sc_jsoncpp.cc \
 	src/sc_mutex.cc \
@@ -36,6 +37,7 @@ libsincity_la_SOURCES  = \
 	src/sc_session.cc \
 	src/sc_session_call.cc \
 	src/sc_signaling.cc \
+	src/sc_thread.cc \
 	src/sc_url.cc \
 	src/sc_utils.cc
 	
