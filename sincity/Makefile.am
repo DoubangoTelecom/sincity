@@ -7,6 +7,7 @@ libsincity_la_LIBADD = \
 	${TINYDAV_LIBS} \
 	${TINYSDP_LIBS} \
 	${TINYBFCP_LIBS} \
+	${TINYMEDIA_LIBS} \
 	${sincity_LIBS} \
 	${TINYMSRP_LIBS} \
 	${TINYRTP_LIBS} \
@@ -20,13 +21,14 @@ libsincity_la_CPPFLAGS = \
 	${TINYDAV_CFLAGS} \
 	${TINYSDP_CFLAGS} \
 	${TINYBFCP_CFLAGS} \
+	${TINYMEDIA_CFLAGS} \
 	${sincity_CFLAGS} \
 	${TINYMSRP_CFLAGS} \
 	${TINYRTP_CFLAGS} \
 	${TINYIPSEC_CFLAGS}
 
 libsincity_la_SOURCES  = \
-	src/sc_display_fake_cc \
+	src/sc_display_fake.cc \
 	src/sc_engine.cc \
 	src/sc_jsoncpp.cc \
 	src/sc_mutex.cc \
