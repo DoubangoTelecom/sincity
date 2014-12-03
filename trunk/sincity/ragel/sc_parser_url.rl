@@ -100,7 +100,7 @@ SCObjWrapper<SCUrl*> sc_url_parse(const char *urlstring, tsk_size_t length)
 		goto bail;
 	}
 	else if (!have_port) {
-		if (eType == SCUrlType_HTTPS) {
+		if (eType == SCUrlType_HTTPS || eType == SCUrlType_WSS || eType == SCUrlType_TLS) {
 			port = 443;
 		}
 		else {
