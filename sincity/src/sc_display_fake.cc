@@ -180,7 +180,7 @@ static tsk_object_t* sc_display_fake_ctor(tsk_object_t * self, va_list * app)
 #endif
 
 		/* init self */
-		tsk_safeobj_deinit(p_display);
+		tsk_safeobj_init(p_display);
 	}
 	return self;
 }
