@@ -3,10 +3,13 @@
 
 @name        libsincity
 @author      Doubango Telecom
-@version     1.2.0
+@version     1.3.0
 */
 document.write(unescape("%3Cscript src='adapter.js' type='text/javascript'%3E%3C/script%3E"));
 var WebSocket = (window['MozWebSocket'] || window['MozWebSocket'] || WebSocket);
+window.console = window.console || {};
+window.console.info = window.console.info || window.console.log || function(msg) { };
+window.console.error = window.console.error || window.console.log || window.console.info;
 
 /**
 @namespace Anonymous

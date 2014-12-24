@@ -15,6 +15,9 @@
 		<Platform
 			Name="Win32"
 		/>
+		<Platform
+			Name="x64"
+		/>
 	</Platforms>
 	<ToolFiles>
 	</ToolFiles>
@@ -47,7 +50,7 @@
 				ExecutionBucket="7"
 				Optimization="0"
 				AdditionalIncludeDirectories="thirdparties\wince\include;thirdparties\common\include;thirdparties\common\include\libyuv;..\doubango\branches\2.0\doubango\tinyRTP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyIPSec\src;..\doubango\branches\2.0\doubango\tinyDAV\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyMSRP\include;..\doubango\branches\2.0\doubango\tinyBFCP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
-				PreprocessorDefinitions="HAVE_SRTP=1;HAVE_G729=0;HAVE_BV16=0;HAVE_OPENCORE_AMR=0;HAVE_H264=0;HAVE_ILBC=0;HAVE_LIBGSM=0;HAVE_LIBOPUS=0;HAVE_DSOUND_H=0;HAVE_WAVE_API=0;HAVE_FFMPEG=0;HAVE_SPEEX_DSP=0;HAVE_WEBRTC=0;HAVE_SPEEX_JB=0;HAVE_LIB_SPEEX=0;HAVE_LIBVPX=1;HAVE_LIBYUV=1;G192BITSTREAM=0;DEBUG_LEVEL=DEBUG_LEVEL_INFO;GOTHAM_CITY = 0;SIN_CITY=1;_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;_DEBUG;_WINDOWS;_USRDLL;TINYDAV_EXPORTS;TINYMEDIA_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYBFCP_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYMSRP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE"
+				PreprocessorDefinitions="HAVE_SRTP=1;HAVE_G729=0;HAVE_BV16=0;HAVE_OPENCORE_AMR=0;HAVE_H264=0;HAVE_ILBC=0;HAVE_LIBGSM=0;HAVE_LIBOPUS=0;HAVE_DSOUND_H=0;HAVE_WAVE_API=0;HAVE_FFMPEG=0;HAVE_SPEEX_DSP=0;HAVE_WEBRTC=0;HAVE_SPEEX_JB=0;HAVE_LIB_SPEEX=0;HAVE_LIBVPX=1;HAVE_LIBYUV=1;G192BITSTREAM=0;DEBUG_LEVEL=DEBUG_LEVEL_INFO;GOTHAM_CITY = 0;SIN_CITY=1;_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;_DEBUG;_WINDOWS;_USRDLL;TINYDAV_EXPORTS;TINYMEDIA_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYBFCP_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYMSRP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
 				MinimalRebuild="true"
 				RuntimeLibrary="1"
 				UsePrecompiledHeader="0"
@@ -192,7 +195,7 @@
 				Optimization="3"
 				EnableIntrinsicFunctions="true"
 				AdditionalIncludeDirectories="thirdparties\wince\include;thirdparties\common\include;thirdparties\common\include\libyuv;..\doubango\branches\2.0\doubango\tinyRTP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyIPSec\src;..\doubango\branches\2.0\doubango\tinyDAV\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyMSRP\include;..\doubango\branches\2.0\doubango\tinyBFCP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
-				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_WARN;_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;NDEBUG;_WINDOWS;_USRDLL;TINYDAV_EXPORTS;HAVE_SRTP=1;HAVE_G729=0;HAVE_BV16=0;HAVE_H264=0;HAVE_OPENCORE_AMR=0;HAVE_ILBC=0;HAVE_LIBGSM=0;HAVE_LIBOPUS=0;HAVE_DSOUND_H=0;HAVE_WAVE_API=0;HAVE_FFMPEG=0;HAVE_WEBRTC=0;HAVE_SPEEX_DSP=0;HAVE_SPEEX_JB=0;HAVE_LIB_SPEEX=0;HAVE_LIBVPX=1;HAVE_LIBYUV=1;G192BITSTREAM=0;SIN_CITY=1;TINYMEDIA_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYBFCP_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYMSRP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE"
+				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_WARN;_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;NDEBUG;_WINDOWS;_USRDLL;TINYDAV_EXPORTS;HAVE_SRTP=1;HAVE_G729=0;HAVE_BV16=0;HAVE_H264=0;HAVE_OPENCORE_AMR=0;HAVE_ILBC=0;HAVE_LIBGSM=0;HAVE_LIBOPUS=0;HAVE_DSOUND_H=0;HAVE_WAVE_API=0;HAVE_FFMPEG=0;HAVE_WEBRTC=0;HAVE_SPEEX_DSP=0;HAVE_SPEEX_JB=0;HAVE_LIB_SPEEX=0;HAVE_LIBVPX=1;HAVE_LIBYUV=1;G192BITSTREAM=0;SIN_CITY=1;TINYMEDIA_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYBFCP_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYMSRP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="false"
 				UsePrecompiledHeader="0"
@@ -264,6 +267,139 @@
 			<Tool
 				Name="VCMIDLTool"
 				TargetEnvironment="1"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="3"
+				EnableIntrinsicFunctions="true"
+				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\thirdparties\common\include\libyuv;..\doubango\branches\2.0\doubango\tinyRTP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyIPSec\src;..\doubango\branches\2.0\doubango\tinyDAV\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyMSRP\include;..\doubango\branches\2.0\doubango\tinyBFCP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_WARN;WIN32;_WIN32_WINNT=0x0501;NDEBUG;_WINDOWS;_USRDLL;TINYDAV_EXPORTS;HAVE_SRTP=1;HAVE_G729=0;HAVE_BV16=0;HAVE_H264=0;HAVE_OPENCORE_AMR=0;HAVE_ILBC=0;HAVE_LIBGSM=0;HAVE_LIBOPUS=1;HAVE_DSOUND_H=1;HAVE_WAVE_API=1;HAVE_FFMPEG=0;HAVE_WEBRTC=1;HAVE_SPEEX_DSP=1;HAVE_SPEEX_JB=1;HAVE_LIB_SPEEX=0;HAVE_LIBVPX=1;HAVE_LIBYUV=1;G192BITSTREAM=0;SIN_CITY=1;TINYMEDIA_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYBFCP_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYMSRP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
+				RuntimeLibrary="2"
+				EnableFunctionLevelLinking="false"
+				UsePrecompiledHeader="0"
+				WarningLevel="3"
+				WarnAsError="true"
+				DebugInformationFormat="0"
+				CompileAs="0"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLibrarianTool"
+				AdditionalOptions=""
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Debug|x64"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="4"
+			CharacterSet="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;thirdparties\common\include\libyuv;..\doubango\branches\2.0\doubango\tinyRTP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyIPSec\src;..\doubango\branches\2.0\doubango\tinyDAV\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyMSRP\include;..\doubango\branches\2.0\doubango\tinyBFCP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_INFO;HAVE_SRTP=1;HAVE_G729=0;HAVE_BV16=0;HAVE_OPENCORE_AMR=0;HAVE_H264=0;HAVE_ILBC=0;HAVE_LIBGSM=0;HAVE_LIBOPUS=1;HAVE_DSOUND_H=1;HAVE_WAVE_API=1;HAVE_FFMPEG=0;HAVE_SPEEX_DSP=1;HAVE_WEBRTC=1;HAVE_SPEEX_JB=1;HAVE_LIB_SPEEX=0;HAVE_LIBVPX=1;HAVE_LIBYUV=1;G192BITSTREAM=0;GOTHAM_CITY = 0;SIN_CITY=1;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;TINYDAV_EXPORTS;TINYMEDIA_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYBFCP_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYMSRP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
+				MinimalRebuild="true"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				UsePrecompiledHeader="0"
+				WarningLevel="3"
+				WarnAsError="true"
+				DebugInformationFormat="3"
+				CompileAs="0"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLibrarianTool"
+				AdditionalOptions=""
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|x64"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="4"
+			CharacterSet="1"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
 			/>
 			<Tool
 				Name="VCCLCompilerTool"

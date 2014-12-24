@@ -90,24 +90,24 @@ bool SCEngine::init(std::string strCredUserId, std::string strCredPassword /*= "
         SC_ASSERT(tmedia_producer_set_friendly_name(tmedia_bfcp_video, "/dev/video") == 0);
 #endif
 
-		SC_ASSERT(tmedia_defaults_set_echo_supp_enabled(tsk_true) == 0);
-		SC_ASSERT(tmedia_defaults_set_echo_skew(0) == 0);
-		SC_ASSERT(tmedia_defaults_set_echo_tail(100) == 0);
+        SC_ASSERT(tmedia_defaults_set_echo_supp_enabled(tsk_true) == 0);
+        SC_ASSERT(tmedia_defaults_set_echo_skew(0) == 0);
+        SC_ASSERT(tmedia_defaults_set_echo_tail(100) == 0);
 
-		SC_ASSERT(tmedia_defaults_set_opus_maxcapturerate(16000) == 0);
-		SC_ASSERT(tmedia_defaults_set_opus_maxplaybackrate(16000) == 0);
-		
-		SC_ASSERT(tdav_set_codecs((tdav_codec_id_t)(tmedia_codec_id_vp8 | tmedia_codec_id_pcma | tmedia_codec_id_pcmu | tmedia_codec_id_opus)) == 0);
+        SC_ASSERT(tmedia_defaults_set_opus_maxcapturerate(16000) == 0);
+        SC_ASSERT(tmedia_defaults_set_opus_maxplaybackrate(16000) == 0);
+
+        SC_ASSERT(tdav_set_codecs((tdav_codec_id_t)(tmedia_codec_id_vp8 | tmedia_codec_id_pcma | tmedia_codec_id_pcmu | tmedia_codec_id_opus)) == 0);
         SC_ASSERT(tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_vp8, 0) == 0);
-		SC_ASSERT(tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_opus, 1) == 0);
-		SC_ASSERT(tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_pcma, 2) == 0);
-		SC_ASSERT(tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_opus, 3) == 0);
-		
-		// Do not use BFCP signaling: Chrome will reject SDP with "m=application 56906 UDP/BFCP *\r\n"
-		tmedia_session_plugin_unregister(tdav_session_bfcp_plugin_def_t);
-		
-		// Register fake display (Video consumer)
-		SC_ASSERT(tmedia_consumer_plugin_register(sc_display_fake_plugin_def_t) == 0);
+        SC_ASSERT(tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_opus, 1) == 0);
+        SC_ASSERT(tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_pcma, 2) == 0);
+        SC_ASSERT(tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_opus, 3) == 0);
+
+        // Do not use BFCP signaling: Chrome will reject SDP with "m=application 56906 UDP/BFCP *\r\n"
+        tmedia_session_plugin_unregister(tdav_session_bfcp_plugin_def_t);
+
+        // Register fake display (Video consumer)
+        SC_ASSERT(tmedia_consumer_plugin_register(sc_display_fake_plugin_def_t) == 0);
 
         s_bInitialized = true;
     }
@@ -338,7 +338,7 @@ bool SCEngine::setVideoZeroArtifactsEnabled(bool enabled)
 */
 bool SCEngine::setAudioEchoSuppEnabled(bool enabled)
 {
-	return ((tmedia_defaults_set_echo_supp_enabled(enabled ? tsk_true : tsk_false) == 0));
+    return ((tmedia_defaults_set_echo_supp_enabled(enabled ? tsk_true : tsk_false) == 0));
 }
 
 /**@ingroup _Group_CPP_Engine
@@ -348,7 +348,7 @@ bool SCEngine::setAudioEchoSuppEnabled(bool enabled)
 */
 bool SCEngine::setAudioEchoTail(int tailLength)
 {
-	return(tmedia_defaults_set_echo_tail(tailLength) == 0);
+    return(tmedia_defaults_set_echo_tail(tailLength) == 0);
 }
 
 /**@ingroup _Group_CPP_Engine

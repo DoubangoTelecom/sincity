@@ -158,15 +158,15 @@ SCNetFd SCNetTransport::connectTo(const char* pcHost, unsigned short nPort)
 {
     if (!pcHost || !nPort) {
         SC_DEBUG_ERROR_EX(kSCMobuleNameNetTransport, "Invalid parameter");
-        return TNET_INVALID_FD;
+        return (SCNetFd)TNET_INVALID_FD;
     }
     if (!isValid()) {
         SC_DEBUG_ERROR_EX(kSCMobuleNameNetTransport, "Transport not valid");
-        return TNET_INVALID_FD;
+        return (SCNetFd)TNET_INVALID_FD;
     }
     if(!isStarted()) {
         SC_DEBUG_ERROR_EX(kSCMobuleNameNetTransport, "Transport not started");
-        return TNET_INVALID_FD;
+        return (SCNetFd)TNET_INVALID_FD;
     }
 
     return tnet_transport_connectto_2(m_pWrappedTransport, pcHost, nPort);

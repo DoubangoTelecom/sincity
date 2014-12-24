@@ -84,6 +84,7 @@ SCObjWrapper<SCUrl*> sc_url_parse(const char *urlstring, tsk_size_t length)
 	char* search = tsk_null;
 	unsigned short port = 0;
 	
+	TSK_RAGEL_DISABLE_WARNINGS_BEGIN()
 	%%write data;
 	(void)(ts);
 	(void)(te);
@@ -94,6 +95,7 @@ SCObjWrapper<SCUrl*> sc_url_parse(const char *urlstring, tsk_size_t length)
 	(void)(sc_machine_parser_url_en_main);
 	%%write init;
 	%%write exec;
+	TSK_RAGEL_DISABLE_WARNINGS_END()
 	
 	if ( cs < %%{ write first_final; }%% ){
 		SC_DEBUG_ERROR("Failed to parse URL: '%.*s'", length, urlstring);

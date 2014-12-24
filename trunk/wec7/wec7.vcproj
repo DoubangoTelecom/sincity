@@ -65,10 +65,11 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions=" /subsystem:windowsce,7.00"
-				AdditionalDependencies="ws2.lib iphlpapi.lib mmtimer.lib libeay32.lib ssleay32.lib wcecompat.lib libyuv.lib libvpx.lib libsrtp.lib tinySAK.lib tinyNET.lib tinySDP.lib tinyMEDIA.lib tinyDAV.lib tinyRTP.lib tinyBFCP.lib tinyMSRP.lib tinyHTTP.lib"
+				AdditionalDependencies="ws2.lib iphlpapi.lib mmtimer.lib libeay32.lib ssleay32.lib libyuv.lib libvpx.lib libsrtp.lib tinySAK.lib tinyNET.lib tinySDP.lib tinyMEDIA.lib tinyDAV.lib tinyRTP.lib tinyBFCP.lib tinyMSRP.lib tinyHTTP.lib"
 				OutputFile="$(OutDir)/wec7.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="..\thirdparties\wince\lib\x86;&quot;$(OutDir)&quot;"
+				IgnoreAllDefaultLibraries="false"
 				DelayLoadDLLs="$(NOINHERIT)"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(OutDir)/wec7.pdb"
@@ -101,7 +102,7 @@
 				ForceDirty="-1"
 				RemoteDirectory=""
 				RegisterOutput="0"
-				AdditionalFiles=""
+				AdditionalFiles="&quot;$(OutDir)\pluginDirectShow.dll&quot;"
 			/>
 			<DebuggerTool
 			/>
@@ -155,7 +156,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions=" /subsystem:windowsce,7.00"
-				AdditionalDependencies="ws2.lib iphlpapi.lib mmtimer.lib libeay32.lib ssleay32.lib wcecompat.lib libyuv.lib libvpx.lib libsrtp.lib tinySAK.lib tinyNET.lib tinySDP.lib tinyMEDIA.lib tinyDAV.lib tinyRTP.lib tinyBFCP.lib tinyMSRP.lib tinyHTTP.lib"
+				AdditionalDependencies="ws2.lib iphlpapi.lib mmtimer.lib libeay32.lib ssleay32.lib libyuv.lib libvpx.lib libsrtp.lib tinySAK.lib tinyNET.lib tinySDP.lib tinyMEDIA.lib tinyDAV.lib tinyRTP.lib tinyBFCP.lib tinyMSRP.lib tinyHTTP.lib"
 				OutputFile="$(OutDir)/wec7.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="..\thirdparties\wince\lib\x86;&quot;$(OutDir)&quot;"
@@ -208,11 +209,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\win32\stdafx.cc"
-				>
-			</File>
-			<File
-				RelativePath="..\win32\win32.cc"
+				RelativePath="..\main.cc"
 				>
 			</File>
 		</Filter>
@@ -221,14 +218,6 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<File
-				RelativePath="..\win32\stdafx.h"
-				>
-			</File>
-			<File
-				RelativePath="..\win32\targetver.h"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
@@ -236,6 +225,16 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 		</Filter>
+		<File
+			RelativePath="..\config.json"
+			DeploymentContent="true"
+			>
+		</File>
+		<File
+			RelativePath=".\GE vPC WEC7 SDK (x86)\Debug\pluginDirectShow.dll"
+			DeploymentContent="true"
+			>
+		</File>
 		<File
 			RelativePath="..\SSL_CA.pem"
 			DeploymentContent="true"

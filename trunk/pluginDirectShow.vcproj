@@ -12,6 +12,12 @@
 		<Platform
 			Name="Win32"
 		/>
+		<Platform
+			Name="GE vPC WEC7 SDK (x86)"
+		/>
+		<Platform
+			Name="x64"
+		/>
 	</Platforms>
 	<ToolFiles>
 	</ToolFiles>
@@ -90,6 +96,87 @@
 			/>
 		</Configuration>
 		<Configuration
+			Name="Debug|GE vPC WEC7 SDK (x86)"
+			OutputDirectory="$(SolutionDir)GE vPC WEC7 SDK (x86)\$(ConfigurationName)"
+			IntermediateDirectory="GE vPC WEC7 SDK (x86)\$(ConfigurationName)"
+			ConfigurationType="2"
+			CharacterSet="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="1"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				ExecutionBucket="7"
+				Optimization="0"
+				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow;thirdparties\wince\include;thirdparties\wince\include\directshow;..\doubango\branches\2.0\doubango\tinySAK\src;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinySDP\include"
+				PreprocessorDefinitions="_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;_DEBUG;_WINDOWS;_USRDLL;PLUGIN_DSHOW_EXPORTS;TINYSAK_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE"
+				MinimalRebuild="true"
+				RuntimeLibrary="1"
+				TreatWChar_tAsBuiltInType="false"
+				UsePrecompiledHeader="0"
+				WarningLevel="3"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="strmbase.lib dmoguids.lib strmiids.lib uuid.lib mmtimer.lib &quot;$(OutDir)\tinySAK.lib&quot; &quot;$(OutDir)\tinyMEDIA.lib&quot;"
+				LinkIncremental="2"
+				GenerateDebugInformation="true"
+				SubSystem="2"
+				ResourceOnlyDLL="true"
+				TargetMachine="0"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCCodeSignTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+			<DeploymentTool
+				ForceDirty="-1"
+				RemoteDirectory=""
+				RegisterOutput="0"
+				AdditionalFiles=""
+			/>
+			<DebuggerTool
+			/>
+		</Configuration>
+		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
@@ -142,6 +229,242 @@
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
 				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|GE vPC WEC7 SDK (x86)"
+			OutputDirectory="$(SolutionDir)GE vPC WEC7 SDK (x86)\$(ConfigurationName)"
+			IntermediateDirectory="GE vPC WEC7 SDK (x86)\$(ConfigurationName)"
+			ConfigurationType="2"
+			CharacterSet="1"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="1"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				ExecutionBucket="7"
+				Optimization="3"
+				EnableIntrinsicFunctions="true"
+				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow;thirdparties\wince\include;thirdparties\wince\include\directshow;..\doubango\branches\2.0\doubango\tinySAK\src;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinySDP\include"
+				PreprocessorDefinitions="_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;NDEBUG;_WINDOWS;_USRDLL;PLUGIN_DSHOW_EXPORTS;TINYSAK_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE"
+				RuntimeLibrary="0"
+				EnableFunctionLevelLinking="true"
+				TreatWChar_tAsBuiltInType="false"
+				UsePrecompiledHeader="0"
+				WarningLevel="3"
+				DebugInformationFormat="0"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="strmbase.lib dmoguids.lib strmiids.lib uuid.lib mmtimer.lib &quot;$(OutDir)\tinySAK.lib&quot; &quot;$(OutDir)\tinyMEDIA.lib&quot;"
+				LinkIncremental="1"
+				GenerateDebugInformation="false"
+				SubSystem="2"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				ResourceOnlyDLL="true"
+				TargetMachine="0"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCCodeSignTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+			<DeploymentTool
+				ForceDirty="-1"
+				RemoteDirectory=""
+				RegisterOutput="0"
+				AdditionalFiles=""
+			/>
+			<DebuggerTool
+			/>
+		</Configuration>
+		<Configuration
+			Name="Debug|x64"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="2"
+			CharacterSet="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow;..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\win32\include\directshow;..\doubango\branches\2.0\doubango\tinySAK\src;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinySDP\include"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;PLUGIN_DSHOW_EXPORTS;_WIN32_WINNT=0x0501;TINYSAK_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE"
+				MinimalRebuild="true"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				UsePrecompiledHeader="0"
+				WarningLevel="3"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="..\doubango\branches\2.0\doubango\thirdparties\win32\lib\directshow\strmbasd.lib dmoguids.lib strmiids.lib uuid.lib Winmm.lib $(OutDir)\tinySAK.lib $(OutDir)\tinyMEDIA.lib"
+				LinkIncremental="2"
+				GenerateDebugInformation="true"
+				SubSystem="2"
+				TargetMachine="17"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|x64"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="2"
+			CharacterSet="1"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="3"
+				EnableIntrinsicFunctions="true"
+				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow;..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\win32\include\directshow;..\doubango\branches\2.0\doubango\tinySAK\src;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinySDP\include"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;PLUGIN_DSHOW_EXPORTS;_WIN32_WINNT=0x0501;TINYSAK_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE"
+				RuntimeLibrary="2"
+				EnableFunctionLevelLinking="true"
+				UsePrecompiledHeader="0"
+				WarningLevel="3"
+				DebugInformationFormat="0"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="..\doubango\branches\2.0\doubango\thirdparties\win32\lib\directshow\strmbase.lib dmoguids.lib strmiids.lib uuid.lib Winmm.lib $(OutDir)\tinySAK.lib $(OutDir)\tinyMEDIA.lib"
+				LinkIncremental="1"
+				GenerateDebugInformation="false"
+				SubSystem="2"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				TargetMachine="17"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -269,6 +592,22 @@
 					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\VideoGrabberName.cxx"
 					>
 				</File>
+				<Filter
+					Name="wince"
+					>
+					<File
+						RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\wince\CPropertyBag.cxx"
+						>
+					</File>
+					<File
+						RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\wince\DSNullFilter.cxx"
+						>
+					</File>
+					<File
+						RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\wince\DSSampleGrabber.cxx"
+						>
+					</File>
+				</Filter>
 			</Filter>
 		</Filter>
 		<Filter
@@ -363,15 +702,35 @@
 					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\VideoGrabberName.h"
 					>
 				</File>
+				<Filter
+					Name="wince"
+					>
+					<File
+						RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\wince\CPropertyBag.h"
+						>
+					</File>
+					<File
+						RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\wince\DSISampleGrabberCB.h"
+						>
+					</File>
+					<File
+						RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\wince\DSNullFilter.h"
+						>
+					</File>
+					<File
+						RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\wince\DSSampleGrabber.h"
+						>
+					</File>
+					<File
+						RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\wince\DSSampleGrabberUtils.h"
+						>
+					</File>
+				</Filter>
 			</Filter>
 		</Filter>
 		<Filter
 			Name="Resource Files"
 			>
-			<File
-				RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\version.rc"
-				>
-			</File>
 		</Filter>
 	</Files>
 	<Globals>
