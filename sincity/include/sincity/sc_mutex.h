@@ -6,16 +6,18 @@
 #include "sincity/sc_obj.h"
 
 class SCMutex : public SCObj
-{	
+{
 public:
-	SCMutex(bool bRecursive = true);
-	virtual ~SCMutex();
-	virtual SC_INLINE const char* getObjectId() { return "SCMutex"; }
-	bool lock();
-	bool unlock();
+    SCMutex(bool bRecursive = true);
+    virtual ~SCMutex();
+    virtual SC_INLINE const char* getObjectId() {
+        return "SCMutex";
+    }
+    bool lock();
+    bool unlock();
 
 private:
-	SCNativeMutexHandle_t* m_phOTMutex;
+    SCNativeMutexHandle_t* m_phOTMutex;
 };
 
 #endif /* SINCITY_MUTEX_H */

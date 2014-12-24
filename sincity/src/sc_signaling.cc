@@ -185,9 +185,9 @@ bool SCSignaling::sendData(const void* _pcData, tsk_size_t _nDataSize)
         SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "Not ready yet");
         return false;
     }
-	
-	SC_DEBUG_INFO_EX(kSCMobuleNameSignaling, "Send DATA:%.*s", _nDataSize, _pcData);
-	
+
+    SC_DEBUG_INFO_EX(kSCMobuleNameSignaling, "Send DATA:%.*s", _nDataSize, _pcData);
+
     if (m_oConnectionUrl->getType() == SCUrlType_WS || m_oConnectionUrl->getType() == SCUrlType_WSS) {
         if (!m_bWsHandshakingDone) {
             SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "WebSocket handshaking not done yet");

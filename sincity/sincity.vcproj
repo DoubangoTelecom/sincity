@@ -15,6 +15,9 @@
 		<Platform
 			Name="GE vPC WEC7 SDK (x86)"
 		/>
+		<Platform
+			Name="x64"
+		/>
 	</Platforms>
 	<ToolFiles>
 	</ToolFiles>
@@ -300,6 +303,135 @@
 			<DebuggerTool
 			/>
 		</Configuration>
+		<Configuration
+			Name="Debug|x64"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="4"
+			CharacterSet="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories="include;..\..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\..\doubango\branches\2.0\doubango\thirdparties\common\include;..\..\doubango\branches\2.0\doubango\tinyNET\src;..\..\doubango\branches\2.0\doubango\tinySAK\src;..\..\doubango\branches\2.0\doubango\tinyHTTP\include;..\..\doubango\branches\2.0\doubango\tinyDAV\include;..\..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\..\doubango\branches\2.0\doubango\tinyRTP\include;..\..\doubango\branches\2.0\doubango\tinySDP\include"
+				PreprocessorDefinitions="WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;TINYSAK_IMPORTS_IGNORE;TINYHTTP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;TINYDAV_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
+				MinimalRebuild="true"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="1"
+				UsePrecompiledHeader="0"
+				WarningLevel="3"
+				WarnAsError="true"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLibrarianTool"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|x64"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="4"
+			CharacterSet="1"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="2"
+				EnableIntrinsicFunctions="true"
+				AdditionalIncludeDirectories="include;..\..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\..\doubango\branches\2.0\doubango\thirdparties\common\include;..\..\doubango\branches\2.0\doubango\tinyNET\src;..\..\doubango\branches\2.0\doubango\tinySAK\src;..\..\doubango\branches\2.0\doubango\tinyHTTP\include;..\..\doubango\branches\2.0\doubango\tinyDAV\include;..\..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\..\doubango\branches\2.0\doubango\tinyRTP\include;..\..\doubango\branches\2.0\doubango\tinySDP\include"
+				PreprocessorDefinitions="WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;TINYSAK_IMPORTS_IGNORE;TINYHTTP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;TINYDAV_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
+				RuntimeLibrary="0"
+				EnableFunctionLevelLinking="true"
+				UsePrecompiledHeader="0"
+				WarningLevel="3"
+				WarnAsError="true"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLibrarianTool"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
 	</Configurations>
 	<References>
 	</References>
@@ -363,6 +495,14 @@
 			</File>
 			<File
 				RelativePath=".\src\sc_utils.cc"
+				>
+			</File>
+			<File
+				RelativePath=".\src\sc_wec7.c"
+				>
+			</File>
+			<File
+				RelativePath=".\src\sc_wec7_time.c"
 				>
 			</File>
 		</Filter>

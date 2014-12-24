@@ -37,139 +37,133 @@ typedef int32_t SCNetFd;
 #	endif /* SC_UNDER_WINDOWS_CE */
 #else
 #	define SCVideoDisplay void*
-#	define SC_STDCALL 
+#	define SC_STDCALL
 #endif /* SC_UNDER_WINDOWS */
 
-typedef enum SCDebugLevel_e
-{
-	SCDebugLevel_Info = 4,
-	SCDebugLevel_Warn = 3,
-	SCDebugLevel_Error = 2,
-	SCDebugLevel_Fatal = 1
+typedef enum SCDebugLevel_e {
+    SCDebugLevel_Info = 4,
+    SCDebugLevel_Warn = 3,
+    SCDebugLevel_Error = 2,
+    SCDebugLevel_Fatal = 1
 }
 SCDebugLevel_t;
 
-typedef enum SCSignalingEventType_e
-{
-	SCSignalingEventType_NetConnected,
-	SCSignalingEventType_NetReady,
-	SCSignalingEventType_NetData, // "passthrough" data: https://code.google.com/p/sincity/issues/detail?id=2
-	SCSignalingEventType_NetDisconnected,
-	SCSignalingEventType_NetError,
+typedef enum SCSignalingEventType_e {
+    SCSignalingEventType_NetConnected,
+    SCSignalingEventType_NetReady,
+    SCSignalingEventType_NetData, // "passthrough" data: https://code.google.com/p/sincity/issues/detail?id=2
+    SCSignalingEventType_NetDisconnected,
+    SCSignalingEventType_NetError,
 
-	SCSignalingEventType_Call
+    SCSignalingEventType_Call
 }
 SCSignalingEventType_t;
 
-typedef enum SCSessionState_e
-{
-	SCSessionState_None,
-	SCSessionState_Connecting,
-	SCSessionState_Connected,
-	SCSessionState_Terminated
+typedef enum SCSessionState_e {
+    SCSessionState_None,
+    SCSessionState_Connecting,
+    SCSessionState_Connected,
+    SCSessionState_Terminated
 }
 SCSessionState_t;
 
-typedef enum SCMediaType_e
-{
-	SCMediaType_None = 0x00,
-	SCMediaType_Audio = (0x01<<0),
-	SCMediaType_Video = (0x01<<1),
-	SCMediaType_ScreenCast = (0x01<<2),
-	SCMediaType_AudioVideo = (SCMediaType_Audio | SCMediaType_Video),
+typedef enum SCMediaType_e {
+    SCMediaType_None = 0x00,
+    SCMediaType_Audio = (0x01<<0),
+    SCMediaType_Video = (0x01<<1),
+    SCMediaType_ScreenCast = (0x01<<2),
+    SCMediaType_AudioVideo = (SCMediaType_Audio | SCMediaType_Video),
 
-	SCMediaType_All = 0xFF,
+    SCMediaType_All = 0xFF,
 }
 SCMediaType_t;
 
-typedef enum SCCallAction_e
-{
-	SCCallAction_None,
-	SCCallAction_Make,
-	SCCallAction_Accept
+typedef enum SCCallAction_e {
+    SCCallAction_None,
+    SCCallAction_Make,
+    SCCallAction_Accept
 }
 SCCallAction_t;
 
-typedef enum SCCallState_e
-{
-	SCCallState_None,
-	SCCallState_IceGathering,
+typedef enum SCCallState_e {
+    SCCallState_None,
+    SCCallState_IceGathering,
 }
 SCCallState_t;
 
-typedef enum SCSessionType_e
-{
-	SCSessionType_None,
-	SCSessionType_Call
+typedef enum SCSessionType_e {
+    SCSessionType_None,
+    SCSessionType_Call
 }
 SCSessionType_t;
 
-typedef enum SCNetTransporType_e
-{
-	SCNetTransporType_None = 0x00,
-	SCNetTransporType_TCP = (0x01 << 0),
-	SCNetTransporType_TLS = (0x01 << 1),
-	SCNetTransporType_WS = ((0x01 << 2) | SCNetTransporType_TCP),
-	SCNetTransporType_WSS = ((0x01 << 3) | SCNetTransporType_TLS),
-	SCNetTransporType_HTTP = ((0x01 << 4) | SCNetTransporType_TCP),
-	SCNetTransporType_HTTPS = ((0x01 << 5) | SCNetTransporType_TLS),
+typedef enum SCNetTransporType_e {
+    SCNetTransporType_None = 0x00,
+    SCNetTransporType_TCP = (0x01 << 0),
+    SCNetTransporType_TLS = (0x01 << 1),
+    SCNetTransporType_WS = ((0x01 << 2) | SCNetTransporType_TCP),
+    SCNetTransporType_WSS = ((0x01 << 3) | SCNetTransporType_TLS),
+    SCNetTransporType_HTTP = ((0x01 << 4) | SCNetTransporType_TCP),
+    SCNetTransporType_HTTPS = ((0x01 << 5) | SCNetTransporType_TLS),
 }
 SCNetTransporType_t;
 
-typedef enum SCWsActionType_e
-{
-	SCWsActionType_None = 0,
+typedef enum SCWsActionType_e {
+    SCWsActionType_None = 0,
 }
 SCWsActionType_t;
 
-typedef enum SCUrlHostType_e
-{
-	SCUrlHostType_None = 0,
-	SCUrlHostType_Hostname,
-	SCUrlHostType_IPv4,
-	SCUrlHostType_IPv6
+typedef enum SCUrlHostType_e {
+    SCUrlHostType_None = 0,
+    SCUrlHostType_Hostname,
+    SCUrlHostType_IPv4,
+    SCUrlHostType_IPv6
 }
 SCUrlHostType_t;
 
-typedef enum SCUrlType_e
-{
-	SCUrlType_None = SCNetTransporType_None,
-	SCUrlType_TCP = SCNetTransporType_TCP,
-	SCUrlType_TLS = SCNetTransporType_TLS,
-	SCUrlType_WS = SCNetTransporType_WS,
-	SCUrlType_WSS = SCNetTransporType_WSS,
-	SCUrlType_HTTP = SCNetTransporType_HTTP,
-	SCUrlType_HTTPS = SCNetTransporType_HTTPS,
+typedef enum SCUrlType_e {
+    SCUrlType_None = SCNetTransporType_None,
+    SCUrlType_TCP = SCNetTransporType_TCP,
+    SCUrlType_TLS = SCNetTransporType_TLS,
+    SCUrlType_WS = SCNetTransporType_WS,
+    SCUrlType_WSS = SCNetTransporType_WSS,
+    SCUrlType_HTTP = SCNetTransporType_HTTP,
+    SCUrlType_HTTPS = SCNetTransporType_HTTPS,
 }
 SCUrlType_t;
 
 static bool SC_INLINE SCNetTransporType_isStream(SCNetTransporType_t eType)
 {
-	switch(eType)
-	{
-	case SCNetTransporType_TCP:
-	case SCNetTransporType_TLS:
-	case SCNetTransporType_WS:
-	case SCNetTransporType_WSS:
-		return true;
-	default:
-		return false;
-	}
+    switch(eType) {
+    case SCNetTransporType_TCP:
+    case SCNetTransporType_TLS:
+    case SCNetTransporType_WS:
+    case SCNetTransporType_WSS:
+        return true;
+    default:
+        return false;
+    }
 }
 
 #define kSCMobuleNameNetTransport "NetTransport"
 #define kSCMobuleNameWsTransport "WebSocketTransport"
 #define kSCMobuleNameSignaling "Signaling"
 #define kSCMobuleNameFakeDisplay "Fake display"
+#define kSCMobuleNameWEC7 "WEC7"
 
 
 template <typename T>
-class SCAutoLock {
+class SCAutoLock
+{
 public:
-	explicit SCAutoLock(T* obj) : obj_(obj) { obj_->lock(); }
-	virtual ~SCAutoLock() { obj_->unlock(); }
+    explicit SCAutoLock(T* obj) : obj_(obj) {
+        obj_->lock();
+    }
+    virtual ~SCAutoLock() {
+        obj_->unlock();
+    }
 protected:
-	T* obj_;
+    T* obj_;
 };
 
 typedef void SCNativeMutexHandle_t; // Mapping to "tsk_mutex_handle_t"
