@@ -26,7 +26,6 @@ static tmedia_type_t _mediaTypeToNative(SCMediaType_t mediaType)
     if (mediaType & SCMediaType_ScreenCast) {
         type = (tmedia_type_t)(type | tmedia_bfcp_video);
     }
-    // if (mediaType & SCMediaType_ScreenCast) type = (tmedia_type_t)(type | tmedia_bfcp_video); // FIXME
     return type;
 }
 
@@ -45,7 +44,6 @@ static SCMediaType_t _mediaTypeFromNative(tmedia_type_t mediaType)
     if (mediaType & tmedia_bfcp_video) {
         type = (SCMediaType_t)(type | SCMediaType_ScreenCast);
     }
-    // if (mediaType & SCMediaType_ScreenCast) type = (tmedia_type_t)(type | tmedia_bfcp_video); // FIXME
     return type;
 }
 
