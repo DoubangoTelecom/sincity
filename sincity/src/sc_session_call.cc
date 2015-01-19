@@ -890,7 +890,7 @@ bool SCSessionCall::sendSdp()
     }
 
     char* sdpStr = tsdp_message_tostring(sdp_lo);
-    if (!*sdpStr) {
+    if (tsk_strnullORempty(sdpStr)) {
         SC_DEBUG_ERROR("Cannot serialize local offer");
         return false;
     }
