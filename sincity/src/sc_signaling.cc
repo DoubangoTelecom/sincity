@@ -58,6 +58,7 @@ SCSignaling::SCSignaling(SCObjWrapper<SCNetTransport*>& oNetTransport, SCObjWrap
 */
 SCSignaling::~SCSignaling()
 {
+	m_oNetTransport->setCallback(NULL);
     TSK_FREE(m_pWsSendBufPtr);
 }
 
