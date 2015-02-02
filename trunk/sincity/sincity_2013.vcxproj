@@ -68,14 +68,18 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
-    <IntDir>$(Configuration)\</IntDir>
+    <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
-    <IntDir>$(Configuration)\</IntDir>
+    <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
@@ -83,11 +87,11 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;TINYSAK_IMPORTS_IGNORE;TINYHTTP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;TINYDAV_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeader />
       <WarningLevel>Level3</WarningLevel>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -96,7 +100,7 @@
       <AdditionalIncludeDirectories>include;..\..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\..\doubango\branches\2.0\doubango\thirdparties\common\include;..\..\doubango\branches\2.0\doubango\tinyNET\src;..\..\doubango\branches\2.0\doubango\tinySAK\src;..\..\doubango\branches\2.0\doubango\tinyHTTP\include;..\..\doubango\branches\2.0\doubango\tinyDAV\include;..\..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\..\doubango\branches\2.0\doubango\tinyRTP\include;..\..\doubango\branches\2.0\doubango\tinySDP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;TINYSAK_IMPORTS_IGNORE;TINYHTTP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;TINYDAV_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>

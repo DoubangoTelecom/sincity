@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Source Files\internals">
+      <UniqueIdentifier>{30110614-f2f9-46d0-9970-55526f28d49d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\internals">
+      <UniqueIdentifier>{d5e911aa-8765-404c-b4f8-9ac2ac3b55aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader Files">
+      <UniqueIdentifier>{2627ac88-8273-46e8-8fea-fcf105a29072}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader Files\internals">
+      <UniqueIdentifier>{42199fdf-6bd7-4f87-bb3e-3c3712cfde31}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\dllmain_dd.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\plugin_win_dd_producer.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\DisplayManager.cxx">
+      <Filter>Source Files\internals</Filter>
+    </ClCompile>
+    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\DuplicationManager.cxx">
+      <Filter>Source Files\internals</Filter>
+    </ClCompile>
+    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\OutputManager.cxx">
+      <Filter>Source Files\internals</Filter>
+    </ClCompile>
+    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\ThreadManager.cxx">
+      <Filter>Source Files\internals</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\plugin_win_dd_config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\CommonTypes.h">
+      <Filter>Header Files\internals</Filter>
+    </ClInclude>
+    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\DisplayManager.h">
+      <Filter>Header Files\internals</Filter>
+    </ClInclude>
+    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\DuplicationManager.h">
+      <Filter>Header Files\internals</Filter>
+    </ClInclude>
+    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\OutputManager.h">
+      <Filter>Header Files\internals</Filter>
+    </ClInclude>
+    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\ThreadManager.h">
+      <Filter>Header Files\internals</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\version.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\PixelShader.hlsl">
+      <Filter>Shader Files\internals</Filter>
+    </FxCompile>
+    <FxCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\VertexShader.hlsl">
+      <Filter>Shader Files\internals</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>

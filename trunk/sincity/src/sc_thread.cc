@@ -18,7 +18,7 @@ SCThread::~SCThread()
 
 bool SCThread::join()
 {
-    bool bRet = false;
+    bool bRet = true;
     if (m_phThread) {
         SC_DEBUG_INFO("SCThread join ---ENTER---");
         bRet = (tsk_thread_join(&m_phThread) == 0);

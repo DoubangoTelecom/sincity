@@ -68,23 +68,25 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
-    <IntDir>$(Configuration)\</IntDir>
+    <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <TargetName>sintest</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <TargetName>sintest</TargetName>
+    <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
-    <IntDir>$(Configuration)\</IntDir>
+    <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <TargetName>sintest</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <TargetName>sintest</TargetName>
+    <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -93,10 +95,10 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeader />
       <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <AdditionalDependencies>tinyBFCP.lib;tinySAK.lib;tinyHTTP.lib;tinyNET.lib;tinyMEDIA.lib;tinySDP.lib;tinyDAV.lib;tinyIPSec.lib;tinyRTP.lib;tinyMSRP.lib;Winmm.lib;ws2_32.lib;Shlwapi.lib;IPHLPAPI.lib;sincity.lib;libeay32.lib;ssleay32.lib;vpxmt.lib;libsrtp.a;libspeexdsp.a;libyuv.lib;libopus.a;audio_processing.lib;common_audio.lib;system_wrappers.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -108,6 +110,11 @@
       <TargetMachine>MachineX86</TargetMachine>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y $(SolutionDir)..\SSL_Pub.pem $(OutDir)
+xcopy /Y $(SolutionDir)..\SSL_Priv.pem $(OutDir)
+xcopy /Y $(SolutionDir)..\SSL_CA.pem $(OutDir)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -115,21 +122,27 @@
       <AdditionalIncludeDirectories>../sincity/include;..\..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\..\doubango\branches\2.0\doubango\thirdparties\common\include;..\..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>tinyBFCP.lib;tinySAK.lib;tinyHTTP.lib;tinyNET.lib;tinyMEDIA.lib;tinySDP.lib;tinyDAV.lib;tinyIPSec.lib;tinyRTP.lib;tinyMSRP.lib;Winmm.lib;ws2_32.lib;Shlwapi.lib;IPHLPAPI.lib;sincity.lib;libeay64.lib;ssleay64.lib;vpxmt64.lib;libsrtp64.a;libspeexdsp64.a;libyuv64.lib;libopus64.a;audio_processing64.lib;common_audio64.lib;system_wrappers64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>tinyBFCP.lib;tinySAK.lib;tinyHTTP.lib;tinyNET.lib;tinyMEDIA.lib;tinySDP.lib;tinyDAV.lib;tinyIPSec.lib;tinyRTP.lib;tinyMSRP.lib;Winmm.lib;ws2_32.lib;Shlwapi.lib;IPHLPAPI.lib;sincity.lib;libeay64.lib;ssleay64.lib;vpxmt64.lib;libsrtp64.a;libyuv64.lib;libopus64.a;libspeexdsp64.a;audio_processing64.lib;common_audio64.lib;system_wrappers64.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)sintest.exe</OutputFile>
       <AdditionalLibraryDirectories>$(OutDir);..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib;..\..\doubango\branches\2.0\doubango\thirdparties\win32\lib\openssl;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\vpx;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\srtp;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\libyuv;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\speex;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\opus;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\webrtc;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <IgnoreSpecificDefaultLibraries>libcmtd.lib;libcmt.lib</IgnoreSpecificDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y $(SolutionDir)..\SSL_Pub.pem $(OutDir)
+xcopy /Y $(SolutionDir)..\SSL_Priv.pem $(OutDir)
+xcopy /Y $(SolutionDir)..\SSL_CA.pem $(OutDir)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -155,6 +168,11 @@
       <TargetMachine>MachineX86</TargetMachine>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y $(SolutionDir)..\SSL_Pub.pem $(OutDir)
+xcopy /Y $(SolutionDir)..\SSL_Priv.pem $(OutDir)
+xcopy /Y $(SolutionDir)..\SSL_CA.pem $(OutDir)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -180,6 +198,11 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y $(SolutionDir)..\SSL_Pub.pem $(OutDir)
+xcopy /Y $(SolutionDir)..\SSL_Priv.pem $(OutDir)
+xcopy /Y $(SolutionDir)..\SSL_CA.pem $(OutDir)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cc" />
