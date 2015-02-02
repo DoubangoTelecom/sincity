@@ -146,7 +146,7 @@ int main(int argc, char* argv[])
     SC_ASSERT(threadConsoleReader = SCThread::newObj(consoleReaderProc));
 
     printf("*******************************************************************\n"
-           "Copyright (C) 2014 Doubango Telecom (VoIP division)\n"
+           "Copyright (C) 2014-2015 Doubango Telecom (VoIP division)\n"
            "PRODUCT: SINCITY\n"
            "HOME PAGE: <void>\n"
            "CODE SOURCE: <void>\n"
@@ -429,12 +429,14 @@ static bool attachDisplays()
 #endif /* SC_UNDER_WINDOWS */
 
     if (callSession) {
+#if 1
         if ((callSession->getMediaType() & SCMediaType_ScreenCast)) {
             SC_ASSERT(callSession->setVideoDisplays(SCMediaType_ScreenCast, getDisplay(false/*remote?*/, true/*screencast?*/), getDisplay(true/*remote?*/, true/*screencast?*/)));
         }
         if ((callSession->getMediaType() & SCMediaType_Video)) {
             SC_ASSERT(callSession->setVideoDisplays(SCMediaType_Video, getDisplay(false/*remote?*/, false/*screencast?*/), getDisplay(true/*remote?*/, false/*screencast?*/)));
         }
+#endif
     }
     return true;
 }
