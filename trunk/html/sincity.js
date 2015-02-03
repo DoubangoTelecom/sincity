@@ -3,7 +3,7 @@
 
 @name        libsincity
 @author      Doubango Telecom
-@version     1.3.0
+@version     1.3.1
 */
 document.write(unescape("%3Cscript src='adapter.js' type='text/javascript'%3E%3C/script%3E"));
 var WebSocket = (window['MozWebSocket'] || window['MozWebSocket'] || WebSocket);
@@ -49,8 +49,9 @@ var SCCall = function (){
     pc: null,
     config: null,
     localStream: null,
-    remoteVideo:null,
-    pendingOffer:null*/
+    remoteVideo: null,
+    pendingOffer: null,
+    latestRemoteDescription: FF clears unknown attributes in  "pc.remoteDescription"*/
     this.config = 
     { 
         audio_send: false, 
@@ -272,7 +273,7 @@ var SCWebRtcEvents = {
                 cid: call.cid,
                 tid: call.tid,
                 type: call.pc.localDescription.type, // "offer"/"answer"/"pranswer"
-                sdp: SCUtils.stringLocalSdp(call.pc)
+                sdp: SCUtils.stringLocalSdp(call)
             };
             var msg_text = JSON.stringify(msg);
             console.info("send: " + msg_text);
@@ -322,18 +323,18 @@ var SCUtils = {
                 SCUtils.stringRandomFromDict(4, s_dict),
                 SCUtils.stringRandomFromDict(12, s_dict));
     },
-    stringLocalSdp: function(pc) {
-        if (pc && pc.localDescription && pc.localDescription.sdp) {
-            var sdp = pc.localDescription.sdp.replace(/RTP\/SAVPF/g, 'UDP/TLS/RTP/SAVPF');
+    stringLocalSdp: function(call) {
+        if (call.pc && call.pc.localDescription && call.pc.localDescription.sdp) {
+            var sdp = call.pc.localDescription.sdp.replace(/RTP\/SAVPF/g, 'UDP/TLS/RTP/SAVPF');
             var arrayPosOfVideo = [];
             var posOfVideo, indexOfVideoStart, indexOfVideo, indexOfVideoNext, indexOfContentSlides;
             // Find video positions to consider as "screencast"
-            if (pc.remoteDescription && pc.remoteDescription.sdp) {
+            if (call.latestRemoteDescription && call.latestRemoteDescription.sdp) {
                 posOfVideo = 0;
                 indexOfVideoStart = 0;
-                while ((indexOfVideo = pc.remoteDescription.sdp.indexOf("m=video ", indexOfVideoStart)) > 0) {
-                    if ((indexOfContentSlides = pc.remoteDescription.sdp.indexOf("a=content:slides", indexOfVideo)) > 0 || (indexOfContentSlides = pc.remoteDescription.sdp.indexOf("label:doubango@bfcpvideo", indexOfVideo)) > 0) {
-                        indexOfVideoNext = pc.remoteDescription.sdp.indexOf("m=video ", indexOfVideo + 1);
+                while ((indexOfVideo = call.latestRemoteDescription.sdp.indexOf("m=video ", indexOfVideoStart)) > 0) {
+                    if ((indexOfContentSlides = call.latestRemoteDescription.sdp.indexOf("a=content:slides", indexOfVideo)) > 0 || (indexOfContentSlides = call.latestRemoteDescription.sdp.indexOf("label:doubango@bfcpvideo", indexOfVideo)) > 0) {
+                        indexOfVideoNext = call.latestRemoteDescription.sdp.indexOf("m=video ", indexOfVideo + 1);
                         if (indexOfVideoNext == -1 || indexOfContentSlides < indexOfVideoNext) {
                             // Video at "posOfVideo" is "screencast"
                             arrayPosOfVideo.push(posOfVideo);
@@ -451,10 +452,11 @@ var SCUtils = {
         }
         call.pc.onicecandidate = function(e) { SCWebRtcEvents.onicecandidate(This, e); }
         call.pc.onaddstream = function(e) { SCWebRtcEvents.onaddstream(This, e); }
-        var sdpRemote = Msg.sdp.replace(/UDP\/TLS\/RTP\/SAVPF/g, 'RTP/SAVPF');
-        call.pc.setRemoteDescription(new RTCSessionDescription({ type: "offer", sdp: sdpRemote }),
+        var sdpRemote = new RTCSessionDescription({ type: "offer", sdp: Msg.sdp.replace(/UDP\/TLS\/RTP\/SAVPF/g, 'RTP/SAVPF') });
+        call.pc.setRemoteDescription(sdpRemote,
             function() {
                 console.info("setRemoteDescription OK");
+                This.latestRemoteDescription = sdpRemote;
                 This.pc.createAnswer(
                     function(desc) {
                         console.info("createAnswer:" + desc.sdp);
