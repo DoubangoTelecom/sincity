@@ -32,126 +32,126 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\trtp.c">
+    <ClCompile Include="..\doubango\tinyRTP\src\trtp.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\trtp_manager.c">
+    <ClCompile Include="..\doubango\tinyRTP\src\trtp_manager.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\trtp_srtp.c">
+    <ClCompile Include="..\doubango\tinyRTP\src\trtp_srtp.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtp\trtp_rtp_header.c">
+    <ClCompile Include="..\doubango\tinyRTP\src\rtp\trtp_rtp_header.c">
       <Filter>source%28%2a.c%29\rtp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtp\trtp_rtp_packet.c">
+    <ClCompile Include="..\doubango\tinyRTP\src\rtp\trtp_rtp_packet.c">
       <Filter>source%28%2a.c%29\rtp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtp\trtp_rtp_session.c">
+    <ClCompile Include="..\doubango\tinyRTP\src\rtp\trtp_rtp_session.c">
       <Filter>source%28%2a.c%29\rtp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_header.c">
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_header.c">
       <Filter>source%28%2a.c%29\rtcp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_packet.c">
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_packet.c">
       <Filter>source%28%2a.c%29\rtcp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_rblock.c">
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_rblock.c">
       <Filter>source%28%2a.c%29\rtcp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_report.c">
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_report.c">
       <Filter>source%28%2a.c%29\rtcp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_bye.c">
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_bye.c">
       <Filter>source%28%2a.c%29\rtcp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_fb.c">
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_fb.c">
       <Filter>source%28%2a.c%29\rtcp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_rr.c">
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_rr.c">
       <Filter>source%28%2a.c%29\rtcp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_sdes.c">
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_sdes.c">
       <Filter>source%28%2a.c%29\rtcp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_sr.c">
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_sr.c">
       <Filter>source%28%2a.c%29\rtcp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_xr.c">
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_xr.c">
       <Filter>source%28%2a.c%29\rtcp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_sdes_chunck.c">
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_sdes_chunck.c">
       <Filter>source%28%2a.c%29\rtcp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_sdes_item.c">
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_sdes_item.c">
       <Filter>source%28%2a.c%29\rtcp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_session.c">
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_session.c">
       <Filter>source%28%2a.c%29\rtcp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp_config.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp_config.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\trtp.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\trtp.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\trtp_manager.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\trtp_manager.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\trtp_srtp.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\trtp_srtp.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtp\trtp_rtp_header.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtp\trtp_rtp_header.h">
       <Filter>include%28%2a.h%29\rtp</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtp\trtp_rtp_packet.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtp\trtp_rtp_packet.h">
       <Filter>include%28%2a.h%29\rtp</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtp\trtp_rtp_session.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtp\trtp_rtp_session.h">
       <Filter>include%28%2a.h%29\rtp</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_header.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_header.h">
       <Filter>include%28%2a.h%29\rtcp</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_packet.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_packet.h">
       <Filter>include%28%2a.h%29\rtcp</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_rblock.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_rblock.h">
       <Filter>include%28%2a.h%29\rtcp</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report.h">
       <Filter>include%28%2a.h%29\rtcp</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_bye.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_bye.h">
       <Filter>include%28%2a.h%29\rtcp</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_fb.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_fb.h">
       <Filter>include%28%2a.h%29\rtcp</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_rr.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_rr.h">
       <Filter>include%28%2a.h%29\rtcp</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_sdes.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_sdes.h">
       <Filter>include%28%2a.h%29\rtcp</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_sr.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_sr.h">
       <Filter>include%28%2a.h%29\rtcp</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_xr.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_xr.h">
       <Filter>include%28%2a.h%29\rtcp</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_sdes_chunck.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_sdes_chunck.h">
       <Filter>include%28%2a.h%29\rtcp</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_sdes_item.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_sdes_item.h">
       <Filter>include%28%2a.h%29\rtcp</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_session.h">
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_session.h">
       <Filter>include%28%2a.h%29\rtcp</Filter>
     </ClInclude>
   </ItemGroup>

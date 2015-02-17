@@ -85,7 +85,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\plugins\pluginDirectShow;..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\win32\include\directshow;..\doubango\branches\2.0\doubango\tinySAK\src;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinySDP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\plugins\pluginDirectShow;..\doubango\thirdparties\win32\include;..\doubango\thirdparties\win32\include\directshow;..\doubango\tinySAK\src;..\doubango\tinyMEDIA\include;..\doubango\tinySDP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;PLUGIN_DSHOW_EXPORTS;_WIN32_WINNT=0x0501;TINYSAK_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -95,7 +95,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>..\doubango\branches\2.0\doubango\thirdparties\win32\lib\directshow\strmbasd.lib;dmoguids.lib;strmiids.lib;uuid.lib;Winmm.lib;$(OutDir)tinySAK.lib;$(OutDir)tinyMEDIA.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\doubango\thirdparties\win32\lib\directshow\strmbasd.lib;dmoguids.lib;strmiids.lib;uuid.lib;Winmm.lib;$(OutDir)tinySAK.lib;$(OutDir)tinyMEDIA.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
@@ -104,7 +104,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\plugins\pluginDirectShow;..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\win32\include\directshow;..\doubango\branches\2.0\doubango\tinySAK\src;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinySDP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\plugins\pluginDirectShow;..\doubango\thirdparties\win32\include;..\doubango\thirdparties\win32\include\directshow;..\doubango\tinySAK\src;..\doubango\tinyMEDIA\include;..\doubango\tinySDP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;PLUGIN_DSHOW_EXPORTS;_WIN32_WINNT=0x0501;TINYSAK_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -114,7 +114,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>..\doubango\branches\2.0\doubango\thirdparties\win32\lib\directshow\strmbasd.lib;dmoguids.lib;strmiids.lib;uuid.lib;Winmm.lib;$(OutDir)tinySAK.lib;$(OutDir)tinyMEDIA.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\doubango\thirdparties\win32\lib\directshow\strmbasd.lib;dmoguids.lib;strmiids.lib;uuid.lib;Winmm.lib;$(OutDir)tinySAK.lib;$(OutDir)tinyMEDIA.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
     </Link>
@@ -123,7 +123,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\plugins\pluginDirectShow;..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\win32\include\directshow;..\doubango\branches\2.0\doubango\tinySAK\src;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinySDP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\plugins\pluginDirectShow;..\doubango\thirdparties\win32\include;..\doubango\thirdparties\win32\include\directshow;..\doubango\tinySAK\src;..\doubango\tinyMEDIA\include;..\doubango\tinySDP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;PLUGIN_DSHOW_EXPORTS;_WIN32_WINNT=0x0501;TINYSAK_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -132,7 +132,7 @@
       <DebugInformationFormat />
     </ClCompile>
     <Link>
-      <AdditionalDependencies>..\doubango\branches\2.0\doubango\thirdparties\win32\lib\directshow\strmbase.lib;dmoguids.lib;strmiids.lib;uuid.lib;Winmm.lib;$(OutDir)tinySAK.lib;$(OutDir)tinyMEDIA.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\doubango\thirdparties\win32\lib\directshow\strmbase.lib;dmoguids.lib;strmiids.lib;uuid.lib;Winmm.lib;$(OutDir)tinySAK.lib;$(OutDir)tinyMEDIA.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -144,7 +144,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\plugins\pluginDirectShow;..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\win32\include\directshow;..\doubango\branches\2.0\doubango\tinySAK\src;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinySDP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\plugins\pluginDirectShow;..\doubango\thirdparties\win32\include;..\doubango\thirdparties\win32\include\directshow;..\doubango\tinySAK\src;..\doubango\tinyMEDIA\include;..\doubango\tinySDP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;PLUGIN_DSHOW_EXPORTS;_WIN32_WINNT=0x0501;TINYSAK_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -155,7 +155,7 @@
       </DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>..\doubango\branches\2.0\doubango\thirdparties\win32\lib\directshow\strmbase.lib;dmoguids.lib;strmiids.lib;uuid.lib;Winmm.lib;$(OutDir)tinySAK.lib;$(OutDir)tinyMEDIA.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>..\doubango\thirdparties\win32\lib\directshow\strmbase.lib;dmoguids.lib;strmiids.lib;uuid.lib;Winmm.lib;$(OutDir)tinySAK.lib;$(OutDir)tinyMEDIA.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -163,55 +163,55 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\dllmain_dshow.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSCaptureFormat.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSCaptureGraph.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSCaptureUtils.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDibHelper.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplay.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplayGraph.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.VMR.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.VMR9.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSFrameRateFilter.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSGrabber.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSOutputFilter.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSOutputStream.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSPushSourceDesktop.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSScreenCastGraph.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSUtils.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\Resizer.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\VideoDisplayName.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\VideoGrabberName.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\plugin_screencast_dshow_producer.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\plugin_video_dshow_consumer.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\plugin_video_dshow_producer.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\dllmain_dshow.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSCaptureFormat.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSCaptureGraph.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSCaptureUtils.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSDibHelper.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSDisplay.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSDisplayGraph.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.VMR.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.VMR9.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSFrameRateFilter.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSGrabber.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSOutputFilter.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSOutputStream.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSPushSourceDesktop.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSScreenCastGraph.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSUtils.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\Resizer.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\VideoDisplayName.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\VideoGrabberName.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\plugin_screencast_dshow_producer.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\plugin_video_dshow_consumer.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\plugin_video_dshow_producer.cxx" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSBaseCaptureGraph.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSBufferWriter.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSCaptureFormat.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSCaptureGraph.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSCaptureUtils.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDibHelper.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplay.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplayGraph.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSFrameRateFilter.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSGrabber.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSOutputFilter.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSOutputStream.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSPushSource.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSScreenCastGraph.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSUtils.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\Resizer.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\VideoDisplayName.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\VideoFrame.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\VideoGrabberName.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\plugin_dshow_config.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSBaseCaptureGraph.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSBufferWriter.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSCaptureFormat.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSCaptureGraph.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSCaptureUtils.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSDibHelper.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSDisplay.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSDisplayGraph.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSFrameRateFilter.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSGrabber.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSOutputFilter.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSOutputStream.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSPushSource.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSScreenCastGraph.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSUtils.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\Resizer.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\VideoDisplayName.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\VideoFrame.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\VideoGrabberName.h" />
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\plugin_dshow_config.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\version.rc" />
+    <ResourceCompile Include="..\doubango\plugins\pluginDirectShow\version.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

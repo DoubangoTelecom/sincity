@@ -86,7 +86,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyRTP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyRTP\include;..\doubango\tinyMEDIA\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_INFO;HAVE_SRTP=1;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;TINYRTP_EXPORTS;TINYSAK_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -102,7 +102,7 @@
     <Midl />
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyRTP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyRTP\include;..\doubango\tinyMEDIA\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_INFO;HAVE_SRTP=1;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;TINYRTP_EXPORTS;TINYSAK_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -121,7 +121,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyRTP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyRTP\include;..\doubango\tinyMEDIA\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>HAVE_SRTP=1;WIN32;_WIN32_WINNT=0x0501;NDEBUG;_WINDOWS;_USRDLL;TINYRTP_EXPORTS;TINYSAK_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>false</FunctionLevelLinking>
@@ -137,7 +137,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyRTP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyRTP\include;..\doubango\tinyMEDIA\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>HAVE_SRTP=1;WIN32;_WIN32_WINNT=0x0501;NDEBUG;_WINDOWS;_USRDLL;TINYRTP_EXPORTS;TINYSAK_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>false</FunctionLevelLinking>
@@ -151,48 +151,48 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_header.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_packet.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_rblock.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_report.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_bye.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_fb.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_rr.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_sdes.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_sr.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_xr.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_sdes_chunck.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_sdes_item.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtcp\trtp_rtcp_session.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtp\trtp_rtp_header.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtp\trtp_rtp_packet.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\rtp\trtp_rtp_session.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\trtp.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\trtp_manager.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyRTP\src\trtp_srtp.c" />
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_header.c" />
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_packet.c" />
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_rblock.c" />
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_report.c" />
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_bye.c" />
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_fb.c" />
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_rr.c" />
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_sdes.c" />
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_sr.c" />
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_report_xr.c" />
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_sdes_chunck.c" />
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_sdes_item.c" />
+    <ClCompile Include="..\doubango\tinyRTP\src\rtcp\trtp_rtcp_session.c" />
+    <ClCompile Include="..\doubango\tinyRTP\src\rtp\trtp_rtp_header.c" />
+    <ClCompile Include="..\doubango\tinyRTP\src\rtp\trtp_rtp_packet.c" />
+    <ClCompile Include="..\doubango\tinyRTP\src\rtp\trtp_rtp_session.c" />
+    <ClCompile Include="..\doubango\tinyRTP\src\trtp.c" />
+    <ClCompile Include="..\doubango\tinyRTP\src\trtp_manager.c" />
+    <ClCompile Include="..\doubango\tinyRTP\src\trtp_srtp.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_header.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_packet.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_rblock.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_bye.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_fb.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_rr.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_sdes.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_sr.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_xr.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_sdes_chunck.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_sdes_item.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_session.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtp\trtp_rtp_header.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtp\trtp_rtp_packet.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\rtp\trtp_rtp_session.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\trtp.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\trtp_manager.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp\trtp_srtp.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyRTP\include\tinyrtp_config.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_header.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_packet.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_rblock.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_bye.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_fb.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_rr.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_sdes.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_sr.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_report_xr.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_sdes_chunck.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_sdes_item.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtcp\trtp_rtcp_session.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtp\trtp_rtp_header.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtp\trtp_rtp_packet.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\rtp\trtp_rtp_session.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\trtp.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\trtp_manager.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp\trtp_srtp.h" />
+    <ClInclude Include="..\doubango\tinyRTP\include\tinyrtp_config.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

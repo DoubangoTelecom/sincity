@@ -20,143 +20,143 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\dllmain_dshow.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\dllmain_dshow.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\plugin_screencast_dshow_producer.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\plugin_screencast_dshow_producer.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\plugin_video_dshow_consumer.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\plugin_video_dshow_consumer.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\plugin_video_dshow_producer.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\plugin_video_dshow_producer.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSCaptureFormat.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSCaptureFormat.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSCaptureGraph.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSCaptureGraph.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSCaptureUtils.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSCaptureUtils.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDibHelper.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSDibHelper.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplay.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSDisplay.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplayGraph.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSDisplayGraph.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.VMR.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.VMR.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.VMR9.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.VMR9.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSFrameRateFilter.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSFrameRateFilter.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSGrabber.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSGrabber.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSOutputFilter.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSOutputFilter.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSOutputStream.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSOutputStream.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSPushSourceDesktop.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSPushSourceDesktop.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSScreenCastGraph.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSScreenCastGraph.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSUtils.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\DSUtils.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\Resizer.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\Resizer.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\VideoDisplayName.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\VideoDisplayName.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\VideoGrabberName.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginDirectShow\internals\VideoGrabberName.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\plugin_dshow_config.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\plugin_dshow_config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSBaseCaptureGraph.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSBaseCaptureGraph.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSBufferWriter.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSBufferWriter.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSCaptureFormat.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSCaptureFormat.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSCaptureGraph.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSCaptureGraph.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSCaptureUtils.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSCaptureUtils.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDibHelper.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSDibHelper.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplay.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSDisplay.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplayGraph.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSDisplayGraph.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSFrameRateFilter.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSFrameRateFilter.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSGrabber.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSGrabber.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSOutputFilter.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSOutputFilter.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSOutputStream.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSOutputStream.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSPushSource.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSPushSource.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSScreenCastGraph.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSScreenCastGraph.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSUtils.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\DSUtils.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\Resizer.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\Resizer.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\VideoDisplayName.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\VideoDisplayName.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\VideoFrame.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\VideoFrame.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\VideoGrabberName.h">
+    <ClInclude Include="..\doubango\plugins\pluginDirectShow\internals\VideoGrabberName.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\version.rc">
+    <ResourceCompile Include="..\doubango\plugins\pluginDirectShow\version.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>

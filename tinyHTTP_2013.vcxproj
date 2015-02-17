@@ -86,7 +86,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyHTTP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyHTTP\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_INFO;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;TINYHTTP_EXPORTS;TINYNET_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -102,7 +102,7 @@
     <Midl />
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyHTTP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyHTTP\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_INFO;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;TINYHTTP_EXPORTS;TINYNET_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -121,7 +121,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyHTTP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyHTTP\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0501;NDEBUG;_WINDOWS;_USRDLL;TINYHTTP_EXPORTS;TINYNET_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>false</FunctionLevelLinking>
@@ -137,7 +137,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyHTTP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyHTTP\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0501;NDEBUG;_WINDOWS;_USRDLL;TINYHTTP_EXPORTS;TINYNET_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>false</FunctionLevelLinking>
@@ -151,58 +151,58 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\auth\thttp_auth.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\auth\thttp_challenge.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_Authorization.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_Content_Length.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_Content_Type.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_Dummy.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_ETag.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_Sec_WebSocket_Accept.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_Sec_WebSocket_Key.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_Sec_WebSocket_Protocol.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_Sec_WebSocket_Version.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_Transfer_Encoding.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_WWW_Authenticate.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\parsers\thttp_parser_header.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\parsers\thttp_parser_message.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\parsers\thttp_parser_url.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\thttp.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\thttp_action.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\thttp_dialog.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\thttp_event.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\thttp_message.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\thttp_session.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\thttp_url.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\auth\thttp_auth.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\auth\thttp_challenge.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_Authorization.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_Content_Length.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_Content_Type.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_Dummy.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_ETag.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_Sec_WebSocket_Accept.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_Sec_WebSocket_Key.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_Sec_WebSocket_Protocol.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_Sec_WebSocket_Version.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_Transfer_Encoding.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_WWW_Authenticate.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\parsers\thttp_parser_header.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\parsers\thttp_parser_message.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\parsers\thttp_parser_url.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\thttp.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\thttp_action.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\thttp_dialog.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\thttp_event.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\thttp_message.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\thttp_session.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\thttp_url.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\thttp.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyhttp.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\auth\thttp_auth.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\auth\thttp_challenge.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_Authorization.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_Content_Length.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_Content_Type.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_Dummy.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_ETag.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyhttp\headers\thttp_header_Sec_WebSocket_Accept.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyhttp\headers\thttp_header_Sec_WebSocket_Key.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyhttp\headers\thttp_header_Sec_WebSocket_Protocol.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyhttp\headers\thttp_header_Sec_WebSocket_Version.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_Transfer_Encoding.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_WWW_Authenticate.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\parsers\thttp_parser_header.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\parsers\thttp_parser_message.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\parsers\thttp_parser_url.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\thttp_action.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\thttp_dialog.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\thttp_event.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\thttp_message.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\thttp_session.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\thttp_url.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyhttp_config.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\thttp.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyhttp.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\auth\thttp_auth.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\auth\thttp_challenge.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_Authorization.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_Content_Length.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_Content_Type.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_Dummy.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_ETag.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyhttp\headers\thttp_header_Sec_WebSocket_Accept.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyhttp\headers\thttp_header_Sec_WebSocket_Key.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyhttp\headers\thttp_header_Sec_WebSocket_Protocol.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyhttp\headers\thttp_header_Sec_WebSocket_Version.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_Transfer_Encoding.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_WWW_Authenticate.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\parsers\thttp_parser_header.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\parsers\thttp_parser_message.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\parsers\thttp_parser_url.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\thttp_action.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\thttp_dialog.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\thttp_event.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\thttp_message.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\thttp_session.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\thttp_url.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyhttp_config.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="abnf\http.abnf" />

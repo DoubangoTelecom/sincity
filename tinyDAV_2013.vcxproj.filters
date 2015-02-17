@@ -231,414 +231,414 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\tdav.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\tdav.h">
       <Filter>headers%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\tdav_session_av.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\tdav_session_av.h">
       <Filter>headers%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\tdav_win32.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\tdav_win32.h">
       <Filter>headers%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav.h">
       <Filter>headers%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav_config.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav_config.h">
       <Filter>headers%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\amr\tdav_codec_amr.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\amr\tdav_codec_amr.h">
       <Filter>headers%28%2a.h%29\codecs\amr</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\g711\g711.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\g711\g711.h">
       <Filter>headers%28%2a.h%29\codecs\g711</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\g711\tdav_codec_g711.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\g711\tdav_codec_g711.h">
       <Filter>headers%28%2a.h%29\codecs\g711</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\g722\g722_enc_dec.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\g722\g722_enc_dec.h">
       <Filter>headers%28%2a.h%29\codecs\g722</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\g722\tdav_codec_g722.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\g722\tdav_codec_g722.h">
       <Filter>headers%28%2a.h%29\codecs\g722</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\gsm\tdav_codec_gsm.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\gsm\tdav_codec_gsm.h">
       <Filter>headers%28%2a.h%29\codecs\gsm</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\h261\tdav_codec_h261.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\h261\tdav_codec_h261.h">
       <Filter>headers%28%2a.h%29\codecs\h261</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\h263\tdav_codec_h263.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\h263\tdav_codec_h263.h">
       <Filter>headers%28%2a.h%29\codecs\h263</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\h264\tdav_codec_h264.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\h264\tdav_codec_h264.h">
       <Filter>headers%28%2a.h%29\codecs\h264</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\h264\tdav_codec_h264_common.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\h264\tdav_codec_h264_common.h">
       <Filter>headers%28%2a.h%29\codecs\h264</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\h264\tdav_codec_h264_cuda.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\h264\tdav_codec_h264_cuda.h">
       <Filter>headers%28%2a.h%29\codecs\h264</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\h264\tdav_codec_h264_rtp.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\h264\tdav_codec_h264_rtp.h">
       <Filter>headers%28%2a.h%29\codecs\h264</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\ilbc\tdav_codec_ilbc.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\ilbc\tdav_codec_ilbc.h">
       <Filter>headers%28%2a.h%29\codecs\ilbc</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\theora\tdav_codec_theora.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\theora\tdav_codec_theora.h">
       <Filter>headers%28%2a.h%29\codecs\theora</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\speex\tdav_codec_speex.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\speex\tdav_codec_speex.h">
       <Filter>headers%28%2a.h%29\codecs\speex</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\msrp\tdav_codec_msrp.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\msrp\tdav_codec_msrp.h">
       <Filter>headers%28%2a.h%29\codecs\msrp</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\dtmf\tdav_codec_dtmf.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\dtmf\tdav_codec_dtmf.h">
       <Filter>headers%28%2a.h%29\codecs\dtmf</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\bv\tdav_codec_bv16.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\bv\tdav_codec_bv16.h">
       <Filter>headers%28%2a.h%29\codecs\bv</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\bv\tdav_codec_bv32.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\bv\tdav_codec_bv32.h">
       <Filter>headers%28%2a.h%29\codecs\bv</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\g729\tdav_codec_g729.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\g729\tdav_codec_g729.h">
       <Filter>headers%28%2a.h%29\codecs\g729</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\mp4ves\tdav_codec_mp4ves.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\mp4ves\tdav_codec_mp4ves.h">
       <Filter>headers%28%2a.h%29\codecs\mp4ves</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\vpx\tdav_codec_vp8.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\vpx\tdav_codec_vp8.h">
       <Filter>headers%28%2a.h%29\codecs\vpx</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\fec\tdav_codec_red.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\fec\tdav_codec_red.h">
       <Filter>headers%28%2a.h%29\codecs\fec</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\fec\tdav_codec_ulpfec.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\fec\tdav_codec_ulpfec.h">
       <Filter>headers%28%2a.h%29\codecs\fec</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\t140\tdav_codec_t140.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\t140\tdav_codec_t140.h">
       <Filter>headers%28%2a.h%29\codecs\t140</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\opus\tdav_codec_opus.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\opus\tdav_codec_opus.h">
       <Filter>headers%28%2a.h%29\codecs\opus</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\bfcp\tdav_codec_bfcp.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\codecs\bfcp\tdav_codec_bfcp.h">
       <Filter>headers%28%2a.h%29\codecs\bfcp</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\tdav_consumer_audio.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\audio\tdav_consumer_audio.h">
       <Filter>headers%28%2a.h%29\audio</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\tdav_jitterbuffer.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\audio\tdav_jitterbuffer.h">
       <Filter>headers%28%2a.h%29\audio</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\tdav_producer_audio.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\audio\tdav_producer_audio.h">
       <Filter>headers%28%2a.h%29\audio</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\tdav_session_audio.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\audio\tdav_session_audio.h">
       <Filter>headers%28%2a.h%29\audio</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\tdav_speakup_jitterbuffer.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\audio\tdav_speakup_jitterbuffer.h">
       <Filter>headers%28%2a.h%29\audio</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\tdav_speex_denoise.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\audio\tdav_speex_denoise.h">
       <Filter>headers%28%2a.h%29\audio</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\tdav_speex_jitterbuffer.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\audio\tdav_speex_jitterbuffer.h">
       <Filter>headers%28%2a.h%29\audio</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\tdav_speex_resampler.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\audio\tdav_speex_resampler.h">
       <Filter>headers%28%2a.h%29\audio</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\tdav_webrtc_denoise.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\audio\tdav_webrtc_denoise.h">
       <Filter>headers%28%2a.h%29\audio</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\directsound\tdav_consumer_dsound.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\audio\directsound\tdav_consumer_dsound.h">
       <Filter>headers%28%2a.h%29\audio\directsound</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\directsound\tdav_producer_dsound.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\audio\directsound\tdav_producer_dsound.h">
       <Filter>headers%28%2a.h%29\audio\directsound</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\waveapi\tdav_consumer_waveapi.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\audio\waveapi\tdav_consumer_waveapi.h">
       <Filter>headers%28%2a.h%29\audio\waveapi</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\waveapi\tdav_producer_waveapi.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\audio\waveapi\tdav_producer_waveapi.h">
       <Filter>headers%28%2a.h%29\audio\waveapi</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\coreaudio\tdav_audiounit.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\audio\coreaudio\tdav_audiounit.h">
       <Filter>headers%28%2a.h%29\audio\coreaudio</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\coreaudio\tdav_consumer_audioqueue.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\audio\coreaudio\tdav_consumer_audioqueue.h">
       <Filter>headers%28%2a.h%29\audio\coreaudio</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\coreaudio\tdav_consumer_audiounit.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\audio\coreaudio\tdav_consumer_audiounit.h">
       <Filter>headers%28%2a.h%29\audio\coreaudio</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\coreaudio\tdav_producer_audioqueue.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\audio\coreaudio\tdav_producer_audioqueue.h">
       <Filter>headers%28%2a.h%29\audio\coreaudio</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\coreaudio\tdav_producer_audiounit.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\audio\coreaudio\tdav_producer_audiounit.h">
       <Filter>headers%28%2a.h%29\audio\coreaudio</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\video\tdav_consumer_video.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\video\tdav_consumer_video.h">
       <Filter>headers%28%2a.h%29\video</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\video\tdav_converter_video.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\video\tdav_converter_video.h">
       <Filter>headers%28%2a.h%29\video</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\video\tdav_runnable_video.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\video\tdav_runnable_video.h">
       <Filter>headers%28%2a.h%29\video</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\video\tdav_session_video.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\video\tdav_session_video.h">
       <Filter>headers%28%2a.h%29\video</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\video\gdi\tdav_consumer_video_gdi.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\video\gdi\tdav_consumer_video_gdi.h">
       <Filter>headers%28%2a.h%29\video\gdi</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\video\gdi\tdav_producer_screencast_gdi.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\video\gdi\tdav_producer_screencast_gdi.h">
       <Filter>headers%28%2a.h%29\video\gdi</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\video\jb\tdav_video_frame.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\video\jb\tdav_video_frame.h">
       <Filter>headers%28%2a.h%29\video\jb</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\video\jb\tdav_video_jb.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\video\jb\tdav_video_jb.h">
       <Filter>headers%28%2a.h%29\video\jb</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\msrp\tdav_consumer_msrp.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\msrp\tdav_consumer_msrp.h">
       <Filter>headers%28%2a.h%29\msrp</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\msrp\tdav_producer_msrp.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\msrp\tdav_producer_msrp.h">
       <Filter>headers%28%2a.h%29\msrp</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\msrp\tdav_session_msrp.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\msrp\tdav_session_msrp.h">
       <Filter>headers%28%2a.h%29\msrp</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\t140\tdav_consumer_t140.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\t140\tdav_consumer_t140.h">
       <Filter>headers%28%2a.h%29\t140</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\t140\tdav_producer_t140.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\t140\tdav_producer_t140.h">
       <Filter>headers%28%2a.h%29\t140</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\t140\tdav_session_t140.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\t140\tdav_session_t140.h">
       <Filter>headers%28%2a.h%29\t140</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\bfcp\tdav_session_bfcp.h">
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\bfcp\tdav_session_bfcp.h">
       <Filter>headers%28%2a.h%29\bfcp</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\tdav.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\tdav.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\tdav_session_av.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\tdav_session_av.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\tdav_win32.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\tdav_win32.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\amr\tdav_codec_amr.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\amr\tdav_codec_amr.c">
       <Filter>source%28%2a.c%29\codecs\amr</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\g711\g711.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\g711\g711.c">
       <Filter>source%28%2a.c%29\codecs\g711</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\g711\tdav_codec_g711.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\g711\tdav_codec_g711.c">
       <Filter>source%28%2a.c%29\codecs\g711</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\g722\g722_decode.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\g722\g722_decode.c">
       <Filter>source%28%2a.c%29\codecs\g722</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\g722\g722_encode.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\g722\g722_encode.c">
       <Filter>source%28%2a.c%29\codecs\g722</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\g722\tdav_codec_g722.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\g722\tdav_codec_g722.c">
       <Filter>source%28%2a.c%29\codecs\g722</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\gsm\tdav_codec_gsm.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\gsm\tdav_codec_gsm.c">
       <Filter>source%28%2a.c%29\codecs\gsm</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\h261\tdav_codec_h261.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\h261\tdav_codec_h261.c">
       <Filter>source%28%2a.c%29\codecs\h261</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\h263\tdav_codec_h263.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\h263\tdav_codec_h263.c">
       <Filter>source%28%2a.c%29\codecs\h263</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\h264\tdav_codec_h264.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\h264\tdav_codec_h264.c">
       <Filter>source%28%2a.c%29\codecs\h264</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\h264\tdav_codec_h264_cuda.cxx">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\h264\tdav_codec_h264_cuda.cxx">
       <Filter>source%28%2a.c%29\codecs\h264</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\h264\tdav_codec_h264_rtp.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\h264\tdav_codec_h264_rtp.c">
       <Filter>source%28%2a.c%29\codecs\h264</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\ilbc\tdav_codec_ilbc.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\ilbc\tdav_codec_ilbc.c">
       <Filter>source%28%2a.c%29\codecs\ilbc</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\speex\tdav_codec_speex.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\speex\tdav_codec_speex.c">
       <Filter>source%28%2a.c%29\codecs\speex</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\theora\tdav_codec_theora.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\theora\tdav_codec_theora.c">
       <Filter>source%28%2a.c%29\codecs\theora</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\msrp\tdav_codec_msrp.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\msrp\tdav_codec_msrp.c">
       <Filter>source%28%2a.c%29\codecs\msrp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\dtmf\tdav_codec_dtmf.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\dtmf\tdav_codec_dtmf.c">
       <Filter>source%28%2a.c%29\codecs\dtmf</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\bv\tdav_codec_bv16.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\bv\tdav_codec_bv16.c">
       <Filter>source%28%2a.c%29\codecs\bv</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\bv\tdav_codec_bv32.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\bv\tdav_codec_bv32.c">
       <Filter>source%28%2a.c%29\codecs\bv</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\g729\tdav_codec_g729.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\g729\tdav_codec_g729.c">
       <Filter>source%28%2a.c%29\codecs\g729</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\mp4ves\tdav_codec_mp4ves.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\mp4ves\tdav_codec_mp4ves.c">
       <Filter>source%28%2a.c%29\codecs\mp4ves</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\vpx\tdav_codec_vp8.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\vpx\tdav_codec_vp8.c">
       <Filter>source%28%2a.c%29\codecs\vpx</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\fec\tdav_codec_red.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\fec\tdav_codec_red.c">
       <Filter>source%28%2a.c%29\codecs\fec</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\fec\tdav_codec_ulpfec.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\fec\tdav_codec_ulpfec.c">
       <Filter>source%28%2a.c%29\codecs\fec</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\t140\tdav_codec_t140.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\t140\tdav_codec_t140.c">
       <Filter>source%28%2a.c%29\codecs\t140</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\opus\tdav_codec_opus.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\opus\tdav_codec_opus.c">
       <Filter>source%28%2a.c%29\codecs\opus</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\bfcp\tdav_codec_bfcp.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\bfcp\tdav_codec_bfcp.c">
       <Filter>source%28%2a.c%29\codecs\bfcp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\tdav_consumer_audio.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\tdav_consumer_audio.c">
       <Filter>source%28%2a.c%29\audio</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\tdav_jitterbuffer.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\tdav_jitterbuffer.c">
       <Filter>source%28%2a.c%29\audio</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\tdav_producer_audio.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\tdav_producer_audio.c">
       <Filter>source%28%2a.c%29\audio</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\tdav_session_audio.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\tdav_session_audio.c">
       <Filter>source%28%2a.c%29\audio</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\tdav_speakup_jitterbuffer.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\tdav_speakup_jitterbuffer.c">
       <Filter>source%28%2a.c%29\audio</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\tdav_speex_denoise.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\tdav_speex_denoise.c">
       <Filter>source%28%2a.c%29\audio</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\tdav_speex_jitterbuffer.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\tdav_speex_jitterbuffer.c">
       <Filter>source%28%2a.c%29\audio</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\tdav_speex_resampler.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\tdav_speex_resampler.c">
       <Filter>source%28%2a.c%29\audio</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\tdav_webrtc_denoise.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\tdav_webrtc_denoise.c">
       <Filter>source%28%2a.c%29\audio</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\directsound\tdav_consumer_dsound.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\directsound\tdav_consumer_dsound.c">
       <Filter>source%28%2a.c%29\audio\directsound</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\directsound\tdav_producer_dsound.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\directsound\tdav_producer_dsound.c">
       <Filter>source%28%2a.c%29\audio\directsound</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\oss\tdav_consumer_oss.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\oss\tdav_consumer_oss.c">
       <Filter>source%28%2a.c%29\audio\oss</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\oss\tdav_producer_oss.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\oss\tdav_producer_oss.c">
       <Filter>source%28%2a.c%29\audio\oss</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\waveapi\tdav_consumer_waveapi.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\waveapi\tdav_consumer_waveapi.c">
       <Filter>source%28%2a.c%29\audio\waveapi</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\waveapi\tdav_producer_waveapi.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\waveapi\tdav_producer_waveapi.c">
       <Filter>source%28%2a.c%29\audio\waveapi</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\coreaudio\tdav_audiounit.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\coreaudio\tdav_audiounit.c">
       <Filter>source%28%2a.c%29\audio\coreaudio</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\coreaudio\tdav_consumer_audioqueue.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\coreaudio\tdav_consumer_audioqueue.c">
       <Filter>source%28%2a.c%29\audio\coreaudio</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\coreaudio\tdav_consumer_audiounit.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\coreaudio\tdav_consumer_audiounit.c">
       <Filter>source%28%2a.c%29\audio\coreaudio</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\coreaudio\tdav_producer_audioqueue.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\coreaudio\tdav_producer_audioqueue.c">
       <Filter>source%28%2a.c%29\audio\coreaudio</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\coreaudio\tdav_producer_audiounit.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\coreaudio\tdav_producer_audiounit.c">
       <Filter>source%28%2a.c%29\audio\coreaudio</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\alsa\tdav_common_alsa.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\alsa\tdav_common_alsa.c">
       <Filter>source%28%2a.c%29\audio\alsa</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\alsa\tdav_consumer_alsa.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\alsa\tdav_consumer_alsa.c">
       <Filter>source%28%2a.c%29\audio\alsa</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\alsa\tdav_producer_alsa.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\audio\alsa\tdav_producer_alsa.c">
       <Filter>source%28%2a.c%29\audio\alsa</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\video\tdav_consumer_video.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\video\tdav_consumer_video.c">
       <Filter>source%28%2a.c%29\video</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\video\tdav_converter_video.cxx">
+    <ClCompile Include="..\doubango\tinyDAV\src\video\tdav_converter_video.cxx">
       <Filter>source%28%2a.c%29\video</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\video\tdav_runnable_video.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\video\tdav_runnable_video.c">
       <Filter>source%28%2a.c%29\video</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\video\tdav_session_video.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\video\tdav_session_video.c">
       <Filter>source%28%2a.c%29\video</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\video\gdi\tdav_consumer_video_gdi.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\video\gdi\tdav_consumer_video_gdi.c">
       <Filter>source%28%2a.c%29\video\gdi</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\video\gdi\tdav_producer_screencast_gdi.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\video\gdi\tdav_producer_screencast_gdi.c">
       <Filter>source%28%2a.c%29\video\gdi</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\video\v4linux\tdav_producer_video_v4l2.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\video\v4linux\tdav_producer_video_v4l2.c">
       <Filter>source%28%2a.c%29\video\v4linux</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\video\jb\tdav_video_frame.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\video\jb\tdav_video_frame.c">
       <Filter>source%28%2a.c%29\video\jb</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\video\jb\tdav_video_jb.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\video\jb\tdav_video_jb.c">
       <Filter>source%28%2a.c%29\video\jb</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\msrp\tdav_consumer_msrp.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\msrp\tdav_consumer_msrp.c">
       <Filter>source%28%2a.c%29\msrp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\msrp\tdav_producer_msrp.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\msrp\tdav_producer_msrp.c">
       <Filter>source%28%2a.c%29\msrp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\msrp\tdav_session_msrp.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\msrp\tdav_session_msrp.c">
       <Filter>source%28%2a.c%29\msrp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\t140\tdav_consumer_t140.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\t140\tdav_consumer_t140.c">
       <Filter>source%28%2a.c%29\t140</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\t140\tdav_producer_t140.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\t140\tdav_producer_t140.c">
       <Filter>source%28%2a.c%29\t140</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\t140\tdav_session_t140.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\t140\tdav_session_t140.c">
       <Filter>source%28%2a.c%29\t140</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\bfcp\tdav_session_bfcp.c">
+    <ClCompile Include="..\doubango\tinyDAV\src\bfcp\tdav_session_bfcp.c">
       <Filter>source%28%2a.c%29\bfcp</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\h264\tdav_codec_h264_cisco.cxx">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\h264\tdav_codec_h264_cisco.cxx">
       <Filter>source%28%2a.c%29\codecs\h264</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\h264\tdav_codec_h264_intel.cxx">
+    <ClCompile Include="..\doubango\tinyDAV\src\codecs\h264\tdav_codec_h264_intel.cxx">
       <Filter>source%28%2a.c%29\codecs\h264</Filter>
     </ClCompile>
   </ItemGroup>

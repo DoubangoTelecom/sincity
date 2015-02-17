@@ -223,6 +223,7 @@ bool SCEngine::setVideoPrefSize(const char* strPrefVideoSize)
         {"4cif", tmedia_pref_video_size_4cif, 704, 576}, // 704 x 576
         {"wvga", tmedia_pref_video_size_wvga, 800, 480}, // 800 x 480
         {"svga", tmedia_pref_video_size_svga, 800, 600}, // 800 x 600
+		{"xga", tmedia_pref_video_size_xga, 1024, 768}, // 1024 x 768
         {"480p", tmedia_pref_video_size_480p, 852, 480}, // 852 x 480
         {"720p", tmedia_pref_video_size_720p, 1280, 720}, // 1280 x 720
         {"16cif", tmedia_pref_video_size_16cif, 1408, 1152}, // 1408 x 1152

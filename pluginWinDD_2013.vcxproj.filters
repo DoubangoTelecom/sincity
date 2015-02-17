@@ -27,55 +27,55 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\dllmain_dd.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginWinDD\dllmain_dd.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\plugin_win_dd_producer.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginWinDD\plugin_win_dd_producer.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\DisplayManager.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginWinDD\internals\DisplayManager.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\DuplicationManager.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginWinDD\internals\DuplicationManager.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\OutputManager.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginWinDD\internals\OutputManager.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\ThreadManager.cxx">
+    <ClCompile Include="..\doubango\plugins\pluginWinDD\internals\ThreadManager.cxx">
       <Filter>Source Files\internals</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\plugin_win_dd_config.h">
+    <ClInclude Include="..\doubango\plugins\pluginWinDD\plugin_win_dd_config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\CommonTypes.h">
+    <ClInclude Include="..\doubango\plugins\pluginWinDD\internals\CommonTypes.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\DisplayManager.h">
+    <ClInclude Include="..\doubango\plugins\pluginWinDD\internals\DisplayManager.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\DuplicationManager.h">
+    <ClInclude Include="..\doubango\plugins\pluginWinDD\internals\DuplicationManager.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\OutputManager.h">
+    <ClInclude Include="..\doubango\plugins\pluginWinDD\internals\OutputManager.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\ThreadManager.h">
+    <ClInclude Include="..\doubango\plugins\pluginWinDD\internals\ThreadManager.h">
       <Filter>Header Files\internals</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\version.rc">
+    <ResourceCompile Include="..\doubango\plugins\pluginWinDD\version.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\PixelShader.hlsl">
+    <FxCompile Include="..\doubango\plugins\pluginWinDD\internals\PixelShader.hlsl">
       <Filter>Shader Files\internals</Filter>
     </FxCompile>
-    <FxCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\VertexShader.hlsl">
+    <FxCompile Include="..\doubango\plugins\pluginWinDD\internals\VertexShader.hlsl">
       <Filter>Shader Files\internals</Filter>
     </FxCompile>
   </ItemGroup>

@@ -36,156 +36,156 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\thttp.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\thttp.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\thttp_action.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\thttp_action.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\thttp_dialog.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\thttp_dialog.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\thttp_event.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\thttp_event.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\thttp_message.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\thttp_message.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\thttp_session.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\thttp_session.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\thttp_url.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\thttp_url.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\auth\thttp_auth.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\auth\thttp_auth.c">
       <Filter>source%28%2a.c%29\auth</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\auth\thttp_challenge.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\auth\thttp_challenge.c">
       <Filter>source%28%2a.c%29\auth</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header.c">
       <Filter>source%28%2a.c%29\headers</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_Authorization.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_Authorization.c">
       <Filter>source%28%2a.c%29\headers</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_Content_Length.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_Content_Length.c">
       <Filter>source%28%2a.c%29\headers</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_Content_Type.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_Content_Type.c">
       <Filter>source%28%2a.c%29\headers</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_Dummy.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_Dummy.c">
       <Filter>source%28%2a.c%29\headers</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_ETag.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_ETag.c">
       <Filter>source%28%2a.c%29\headers</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_Sec_WebSocket_Accept.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_Sec_WebSocket_Accept.c">
       <Filter>source%28%2a.c%29\headers</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_Sec_WebSocket_Key.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_Sec_WebSocket_Key.c">
       <Filter>source%28%2a.c%29\headers</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_Sec_WebSocket_Protocol.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_Sec_WebSocket_Protocol.c">
       <Filter>source%28%2a.c%29\headers</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_Sec_WebSocket_Version.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_Sec_WebSocket_Version.c">
       <Filter>source%28%2a.c%29\headers</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_Transfer_Encoding.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_Transfer_Encoding.c">
       <Filter>source%28%2a.c%29\headers</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\headers\thttp_header_WWW_Authenticate.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\headers\thttp_header_WWW_Authenticate.c">
       <Filter>source%28%2a.c%29\headers</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\parsers\thttp_parser_header.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\parsers\thttp_parser_header.c">
       <Filter>source%28%2a.c%29\parsers</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\parsers\thttp_parser_message.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\parsers\thttp_parser_message.c">
       <Filter>source%28%2a.c%29\parsers</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyHTTP\src\parsers\thttp_parser_url.c">
+    <ClCompile Include="..\doubango\tinyHTTP\src\parsers\thttp_parser_url.c">
       <Filter>source%28%2a.c%29\parsers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\thttp.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\thttp.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\thttp_action.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\thttp_action.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\thttp_dialog.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\thttp_dialog.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\thttp_event.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\thttp_event.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\thttp_message.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\thttp_message.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\thttp_session.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\thttp_session.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\thttp_url.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\thttp_url.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyhttp.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyhttp.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyhttp_config.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyhttp_config.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\auth\thttp_auth.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\auth\thttp_auth.h">
       <Filter>include%28%2a.h%29\auth</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\auth\thttp_challenge.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\auth\thttp_challenge.h">
       <Filter>include%28%2a.h%29\auth</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header.h">
       <Filter>include%28%2a.h%29\headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_Authorization.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_Authorization.h">
       <Filter>include%28%2a.h%29\headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_Content_Length.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_Content_Length.h">
       <Filter>include%28%2a.h%29\headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_Content_Type.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_Content_Type.h">
       <Filter>include%28%2a.h%29\headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_Dummy.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_Dummy.h">
       <Filter>include%28%2a.h%29\headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_ETag.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_ETag.h">
       <Filter>include%28%2a.h%29\headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyhttp\headers\thttp_header_Sec_WebSocket_Accept.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyhttp\headers\thttp_header_Sec_WebSocket_Accept.h">
       <Filter>include%28%2a.h%29\headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyhttp\headers\thttp_header_Sec_WebSocket_Key.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyhttp\headers\thttp_header_Sec_WebSocket_Key.h">
       <Filter>include%28%2a.h%29\headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyhttp\headers\thttp_header_Sec_WebSocket_Protocol.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyhttp\headers\thttp_header_Sec_WebSocket_Protocol.h">
       <Filter>include%28%2a.h%29\headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyhttp\headers\thttp_header_Sec_WebSocket_Version.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyhttp\headers\thttp_header_Sec_WebSocket_Version.h">
       <Filter>include%28%2a.h%29\headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_Transfer_Encoding.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_Transfer_Encoding.h">
       <Filter>include%28%2a.h%29\headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_WWW_Authenticate.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\headers\thttp_header_WWW_Authenticate.h">
       <Filter>include%28%2a.h%29\headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\parsers\thttp_parser_header.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\parsers\thttp_parser_header.h">
       <Filter>include%28%2a.h%29\parsers</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\parsers\thttp_parser_message.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\parsers\thttp_parser_message.h">
       <Filter>include%28%2a.h%29\parsers</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyHTTP\include\tinyHTTP\parsers\thttp_parser_url.h">
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\parsers\thttp_parser_url.h">
       <Filter>include%28%2a.h%29\parsers</Filter>
     </ClInclude>
   </ItemGroup>

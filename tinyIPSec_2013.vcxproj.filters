@@ -12,15 +12,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyIPSec\src\tipsec.c">
+    <ClCompile Include="..\doubango\tinyIPSec\src\tipsec.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyIPSec\src\tinyipsec_config.h">
+    <ClInclude Include="..\doubango\tinyIPSec\src\tinyipsec_config.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyIPSec\src\tipsec.h">
+    <ClInclude Include="..\doubango\tinyIPSec\src\tipsec.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
   </ItemGroup>

@@ -86,7 +86,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyMEDIA\include;..\doubango\tinySDP\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_INFO;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;TINYMEDIA_EXPORTS;FLIP_ENCODED_PICT=1;FLIP_DECODED_PICT=0;TINYSAK_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -102,7 +102,7 @@
     <Midl />
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyMEDIA\include;..\doubango\tinySDP\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_INFO;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;TINYMEDIA_EXPORTS;FLIP_ENCODED_PICT=1;FLIP_DECODED_PICT=0;TINYSAK_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -121,7 +121,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinySDP\include;..\doubango\tinyMEDIA\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0501;NDEBUG;_WINDOWS;_USRDLL;TINYMEDIA_EXPORTS;FLIP_ENCODED_PICT=1;FLIP_DECODED_PICT=0;TINYSAK_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>false</FunctionLevelLinking>
@@ -137,7 +137,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinySDP\include;..\doubango\tinyMEDIA\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0501;NDEBUG;_WINDOWS;_USRDLL;TINYMEDIA_EXPORTS;FLIP_ENCODED_PICT=1;FLIP_DECODED_PICT=0;TINYSAK_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>false</FunctionLevelLinking>
@@ -151,54 +151,54 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\content\tmedia_content.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\content\tmedia_content_cpim.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\content\tmedia_content_multipart.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\content\tmedia_content_sip_frag.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_codec.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_codec_dummy.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_common.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_consumer.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_converter_video.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_defaults.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_denoise.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_imageattr.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_jitterbuffer.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_params.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_producer.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_qos.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_resampler.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_session.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_session_dummy.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_session_ghost.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia\tmedia_vad.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyMEDIA\include\tinymedia_config.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\content\tmedia_content.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\content\tmedia_content_cpim.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\content\tmedia_content_multipart.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\content\tmedia_content_sip_frag.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\tmedia.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\tmedia_codec.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\tmedia_codec_dummy.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\tmedia_common.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\tmedia_consumer.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\tmedia_converter_video.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\tmedia_defaults.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\tmedia_denoise.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\tmedia_imageattr.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\tmedia_jitterbuffer.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\tmedia_params.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\tmedia_producer.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\tmedia_qos.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\tmedia_resampler.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\tmedia_session.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\tmedia_session_dummy.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\tmedia_session_ghost.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia\tmedia_vad.h" />
+    <ClInclude Include="..\doubango\tinyMEDIA\include\tinymedia_config.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\content\tmedia_content.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\content\tmedia_content_cpim.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\content\tmedia_content_multipart.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\content\tmedia_content_sip_frag.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_codec.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_codec_dummy.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_common.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_consumer.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_converter_video.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_defaults.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_denoise.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_imageattr.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_jitterbuffer.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_params.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_producer.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_qos.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_resampler.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_session.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_session_dummy.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_session_ghost.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyMEDIA\src\tmedia_vad.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\content\tmedia_content.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\content\tmedia_content_cpim.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\content\tmedia_content_multipart.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\content\tmedia_content_sip_frag.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\tmedia.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\tmedia_codec.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\tmedia_codec_dummy.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\tmedia_common.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\tmedia_consumer.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\tmedia_converter_video.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\tmedia_defaults.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\tmedia_denoise.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\tmedia_imageattr.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\tmedia_jitterbuffer.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\tmedia_params.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\tmedia_producer.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\tmedia_qos.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\tmedia_resampler.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\tmedia_session.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\tmedia_session_dummy.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\tmedia_session_ghost.c" />
+    <ClCompile Include="..\doubango\tinyMEDIA\src\tmedia_vad.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ragel\tmedia_content_cpim.rl" />

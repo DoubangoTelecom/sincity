@@ -61,6 +61,29 @@ static SCVideoDisplay getDisplay(bool bRemote, bool bScreenCast = false);
 // Media type to use for "chat" command
 static const SCMediaType_t kDefaultMediaType = ((SCMediaType_t)(SCMediaType_Audio | SCMediaType_Video)); // Media type to use for "chat" command
 
+class SCSessionCallIceCallbackDummy : public SCSessionCallIceCallback
+{
+public:
+	SCSessionCallIceCallbackDummy() {
+	}
+	virtual ~SCSessionCallIceCallbackDummy() {
+		SC_DEBUG_INFO("*** SCSessionCallIceCallbackDummy destroyed ***");
+	}
+	virtual SC_INLINE const char* getObjectId() {
+		return "SCSessionCallIceCallbackDummy";
+	}
+	virtual bool onStateChanged(SCObjWrapper<SCSessionCall*> oCall) {
+		if (oCall->getIceState() == SCIceState_Connected) {
+			oCall->sessionMgrStart();
+		}
+		return true;
+	}
+	static SCObjWrapper<SCSessionCallIceCallback*> newObj() {
+		return new SCSessionCallIceCallbackDummy();
+	}
+};
+
+
 class SCSignalingCallbackDummy : public SCSignalingCallback
 {
 protected:
@@ -375,6 +398,7 @@ static void* SC_STDCALL consoleReaderProc(void *arg)
             }
             SC_DEBUG_INFO("+++ call('%s',%d) +++", strRemoteId.c_str(), mediaType);
             SC_ASSERT(callSession = SCSessionCall::newObj(signalSession));
+			SC_ASSERT(callSession->setIceCallback(SCSessionCallIceCallbackDummy::newObj()));
             SC_ASSERT(callSession->call(mediaType, strRemoteId));
             SC_ASSERT(attachDisplays());
         }
@@ -396,6 +420,7 @@ static void* SC_STDCALL consoleReaderProc(void *arg)
             if (!callSession && pendingOffer) {
                 SC_DEBUG_INFO("+++ accept() +++");
                 SC_ASSERT(callSession = SCSessionCall::newObj(signalSession, pendingOffer));
+				SC_ASSERT(callSession->setIceCallback(SCSessionCallIceCallbackDummy::newObj()));
                 SC_ASSERT(callSession->acceptEvent(pendingOffer));
                 SC_ASSERT(attachDisplays());
                 pendingOffer = NULL;
