@@ -49,7 +49,7 @@
 				Name="VCCLCompilerTool"
 				ExecutionBucket="7"
 				Optimization="0"
-				AdditionalIncludeDirectories="thirdparties\wince\include;thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				AdditionalIncludeDirectories="thirdparties\wince\include;thirdparties\common\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src"
 				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_INFO;HAVE_OPENSSL=1;_WIN32_WCE=$(CEVER);UNDER_CE;_DEBUG;_WINDOWS;_USRDLL;NO_SYS_TYPES_H;TINYNET_EXPORTS;TINYSAK_IMPORTS_IGNORE"
 				MinimalRebuild="true"
 				RuntimeLibrary="1"
@@ -125,7 +125,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				AdditionalIncludeDirectories="..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src"
 				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_INFO;HAVE_OPENSSL=1;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;NO_SYS_TYPES_H;TINYNET_EXPORTS;TINYSAK_IMPORTS_IGNORE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -194,7 +194,7 @@
 				ExecutionBucket="7"
 				Optimization="3"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="thirdparties\wince\include;thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				AdditionalIncludeDirectories="thirdparties\wince\include;thirdparties\common\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src"
 				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_ERROR;HAVE_OPENSSL=1;_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;NDEBUG;_WINDOWS;_USRDLL;NO_SYS_TYPES_H;TINYNET_EXPORTS;TINYSAK_IMPORTS_IGNORE"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="false"
@@ -272,7 +272,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="3"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				AdditionalIncludeDirectories="..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src"
 				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_ERROR;WIN32;_WIN32_WINNT=0x0501;HAVE_OPENSSL=1;NDEBUG;_WINDOWS;_USRDLL;NO_SYS_TYPES_H;TINYNET_EXPORTS;TINYSAK_IMPORTS_IGNORE"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="false"
@@ -337,7 +337,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				AdditionalIncludeDirectories="..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src"
 				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_INFO;HAVE_OPENSSL=1;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;NO_SYS_TYPES_H;TINYNET_EXPORTS;TINYSAK_IMPORTS_IGNORE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -405,7 +405,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="3"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				AdditionalIncludeDirectories="..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src"
 				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_ERROR;WIN32;_WIN32_WINNT=0x0501;HAVE_OPENSSL=1;NDEBUG;_WINDOWS;_USRDLL;NO_SYS_TYPES_H;TINYNET_EXPORTS;TINYSAK_IMPORTS_IGNORE"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="false"
@@ -452,78 +452,78 @@
 			Name="source(*.c)"
 			>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet.c"
+				RelativePath="..\doubango\tinyNET\src\tnet.c"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_auth.c"
+				RelativePath="..\doubango\tinyNET\src\tnet_auth.c"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_endianness.c"
+				RelativePath="..\doubango\tinyNET\src\tnet_endianness.c"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_nat.c"
+				RelativePath="..\doubango\tinyNET\src\tnet_nat.c"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_poll.c"
+				RelativePath="..\doubango\tinyNET\src\tnet_poll.c"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_socket.c"
+				RelativePath="..\doubango\tinyNET\src\tnet_socket.c"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_transport.c"
+				RelativePath="..\doubango\tinyNET\src\tnet_transport.c"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_transport_cfsocket.c"
+				RelativePath="..\doubango\tinyNET\src\tnet_transport_cfsocket.c"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_transport_poll.c"
+				RelativePath="..\doubango\tinyNET\src\tnet_transport_poll.c"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_transport_win32.c"
+				RelativePath="..\doubango\tinyNET\src\tnet_transport_win32.c"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_utils.c"
+				RelativePath="..\doubango\tinyNET\src\tnet_utils.c"
 				>
 			</File>
 			<Filter
 				Name="stun"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun.c"
+					RelativePath="..\doubango\tinyNET\src\stun\tnet_stun.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_attr.c"
+					RelativePath="..\doubango\tinyNET\src\stun\tnet_stun_attr.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_attribute.c"
+					RelativePath="..\doubango\tinyNET\src\stun\tnet_stun_attribute.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_binding.c"
+					RelativePath="..\doubango\tinyNET\src\stun\tnet_stun_binding.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_message.c"
+					RelativePath="..\doubango\tinyNET\src\stun\tnet_stun_message.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_pkt.c"
+					RelativePath="..\doubango\tinyNET\src\stun\tnet_stun_pkt.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_utils.c"
+					RelativePath="..\doubango\tinyNET\src\stun\tnet_stun_utils.c"
 					>
 				</File>
 			</Filter>
@@ -531,23 +531,23 @@
 				Name="turn"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\turn\tnet_turn.c"
+					RelativePath="..\doubango\tinyNET\src\turn\tnet_turn.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\turn\tnet_turn_attr.c"
+					RelativePath="..\doubango\tinyNET\src\turn\tnet_turn_attr.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\turn\tnet_turn_attribute.c"
+					RelativePath="..\doubango\tinyNET\src\turn\tnet_turn_attribute.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\turn\tnet_turn_message.c"
+					RelativePath="..\doubango\tinyNET\src\turn\tnet_turn_message.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\turn\tnet_turn_session.c"
+					RelativePath="..\doubango\tinyNET\src\turn\tnet_turn_session.c"
 					>
 				</File>
 			</Filter>
@@ -555,23 +555,23 @@
 				Name="ice"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\ice\tnet_ice_candidate.c"
+					RelativePath="..\doubango\tinyNET\src\ice\tnet_ice_candidate.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\ice\tnet_ice_ctx.c"
+					RelativePath="..\doubango\tinyNET\src\ice\tnet_ice_ctx.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\ice\tnet_ice_event.c"
+					RelativePath="..\doubango\tinyNET\src\ice\tnet_ice_event.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\ice\tnet_ice_pair.c"
+					RelativePath="..\doubango\tinyNET\src\ice\tnet_ice_pair.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\ice\tnet_ice_utils.c"
+					RelativePath="..\doubango\tinyNET\src\ice\tnet_ice_utils.c"
 					>
 				</File>
 			</Filter>
@@ -579,67 +579,67 @@
 				Name="dns"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns.c"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_a.c"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_a.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_aaaa.c"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_aaaa.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_cname.c"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_cname.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_message.c"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_message.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_mx.c"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_mx.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_naptr.c"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_naptr.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_ns.c"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_ns.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_opt.c"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_opt.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_ptr.c"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_ptr.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_regexp.c"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_regexp.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_resolvconf.c"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_resolvconf.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_rr.c"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_rr.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_soa.c"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_soa.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_srv.c"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_srv.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_txt.c"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_txt.c"
 					>
 				</File>
 			</Filter>
@@ -647,19 +647,19 @@
 				Name="dhcp4"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp\tnet_dhcp.c"
+					RelativePath="..\doubango\tinyNET\src\dhcp\tnet_dhcp.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp\tnet_dhcp_message.c"
+					RelativePath="..\doubango\tinyNET\src\dhcp\tnet_dhcp_message.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp\tnet_dhcp_option.c"
+					RelativePath="..\doubango\tinyNET\src\dhcp\tnet_dhcp_option.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp\tnet_dhcp_option_sip.c"
+					RelativePath="..\doubango\tinyNET\src\dhcp\tnet_dhcp_option_sip.c"
 					>
 				</File>
 			</Filter>
@@ -667,19 +667,19 @@
 				Name="dhcp6"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp6\tnet_dhcp6.c"
+					RelativePath="..\doubango\tinyNET\src\dhcp6\tnet_dhcp6.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp6\tnet_dhcp6_duid.c"
+					RelativePath="..\doubango\tinyNET\src\dhcp6\tnet_dhcp6_duid.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp6\tnet_dhcp6_message.c"
+					RelativePath="..\doubango\tinyNET\src\dhcp6\tnet_dhcp6_message.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp6\tnet_dhcp6_option.c"
+					RelativePath="..\doubango\tinyNET\src\dhcp6\tnet_dhcp6_option.c"
 					>
 				</File>
 			</Filter>
@@ -687,11 +687,11 @@
 				Name="tls"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tls\tnet_dtls.c"
+					RelativePath="..\doubango\tinyNET\src\tls\tnet_dtls.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tls\tnet_tls.c"
+					RelativePath="..\doubango\tinyNET\src\tls\tnet_tls.c"
 					>
 				</File>
 			</Filter>
@@ -700,90 +700,90 @@
 			Name="include(*.h)"
 			>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tinynet.h"
+				RelativePath="..\doubango\tinyNET\src\tinynet.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tinynet_config.h"
+				RelativePath="..\doubango\tinyNET\src\tinynet_config.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet.h"
+				RelativePath="..\doubango\tinyNET\src\tnet.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_auth.h"
+				RelativePath="..\doubango\tinyNET\src\tnet_auth.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_endianness.h"
+				RelativePath="..\doubango\tinyNET\src\tnet_endianness.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_hardwares.h"
+				RelativePath="..\doubango\tinyNET\src\tnet_hardwares.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_nat.h"
+				RelativePath="..\doubango\tinyNET\src\tnet_nat.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_poll.h"
+				RelativePath="..\doubango\tinyNET\src\tnet_poll.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_proto.h"
+				RelativePath="..\doubango\tinyNET\src\tnet_proto.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_socket.h"
+				RelativePath="..\doubango\tinyNET\src\tnet_socket.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_transport.h"
+				RelativePath="..\doubango\tinyNET\src\tnet_transport.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_types.h"
+				RelativePath="..\doubango\tinyNET\src\tnet_types.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_utils.h"
+				RelativePath="..\doubango\tinyNET\src\tnet_utils.h"
 				>
 			</File>
 			<Filter
 				Name="stun"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun.h"
+					RelativePath="..\doubango\tinyNET\src\stun\tnet_stun.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_attr.h"
+					RelativePath="..\doubango\tinyNET\src\stun\tnet_stun_attr.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_attribute.h"
+					RelativePath="..\doubango\tinyNET\src\stun\tnet_stun_attribute.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_binding.h"
+					RelativePath="..\doubango\tinyNET\src\stun\tnet_stun_binding.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_message.h"
+					RelativePath="..\doubango\tinyNET\src\stun\tnet_stun_message.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_pkt.h"
+					RelativePath="..\doubango\tinyNET\src\stun\tnet_stun_pkt.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_types.h"
+					RelativePath="..\doubango\tinyNET\src\stun\tnet_stun_types.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_utils.h"
+					RelativePath="..\doubango\tinyNET\src\stun\tnet_stun_utils.h"
 					>
 				</File>
 			</Filter>
@@ -791,23 +791,23 @@
 				Name="turn"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\turn\tnet_turn.h"
+					RelativePath="..\doubango\tinyNET\src\turn\tnet_turn.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\turn\tnet_turn_attr.h"
+					RelativePath="..\doubango\tinyNET\src\turn\tnet_turn_attr.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\turn\tnet_turn_attribute.h"
+					RelativePath="..\doubango\tinyNET\src\turn\tnet_turn_attribute.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\turn\tnet_turn_message.h"
+					RelativePath="..\doubango\tinyNET\src\turn\tnet_turn_message.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\turn\tnet_turn_session.h"
+					RelativePath="..\doubango\tinyNET\src\turn\tnet_turn_session.h"
 					>
 				</File>
 			</Filter>
@@ -815,23 +815,23 @@
 				Name="ice"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\ice\tnet_ice_candidate.h"
+					RelativePath="..\doubango\tinyNET\src\ice\tnet_ice_candidate.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\ice\tnet_ice_ctx.h"
+					RelativePath="..\doubango\tinyNET\src\ice\tnet_ice_ctx.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\ice\tnet_ice_event.h"
+					RelativePath="..\doubango\tinyNET\src\ice\tnet_ice_event.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\ice\tnet_ice_pair.h"
+					RelativePath="..\doubango\tinyNET\src\ice\tnet_ice_pair.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\ice\tnet_ice_utils.h"
+					RelativePath="..\doubango\tinyNET\src\ice\tnet_ice_utils.h"
 					>
 				</File>
 			</Filter>
@@ -839,67 +839,67 @@
 				Name="dns"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns.h"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_a.h"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_a.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_aaaa.h"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_aaaa.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_cname.h"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_cname.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_message.h"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_message.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_mx.h"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_mx.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_naptr.h"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_naptr.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_ns.h"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_ns.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_opt.h"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_opt.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_ptr.h"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_ptr.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_regexp.h"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_regexp.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_resolvconf.h"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_resolvconf.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_rr.h"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_rr.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_soa.h"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_soa.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_srv.h"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_srv.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_txt.h"
+					RelativePath="..\doubango\tinyNET\src\dns\tnet_dns_txt.h"
 					>
 				</File>
 			</Filter>
@@ -907,19 +907,19 @@
 				Name="dhcp"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp\tnet_dhcp.h"
+					RelativePath="..\doubango\tinyNET\src\dhcp\tnet_dhcp.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp\tnet_dhcp_message.h"
+					RelativePath="..\doubango\tinyNET\src\dhcp\tnet_dhcp_message.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp\tnet_dhcp_option.h"
+					RelativePath="..\doubango\tinyNET\src\dhcp\tnet_dhcp_option.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp\tnet_dhcp_option_sip.h"
+					RelativePath="..\doubango\tinyNET\src\dhcp\tnet_dhcp_option_sip.h"
 					>
 				</File>
 			</Filter>
@@ -927,19 +927,19 @@
 				Name="dhcp6"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp6\tnet_dhcp6.h"
+					RelativePath="..\doubango\tinyNET\src\dhcp6\tnet_dhcp6.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp6\tnet_dhcp6_duid.h"
+					RelativePath="..\doubango\tinyNET\src\dhcp6\tnet_dhcp6_duid.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp6\tnet_dhcp6_message.h"
+					RelativePath="..\doubango\tinyNET\src\dhcp6\tnet_dhcp6_message.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp6\tnet_dhcp6_option.h"
+					RelativePath="..\doubango\tinyNET\src\dhcp6\tnet_dhcp6_option.h"
 					>
 				</File>
 			</Filter>
@@ -947,11 +947,11 @@
 				Name="tls"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tls\tnet_dtls.h"
+					RelativePath="..\doubango\tinyNET\src\tls\tnet_dtls.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyNET\src\tls\tnet_tls.h"
+					RelativePath="..\doubango\tinyNET\src\tls\tnet_tls.h"
 					>
 				</File>
 			</Filter>

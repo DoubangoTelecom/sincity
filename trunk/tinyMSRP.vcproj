@@ -49,7 +49,7 @@
 				Name="VCCLCompilerTool"
 				ExecutionBucket="7"
 				Optimization="0"
-				AdditionalIncludeDirectories="thirdparties\wince\include;thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyMSRP\include;..\doubango\branches\2.0\doubango\tinyHTTP\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				AdditionalIncludeDirectories="thirdparties\wince\include;thirdparties\common\include;..\doubango\tinyMSRP\include;..\doubango\tinyHTTP\include;..\doubango\tinySDP\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src"
 				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_INFO;_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;_DEBUG;_WINDOWS;_USRDLL;TINYMSRP_EXPORTS;TINYSAK_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYHTTP_IMPORTS_IGNORE"
 				MinimalRebuild="true"
 				RuntimeLibrary="1"
@@ -125,7 +125,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyMSRP\include;..\doubango\branches\2.0\doubango\tinyHTTP\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				AdditionalIncludeDirectories="..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyMSRP\include;..\doubango\tinyHTTP\include;..\doubango\tinySDP\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src"
 				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_INFO;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;TINYMSRP_EXPORTS;TINYSAK_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYHTTP_IMPORTS_IGNORE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -194,7 +194,7 @@
 				ExecutionBucket="7"
 				Optimization="3"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="thirdparties\wince\include;thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyMSRP\include;..\doubango\branches\2.0\doubango\tinyHTTP\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				AdditionalIncludeDirectories="thirdparties\wince\include;thirdparties\common\include;..\doubango\tinyMSRP\include;..\doubango\tinyHTTP\include;..\doubango\tinySDP\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src"
 				PreprocessorDefinitions="_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;NDEBUG;_WINDOWS;_USRDLL;TINYMSRP_EXPORTS;TINYSAK_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYHTTP_IMPORTS_IGNORE"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="false"
@@ -272,7 +272,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="3"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyMSRP\include;..\doubango\branches\2.0\doubango\tinyHTTP\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				AdditionalIncludeDirectories="..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyMSRP\include;..\doubango\tinyHTTP\include;..\doubango\tinySDP\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src"
 				PreprocessorDefinitions="WIN32;_WIN32_WINNT=0x0501;NDEBUG;_WINDOWS;_USRDLL;TINYMSRP_EXPORTS;TINYSAK_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYHTTP_IMPORTS_IGNORE"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="false"
@@ -337,7 +337,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyMSRP\include;..\doubango\branches\2.0\doubango\tinyHTTP\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				AdditionalIncludeDirectories="..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyMSRP\include;..\doubango\tinyHTTP\include;..\doubango\tinySDP\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src"
 				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_INFO;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;TINYMSRP_EXPORTS;TINYSAK_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYHTTP_IMPORTS_IGNORE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -405,7 +405,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="3"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyMSRP\include;..\doubango\branches\2.0\doubango\tinyHTTP\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				AdditionalIncludeDirectories="..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyMSRP\include;..\doubango\tinyHTTP\include;..\doubango\tinySDP\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src"
 				PreprocessorDefinitions="WIN32;_WIN32_WINNT=0x0501;NDEBUG;_WINDOWS;_USRDLL;TINYMSRP_EXPORTS;TINYSAK_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYHTTP_IMPORTS_IGNORE"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="false"
@@ -454,98 +454,98 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinymsrp.h"
+				RelativePath="..\doubango\tinyMSRP\include\tinymsrp.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinymsrp_config.h"
+				RelativePath="..\doubango\tinyMSRP\include\tinymsrp_config.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tmsrp.h"
+				RelativePath="..\doubango\tinyMSRP\include\tmsrp.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinymsrp\tmsrp_event.h"
+				RelativePath="..\doubango\tinyMSRP\include\tinymsrp\tmsrp_event.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\tmsrp_message.h"
+				RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\tmsrp_message.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\tmsrp_uri.h"
+				RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\tmsrp_uri.h"
 				>
 			</File>
 			<Filter
 				Name="headers"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Authentication-Info.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Authentication-Info.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Authorization.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Authorization.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Byte-Range.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Byte-Range.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Content-Type.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Content-Type.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Dummy.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Dummy.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Expires.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Expires.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Failure-Report.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Failure-Report.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_From-Path.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_From-Path.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Max-Expires.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Max-Expires.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Message-ID.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Message-ID.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Min-Expires.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Min-Expires.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Status.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Status.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Success-Report.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Success-Report.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_To-Path.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_To-Path.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Use-Path.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_Use-Path.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_WWW-Authenticate.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\headers\tmsrp_header_WWW-Authenticate.h"
 					>
 				</File>
 			</Filter>
@@ -553,15 +553,15 @@
 				Name="parsers"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\parsers\tmsrp_parser_header.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\parsers\tmsrp_parser_header.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\parsers\tmsrp_parser_message.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\parsers\tmsrp_parser_message.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\parsers\tmsrp_parser_uri.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\parsers\tmsrp_parser_uri.h"
 					>
 				</File>
 			</Filter>
@@ -569,23 +569,23 @@
 				Name="session"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\session\tmsrp_config.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\session\tmsrp_config.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\session\tmsrp_data.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\session\tmsrp_data.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\session\tmsrp_media.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\session\tmsrp_media.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\session\tmsrp_receiver.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\session\tmsrp_receiver.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\include\tinyMSRP\session\tmsrp_sender.h"
+					RelativePath="..\doubango\tinyMSRP\include\tinyMSRP\session\tmsrp_sender.h"
 					>
 				</File>
 			</Filter>
@@ -596,90 +596,90 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\tmsrp.c"
+				RelativePath="..\doubango\tinyMSRP\src\tmsrp.c"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\tmsrp_event.c"
+				RelativePath="..\doubango\tinyMSRP\src\tmsrp_event.c"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\tmsrp_message.c"
+				RelativePath="..\doubango\tinyMSRP\src\tmsrp_message.c"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\tmsrp_uri.c"
+				RelativePath="..\doubango\tinyMSRP\src\tmsrp_uri.c"
 				>
 			</File>
 			<Filter
 				Name="headers"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\headers\tmsrp_header.c"
+					RelativePath="..\doubango\tinyMSRP\src\headers\tmsrp_header.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\headers\tmsrp_header_Authentication-Info.c"
+					RelativePath="..\doubango\tinyMSRP\src\headers\tmsrp_header_Authentication-Info.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\headers\tmsrp_header_Authorization.c"
+					RelativePath="..\doubango\tinyMSRP\src\headers\tmsrp_header_Authorization.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\headers\tmsrp_header_Byte-Range.c"
+					RelativePath="..\doubango\tinyMSRP\src\headers\tmsrp_header_Byte-Range.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\headers\tmsrp_header_Content-Type.c"
+					RelativePath="..\doubango\tinyMSRP\src\headers\tmsrp_header_Content-Type.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\headers\tmsrp_header_Dummy.c"
+					RelativePath="..\doubango\tinyMSRP\src\headers\tmsrp_header_Dummy.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\headers\tmsrp_header_Expires.c"
+					RelativePath="..\doubango\tinyMSRP\src\headers\tmsrp_header_Expires.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\headers\tmsrp_header_Failure-Report.c"
+					RelativePath="..\doubango\tinyMSRP\src\headers\tmsrp_header_Failure-Report.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\headers\tmsrp_header_From-Path.c"
+					RelativePath="..\doubango\tinyMSRP\src\headers\tmsrp_header_From-Path.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\headers\tmsrp_header_Max-Expires.c"
+					RelativePath="..\doubango\tinyMSRP\src\headers\tmsrp_header_Max-Expires.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\headers\tmsrp_header_Message-ID.c"
+					RelativePath="..\doubango\tinyMSRP\src\headers\tmsrp_header_Message-ID.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\headers\tmsrp_header_Min-Expires.c"
+					RelativePath="..\doubango\tinyMSRP\src\headers\tmsrp_header_Min-Expires.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\headers\tmsrp_header_Status.c"
+					RelativePath="..\doubango\tinyMSRP\src\headers\tmsrp_header_Status.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\headers\tmsrp_header_Success-Report.c"
+					RelativePath="..\doubango\tinyMSRP\src\headers\tmsrp_header_Success-Report.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\headers\tmsrp_header_To-Path.c"
+					RelativePath="..\doubango\tinyMSRP\src\headers\tmsrp_header_To-Path.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\headers\tmsrp_header_Use-Path.c"
+					RelativePath="..\doubango\tinyMSRP\src\headers\tmsrp_header_Use-Path.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\headers\tmsrp_header_WWW-Authenticate.c"
+					RelativePath="..\doubango\tinyMSRP\src\headers\tmsrp_header_WWW-Authenticate.c"
 					>
 				</File>
 			</Filter>
@@ -687,11 +687,11 @@
 				Name="parsers"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\parsers\tmsrp_parser_message.c"
+					RelativePath="..\doubango\tinyMSRP\src\parsers\tmsrp_parser_message.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\parsers\tmsrp_parser_uri.c"
+					RelativePath="..\doubango\tinyMSRP\src\parsers\tmsrp_parser_uri.c"
 					>
 				</File>
 			</Filter>
@@ -699,19 +699,19 @@
 				Name="session"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\session\tmsrp_config.c"
+					RelativePath="..\doubango\tinyMSRP\src\session\tmsrp_config.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\session\tmsrp_data.c"
+					RelativePath="..\doubango\tinyMSRP\src\session\tmsrp_data.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\session\tmsrp_receiver.c"
+					RelativePath="..\doubango\tinyMSRP\src\session\tmsrp_receiver.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyMSRP\src\session\tmsrp_sender.c"
+					RelativePath="..\doubango\tinyMSRP\src\session\tmsrp_sender.c"
 					>
 				</File>
 			</Filter>

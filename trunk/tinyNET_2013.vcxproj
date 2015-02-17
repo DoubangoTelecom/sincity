@@ -86,7 +86,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_INFO;HAVE_OPENSSL=1;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;NO_SYS_TYPES_H;TINYNET_EXPORTS;TINYSAK_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -102,7 +102,7 @@
     <Midl />
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_INFO;HAVE_OPENSSL=1;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;NO_SYS_TYPES_H;TINYNET_EXPORTS;TINYSAK_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -121,7 +121,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_ERROR;WIN32;_WIN32_WINNT=0x0501;HAVE_OPENSSL=1;NDEBUG;_WINDOWS;_USRDLL;NO_SYS_TYPES_H;TINYNET_EXPORTS;TINYSAK_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>false</FunctionLevelLinking>
@@ -137,7 +137,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_ERROR;WIN32;_WIN32_WINNT=0x0501;HAVE_OPENSSL=1;NDEBUG;_WINDOWS;_USRDLL;NO_SYS_TYPES_H;TINYNET_EXPORTS;TINYSAK_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>false</FunctionLevelLinking>
@@ -151,119 +151,119 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp6\tnet_dhcp6.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp6\tnet_dhcp6_duid.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp6\tnet_dhcp6_message.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp6\tnet_dhcp6_option.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp\tnet_dhcp.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp\tnet_dhcp_message.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp\tnet_dhcp_option.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp\tnet_dhcp_option_sip.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_a.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_aaaa.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_cname.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_message.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_mx.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_naptr.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_ns.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_opt.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_ptr.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_regexp.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_resolvconf.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_rr.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_soa.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_srv.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_txt.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\ice\tnet_ice_candidate.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\ice\tnet_ice_ctx.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\ice\tnet_ice_event.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\ice\tnet_ice_pair.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\ice\tnet_ice_utils.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_attr.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_attribute.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_binding.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_message.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_pkt.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_utils.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\tls\tnet_dtls.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\tls\tnet_tls.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_auth.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_endianness.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_nat.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_poll.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_socket.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_transport.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_transport_cfsocket.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_transport_poll.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_transport_win32.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_utils.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\turn\tnet_turn.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\turn\tnet_turn_attr.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\turn\tnet_turn_attribute.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\turn\tnet_turn_message.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinyNET\src\turn\tnet_turn_session.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dhcp6\tnet_dhcp6.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dhcp6\tnet_dhcp6_duid.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dhcp6\tnet_dhcp6_message.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dhcp6\tnet_dhcp6_option.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dhcp\tnet_dhcp.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dhcp\tnet_dhcp_message.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dhcp\tnet_dhcp_option.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dhcp\tnet_dhcp_option_sip.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dns\tnet_dns.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dns\tnet_dns_a.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dns\tnet_dns_aaaa.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dns\tnet_dns_cname.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dns\tnet_dns_message.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dns\tnet_dns_mx.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dns\tnet_dns_naptr.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dns\tnet_dns_ns.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dns\tnet_dns_opt.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dns\tnet_dns_ptr.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dns\tnet_dns_regexp.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dns\tnet_dns_resolvconf.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dns\tnet_dns_rr.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dns\tnet_dns_soa.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dns\tnet_dns_srv.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\dns\tnet_dns_txt.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\ice\tnet_ice_candidate.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\ice\tnet_ice_ctx.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\ice\tnet_ice_event.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\ice\tnet_ice_pair.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\ice\tnet_ice_utils.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\stun\tnet_stun.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\stun\tnet_stun_attr.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\stun\tnet_stun_attribute.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\stun\tnet_stun_binding.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\stun\tnet_stun_message.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\stun\tnet_stun_pkt.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\stun\tnet_stun_utils.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\tls\tnet_dtls.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\tls\tnet_tls.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\tnet.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\tnet_auth.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\tnet_endianness.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\tnet_nat.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\tnet_poll.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\tnet_socket.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\tnet_transport.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\tnet_transport_cfsocket.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\tnet_transport_poll.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\tnet_transport_win32.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\tnet_utils.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\turn\tnet_turn.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\turn\tnet_turn_attr.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\turn\tnet_turn_attribute.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\turn\tnet_turn_message.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\turn\tnet_turn_session.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp6\tnet_dhcp6.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp6\tnet_dhcp6_duid.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp6\tnet_dhcp6_message.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp6\tnet_dhcp6_option.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp\tnet_dhcp.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp\tnet_dhcp_message.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp\tnet_dhcp_option.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dhcp\tnet_dhcp_option_sip.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_a.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_aaaa.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_cname.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_message.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_mx.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_naptr.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_ns.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_opt.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_ptr.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_regexp.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_resolvconf.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_rr.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_soa.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_srv.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\dns\tnet_dns_txt.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\ice\tnet_ice_candidate.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\ice\tnet_ice_ctx.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\ice\tnet_ice_event.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\ice\tnet_ice_pair.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\ice\tnet_ice_utils.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_attr.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_attribute.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_binding.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_message.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_pkt.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_types.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\stun\tnet_stun_utils.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\tinynet.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\tinynet_config.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\tls\tnet_dtls.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\tls\tnet_tls.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_auth.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_endianness.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_hardwares.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_nat.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_poll.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_proto.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_socket.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_transport.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_types.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\tnet_utils.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\turn\tnet_turn.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\turn\tnet_turn_attr.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\turn\tnet_turn_attribute.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\turn\tnet_turn_message.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinyNET\src\turn\tnet_turn_session.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dhcp6\tnet_dhcp6.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dhcp6\tnet_dhcp6_duid.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dhcp6\tnet_dhcp6_message.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dhcp6\tnet_dhcp6_option.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dhcp\tnet_dhcp.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dhcp\tnet_dhcp_message.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dhcp\tnet_dhcp_option.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dhcp\tnet_dhcp_option_sip.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dns\tnet_dns.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dns\tnet_dns_a.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dns\tnet_dns_aaaa.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dns\tnet_dns_cname.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dns\tnet_dns_message.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dns\tnet_dns_mx.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dns\tnet_dns_naptr.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dns\tnet_dns_ns.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dns\tnet_dns_opt.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dns\tnet_dns_ptr.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dns\tnet_dns_regexp.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dns\tnet_dns_resolvconf.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dns\tnet_dns_rr.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dns\tnet_dns_soa.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dns\tnet_dns_srv.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\dns\tnet_dns_txt.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\ice\tnet_ice_candidate.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\ice\tnet_ice_ctx.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\ice\tnet_ice_event.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\ice\tnet_ice_pair.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\ice\tnet_ice_utils.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\stun\tnet_stun.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\stun\tnet_stun_attr.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\stun\tnet_stun_attribute.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\stun\tnet_stun_binding.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\stun\tnet_stun_message.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\stun\tnet_stun_pkt.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\stun\tnet_stun_types.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\stun\tnet_stun_utils.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\tinynet.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\tinynet_config.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\tls\tnet_dtls.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\tls\tnet_tls.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\tnet.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\tnet_auth.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\tnet_endianness.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\tnet_hardwares.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\tnet_nat.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\tnet_poll.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\tnet_proto.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\tnet_socket.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\tnet_transport.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\tnet_types.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\tnet_utils.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\turn\tnet_turn.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\turn\tnet_turn_attr.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\turn\tnet_turn_attribute.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\turn\tnet_turn_message.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\turn\tnet_turn_session.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ragel\tnet_dns_regexp.rl" />

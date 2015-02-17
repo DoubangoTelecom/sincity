@@ -95,13 +95,13 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <AdditionalIncludeDirectories>$(OutDir);..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\tinySAK\src;..\doubango\branches\2.0\doubango\tinyMEDIA\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(OutDir);..\doubango\thirdparties\win32\include;..\doubango\tinySAK\src;..\doubango\tinyMEDIA\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalLibraryDirectories>$(OutDir);..\doubango\branches\2.0\Doubango\thirdparties\win32\lib;..\doubango\branches\2.0\doubango\thirdparties\win32\lib\openssl;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(OutDir);..\doubango\thirdparties\win32\lib;..\doubango\thirdparties\win32\lib\openssl;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>mfplat.lib;d3d11.lib;dxgi.lib;Winmm.lib;$(OutDir)tinySAK.lib;$(OutDir)tinyMEDIA.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -116,12 +116,12 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <AdditionalIncludeDirectories>$(OutDir);..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\tinySAK\src;..\doubango\branches\2.0\doubango\tinyMEDIA\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(OutDir);..\doubango\thirdparties\win32\include;..\doubango\tinySAK\src;..\doubango\tinyMEDIA\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>$(OutDir);..\doubango\branches\2.0\Doubango\thirdparties\win32\lib;..\doubango\branches\2.0\doubango\thirdparties\win32\lib\openssl;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(OutDir);..\doubango\thirdparties\win32\lib;..\doubango\thirdparties\win32\lib\openssl;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>mfplat.lib;d3d11.lib;dxgi.lib;Winmm.lib;$(OutDir)tinySAK.lib;$(OutDir)tinyMEDIA.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -136,7 +136,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <AdditionalIncludeDirectories>$(OutDir);..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\tinySAK\src;..\doubango\branches\2.0\doubango\tinyMEDIA\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(OutDir);..\doubango\thirdparties\win32\include;..\doubango\tinySAK\src;..\doubango\tinyMEDIA\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -144,7 +144,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalLibraryDirectories>$(OutDir);..\doubango\branches\2.0\Doubango\thirdparties\win32\lib;..\doubango\branches\2.0\doubango\thirdparties\win32\lib\openssl;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(OutDir);..\doubango\thirdparties\win32\lib;..\doubango\thirdparties\win32\lib\openssl;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>mfplat.lib;d3d11.lib;dxgi.lib;Winmm.lib;$(OutDir)tinySAK.lib;$(OutDir)tinyMEDIA.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -160,38 +160,38 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <AdditionalIncludeDirectories>$(OutDir);..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\tinySAK\src;..\doubango\branches\2.0\doubango\tinyMEDIA\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(OutDir);..\doubango\thirdparties\win32\include;..\doubango\tinySAK\src;..\doubango\tinyMEDIA\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <AdditionalLibraryDirectories>$(OutDir);..\doubango\branches\2.0\Doubango\thirdparties\win32\lib;..\doubango\branches\2.0\doubango\thirdparties\win32\lib\openssl;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(OutDir);..\doubango\thirdparties\win32\lib;..\doubango\thirdparties\win32\lib\openssl;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>mfplat.lib;d3d11.lib;dxgi.lib;Winmm.lib;$(OutDir)tinySAK.lib;$(OutDir)tinyMEDIA.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\dllmain_dd.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\DisplayManager.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\DuplicationManager.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\OutputManager.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\ThreadManager.cxx" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\plugin_win_dd_producer.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginWinDD\dllmain_dd.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginWinDD\internals\DisplayManager.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginWinDD\internals\DuplicationManager.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginWinDD\internals\OutputManager.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginWinDD\internals\ThreadManager.cxx" />
+    <ClCompile Include="..\doubango\plugins\pluginWinDD\plugin_win_dd_producer.cxx" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\CommonTypes.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\DisplayManager.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\DuplicationManager.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\OutputManager.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\ThreadManager.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\plugin_win_dd_config.h" />
+    <ClInclude Include="..\doubango\plugins\pluginWinDD\internals\CommonTypes.h" />
+    <ClInclude Include="..\doubango\plugins\pluginWinDD\internals\DisplayManager.h" />
+    <ClInclude Include="..\doubango\plugins\pluginWinDD\internals\DuplicationManager.h" />
+    <ClInclude Include="..\doubango\plugins\pluginWinDD\internals\OutputManager.h" />
+    <ClInclude Include="..\doubango\plugins\pluginWinDD\internals\ThreadManager.h" />
+    <ClInclude Include="..\doubango\plugins\pluginWinDD\plugin_win_dd_config.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\version.rc" />
+    <ResourceCompile Include="..\doubango\plugins\pluginWinDD\version.rc" />
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\PixelShader.hlsl">
+    <FxCompile Include="..\doubango\plugins\pluginWinDD\internals\PixelShader.hlsl">
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">PS</EntryPointName>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">PS</EntryPointName>
@@ -209,7 +209,7 @@
       <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutDir)%(Filename).h</HeaderFileOutput>
       <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)%(Filename).h</HeaderFileOutput>
     </FxCompile>
-    <FxCompile Include="..\doubango\branches\2.0\doubango\plugins\pluginWinDD\internals\VertexShader.hlsl">
+    <FxCompile Include="..\doubango\plugins\pluginWinDD\internals\VertexShader.hlsl">
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">VS</EntryPointName>
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">VS</EntryPointName>
       <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)%(Filename).h</HeaderFileOutput>

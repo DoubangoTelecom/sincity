@@ -49,7 +49,7 @@
 				Name="VCCLCompilerTool"
 				ExecutionBucket="7"
 				Optimization="0"
-				AdditionalIncludeDirectories="thirdparties\wince\include;thirdparties\common\include;thirdparties\common\include\libyuv;..\doubango\branches\2.0\doubango\tinyRTP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyIPSec\src;..\doubango\branches\2.0\doubango\tinyDAV\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyMSRP\include;..\doubango\branches\2.0\doubango\tinyBFCP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				AdditionalIncludeDirectories="thirdparties\wince\include;thirdparties\common\include;thirdparties\common\include\libyuv;..\doubango\tinyRTP\include;..\doubango\tinyMEDIA\include;..\doubango\tinyIPSec\src;..\doubango\tinyDAV\include;..\doubango\tinySDP\include;..\doubango\tinyMSRP\include;..\doubango\tinyBFCP\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src"
 				PreprocessorDefinitions="HAVE_SRTP=1;HAVE_G729=0;HAVE_BV16=0;HAVE_OPENCORE_AMR=0;HAVE_H264=0;HAVE_ILBC=0;HAVE_LIBGSM=0;HAVE_LIBOPUS=0;HAVE_DSOUND_H=0;HAVE_WAVE_API=0;HAVE_FFMPEG=0;HAVE_SPEEX_DSP=0;HAVE_WEBRTC=0;HAVE_SPEEX_JB=0;HAVE_LIB_SPEEX=0;HAVE_LIBVPX=1;HAVE_LIBYUV=1;G192BITSTREAM=0;DEBUG_LEVEL=DEBUG_LEVEL_INFO;GOTHAM_CITY = 0;SIN_CITY=1;_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;_DEBUG;_WINDOWS;_USRDLL;TINYDAV_EXPORTS;TINYMEDIA_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYBFCP_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYMSRP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
 				MinimalRebuild="true"
 				RuntimeLibrary="1"
@@ -125,7 +125,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;thirdparties\common\include\libyuv;..\doubango\branches\2.0\doubango\tinyRTP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyIPSec\src;..\doubango\branches\2.0\doubango\tinyDAV\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyMSRP\include;..\doubango\branches\2.0\doubango\tinyBFCP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				AdditionalIncludeDirectories="..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;thirdparties\common\include\libyuv;..\doubango\tinyRTP\include;..\doubango\tinyMEDIA\include;..\doubango\tinyIPSec\src;..\doubango\tinyDAV\include;..\doubango\tinySDP\include;..\doubango\tinyMSRP\include;..\doubango\tinyBFCP\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src"
 				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_INFO;HAVE_SRTP=1;HAVE_G729=0;HAVE_BV16=0;HAVE_OPENCORE_AMR=0;HAVE_H264=0;HAVE_ILBC=0;HAVE_LIBGSM=0;HAVE_LIBOPUS=1;HAVE_DSOUND_H=1;HAVE_WAVE_API=1;HAVE_FFMPEG=0;HAVE_SPEEX_DSP=1;HAVE_WEBRTC=1;HAVE_SPEEX_JB=1;HAVE_LIB_SPEEX=0;HAVE_LIBVPX=1;HAVE_LIBYUV=1;G192BITSTREAM=0;GOTHAM_CITY = 0;SIN_CITY=1;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;TINYDAV_EXPORTS;TINYMEDIA_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYBFCP_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYMSRP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -194,7 +194,7 @@
 				ExecutionBucket="7"
 				Optimization="3"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="thirdparties\wince\include;thirdparties\common\include;thirdparties\common\include\libyuv;..\doubango\branches\2.0\doubango\tinyRTP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyIPSec\src;..\doubango\branches\2.0\doubango\tinyDAV\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyMSRP\include;..\doubango\branches\2.0\doubango\tinyBFCP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				AdditionalIncludeDirectories="thirdparties\wince\include;thirdparties\common\include;thirdparties\common\include\libyuv;..\doubango\tinyRTP\include;..\doubango\tinyMEDIA\include;..\doubango\tinyIPSec\src;..\doubango\tinyDAV\include;..\doubango\tinySDP\include;..\doubango\tinyMSRP\include;..\doubango\tinyBFCP\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src"
 				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_WARN;_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;NDEBUG;_WINDOWS;_USRDLL;TINYDAV_EXPORTS;HAVE_SRTP=1;HAVE_G729=0;HAVE_BV16=0;HAVE_H264=0;HAVE_OPENCORE_AMR=0;HAVE_ILBC=0;HAVE_LIBGSM=0;HAVE_LIBOPUS=0;HAVE_DSOUND_H=0;HAVE_WAVE_API=0;HAVE_FFMPEG=0;HAVE_WEBRTC=0;HAVE_SPEEX_DSP=0;HAVE_SPEEX_JB=0;HAVE_LIB_SPEEX=0;HAVE_LIBVPX=1;HAVE_LIBYUV=1;G192BITSTREAM=0;SIN_CITY=1;TINYMEDIA_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYBFCP_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYMSRP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="false"
@@ -272,7 +272,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="3"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\thirdparties\common\include\libyuv;..\doubango\branches\2.0\doubango\tinyRTP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyIPSec\src;..\doubango\branches\2.0\doubango\tinyDAV\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyMSRP\include;..\doubango\branches\2.0\doubango\tinyBFCP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				AdditionalIncludeDirectories="..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\thirdparties\common\include\libyuv;..\doubango\tinyRTP\include;..\doubango\tinyMEDIA\include;..\doubango\tinyIPSec\src;..\doubango\tinyDAV\include;..\doubango\tinySDP\include;..\doubango\tinyMSRP\include;..\doubango\tinyBFCP\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src"
 				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_WARN;WIN32;_WIN32_WINNT=0x0501;NDEBUG;_WINDOWS;_USRDLL;TINYDAV_EXPORTS;HAVE_SRTP=1;HAVE_G729=0;HAVE_BV16=0;HAVE_H264=0;HAVE_OPENCORE_AMR=0;HAVE_ILBC=0;HAVE_LIBGSM=0;HAVE_LIBOPUS=1;HAVE_DSOUND_H=1;HAVE_WAVE_API=1;HAVE_FFMPEG=0;HAVE_WEBRTC=1;HAVE_SPEEX_DSP=1;HAVE_SPEEX_JB=1;HAVE_LIB_SPEEX=0;HAVE_LIBVPX=1;HAVE_LIBYUV=1;G192BITSTREAM=0;SIN_CITY=1;TINYMEDIA_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYBFCP_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYMSRP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="false"
@@ -337,7 +337,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;thirdparties\common\include\libyuv;..\doubango\branches\2.0\doubango\tinyRTP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyIPSec\src;..\doubango\branches\2.0\doubango\tinyDAV\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyMSRP\include;..\doubango\branches\2.0\doubango\tinyBFCP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				AdditionalIncludeDirectories="..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;thirdparties\common\include\libyuv;..\doubango\tinyRTP\include;..\doubango\tinyMEDIA\include;..\doubango\tinyIPSec\src;..\doubango\tinyDAV\include;..\doubango\tinySDP\include;..\doubango\tinyMSRP\include;..\doubango\tinyBFCP\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src"
 				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_INFO;HAVE_SRTP=1;HAVE_G729=0;HAVE_BV16=0;HAVE_OPENCORE_AMR=0;HAVE_H264=0;HAVE_ILBC=0;HAVE_LIBGSM=0;HAVE_LIBOPUS=1;HAVE_DSOUND_H=1;HAVE_WAVE_API=1;HAVE_FFMPEG=0;HAVE_SPEEX_DSP=1;HAVE_WEBRTC=1;HAVE_SPEEX_JB=1;HAVE_LIB_SPEEX=0;HAVE_LIBVPX=1;HAVE_LIBYUV=1;G192BITSTREAM=0;GOTHAM_CITY = 0;SIN_CITY=1;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;TINYDAV_EXPORTS;TINYMEDIA_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYBFCP_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYMSRP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -405,7 +405,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="3"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\thirdparties\common\include\libyuv;..\doubango\branches\2.0\doubango\tinyRTP\include;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinyIPSec\src;..\doubango\branches\2.0\doubango\tinyDAV\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinyMSRP\include;..\doubango\branches\2.0\doubango\tinyBFCP\include;..\doubango\branches\2.0\doubango\tinyNET\src;..\doubango\branches\2.0\doubango\tinySAK\src"
+				AdditionalIncludeDirectories="..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\thirdparties\common\include\libyuv;..\doubango\tinyRTP\include;..\doubango\tinyMEDIA\include;..\doubango\tinyIPSec\src;..\doubango\tinyDAV\include;..\doubango\tinySDP\include;..\doubango\tinyMSRP\include;..\doubango\tinyBFCP\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src"
 				PreprocessorDefinitions="DEBUG_LEVEL=DEBUG_LEVEL_WARN;WIN32;_WIN32_WINNT=0x0501;NDEBUG;_WINDOWS;_USRDLL;TINYDAV_EXPORTS;HAVE_SRTP=1;HAVE_G729=0;HAVE_BV16=0;HAVE_H264=0;HAVE_OPENCORE_AMR=0;HAVE_ILBC=0;HAVE_LIBGSM=0;HAVE_LIBOPUS=1;HAVE_DSOUND_H=1;HAVE_WAVE_API=1;HAVE_FFMPEG=0;HAVE_WEBRTC=1;HAVE_SPEEX_DSP=1;HAVE_SPEEX_JB=1;HAVE_LIB_SPEEX=0;HAVE_LIBVPX=1;HAVE_LIBYUV=1;G192BITSTREAM=0;SIN_CITY=1;TINYMEDIA_IMPORTS_IGNORE;TINYSAK_IMPORTS_IGNORE;TINYRTP_IMPORTS_IGNORE;TINYBFCP_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYMSRP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="false"
@@ -452,23 +452,23 @@
 			Name="headers(*.h)"
 			>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\tdav.h"
+				RelativePath="..\doubango\tinyDAV\include\tinydav\tdav.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\tdav_session_av.h"
+				RelativePath="..\doubango\tinyDAV\include\tinydav\tdav_session_av.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\tdav_win32.h"
+				RelativePath="..\doubango\tinyDAV\include\tinydav\tdav_win32.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav.h"
+				RelativePath="..\doubango\tinyDAV\include\tinydav.h"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav_config.h"
+				RelativePath="..\doubango\tinyDAV\include\tinydav_config.h"
 				>
 			</File>
 			<Filter
@@ -478,7 +478,7 @@
 					Name="amr"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\amr\tdav_codec_amr.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\amr\tdav_codec_amr.h"
 						>
 					</File>
 				</Filter>
@@ -486,11 +486,11 @@
 					Name="g711"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\g711\g711.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\g711\g711.h"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\g711\tdav_codec_g711.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\g711\tdav_codec_g711.h"
 						>
 					</File>
 				</Filter>
@@ -498,11 +498,11 @@
 					Name="g722"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\g722\g722_enc_dec.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\g722\g722_enc_dec.h"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\g722\tdav_codec_g722.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\g722\tdav_codec_g722.h"
 						>
 					</File>
 				</Filter>
@@ -510,7 +510,7 @@
 					Name="gsm"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\gsm\tdav_codec_gsm.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\gsm\tdav_codec_gsm.h"
 						>
 					</File>
 				</Filter>
@@ -518,7 +518,7 @@
 					Name="h261"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\h261\tdav_codec_h261.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\h261\tdav_codec_h261.h"
 						>
 					</File>
 				</Filter>
@@ -526,7 +526,7 @@
 					Name="h263"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\h263\tdav_codec_h263.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\h263\tdav_codec_h263.h"
 						>
 					</File>
 				</Filter>
@@ -534,19 +534,19 @@
 					Name="h264"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\h264\tdav_codec_h264.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\h264\tdav_codec_h264.h"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\h264\tdav_codec_h264_common.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\h264\tdav_codec_h264_common.h"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\h264\tdav_codec_h264_cuda.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\h264\tdav_codec_h264_cuda.h"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\h264\tdav_codec_h264_rtp.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\h264\tdav_codec_h264_rtp.h"
 						>
 					</File>
 				</Filter>
@@ -554,7 +554,7 @@
 					Name="ilbc"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\ilbc\tdav_codec_ilbc.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\ilbc\tdav_codec_ilbc.h"
 						>
 					</File>
 				</Filter>
@@ -562,7 +562,7 @@
 					Name="theora"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\theora\tdav_codec_theora.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\theora\tdav_codec_theora.h"
 						>
 					</File>
 				</Filter>
@@ -570,7 +570,7 @@
 					Name="speex"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\speex\tdav_codec_speex.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\speex\tdav_codec_speex.h"
 						>
 					</File>
 				</Filter>
@@ -582,7 +582,7 @@
 					Name="msrp"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\msrp\tdav_codec_msrp.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\msrp\tdav_codec_msrp.h"
 						>
 					</File>
 				</Filter>
@@ -590,7 +590,7 @@
 					Name="dtmf"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\dtmf\tdav_codec_dtmf.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\dtmf\tdav_codec_dtmf.h"
 						>
 					</File>
 				</Filter>
@@ -598,11 +598,11 @@
 					Name="bv"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\bv\tdav_codec_bv16.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\bv\tdav_codec_bv16.h"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\bv\tdav_codec_bv32.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\bv\tdav_codec_bv32.h"
 						>
 					</File>
 				</Filter>
@@ -610,7 +610,7 @@
 					Name="g729"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\g729\tdav_codec_g729.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\g729\tdav_codec_g729.h"
 						>
 					</File>
 				</Filter>
@@ -618,7 +618,7 @@
 					Name="mp4ves"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\mp4ves\tdav_codec_mp4ves.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\mp4ves\tdav_codec_mp4ves.h"
 						>
 					</File>
 				</Filter>
@@ -626,7 +626,7 @@
 					Name="vpx"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\vpx\tdav_codec_vp8.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\vpx\tdav_codec_vp8.h"
 						>
 					</File>
 				</Filter>
@@ -634,11 +634,11 @@
 					Name="fec"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\fec\tdav_codec_red.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\fec\tdav_codec_red.h"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\fec\tdav_codec_ulpfec.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\fec\tdav_codec_ulpfec.h"
 						>
 					</File>
 				</Filter>
@@ -646,7 +646,7 @@
 					Name="t140"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\t140\tdav_codec_t140.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\t140\tdav_codec_t140.h"
 						>
 					</File>
 				</Filter>
@@ -654,7 +654,7 @@
 					Name="opus"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\opus\tdav_codec_opus.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\opus\tdav_codec_opus.h"
 						>
 					</File>
 				</Filter>
@@ -662,7 +662,7 @@
 					Name="bfcp"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\codecs\bfcp\tdav_codec_bfcp.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\bfcp\tdav_codec_bfcp.h"
 						>
 					</File>
 				</Filter>
@@ -671,39 +671,39 @@
 				Name="audio"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\tdav_consumer_audio.h"
+					RelativePath="..\doubango\tinyDAV\include\tinydav\audio\tdav_consumer_audio.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\tdav_jitterbuffer.h"
+					RelativePath="..\doubango\tinyDAV\include\tinydav\audio\tdav_jitterbuffer.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\tdav_producer_audio.h"
+					RelativePath="..\doubango\tinyDAV\include\tinydav\audio\tdav_producer_audio.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\tdav_session_audio.h"
+					RelativePath="..\doubango\tinyDAV\include\tinydav\audio\tdav_session_audio.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\tdav_speakup_jitterbuffer.h"
+					RelativePath="..\doubango\tinyDAV\include\tinydav\audio\tdav_speakup_jitterbuffer.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\tdav_speex_denoise.h"
+					RelativePath="..\doubango\tinyDAV\include\tinydav\audio\tdav_speex_denoise.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\tdav_speex_jitterbuffer.h"
+					RelativePath="..\doubango\tinyDAV\include\tinydav\audio\tdav_speex_jitterbuffer.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\tdav_speex_resampler.h"
+					RelativePath="..\doubango\tinyDAV\include\tinydav\audio\tdav_speex_resampler.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\tdav_webrtc_denoise.h"
+					RelativePath="..\doubango\tinyDAV\include\tinydav\audio\tdav_webrtc_denoise.h"
 					>
 				</File>
 				<Filter
@@ -714,11 +714,11 @@
 					Name="directsound"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\directsound\tdav_consumer_dsound.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\audio\directsound\tdav_consumer_dsound.h"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\directsound\tdav_producer_dsound.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\audio\directsound\tdav_producer_dsound.h"
 						>
 					</File>
 				</Filter>
@@ -730,11 +730,11 @@
 					Name="waveapi"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\waveapi\tdav_consumer_waveapi.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\audio\waveapi\tdav_consumer_waveapi.h"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\waveapi\tdav_producer_waveapi.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\audio\waveapi\tdav_producer_waveapi.h"
 						>
 					</File>
 				</Filter>
@@ -742,23 +742,23 @@
 					Name="coreaudio"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\coreaudio\tdav_audiounit.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\audio\coreaudio\tdav_audiounit.h"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\coreaudio\tdav_consumer_audioqueue.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\audio\coreaudio\tdav_consumer_audioqueue.h"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\coreaudio\tdav_consumer_audiounit.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\audio\coreaudio\tdav_consumer_audiounit.h"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\coreaudio\tdav_producer_audioqueue.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\audio\coreaudio\tdav_producer_audioqueue.h"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\audio\coreaudio\tdav_producer_audiounit.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\audio\coreaudio\tdav_producer_audiounit.h"
 						>
 					</File>
 				</Filter>
@@ -767,19 +767,19 @@
 				Name="video"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\video\tdav_consumer_video.h"
+					RelativePath="..\doubango\tinyDAV\include\tinydav\video\tdav_consumer_video.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\video\tdav_converter_video.h"
+					RelativePath="..\doubango\tinyDAV\include\tinydav\video\tdav_converter_video.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\video\tdav_runnable_video.h"
+					RelativePath="..\doubango\tinyDAV\include\tinydav\video\tdav_runnable_video.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\video\tdav_session_video.h"
+					RelativePath="..\doubango\tinyDAV\include\tinydav\video\tdav_session_video.h"
 					>
 				</File>
 				<Filter
@@ -790,11 +790,11 @@
 					Name="gdi"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\video\gdi\tdav_consumer_video_gdi.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\video\gdi\tdav_consumer_video_gdi.h"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\video\gdi\tdav_producer_screencast_gdi.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\video\gdi\tdav_producer_screencast_gdi.h"
 						>
 					</File>
 				</Filter>
@@ -806,11 +806,11 @@
 					Name="jb"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\video\jb\tdav_video_frame.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\video\jb\tdav_video_frame.h"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\video\jb\tdav_video_jb.h"
+						RelativePath="..\doubango\tinyDAV\include\tinydav\video\jb\tdav_video_jb.h"
 						>
 					</File>
 				</Filter>
@@ -819,15 +819,15 @@
 				Name="msrp"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\msrp\tdav_consumer_msrp.h"
+					RelativePath="..\doubango\tinyDAV\include\tinydav\msrp\tdav_consumer_msrp.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\msrp\tdav_producer_msrp.h"
+					RelativePath="..\doubango\tinyDAV\include\tinydav\msrp\tdav_producer_msrp.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\msrp\tdav_session_msrp.h"
+					RelativePath="..\doubango\tinyDAV\include\tinydav\msrp\tdav_session_msrp.h"
 					>
 				</File>
 			</Filter>
@@ -835,15 +835,15 @@
 				Name="t140"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\t140\tdav_consumer_t140.h"
+					RelativePath="..\doubango\tinyDAV\include\tinydav\t140\tdav_consumer_t140.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\t140\tdav_producer_t140.h"
+					RelativePath="..\doubango\tinyDAV\include\tinydav\t140\tdav_producer_t140.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\t140\tdav_session_t140.h"
+					RelativePath="..\doubango\tinyDAV\include\tinydav\t140\tdav_session_t140.h"
 					>
 				</File>
 			</Filter>
@@ -851,7 +851,7 @@
 				Name="bfcp"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\include\tinydav\bfcp\tdav_session_bfcp.h"
+					RelativePath="..\doubango\tinyDAV\include\tinydav\bfcp\tdav_session_bfcp.h"
 					>
 				</File>
 			</Filter>
@@ -860,15 +860,15 @@
 			Name="source(*.c)"
 			>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\tdav.c"
+				RelativePath="..\doubango\tinyDAV\src\tdav.c"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\tdav_session_av.c"
+				RelativePath="..\doubango\tinyDAV\src\tdav_session_av.c"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\tdav_win32.c"
+				RelativePath="..\doubango\tinyDAV\src\tdav_win32.c"
 				>
 			</File>
 			<Filter
@@ -878,7 +878,7 @@
 					Name="amr"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\amr\tdav_codec_amr.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\amr\tdav_codec_amr.c"
 						>
 					</File>
 				</Filter>
@@ -886,11 +886,11 @@
 					Name="g711"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\g711\g711.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\g711\g711.c"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\g711\tdav_codec_g711.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\g711\tdav_codec_g711.c"
 						>
 					</File>
 				</Filter>
@@ -898,15 +898,15 @@
 					Name="g722"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\g722\g722_decode.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\g722\g722_decode.c"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\g722\g722_encode.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\g722\g722_encode.c"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\g722\tdav_codec_g722.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\g722\tdav_codec_g722.c"
 						>
 					</File>
 				</Filter>
@@ -914,7 +914,7 @@
 					Name="gsm"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\gsm\tdav_codec_gsm.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\gsm\tdav_codec_gsm.c"
 						>
 					</File>
 				</Filter>
@@ -922,7 +922,7 @@
 					Name="h261"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\h261\tdav_codec_h261.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\h261\tdav_codec_h261.c"
 						>
 					</File>
 				</Filter>
@@ -930,7 +930,7 @@
 					Name="h263"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\h263\tdav_codec_h263.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\h263\tdav_codec_h263.c"
 						>
 					</File>
 				</Filter>
@@ -938,15 +938,15 @@
 					Name="h264"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\h264\tdav_codec_h264.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\h264\tdav_codec_h264.c"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\h264\tdav_codec_h264_cuda.cxx"
+						RelativePath="..\doubango\tinyDAV\src\codecs\h264\tdav_codec_h264_cuda.cxx"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\h264\tdav_codec_h264_rtp.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\h264\tdav_codec_h264_rtp.c"
 						>
 					</File>
 				</Filter>
@@ -954,7 +954,7 @@
 					Name="ilbc"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\ilbc\tdav_codec_ilbc.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\ilbc\tdav_codec_ilbc.c"
 						>
 					</File>
 				</Filter>
@@ -966,7 +966,7 @@
 					Name="speex"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\speex\tdav_codec_speex.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\speex\tdav_codec_speex.c"
 						>
 					</File>
 				</Filter>
@@ -974,7 +974,7 @@
 					Name="theora"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\theora\tdav_codec_theora.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\theora\tdav_codec_theora.c"
 						>
 					</File>
 				</Filter>
@@ -982,7 +982,7 @@
 					Name="msrp"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\msrp\tdav_codec_msrp.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\msrp\tdav_codec_msrp.c"
 						>
 					</File>
 				</Filter>
@@ -990,7 +990,7 @@
 					Name="dtmf"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\dtmf\tdav_codec_dtmf.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\dtmf\tdav_codec_dtmf.c"
 						>
 					</File>
 				</Filter>
@@ -998,11 +998,11 @@
 					Name="bv"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\bv\tdav_codec_bv16.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\bv\tdav_codec_bv16.c"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\bv\tdav_codec_bv32.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\bv\tdav_codec_bv32.c"
 						>
 					</File>
 				</Filter>
@@ -1010,7 +1010,7 @@
 					Name="g729"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\g729\tdav_codec_g729.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\g729\tdav_codec_g729.c"
 						>
 					</File>
 				</Filter>
@@ -1018,7 +1018,7 @@
 					Name="mp4ves"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\mp4ves\tdav_codec_mp4ves.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\mp4ves\tdav_codec_mp4ves.c"
 						>
 					</File>
 				</Filter>
@@ -1026,7 +1026,7 @@
 					Name="vpx"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\vpx\tdav_codec_vp8.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\vpx\tdav_codec_vp8.c"
 						>
 					</File>
 				</Filter>
@@ -1034,11 +1034,11 @@
 					Name="fec"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\fec\tdav_codec_red.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\fec\tdav_codec_red.c"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\fec\tdav_codec_ulpfec.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\fec\tdav_codec_ulpfec.c"
 						>
 					</File>
 				</Filter>
@@ -1046,7 +1046,7 @@
 					Name="t140"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\t140\tdav_codec_t140.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\t140\tdav_codec_t140.c"
 						>
 					</File>
 				</Filter>
@@ -1054,7 +1054,7 @@
 					Name="opus"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\opus\tdav_codec_opus.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\opus\tdav_codec_opus.c"
 						>
 					</File>
 				</Filter>
@@ -1062,7 +1062,7 @@
 					Name="bfcp"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\codecs\bfcp\tdav_codec_bfcp.c"
+						RelativePath="..\doubango\tinyDAV\src\codecs\bfcp\tdav_codec_bfcp.c"
 						>
 					</File>
 				</Filter>
@@ -1071,39 +1071,39 @@
 				Name="audio"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\tdav_consumer_audio.c"
+					RelativePath="..\doubango\tinyDAV\src\audio\tdav_consumer_audio.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\tdav_jitterbuffer.c"
+					RelativePath="..\doubango\tinyDAV\src\audio\tdav_jitterbuffer.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\tdav_producer_audio.c"
+					RelativePath="..\doubango\tinyDAV\src\audio\tdav_producer_audio.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\tdav_session_audio.c"
+					RelativePath="..\doubango\tinyDAV\src\audio\tdav_session_audio.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\tdav_speakup_jitterbuffer.c"
+					RelativePath="..\doubango\tinyDAV\src\audio\tdav_speakup_jitterbuffer.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\tdav_speex_denoise.c"
+					RelativePath="..\doubango\tinyDAV\src\audio\tdav_speex_denoise.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\tdav_speex_jitterbuffer.c"
+					RelativePath="..\doubango\tinyDAV\src\audio\tdav_speex_jitterbuffer.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\tdav_speex_resampler.c"
+					RelativePath="..\doubango\tinyDAV\src\audio\tdav_speex_resampler.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\tdav_webrtc_denoise.c"
+					RelativePath="..\doubango\tinyDAV\src\audio\tdav_webrtc_denoise.c"
 					>
 				</File>
 				<Filter
@@ -1114,11 +1114,11 @@
 					Name="directsound"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\directsound\tdav_consumer_dsound.c"
+						RelativePath="..\doubango\tinyDAV\src\audio\directsound\tdav_consumer_dsound.c"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\directsound\tdav_producer_dsound.c"
+						RelativePath="..\doubango\tinyDAV\src\audio\directsound\tdav_producer_dsound.c"
 						>
 					</File>
 				</Filter>
@@ -1126,11 +1126,11 @@
 					Name="oss"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\oss\tdav_consumer_oss.c"
+						RelativePath="..\doubango\tinyDAV\src\audio\oss\tdav_consumer_oss.c"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\oss\tdav_producer_oss.c"
+						RelativePath="..\doubango\tinyDAV\src\audio\oss\tdav_producer_oss.c"
 						>
 					</File>
 				</Filter>
@@ -1138,11 +1138,11 @@
 					Name="waveapi"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\waveapi\tdav_consumer_waveapi.c"
+						RelativePath="..\doubango\tinyDAV\src\audio\waveapi\tdav_consumer_waveapi.c"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\waveapi\tdav_producer_waveapi.c"
+						RelativePath="..\doubango\tinyDAV\src\audio\waveapi\tdav_producer_waveapi.c"
 						>
 					</File>
 				</Filter>
@@ -1150,23 +1150,23 @@
 					Name="coreaudio"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\coreaudio\tdav_audiounit.c"
+						RelativePath="..\doubango\tinyDAV\src\audio\coreaudio\tdav_audiounit.c"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\coreaudio\tdav_consumer_audioqueue.c"
+						RelativePath="..\doubango\tinyDAV\src\audio\coreaudio\tdav_consumer_audioqueue.c"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\coreaudio\tdav_consumer_audiounit.c"
+						RelativePath="..\doubango\tinyDAV\src\audio\coreaudio\tdav_consumer_audiounit.c"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\coreaudio\tdav_producer_audioqueue.c"
+						RelativePath="..\doubango\tinyDAV\src\audio\coreaudio\tdav_producer_audioqueue.c"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\coreaudio\tdav_producer_audiounit.c"
+						RelativePath="..\doubango\tinyDAV\src\audio\coreaudio\tdav_producer_audiounit.c"
 						>
 					</File>
 				</Filter>
@@ -1174,15 +1174,15 @@
 					Name="alsa"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\alsa\tdav_common_alsa.c"
+						RelativePath="..\doubango\tinyDAV\src\audio\alsa\tdav_common_alsa.c"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\alsa\tdav_consumer_alsa.c"
+						RelativePath="..\doubango\tinyDAV\src\audio\alsa\tdav_consumer_alsa.c"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\audio\alsa\tdav_producer_alsa.c"
+						RelativePath="..\doubango\tinyDAV\src\audio\alsa\tdav_producer_alsa.c"
 						>
 					</File>
 				</Filter>
@@ -1191,19 +1191,19 @@
 				Name="video"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\video\tdav_consumer_video.c"
+					RelativePath="..\doubango\tinyDAV\src\video\tdav_consumer_video.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\video\tdav_converter_video.cxx"
+					RelativePath="..\doubango\tinyDAV\src\video\tdav_converter_video.cxx"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\video\tdav_runnable_video.c"
+					RelativePath="..\doubango\tinyDAV\src\video\tdav_runnable_video.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\video\tdav_session_video.c"
+					RelativePath="..\doubango\tinyDAV\src\video\tdav_session_video.c"
 					>
 				</File>
 				<Filter
@@ -1214,11 +1214,11 @@
 					Name="gdi"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\video\gdi\tdav_consumer_video_gdi.c"
+						RelativePath="..\doubango\tinyDAV\src\video\gdi\tdav_consumer_video_gdi.c"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\video\gdi\tdav_producer_screencast_gdi.c"
+						RelativePath="..\doubango\tinyDAV\src\video\gdi\tdav_producer_screencast_gdi.c"
 						>
 					</File>
 				</Filter>
@@ -1226,7 +1226,7 @@
 					Name="v4linux"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\video\v4linux\tdav_producer_video_v4l2.c"
+						RelativePath="..\doubango\tinyDAV\src\video\v4linux\tdav_producer_video_v4l2.c"
 						>
 					</File>
 				</Filter>
@@ -1234,11 +1234,11 @@
 					Name="jb"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\video\jb\tdav_video_frame.c"
+						RelativePath="..\doubango\tinyDAV\src\video\jb\tdav_video_frame.c"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\video\jb\tdav_video_jb.c"
+						RelativePath="..\doubango\tinyDAV\src\video\jb\tdav_video_jb.c"
 						>
 					</File>
 				</Filter>
@@ -1247,15 +1247,15 @@
 				Name="msrp"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\msrp\tdav_consumer_msrp.c"
+					RelativePath="..\doubango\tinyDAV\src\msrp\tdav_consumer_msrp.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\msrp\tdav_producer_msrp.c"
+					RelativePath="..\doubango\tinyDAV\src\msrp\tdav_producer_msrp.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\msrp\tdav_session_msrp.c"
+					RelativePath="..\doubango\tinyDAV\src\msrp\tdav_session_msrp.c"
 					>
 				</File>
 			</Filter>
@@ -1263,15 +1263,15 @@
 				Name="t140"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\t140\tdav_consumer_t140.c"
+					RelativePath="..\doubango\tinyDAV\src\t140\tdav_consumer_t140.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\t140\tdav_producer_t140.c"
+					RelativePath="..\doubango\tinyDAV\src\t140\tdav_producer_t140.c"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\t140\tdav_session_t140.c"
+					RelativePath="..\doubango\tinyDAV\src\t140\tdav_session_t140.c"
 					>
 				</File>
 			</Filter>
@@ -1279,7 +1279,7 @@
 				Name="bfcp"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\tinyDAV\src\bfcp\tdav_session_bfcp.c"
+					RelativePath="..\doubango\tinyDAV\src\bfcp\tdav_session_bfcp.c"
 					>
 				</File>
 			</Filter>

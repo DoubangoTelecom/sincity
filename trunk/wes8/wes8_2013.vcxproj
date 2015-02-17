@@ -91,7 +91,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../sincity/include;..\..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\..\doubango\branches\2.0\doubango\thirdparties\common\include;..\..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../sincity/include;..\..\doubango\thirdparties\win32\include;..\..\doubango\thirdparties\common\include;..\..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -103,7 +103,7 @@
     <Link>
       <AdditionalDependencies>tinyBFCP.lib;tinySAK.lib;tinyHTTP.lib;tinyNET.lib;tinyMEDIA.lib;tinySDP.lib;tinyDAV.lib;tinyIPSec.lib;tinyRTP.lib;tinyMSRP.lib;Winmm.lib;ws2_32.lib;Shlwapi.lib;IPHLPAPI.lib;sincity.lib;libeay32.lib;ssleay32.lib;vpxmt.lib;libsrtp.a;libspeexdsp.a;libyuv.lib;libopus.a;audio_processing.lib;common_audio.lib;system_wrappers.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)sintest.exe</OutputFile>
-      <AdditionalLibraryDirectories>$(OutDir);..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib;..\..\doubango\branches\2.0\doubango\thirdparties\win32\lib\openssl;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\vpx;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\srtp;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\libyuv;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\speex;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\opus;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\webrtc;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(OutDir);..\..\doubango\thirdparties\win32\lib;..\..\doubango\thirdparties\win32\lib\openssl;..\..\doubango\thirdparties\win32\lib\vpx;..\..\doubango\thirdparties\win32\lib\srtp;..\..\doubango\thirdparties\win32\lib\libyuv;..\..\doubango\thirdparties\win32\lib\speex;..\..\doubango\thirdparties\win32\lib\opus;..\..\doubango\thirdparties\win32\lib\webrtc;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>libcmtd.lib;libcmt.lib</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
@@ -119,7 +119,7 @@ xcopy /Y $(SolutionDir)..\SSL_CA.pem $(OutDir)</Command>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../sincity/include;..\..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\..\doubango\branches\2.0\doubango\thirdparties\common\include;..\..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../sincity/include;..\..\doubango\thirdparties\win32\include;..\..\doubango\thirdparties\common\include;..\..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -131,7 +131,7 @@ xcopy /Y $(SolutionDir)..\SSL_CA.pem $(OutDir)</Command>
     <Link>
       <AdditionalDependencies>tinyBFCP.lib;tinySAK.lib;tinyHTTP.lib;tinyNET.lib;tinyMEDIA.lib;tinySDP.lib;tinyDAV.lib;tinyIPSec.lib;tinyRTP.lib;tinyMSRP.lib;Winmm.lib;ws2_32.lib;Shlwapi.lib;IPHLPAPI.lib;sincity.lib;libeay64.lib;ssleay64.lib;vpxmt64.lib;libsrtp64.a;libyuv64.lib;libopus64.a;libspeexdsp64.a;audio_processing64.lib;common_audio64.lib;system_wrappers64.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)sintest.exe</OutputFile>
-      <AdditionalLibraryDirectories>$(OutDir);..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib;..\..\doubango\branches\2.0\doubango\thirdparties\win32\lib\openssl;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\vpx;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\srtp;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\libyuv;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\speex;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\opus;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\webrtc;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(OutDir);..\..\doubango\thirdparties\win32\lib;..\..\doubango\thirdparties\win32\lib\openssl;..\..\doubango\thirdparties\win32\lib\vpx;..\..\doubango\thirdparties\win32\lib\srtp;..\..\doubango\thirdparties\win32\lib\libyuv;..\..\doubango\thirdparties\win32\lib\speex;..\..\doubango\thirdparties\win32\lib\opus;..\..\doubango\thirdparties\win32\lib\webrtc;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -148,7 +148,7 @@ xcopy /Y $(SolutionDir)..\SSL_CA.pem $(OutDir)</Command>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>../sincity/include;..\..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\..\doubango\branches\2.0\doubango\thirdparties\common\include;..\..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../sincity/include;..\..\doubango\thirdparties\win32\include;..\..\doubango\thirdparties\common\include;..\..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -159,7 +159,7 @@ xcopy /Y $(SolutionDir)..\SSL_CA.pem $(OutDir)</Command>
     <Link>
       <AdditionalDependencies>tinyBFCP.lib;tinySAK.lib;tinyHTTP.lib;tinyNET.lib;tinyMEDIA.lib;tinySDP.lib;tinyDAV.lib;tinyIPSec.lib;tinyRTP.lib;tinyMSRP.lib;Winmm.lib;ws2_32.lib;Shlwapi.lib;IPHLPAPI.lib;libeay32.lib;ssleay32.lib;vpxmt.lib;libsrtp.a;libspeexdsp.a;libyuv.lib;libopus.a;audio_processing.lib;common_audio.lib;system_wrappers.lib;sincity.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)sintest.exe</OutputFile>
-      <AdditionalLibraryDirectories>$(OutDir);..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib;..\..\doubango\branches\2.0\doubango\thirdparties\win32\lib\openssl;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\vpx;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\srtp;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\libyuv;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\speex;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\opus;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\webrtc;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(OutDir);..\..\doubango\thirdparties\win32\lib;..\..\doubango\thirdparties\win32\lib\openssl;..\..\doubango\thirdparties\win32\lib\vpx;..\..\doubango\thirdparties\win32\lib\srtp;..\..\doubango\thirdparties\win32\lib\libyuv;..\..\doubango\thirdparties\win32\lib\speex;..\..\doubango\thirdparties\win32\lib\opus;..\..\doubango\thirdparties\win32\lib\webrtc;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>LIBCMT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
@@ -178,7 +178,7 @@ xcopy /Y $(SolutionDir)..\SSL_CA.pem $(OutDir)</Command>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>../sincity/include;..\..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\..\doubango\branches\2.0\doubango\thirdparties\common\include;..\..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../sincity/include;..\..\doubango\thirdparties\win32\include;..\..\doubango\thirdparties\common\include;..\..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -190,7 +190,7 @@ xcopy /Y $(SolutionDir)..\SSL_CA.pem $(OutDir)</Command>
     <Link>
       <AdditionalDependencies>tinyBFCP.lib;tinySAK.lib;tinyHTTP.lib;tinyNET.lib;tinyMEDIA.lib;tinySDP.lib;tinyDAV.lib;tinyIPSec.lib;tinyRTP.lib;tinyMSRP.lib;Winmm.lib;ws2_32.lib;Shlwapi.lib;IPHLPAPI.lib;sincity.lib;libeay64.lib;ssleay64.lib;vpxmt64.lib;libsrtp64.a;libspeexdsp64.a;libyuv64.lib;libopus64.a;audio_processing64.lib;common_audio64.lib;system_wrappers64.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)sintest.exe</OutputFile>
-      <AdditionalLibraryDirectories>$(OutDir);..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib;..\..\doubango\branches\2.0\doubango\thirdparties\win32\lib\openssl;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\vpx;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\srtp;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\libyuv;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\speex;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\opus;..\..\doubango\branches\2.0\Doubango\thirdparties\win32\lib\webrtc;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(OutDir);..\..\doubango\thirdparties\win32\lib;..\..\doubango\thirdparties\win32\lib\openssl;..\..\doubango\thirdparties\win32\lib\vpx;..\..\doubango\thirdparties\win32\lib\srtp;..\..\doubango\thirdparties\win32\lib\libyuv;..\..\doubango\thirdparties\win32\lib\speex;..\..\doubango\thirdparties\win32\lib\opus;..\..\doubango\thirdparties\win32\lib\webrtc;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>LIBCMT.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>

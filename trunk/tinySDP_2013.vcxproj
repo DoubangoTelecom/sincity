@@ -86,7 +86,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinySDP\include;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_INFO;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;TINYSDP_EXPORTS;TINYSAK_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -102,7 +102,7 @@
     <Midl />
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinySDP\include;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_INFO;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;TINYSDP_EXPORTS;TINYSAK_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -121,7 +121,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinySDP\include;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0501;NDEBUG;_WINDOWS;_USRDLL;TINYSDP_EXPORTS;TINYSAK_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>false</FunctionLevelLinking>
@@ -137,7 +137,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\common\include;..\doubango\branches\2.0\doubango\tinySDP\include;..\doubango\branches\2.0\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinySDP\include;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0501;NDEBUG;_WINDOWS;_USRDLL;TINYSDP_EXPORTS;TINYSAK_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>false</FunctionLevelLinking>
@@ -151,51 +151,51 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySDP\src\headers\tsdp_header.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySDP\src\headers\tsdp_header_A.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySDP\src\headers\tsdp_header_B.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySDP\src\headers\tsdp_header_C.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySDP\src\headers\tsdp_header_Dummy.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySDP\src\headers\tsdp_header_E.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySDP\src\headers\tsdp_header_I.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySDP\src\headers\tsdp_header_K.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySDP\src\headers\tsdp_header_M.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySDP\src\headers\tsdp_header_O.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySDP\src\headers\tsdp_header_P.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySDP\src\headers\tsdp_header_R.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySDP\src\headers\tsdp_header_S.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySDP\src\headers\tsdp_header_T.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySDP\src\headers\tsdp_header_U.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySDP\src\headers\tsdp_header_V.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySDP\src\headers\tsdp_header_Z.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySDP\src\parsers\tsdp_parser_message.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySDP\src\tsdp.c" />
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySDP\src\tsdp_message.c" />
+    <ClCompile Include="..\doubango\tinySDP\src\headers\tsdp_header.c" />
+    <ClCompile Include="..\doubango\tinySDP\src\headers\tsdp_header_A.c" />
+    <ClCompile Include="..\doubango\tinySDP\src\headers\tsdp_header_B.c" />
+    <ClCompile Include="..\doubango\tinySDP\src\headers\tsdp_header_C.c" />
+    <ClCompile Include="..\doubango\tinySDP\src\headers\tsdp_header_Dummy.c" />
+    <ClCompile Include="..\doubango\tinySDP\src\headers\tsdp_header_E.c" />
+    <ClCompile Include="..\doubango\tinySDP\src\headers\tsdp_header_I.c" />
+    <ClCompile Include="..\doubango\tinySDP\src\headers\tsdp_header_K.c" />
+    <ClCompile Include="..\doubango\tinySDP\src\headers\tsdp_header_M.c" />
+    <ClCompile Include="..\doubango\tinySDP\src\headers\tsdp_header_O.c" />
+    <ClCompile Include="..\doubango\tinySDP\src\headers\tsdp_header_P.c" />
+    <ClCompile Include="..\doubango\tinySDP\src\headers\tsdp_header_R.c" />
+    <ClCompile Include="..\doubango\tinySDP\src\headers\tsdp_header_S.c" />
+    <ClCompile Include="..\doubango\tinySDP\src\headers\tsdp_header_T.c" />
+    <ClCompile Include="..\doubango\tinySDP\src\headers\tsdp_header_U.c" />
+    <ClCompile Include="..\doubango\tinySDP\src\headers\tsdp_header_V.c" />
+    <ClCompile Include="..\doubango\tinySDP\src\headers\tsdp_header_Z.c" />
+    <ClCompile Include="..\doubango\tinySDP\src\parsers\tsdp_parser_message.c" />
+    <ClCompile Include="..\doubango\tinySDP\src\tsdp.c" />
+    <ClCompile Include="..\doubango\tinySDP\src\tsdp_message.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinysdp.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinySDP\headers\tsdp_header.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinySDP\headers\tsdp_header_A.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinySDP\headers\tsdp_header_B.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinySDP\headers\tsdp_header_C.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinySDP\headers\tsdp_header_Dummy.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinySDP\headers\tsdp_header_E.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinySDP\headers\tsdp_header_I.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinySDP\headers\tsdp_header_K.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinySDP\headers\tsdp_header_M.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinySDP\headers\tsdp_header_O.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinySDP\headers\tsdp_header_P.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinySDP\headers\tsdp_header_R.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinySDP\headers\tsdp_header_S.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinySDP\headers\tsdp_header_T.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinySDP\headers\tsdp_header_U.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinySDP\headers\tsdp_header_V.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinySDP\headers\tsdp_header_Z.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinySDP\parsers\tsdp_parser_header.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinySDP\parsers\tsdp_parser_message.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinySDP\tsdp_message.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tinysdp_config.h" />
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySDP\include\tsdp.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinysdp.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinySDP\headers\tsdp_header.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinySDP\headers\tsdp_header_A.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinySDP\headers\tsdp_header_B.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinySDP\headers\tsdp_header_C.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinySDP\headers\tsdp_header_Dummy.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinySDP\headers\tsdp_header_E.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinySDP\headers\tsdp_header_I.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinySDP\headers\tsdp_header_K.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinySDP\headers\tsdp_header_M.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinySDP\headers\tsdp_header_O.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinySDP\headers\tsdp_header_P.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinySDP\headers\tsdp_header_R.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinySDP\headers\tsdp_header_S.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinySDP\headers\tsdp_header_T.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinySDP\headers\tsdp_header_U.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinySDP\headers\tsdp_header_V.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinySDP\headers\tsdp_header_Z.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinySDP\parsers\tsdp_parser_header.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinySDP\parsers\tsdp_parser_message.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinySDP\tsdp_message.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tinysdp_config.h" />
+    <ClInclude Include="..\doubango\tinySDP\include\tsdp.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="abnf\sdp.abnf" />

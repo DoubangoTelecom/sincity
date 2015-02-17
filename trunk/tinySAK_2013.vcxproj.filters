@@ -14,195 +14,195 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tinysak_config.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tinysak_config.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_base64.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_base64.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_binaryutils.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_binaryutils.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_buffer.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_buffer.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_common.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_common.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_condwait.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_condwait.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_debug.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_debug.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_errno.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_errno.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_fsm.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_fsm.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_hmac.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_hmac.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_list.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_list.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_md5.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_md5.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_memory.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_memory.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_mutex.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_mutex.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_object.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_object.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_options.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_options.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_params.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_params.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_plugin.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_plugin.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_ppfcs16.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_ppfcs16.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_ppfcs32.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_ppfcs32.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_ragel_state.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_ragel_state.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_runnable.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_runnable.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_safeobj.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_safeobj.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_semaphore.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_semaphore.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_sha1.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_sha1.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_string.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_string.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_thread.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_thread.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_time.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_time.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_timer.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_timer.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_url.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_url.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_uuid.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_uuid.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
-    <ClInclude Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_xml.h">
+    <ClInclude Include="..\doubango\tinySAK\src\tsk_xml.h">
       <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_base64.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_base64.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_binaryutils.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_binaryutils.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_buffer.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_buffer.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_condwait.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_condwait.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_debug.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_debug.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_fsm.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_fsm.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_hmac.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_hmac.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_list.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_list.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_md5.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_md5.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_memory.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_memory.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_mutex.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_mutex.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_object.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_object.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_options.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_options.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_params.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_params.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_plugin.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_plugin.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_ppfcs16.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_ppfcs16.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_ppfcs32.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_ppfcs32.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_ragel_state.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_ragel_state.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_runnable.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_runnable.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_safeobj.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_safeobj.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_semaphore.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_semaphore.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_sha1.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_sha1.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_string.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_string.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_thread.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_thread.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_time.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_time.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_timer.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_timer.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_url.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_url.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_uuid.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_uuid.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
-    <ClCompile Include="..\doubango\branches\2.0\doubango\tinySAK\src\tsk_xml.c">
+    <ClCompile Include="..\doubango\tinySAK\src\tsk_xml.c">
       <Filter>source%28%2a.c%29</Filter>
     </ClCompile>
   </ItemGroup>

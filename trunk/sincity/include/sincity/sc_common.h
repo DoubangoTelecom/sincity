@@ -59,6 +59,7 @@ typedef enum SCSignalingEventType_e {
 }
 SCSignalingEventType_t;
 
+#if 0
 typedef enum SCSessionState_e {
     SCSessionState_None,
     SCSessionState_Connecting,
@@ -66,6 +67,7 @@ typedef enum SCSessionState_e {
     SCSessionState_Terminated
 }
 SCSessionState_t;
+#endif
 
 typedef enum SCMediaType_e {
     SCMediaType_None = 0x00,
@@ -90,6 +92,15 @@ typedef enum SCCallState_e {
     SCCallState_IceGathering,
 }
 SCCallState_t;
+
+typedef enum SCIceState_e {
+	SCIceState_None,
+	SCIceState_Failed,
+	SCIceState_GatheringDone,
+	SCIceState_Connected,
+	SCIceState_Teminated
+}
+SCIceState_t;
 
 typedef enum SCSessionType_e {
     SCSessionType_None,

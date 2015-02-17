@@ -47,7 +47,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow;..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\win32\include\directshow;..\doubango\branches\2.0\doubango\tinySAK\src;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinySDP\include"
+				AdditionalIncludeDirectories="..\doubango\plugins\pluginDirectShow;..\doubango\thirdparties\win32\include;..\doubango\thirdparties\win32\include\directshow;..\doubango\tinySAK\src;..\doubango\tinyMEDIA\include;..\doubango\tinySDP\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;PLUGIN_DSHOW_EXPORTS;_WIN32_WINNT=0x0501;TINYSAK_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -67,7 +67,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\doubango\branches\2.0\doubango\thirdparties\win32\lib\directshow\strmbasd.lib dmoguids.lib strmiids.lib uuid.lib Winmm.lib $(OutDir)\tinySAK.lib $(OutDir)\tinyMEDIA.lib"
+				AdditionalDependencies="..\doubango\thirdparties\win32\lib\directshow\strmbasd.lib dmoguids.lib strmiids.lib uuid.lib Winmm.lib $(OutDir)\tinySAK.lib $(OutDir)\tinyMEDIA.lib"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
 				SubSystem="2"
@@ -122,7 +122,7 @@
 				Name="VCCLCompilerTool"
 				ExecutionBucket="7"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow;thirdparties\wince\include;thirdparties\wince\include\directshow;..\doubango\branches\2.0\doubango\tinySAK\src;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinySDP\include"
+				AdditionalIncludeDirectories="..\doubango\plugins\pluginDirectShow;thirdparties\wince\include;thirdparties\wince\include\directshow;..\doubango\tinySAK\src;..\doubango\tinyMEDIA\include;..\doubango\tinySDP\include"
 				PreprocessorDefinitions="_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;_DEBUG;_WINDOWS;_USRDLL;PLUGIN_DSHOW_EXPORTS;TINYSAK_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE"
 				MinimalRebuild="true"
 				RuntimeLibrary="1"
@@ -203,7 +203,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="3"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow;..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\win32\include\directshow;..\doubango\branches\2.0\doubango\tinySAK\src;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinySDP\include"
+				AdditionalIncludeDirectories="..\doubango\plugins\pluginDirectShow;..\doubango\thirdparties\win32\include;..\doubango\thirdparties\win32\include\directshow;..\doubango\tinySAK\src;..\doubango\tinyMEDIA\include;..\doubango\tinySDP\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;PLUGIN_DSHOW_EXPORTS;_WIN32_WINNT=0x0501;TINYSAK_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -222,7 +222,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\doubango\branches\2.0\doubango\thirdparties\win32\lib\directshow\strmbase.lib dmoguids.lib strmiids.lib uuid.lib Winmm.lib $(OutDir)\tinySAK.lib $(OutDir)\tinyMEDIA.lib"
+				AdditionalDependencies="..\doubango\thirdparties\win32\lib\directshow\strmbase.lib dmoguids.lib strmiids.lib uuid.lib Winmm.lib $(OutDir)\tinySAK.lib $(OutDir)\tinyMEDIA.lib"
 				LinkIncremental="1"
 				GenerateDebugInformation="false"
 				SubSystem="2"
@@ -281,7 +281,7 @@
 				ExecutionBucket="7"
 				Optimization="3"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow;thirdparties\wince\include;thirdparties\wince\include\directshow;..\doubango\branches\2.0\doubango\tinySAK\src;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinySDP\include"
+				AdditionalIncludeDirectories="..\doubango\plugins\pluginDirectShow;thirdparties\wince\include;thirdparties\wince\include\directshow;..\doubango\tinySAK\src;..\doubango\tinyMEDIA\include;..\doubango\tinySDP\include"
 				PreprocessorDefinitions="_WIN32_WCE=$(CEVER);UNDER_CE;WINCE;NDEBUG;_WINDOWS;_USRDLL;PLUGIN_DSHOW_EXPORTS;TINYSAK_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE"
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="true"
@@ -363,7 +363,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow;..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\win32\include\directshow;..\doubango\branches\2.0\doubango\tinySAK\src;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinySDP\include"
+				AdditionalIncludeDirectories="..\doubango\plugins\pluginDirectShow;..\doubango\thirdparties\win32\include;..\doubango\thirdparties\win32\include\directshow;..\doubango\tinySAK\src;..\doubango\tinyMEDIA\include;..\doubango\tinySDP\include"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;PLUGIN_DSHOW_EXPORTS;_WIN32_WINNT=0x0501;TINYSAK_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -383,7 +383,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\doubango\branches\2.0\doubango\thirdparties\win32\lib\directshow\strmbasd.lib dmoguids.lib strmiids.lib uuid.lib Winmm.lib $(OutDir)\tinySAK.lib $(OutDir)\tinyMEDIA.lib"
+				AdditionalDependencies="..\doubango\thirdparties\win32\lib\directshow\strmbasd.lib dmoguids.lib strmiids.lib uuid.lib Winmm.lib $(OutDir)\tinySAK.lib $(OutDir)\tinyMEDIA.lib"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
 				SubSystem="2"
@@ -439,7 +439,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="3"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow;..\doubango\branches\2.0\doubango\thirdparties\win32\include;..\doubango\branches\2.0\doubango\thirdparties\win32\include\directshow;..\doubango\branches\2.0\doubango\tinySAK\src;..\doubango\branches\2.0\doubango\tinyMEDIA\include;..\doubango\branches\2.0\doubango\tinySDP\include"
+				AdditionalIncludeDirectories="..\doubango\plugins\pluginDirectShow;..\doubango\thirdparties\win32\include;..\doubango\thirdparties\win32\include\directshow;..\doubango\tinySAK\src;..\doubango\tinyMEDIA\include;..\doubango\tinySDP\include"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;PLUGIN_DSHOW_EXPORTS;_WIN32_WINNT=0x0501;TINYSAK_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -458,7 +458,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\doubango\branches\2.0\doubango\thirdparties\win32\lib\directshow\strmbase.lib dmoguids.lib strmiids.lib uuid.lib Winmm.lib $(OutDir)\tinySAK.lib $(OutDir)\tinyMEDIA.lib"
+				AdditionalDependencies="..\doubango\thirdparties\win32\lib\directshow\strmbase.lib dmoguids.lib strmiids.lib uuid.lib Winmm.lib $(OutDir)\tinySAK.lib $(OutDir)\tinyMEDIA.lib"
 				LinkIncremental="1"
 				GenerateDebugInformation="false"
 				SubSystem="2"
@@ -498,113 +498,113 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\dllmain_dshow.cxx"
+				RelativePath="..\doubango\plugins\pluginDirectShow\dllmain_dshow.cxx"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\plugin_screencast_dshow_producer.cxx"
+				RelativePath="..\doubango\plugins\pluginDirectShow\plugin_screencast_dshow_producer.cxx"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\plugin_video_dshow_consumer.cxx"
+				RelativePath="..\doubango\plugins\pluginDirectShow\plugin_video_dshow_consumer.cxx"
 				>
 			</File>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\plugin_video_dshow_producer.cxx"
+				RelativePath="..\doubango\plugins\pluginDirectShow\plugin_video_dshow_producer.cxx"
 				>
 			</File>
 			<Filter
 				Name="internals"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSCaptureFormat.cxx"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSCaptureFormat.cxx"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSCaptureGraph.cxx"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSCaptureGraph.cxx"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSCaptureUtils.cxx"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSCaptureUtils.cxx"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDibHelper.cxx"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSDibHelper.cxx"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplay.cxx"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSDisplay.cxx"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplayGraph.cxx"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSDisplayGraph.cxx"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.cxx"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.cxx"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.VMR.cxx"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.VMR.cxx"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.VMR9.cxx"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.VMR9.cxx"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSFrameRateFilter.cxx"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSFrameRateFilter.cxx"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSGrabber.cxx"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSGrabber.cxx"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSOutputFilter.cxx"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSOutputFilter.cxx"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSOutputStream.cxx"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSOutputStream.cxx"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSPushSourceDesktop.cxx"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSPushSourceDesktop.cxx"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSScreenCastGraph.cxx"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSScreenCastGraph.cxx"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSUtils.cxx"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSUtils.cxx"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\Resizer.cxx"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\Resizer.cxx"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\VideoDisplayName.cxx"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\VideoDisplayName.cxx"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\VideoGrabberName.cxx"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\VideoGrabberName.cxx"
 					>
 				</File>
 				<Filter
 					Name="wince"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\wince\CPropertyBag.cxx"
+						RelativePath="..\doubango\plugins\pluginDirectShow\internals\wince\CPropertyBag.cxx"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\wince\DSNullFilter.cxx"
+						RelativePath="..\doubango\plugins\pluginDirectShow\internals\wince\DSNullFilter.cxx"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\wince\DSSampleGrabber.cxx"
+						RelativePath="..\doubango\plugins\pluginDirectShow\internals\wince\DSSampleGrabber.cxx"
 						>
 					</File>
 				</Filter>
@@ -616,113 +616,113 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\plugin_dshow_config.h"
+				RelativePath="..\doubango\plugins\pluginDirectShow\plugin_dshow_config.h"
 				>
 			</File>
 			<Filter
 				Name="internals"
 				>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSBaseCaptureGraph.h"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSBaseCaptureGraph.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSBufferWriter.h"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSBufferWriter.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSCaptureFormat.h"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSCaptureFormat.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSCaptureGraph.h"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSCaptureGraph.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSCaptureUtils.h"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSCaptureUtils.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDibHelper.h"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSDibHelper.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplay.h"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSDisplay.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplayGraph.h"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSDisplayGraph.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.h"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSDisplayOverlay.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSFrameRateFilter.h"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSFrameRateFilter.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSGrabber.h"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSGrabber.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSOutputFilter.h"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSOutputFilter.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSOutputStream.h"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSOutputStream.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSPushSource.h"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSPushSource.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSScreenCastGraph.h"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSScreenCastGraph.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\DSUtils.h"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\DSUtils.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\Resizer.h"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\Resizer.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\VideoDisplayName.h"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\VideoDisplayName.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\VideoFrame.h"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\VideoFrame.h"
 					>
 				</File>
 				<File
-					RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\VideoGrabberName.h"
+					RelativePath="..\doubango\plugins\pluginDirectShow\internals\VideoGrabberName.h"
 					>
 				</File>
 				<Filter
 					Name="wince"
 					>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\wince\CPropertyBag.h"
+						RelativePath="..\doubango\plugins\pluginDirectShow\internals\wince\CPropertyBag.h"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\wince\DSISampleGrabberCB.h"
+						RelativePath="..\doubango\plugins\pluginDirectShow\internals\wince\DSISampleGrabberCB.h"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\wince\DSNullFilter.h"
+						RelativePath="..\doubango\plugins\pluginDirectShow\internals\wince\DSNullFilter.h"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\wince\DSSampleGrabber.h"
+						RelativePath="..\doubango\plugins\pluginDirectShow\internals\wince\DSSampleGrabber.h"
 						>
 					</File>
 					<File
-						RelativePath="..\doubango\branches\2.0\doubango\plugins\pluginDirectShow\internals\wince\DSSampleGrabberUtils.h"
+						RelativePath="..\doubango\plugins\pluginDirectShow\internals\wince\DSSampleGrabberUtils.h"
 						>
 					</File>
 				</Filter>
