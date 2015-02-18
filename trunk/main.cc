@@ -129,8 +129,16 @@ public:
             }
             bool ret = callSession->acceptEvent(e);
             if (e->getType() == "hangup") {
+#if 1
                 callSession = NULL;
                 SC_DEBUG_INFO("+++Call ended +++");
+#else		// auto-call
+				SC_DEBUG_INFO("+++ call('%s',%d) +++", "002", SCMediaType_ScreenCast);
+				SC_ASSERT(callSession = SCSessionCall::newObj(signalSession));
+				SC_ASSERT(callSession->setIceCallback(SCSessionCallIceCallbackDummy::newObj()));
+				SC_ASSERT(callSession->call(SCMediaType_ScreenCast, "002"));
+				SC_ASSERT(attachDisplays());
+#endif
             }
             return ret;
         }
@@ -351,6 +359,8 @@ static void printHelp()
            "\"audio [dest]\"      Audio call to \"dest\" (opt., default from config.json)\n"
            "\"video [dest]\"      Video call to \"dest\" (opt., default from config.json)\n"
            "\"screencast [dest]\" Share screen with \"dest\" (opt., default from config.json)\n"
+		   "\"mute\"			  Mutes the active call\n"
+		   "\"unmute\"			  Unmutes the active call\n"
            "\"hangup\"            Terminates the active call\n"
            "\"accept\"            Accepts the incoming call\n"
            "\"reject\"            Rejects the incoming call\n"
@@ -402,6 +412,14 @@ static void* SC_STDCALL consoleReaderProc(void *arg)
             SC_ASSERT(callSession->call(mediaType, strRemoteId));
             SC_ASSERT(attachDisplays());
         }
+		else if (strnicmp(command, "mute", 4) == 0 || strnicmp(command, "unmute", 6) == 0) {
+			CHECK_CONNECTED();
+			if (callSession) {
+				bool bMute = strnicmp(command, "mute", 4) == 0;
+				SC_DEBUG_INFO("+++ mute(%s) +++", bMute ? "true" : "false");
+				SC_ASSERT(callSession->setMute(bMute));
+			}
+		}
         else if (strnicmp(command, "hangup", 6) == 0 || strnicmp(command, "reject", 6) == 0) {
             CHECK_CONNECTED();
             if (callSession) {

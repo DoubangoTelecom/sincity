@@ -325,6 +325,26 @@ bool SCSessionCall::rejectEvent(SCObjWrapper<SCSignaling*> signalingSession, SCO
 }
 
 /**@ingroup _Group_CPP_SessionCall
+* Mutes or unmutes the call.
+* @param bMuted <b>true</b> to mute; otherwise <b>false</b>.
+* @param eMediaType The media type to mute or unmute
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
+bool SCSessionCall::setMute(bool bMuted, SCMediaType_t eMediaType /*= SCMediaType_All*/)
+{
+	SCAutoLock<SCSessionCall> autoLock(this);
+
+	if (m_pSessionMgr) {
+		const int32_t iMuted = bMuted ? 1 : 0;
+		const tmedia_type_t mediaType = _mediaTypeToNative(eMediaType);
+		return (tmedia_session_mgr_set(m_pSessionMgr,
+			TMEDIA_SESSION_PRODUCER_SET_INT32(mediaType, "mute", iMuted),
+			TMEDIA_SESSION_SET_NULL()) == 0); 
+	}
+	return false;
+}
+
+/**@ingroup _Group_CPP_SessionCall
 * Terminates the call session. Send <b>hangup</b> message and teardown the media sessions.
 * @retval <b>true</b> if no error; otherwise <b>false</b>.
 */

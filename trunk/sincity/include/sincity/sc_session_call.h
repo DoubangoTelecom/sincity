@@ -49,6 +49,8 @@ public:
 	bool sessionMgrResume();
 	virtual bool acceptEvent(SCObjWrapper<SCSignalingCallEvent*>& e);
     static bool rejectEvent(SCObjWrapper<SCSignaling*> oSignaling, SCObjWrapper<SCSignalingCallEvent*>& e);
+
+	virtual bool setMute(bool bMuted, SCMediaType_t eMediaType = SCMediaType_All);
     virtual bool hangup();
 	
     virtual SC_INLINE std::string getCallId() {
