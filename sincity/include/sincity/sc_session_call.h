@@ -39,7 +39,7 @@ public:
     virtual bool setVideoDisplays(SCMediaType_t eVideoType, SCVideoDisplay displayLocal = NULL, SCVideoDisplay displayRemote = NULL);
     virtual bool call(SCMediaType_t eMediaType, std::string strDestUserId);
 	
-	bool sessionMgrReset();  //  sets m_bIceOfferAccepted = false; AND returns its prior value
+	bool sessionMgrReset();  //  sets current ICE state to "none" AND returns if the *prior* state was "connected"
 	bool SC_INLINE sessionMgrIsReady() { 
 		return (m_eIceState == SCIceState_Connected); 
 	}

@@ -1037,8 +1037,8 @@ bool SCSessionCall::sessionMgrStart()
 		return false;
 	}
 	SC_DEBUG_INFO("Starting session manager");
-
-	return m_pSessionMgr && tmedia_session_mgr_start(m_pSessionMgr);	
+	
+	return m_pSessionMgr && tmedia_session_mgr_start(m_pSessionMgr) == 0;
 }
 
 bool SCSessionCall::sessionMgrStop()
@@ -1060,7 +1060,7 @@ bool SCSessionCall::sessionMgrPause()
 	}
 	SC_DEBUG_INFO("Pausing session manager");
 
-	return m_pSessionMgr && tmedia_session_mgr_hold(m_pSessionMgr, _mediaTypeToNative(m_eMediaType));
+	return m_pSessionMgr && tmedia_session_mgr_hold(m_pSessionMgr, _mediaTypeToNative(m_eMediaType)) == 0;
 }
 
 bool SCSessionCall::sessionMgrResume()
@@ -1071,6 +1071,6 @@ bool SCSessionCall::sessionMgrResume()
 	}
 	SC_DEBUG_INFO("Resuming session manager");
 
-	return tmedia_session_mgr_resume(m_pSessionMgr, _mediaTypeToNative(m_eMediaType), false);
+	return tmedia_session_mgr_resume(m_pSessionMgr, _mediaTypeToNative(m_eMediaType), false) == 0;
 }
 
