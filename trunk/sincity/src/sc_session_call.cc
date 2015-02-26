@@ -67,6 +67,10 @@ SCSessionCall::SCSessionCall(SCObjWrapper<SCSignaling*> oSignaling, std::string 
 	, m_ScreenCastDisplayLocal(NULL)
 	, m_ScreenCastDisplayRemote(NULL)
 
+	, m_nVideoBandwidthUploadMax(tmedia_defaults_get_bandwidth_video_upload_max())
+	, m_nVideoBandwidthDownloadMax(tmedia_defaults_get_bandwidth_video_download_max())
+	, m_nVideoFps(tmedia_defaults_get_video_fps())
+
 	, m_eIceState(SCIceState_None)
 	
     , m_oMutex(new SCMutex())
@@ -378,6 +382,66 @@ bool SCSessionCall::hangup()
     return true;
 }
 
+/**@ingroup _Group_CPP_SessionCall
+* Overrides the default video framerate defined using @ref SCEngine::setVideoFps
+* @param nFps The new fps to use
+* @param eMediaType media type for which to override the fps.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
+bool SCSessionCall::setVideoFps(int nFps, SCMediaType_t eMediaType /*= SCMediaType_Video | SCMediaType_ScreenCast*/)
+{
+	SCAutoLock<SCSessionCall> autoLock(this);
+
+	m_nVideoFps = nFps;
+	if (m_pSessionMgr) {
+		const tmedia_type_t mediaType = _mediaTypeToNative(eMediaType);
+		return (tmedia_session_mgr_set(m_pSessionMgr,
+			TMEDIA_SESSION_SET_INT32(mediaType, "fps", nFps),
+			TMEDIA_SESSION_SET_NULL()) == 0);
+	}
+	return true;
+}
+
+/**@ingroup _Group_CPP_SessionCall
+* Overrides the default video max upload bandwidth defined using @ref SCEngine::setVideoBandwidthUpMax
+* @param nMax The new bandwidth to use
+* @param eMediaType media type for which to override the max bandwidth.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
+bool SCSessionCall::setVideoBandwidthUploadMax(int nMax, SCMediaType_t eMediaType /*= SCMediaType_Video | SCMediaType_ScreenCast*/)
+{
+	SCAutoLock<SCSessionCall> autoLock(this);
+
+	m_nVideoBandwidthUploadMax = nMax;
+	if (m_pSessionMgr) {
+		const tmedia_type_t mediaType = _mediaTypeToNative(eMediaType);
+		return (tmedia_session_mgr_set(m_pSessionMgr,
+			TMEDIA_SESSION_SET_INT32(mediaType, "bandwidth-max-upload", nMax),
+			TMEDIA_SESSION_SET_NULL()) == 0);
+	}
+	return true;
+}
+
+/**@ingroup _Group_CPP_SessionCall
+* Overrides the default video max download bandwidth defined using @ref SCEngine::setVideoBandwidthDownMax
+* @param nMax The new bandwidth to use
+* @param eMediaType media type for which to override the max bandwidth.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+*/
+bool SCSessionCall::setVideoBandwidthDownloadMax(int nMax, SCMediaType_t eMediaType /*= SCMediaType_Video*/)
+{
+	SCAutoLock<SCSessionCall> autoLock(this);
+
+	m_nVideoBandwidthDownloadMax = nMax;
+	if (m_pSessionMgr) {
+		const tmedia_type_t mediaType = _mediaTypeToNative(eMediaType);
+		return (tmedia_session_mgr_set(m_pSessionMgr,
+			TMEDIA_SESSION_SET_INT32(mediaType, "bandwidth-max-download", nMax),
+			TMEDIA_SESSION_SET_NULL()) == 0);
+	}
+	return true;
+}
+
 /*
 * Cleanup the media sessions and ICE contexts.
 * @retval <b>true</b> if no error; otherwise <b>false</b>.
@@ -430,14 +494,17 @@ bool SCSessionCall::createSessionMgr()
     }
 
     int iRet;
+	tmedia_type_t nativeMediaType;
     tnet_ip_t bestsource;
     if ((iRet = tnet_getbestsource("stun.l.google.com", 19302, tnet_socket_type_udp_ipv4, &bestsource))) {
         SC_DEBUG_ERROR("Failed to get best source [%d]", iRet);
         memcpy(bestsource, "0.0.0.0", 7);
     }
 
+	nativeMediaType = _mediaTypeToNative(m_eMediaType);
+
     // Create media session manager
-    m_pSessionMgr = tmedia_session_mgr_create(_mediaTypeToNative(m_eMediaType),
+	m_pSessionMgr = tmedia_session_mgr_create(nativeMediaType,
                     bestsource, tsk_false/*IPv6*/, tsk_true/* offerer */);
     if (!m_pSessionMgr) {
         SC_DEBUG_ERROR("Failed to create media session manager");
@@ -457,6 +524,24 @@ bool SCSessionCall::createSessionMgr()
         SC_DEBUG_ERROR("Failed to set ICE contexts for 'screencast' media type");
         return false;
     }
+
+	tmedia_session_mgr_set(m_pSessionMgr,
+#if 1
+		TMEDIA_SESSION_SET_INT32(nativeMediaType, "fps", m_nVideoFps),
+		TMEDIA_SESSION_SET_INT32(nativeMediaType, "bandwidth-max-upload", m_nVideoBandwidthUploadMax),
+		TMEDIA_SESSION_SET_INT32(nativeMediaType, "bandwidth-max-download", m_nVideoBandwidthDownloadMax),
+#else
+		TMEDIA_SESSION_SET_INT32(nativeMediaType, "srtp-mode", m_eAVPFMode),
+		TMEDIA_SESSION_SET_INT32(nativeMediaType, "avpf-mode", m_eSRTPMode),
+		TMEDIA_SESSION_SET_INT32(nativeMediaType, "rtcp-enabled", nativeRTCPEnabled),
+		TMEDIA_SESSION_SET_INT32(nativeMediaType, "rtcpmux-enabled", nativeRTCPMuxEnabled),
+		TMEDIA_SESSION_SET_STR(nativeMediaType, "dtls-file-ca", nativeSSLCA),
+		TMEDIA_SESSION_SET_STR(nativeMediaType, "dtls-file-pbk", nativeSSLPub),
+		TMEDIA_SESSION_SET_STR(nativeMediaType, "dtls-file-pvk", nativeSSLPriv),
+#endif
+
+		TMEDIA_SESSION_SET_NULL()
+		);
 
     return attachVideoDisplays();
 }

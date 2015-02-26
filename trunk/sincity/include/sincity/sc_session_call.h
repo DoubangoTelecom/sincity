@@ -52,6 +52,10 @@ public:
 
 	virtual bool setMute(bool bMuted, SCMediaType_t eMediaType = SCMediaType_All);
     virtual bool hangup();
+
+	virtual bool setVideoFps(int nFps, SCMediaType_t eMediaType = SCMediaType_Video);
+	virtual bool setVideoBandwidthUploadMax(int nMax, SCMediaType_t eMediaType = (SCMediaType_t)(SCMediaType_Video | SCMediaType_ScreenCast));
+	virtual bool setVideoBandwidthDownloadMax(int nMax, SCMediaType_t eMediaType = (SCMediaType_t)(SCMediaType_Video | SCMediaType_ScreenCast));
 	
     virtual SC_INLINE std::string getCallId() {
         return m_strCallId;    /**< Gets the call identifier */
@@ -113,6 +117,10 @@ private:
     std::string m_strLocalSdpType;
 
 	enum SCIceState_e m_eIceState;
+
+	int m_nVideoBandwidthUploadMax;
+	int m_nVideoBandwidthDownloadMax;
+	int m_nVideoFps;
 };
 
 #endif /* SINCITY_SESSION_CALL_H */
