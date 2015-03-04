@@ -105,6 +105,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sincity", "..\sincity\sinci
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tinyHTTP", "..\tinyHTTP_2013.vcxproj", "{B3E45009-C7C3-4090-837C-2D30C9058443}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7522A458-92F4-4259-B906-E84C2A65D9F1} = {7522A458-92F4-4259-B906-E84C2A65D9F1}
+		{6BC9B796-10C6-4CF7-A6E4-E2DACCDA84DA} = {6BC9B796-10C6-4CF7-A6E4-E2DACCDA84DA}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pluginWinDD", "..\pluginWinDD_2013.vcxproj", "{64DABDF0-D9AB-45BD-A269-002EF6E72E27}"
 	ProjectSection(ProjectDependencies) = postProject
