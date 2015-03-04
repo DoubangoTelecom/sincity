@@ -7,7 +7,7 @@
 SCThread::SCThread(SCNativeThreadHandle_t* phThread)
     : m_phThread(phThread)
 {
-    SC_ASSERT(phThread);
+    SC_ASSERT(phThread != NULL);
 }
 
 SCThread::~SCThread()
