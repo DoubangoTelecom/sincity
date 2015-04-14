@@ -1,10 +1,4 @@
 #if _WIN32_WCE
-// IMPORTANT: OpenSSL was built with "typeof(time_t)==unsigned long" to avoid redefining "time_t" to "uint64_t" (in <stdlib.h> => <crtdefs.h>) we put this #define HERE.
-#ifndef _TIME_T_DEFINED
-typedef unsigned long  time_t;
-#define _TIME_T_DEFINED
-#endif
-
 #include "sc_config.h"
 #include <Winsock2.h> // timeval
 #include <time.h> // struct tm
