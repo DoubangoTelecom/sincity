@@ -118,6 +118,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pluginWinDD", "..\pluginWin
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{1ACF1A56-249F-4BE7-A56D-1ED06D0A6997}"
 	ProjectSection(SolutionItems) = preProject
+		..\config.json = ..\config.json
 		..\SSL_CA.pem = ..\SSL_CA.pem
 		..\SSL_Priv.pem = ..\SSL_Priv.pem
 		..\SSL_Pub.pem = ..\SSL_Pub.pem

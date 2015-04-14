@@ -38,12 +38,6 @@
 //                                                                                         //
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-// IMPORTANT: OpenSSL was built with "typeof(time_t)==unsigned long" to avoid redefining "time_t" to "uint64_t" (in <stdlib.h> => <crtdefs.h>) we put this #define HERE.
-#ifndef _TIME_T_DEFINED
-typedef unsigned long  time_t;
-#define _TIME_T_DEFINED
-#endif
-
 #include <windows.h>
 #include <time.h>
 
@@ -146,7 +140,7 @@ static int calcDayOfWeek(const struct tm* nTM)
 
 struct tm * gmtime(const time_t *timer)
 {
-    unsigned long x = *timer;
+    unsigned long x = (unsigned long)*timer;
     int imin, ihrs, iday, iyrs;
     int sec, min, hrs, day, mon, yrs;
     int lday, qday, jday, mday;
