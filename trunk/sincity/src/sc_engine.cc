@@ -7,7 +7,9 @@
 #include "tinynet.h"
 
 #include "tinydav/tdav.h"
+#if !defined(HAVE_TINYBFCP) || HAVE_TINYBFCP
 #include "tinydav/bfcp/tdav_session_bfcp.h"
+#endif
 #include "tinymedia.h"
 
 #include <assert.h>
@@ -104,7 +106,9 @@ bool SCEngine::init(std::string strCredUserId, std::string strCredPassword /*= "
         SC_ASSERT(tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_opus, 3) == 0);
 
         // Do not use BFCP signaling: Chrome will reject SDP with "m=application 56906 UDP/BFCP *\r\n"
+#if !defined(HAVE_TINYBFCP) || HAVE_TINYBFCP
         tmedia_session_plugin_unregister(tdav_session_bfcp_plugin_def_t);
+#endif
 
         // Register fake display (Video consumer)
         SC_ASSERT(tmedia_consumer_plugin_register(sc_display_fake_plugin_def_t) == 0);
