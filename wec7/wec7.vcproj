@@ -65,7 +65,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions=" /subsystem:windowsce,7.00"
-				AdditionalDependencies="ws2.lib iphlpapi.lib mmtimer.lib libeay32.lib ssleay32.lib libyuv.lib libvpx.lib libsrtp.lib tinySAK.lib tinyNET.lib tinySDP.lib tinyMEDIA.lib tinyDAV.lib tinyRTP.lib tinyBFCP.lib tinyMSRP.lib tinyHTTP.lib"
+				AdditionalDependencies="ws2.lib iphlpapi.lib mmtimer.lib libeay32.lib ssleay32.lib libyuv.lib libvpx.lib libsrtp.lib tinySAK.lib tinyNET.lib tinySDP.lib tinyMEDIA.lib tinyDAV.lib tinyRTP.lib tinyHTTP.lib"
 				OutputFile="$(OutDir)/wec7.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="..\thirdparties\wince\lib\x86;&quot;$(OutDir)&quot;"
@@ -156,7 +156,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions=" /subsystem:windowsce,7.00"
-				AdditionalDependencies="ws2.lib iphlpapi.lib mmtimer.lib libeay32.lib ssleay32.lib libyuv.lib libvpx.lib libsrtp.lib tinySAK.lib tinyNET.lib tinySDP.lib tinyMEDIA.lib tinyDAV.lib tinyRTP.lib tinyBFCP.lib tinyMSRP.lib tinyHTTP.lib"
+				AdditionalDependencies="ws2.lib iphlpapi.lib mmtimer.lib libeay32.lib ssleay32.lib libyuv.lib libvpx.lib libsrtp.lib tinySAK.lib tinyNET.lib tinySDP.lib tinyMEDIA.lib tinyDAV.lib tinyRTP.lib tinyHTTP.lib"
 				OutputFile="$(OutDir)/wec7.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="..\thirdparties\wince\lib\x86;&quot;$(OutDir)&quot;"
