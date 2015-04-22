@@ -187,7 +187,7 @@ bool SCSignaling::sendData(const void* _pcData, tsk_size_t _nDataSize)
         return false;
     }
 
-    SC_DEBUG_INFO_EX(kSCMobuleNameSignaling, "Send DATA:%.*s", _nDataSize, _pcData);
+    SC_DEBUG_INFO_EX(kSCMobuleNameSignaling, "Send DATA:%.*s", (int)_nDataSize, _pcData);
 
     if (m_oConnectionUrl->getType() == SCUrlType_WS || m_oConnectionUrl->getType() == SCUrlType_WSS) {
         if (!m_bWsHandshakingDone) {
@@ -331,7 +331,7 @@ bool SCSignaling::handleData(const char* pcData, tsk_size_t nDataSize)
     // Parse JSON content
     bool parsingSuccessful = reader.parse((const char*)pcData, (((const char*)pcData) + nDataSize), root);
     if (!parsingSuccessful) {
-        SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "Failed to parse JSON content: %.*s", nDataSize, pcData);
+        SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "Failed to parse JSON content: %.*s", (int)nDataSize, pcData);
         return false;
     }
 
@@ -420,7 +420,7 @@ bool SCSignalingTransportCallback::onData(SCObjWrapper<SCNetPeer*> oPeer, size_t
 {
     SCAutoLock<SCSignaling> autoLock(const_cast<SCSignaling*>(m_pcSCSignaling));
 
-    SC_DEBUG_INFO_EX(kSCMobuleNameSignaling, "Incoming data = %.*s", oPeer->getDataSize(), (const char*)oPeer->getDataPtr());
+    SC_DEBUG_INFO_EX(kSCMobuleNameSignaling, "Incoming data = %.*s", (int)oPeer->getDataSize(), (const char*)oPeer->getDataPtr());
 
     if (m_pcSCSignaling->m_oConnectionUrl->getType() != SCUrlType_WS && m_pcSCSignaling->m_oConnectionUrl->getType() != SCUrlType_WSS) {
         SC_DEBUG_ERROR_EX(kSCMobuleNameSignaling, "Not implemented yet");

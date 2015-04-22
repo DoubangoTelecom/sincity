@@ -506,7 +506,7 @@ _again:
 60
 /* #line 100 "./ragel/sc_parser_url.rl" */
  ){
-		SC_DEBUG_ERROR("Failed to parse URL: '%.*s'", length, urlstring);
+		SC_DEBUG_ERROR("Failed to parse URL: '%.*s'", (int)length, urlstring);
 		goto bail;
 	}
 	else if (!have_port) {

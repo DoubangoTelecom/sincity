@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D14B62EB-CCA7-4F3F-88D8-A819BB694C4A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SincityFramework</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>b18612d0-90cb-4bf1-83a1-451a698ad5fb++505</key>
+		<string>https://sincity.googlecode.com/svn/trunk</string>
+		<key>c7b0ae48-b0eb-11de-8bdf-3374eb5c7316++3272</key>
+		<string>https://doubango.googlecode.com/svn/branches/2.0/doubango</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iOS/SincityFramework/SincityFramework.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>b18612d0-90cb-4bf1-83a1-451a698ad5fb++505</key>
+		<string>../../../..</string>
+		<key>c7b0ae48-b0eb-11de-8bdf-3374eb5c7316++3272</key>
+		<string>../../../../../doubango</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>b18612d0-90cb-4bf1-83a1-451a698ad5fb++505</key>
+		<string>https://sincity.googlecode.com/svn</string>
+		<key>c7b0ae48-b0eb-11de-8bdf-3374eb5c7316++3272</key>
+		<string>https://doubango.googlecode.com/svn</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://sincity.googlecode.com/svn/trunk/iOS/SincityFramework/SincityFramework.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>b18612d0-90cb-4bf1-83a1-451a698ad5fb++505</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>c7b0ae48-b0eb-11de-8bdf-3374eb5c7316++3272</string>
+			<key>IDESourceControlWCCName</key>
+			<string>doubango</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>b18612d0-90cb-4bf1-83a1-451a698ad5fb++505</string>
+			<key>IDESourceControlWCCName</key>
+			<string>sincity</string>
+		</dict>
+	</array>
+</dict>
+</plist>

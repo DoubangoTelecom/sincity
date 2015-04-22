@@ -25,6 +25,7 @@ static int sc_display_fake_set(tmedia_consumer_t *self, const tmedia_param_t* pa
 {
     int ret = 0;
     sc_display_fake_t* p_display = (sc_display_fake_t*)self;
+    (p_display);
 
     if (!self || !param) {
         TSK_DEBUG_ERROR("Invalid parameter");
@@ -52,7 +53,7 @@ static int sc_display_fake_prepare(tmedia_consumer_t* self, const tmedia_codec_t
 
     SC_DEBUG_INFO_EX(kSCMobuleNameFakeDisplay, "prepare");
 
-    if (!p_display || !codec && codec->plugin) {
+    if (!p_display || !codec || !codec->plugin) {
         SC_DEBUG_ERROR_EX(kSCMobuleNameFakeDisplay, "Invalid parameter");
         return -1;
     }
@@ -116,7 +117,7 @@ static int sc_display_fake_consume(tmedia_consumer_t* self, const void* buffer, 
     SC_DEBUG_INFO_EX(kSCMobuleNameFakeDisplay, "consume");
     if (p_display && buffer && size) {
         tsk_safeobj_lock(p_display);
-        SC_DEBUG_INFO_EX(kSCMobuleNameFakeDisplay, "Skipping video buffer: %ux%u", TMEDIA_CONSUMER(p_display)->video.display.width, TMEDIA_CONSUMER(p_display)->video.display.height);
+        SC_DEBUG_INFO_EX(kSCMobuleNameFakeDisplay, "Skipping video buffer: %ux%u", (unsigned)TMEDIA_CONSUMER(p_display)->video.display.width, (unsigned)TMEDIA_CONSUMER(p_display)->video.display.height);
         tsk_safeobj_unlock(p_display);
         return 0;
     }
