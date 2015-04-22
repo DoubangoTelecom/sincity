@@ -182,7 +182,7 @@ SCWsTransportCallback::~SCWsTransportCallback()
 
 bool SCWsTransportCallback::onData(SCObjWrapper<SCNetPeer*> oPeer, size_t &nConsumedBytes)
 {
-    SC_DEBUG_INFO_EX(kSCMobuleNameWsTransport, "Incoming data = %.*s", oPeer->getDataSize(), (const char*)oPeer->getDataPtr());
+    SC_DEBUG_INFO_EX(kSCMobuleNameWsTransport, "Incoming data = %.*s", (int)oPeer->getDataSize(), (const char*)oPeer->getDataPtr());
     SC_DEBUG_ERROR_EX(kSCMobuleNameWsTransport, "Not implemented");
     return false;
 }
@@ -220,7 +220,9 @@ static SC_INLINE bool isContentType(const thttp_message_t *pcHttpMessage, const 
     return false;
 }
 
+#if 0
 static SC_INLINE bool isJsonContentType(const thttp_message_t *pcHttpMessage)
 {
     return isContentType(pcHttpMessage, kJsonContentType);
 }
+#endif

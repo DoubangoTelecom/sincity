@@ -280,7 +280,7 @@ int SCNetTransport::SCNetTransportCb_Stream(const tnet_transport_event_t* e)
 
         size_t nConsumedBytes = oPeer->getDataSize();
         if ((nConsumedBytes + e->size) > kSCMaxStreamBufferSize) {
-            SC_DEBUG_ERROR_EX(kSCMobuleNameNetTransport, "Stream buffer too large[%u > %u]. Did you forget to consume the bytes?", (nConsumedBytes + e->size), kSCMaxStreamBufferSize);
+            SC_DEBUG_ERROR_EX(kSCMobuleNameNetTransport, "Stream buffer too large[%u > %u]. Did you forget to consume the bytes?", (unsigned)(nConsumedBytes + e->size), (unsigned)kSCMaxStreamBufferSize);
             dynamic_cast<SCNetPeerStream*>(*oPeer)->cleanupData();
         }
         else {

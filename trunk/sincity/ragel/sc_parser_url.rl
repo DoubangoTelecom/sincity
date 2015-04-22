@@ -98,7 +98,7 @@ SCObjWrapper<SCUrl*> sc_url_parse(const char *urlstring, tsk_size_t length)
 	TSK_RAGEL_DISABLE_WARNINGS_END()
 	
 	if ( cs < %%{ write first_final; }%% ){
-		SC_DEBUG_ERROR("Failed to parse URL: '%.*s'", length, urlstring);
+		SC_DEBUG_ERROR("Failed to parse URL: '%.*s'", (int)length, urlstring);
 		goto bail;
 	}
 	else if (!have_port) {

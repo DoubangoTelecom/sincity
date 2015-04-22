@@ -211,7 +211,6 @@ bool SCSessionCall::acceptEvent(SCObjWrapper<SCSignalingCallEvent*>& e)
     tsdp_message_t* pSdp_ro = NULL;
 
     if (e->getType() == "offer" || e->getType() == "answer" || e->getType() == "pranswer") {
-        int iRet = 0;
         tmedia_ro_type_t ro_type;
         SCMediaType_t newMediaType;
 
@@ -670,10 +669,6 @@ bool SCSessionCall::iceCreateCtxAll()
 {
     SCAutoLock<SCSessionCall> autoLock(this);
 
-    static tsk_bool_t __use_ice_jingle = tsk_false;
-    static tsk_bool_t __use_ipv6 = tsk_false;
-    static tsk_bool_t __use_ice_rtcp = tsk_true;
-
     const char* stun_server_ip = "stun.l.google.com";
     uint16_t stun_server_port = 19302;
     const char* stun_usr_name = tsk_null;
@@ -999,6 +994,7 @@ int SCSessionCall::iceCallback(const struct tnet_ice_event_s *e)
 		}
         break;
     }
+    default: break;
     }
 
     return ret;
