@@ -2,11 +2,11 @@
 /* #line 1 "./ragel/sc_parser_url.rl" */
 #include "sincity/sc_parser_url.h"
 #include "sincity/sc_url.h"
+#include "sincity/sc_debug.h"
 
 #include "tsk_ragel_state.h"
 #include "tsk_string.h"
 #include "tsk_memory.h"
-#include "tsk_debug.h"
 
 
 /* #line 63 "./ragel/sc_parser_url.rl" */

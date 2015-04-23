@@ -1,5 +1,6 @@
 #include "sincity/sc_nettransport_ws.h"
 #include "sincity/sc_engine.h"
+#include "sincity/sc_debug.h"
 #include "sincity/jsoncpp/sc_json.h"
 
 #include "tsk_string.h"

@@ -1,4 +1,5 @@
 #include "sincity/sc_nettransport.h"
+#include "sincity/sc_debug.h"
 
 #include "tnet_transport.h"
 

@@ -1,6 +1,7 @@
 #include "sincity/sc_session_call.h"
 #include "sincity/sc_engine.h"
 #include "sincity/sc_utils.h"
+#include "sincity/sc_debug.h"
 #include "sincity/jsoncpp/sc_json.h"
 
 #include "tinymedia.h"

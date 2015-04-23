@@ -141,13 +141,13 @@ public:
     bool isConnected();
     bool isReady();
     bool connect();
-    bool sendData(const void* pcData, tsk_size_t nDataSize);
+    bool sendData(const void* pcData, size_t nDataSize);
     bool disConnect();
 
     static SCObjWrapper<SCSignaling*> newObj(const char* pcConnectionUri, const char* pcLocalIP = NULL, unsigned short nLocalPort = 0);
 
 private:
-    bool handleData(const char* pcData, tsk_size_t nDataSize);
+    bool handleData(const char* pcData, size_t nDataSize);
     bool raiseEvent(SCSignalingEventType_t eType, std::string strDescription, const void* pcDataPtr = NULL, size_t nDataSize = 0);
 
     void lock();
@@ -161,7 +161,7 @@ private:
     SCNetFd m_Fd;
     bool m_bWsHandshakingDone;
     void* m_pWsSendBufPtr;
-    tsk_size_t m_nWsSendBuffSize;
+    size_t m_nWsSendBuffSize;
     SCObjWrapper<SCMutex*> m_oMutex;
 };
 

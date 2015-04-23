@@ -1,12 +1,12 @@
 #include "sincity/sc_display_fake.h"
 #include "sincity/sc_utils.h"
 #include "sincity/sc_common.h"
+#include "sincity/sc_debug.h"
 
 #include "tinymedia/tmedia_consumer.h"
 
 #include "tsk_string.h"
 #include "tsk_safeobj.h"
-#include "tsk_debug.h"
 
 typedef struct sc_display_fake_s {
     TMEDIA_DECLARE_CONSUMER;
@@ -28,7 +28,7 @@ static int sc_display_fake_set(tmedia_consumer_t *self, const tmedia_param_t* pa
     (p_display);
 
     if (!self || !param) {
-        TSK_DEBUG_ERROR("Invalid parameter");
+        SC_DEBUG_ERROR("Invalid parameter");
         return -1;
     }
 
@@ -131,7 +131,7 @@ static int sc_display_fake_pause(tmedia_consumer_t* self)
     SC_DEBUG_INFO_EX(kSCMobuleNameFakeDisplay, "pause");
 
     if (!p_display) {
-        TSK_DEBUG_ERROR("Invalid parameter");
+        SC_DEBUG_ERROR("Invalid parameter");
         return -1;
     }
 
@@ -150,7 +150,7 @@ static int sc_display_fake_stop(tmedia_consumer_t* self)
     SC_DEBUG_INFO_EX(kSCMobuleNameFakeDisplay, "stop");
 
     if (!p_display) {
-        TSK_DEBUG_ERROR("Invalid parameter");
+        SC_DEBUG_ERROR("Invalid parameter");
         return -1;
     }
 

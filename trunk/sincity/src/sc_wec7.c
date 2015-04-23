@@ -1,5 +1,6 @@
 #if _WIN32_WCE
 #include "sc_config.h"
+#include "sincity/sc_debug.h"
 #include <Winsock2.h> // timeval
 #include <time.h> // struct tm
 #include "tsk_time.h" // tsk_gettimeofday

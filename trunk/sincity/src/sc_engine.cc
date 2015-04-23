@@ -1,8 +1,7 @@
 #include "sincity/sc_engine.h"
 #include "sincity/sc_utils.h"
 #include "sincity/sc_display_fake.h"
-
-#include "tsk_debug.h"
+#include "sincity/sc_debug.h"
 
 #include "tinynet.h"
 

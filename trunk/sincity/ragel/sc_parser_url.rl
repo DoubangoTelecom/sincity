@@ -1,10 +1,10 @@
 #include "sincity/sc_parser_url.h"
 #include "sincity/sc_url.h"
+#include "sincity/sc_debug.h"
 
 #include "tsk_ragel_state.h"
 #include "tsk_string.h"
 #include "tsk_memory.h"
-#include "tsk_debug.h"
 
 %%{
 	machine sc_machine_parser_url;
@@ -62,7 +62,7 @@
 	
 }%%
 
-SCObjWrapper<SCUrl*> sc_url_parse(const char *urlstring, tsk_size_t length)
+SCObjWrapper<SCUrl*> sc_url_parse(const char *urlstring, size_t length)
 {
 	SCObjWrapper<SCUrl*> oUrl;
 	tsk_bool_t have_port = tsk_false;

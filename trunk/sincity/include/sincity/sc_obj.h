@@ -2,6 +2,7 @@
 #define SINCITY_OBJECT_H
 
 #include "sc_config.h"
+#include "sincity/sc_debug.h"
 
 #define SCObjSafeRelease(pObject)	(pObject) = NULL
 #define SCObjSafeFree				SCObjSafeRelease

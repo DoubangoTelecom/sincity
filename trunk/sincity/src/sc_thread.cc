@@ -1,4 +1,5 @@
 #include "sincity/sc_thread.h"
+#include "sincity/sc_debug.h"
 
 #include "tsk_thread.h"
 

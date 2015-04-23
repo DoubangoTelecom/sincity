@@ -122,6 +122,9 @@
     <ClInclude Include="include\sincity\jsoncpp\sc_json.h">
       <Filter>include\sincity\jsoncpp</Filter>
     </ClInclude>
+    <ClInclude Include="include\sincity\sc_debug.h">
+      <Filter>include\sincity</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ragel\sc_machine_utils.rl">
