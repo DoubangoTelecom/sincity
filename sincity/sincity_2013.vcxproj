@@ -159,6 +159,7 @@
     <ClInclude Include="include\sincity\jsoncpp\sc_json.h" />
     <ClInclude Include="include\sincity\sc_api.h" />
     <ClInclude Include="include\sincity\sc_common.h" />
+    <ClInclude Include="include\sincity\sc_debug.h" />
     <ClInclude Include="include\sincity\sc_display_fake.h" />
     <ClInclude Include="include\sincity\sc_engine.h" />
     <ClInclude Include="include\sincity\sc_mutex.h" />

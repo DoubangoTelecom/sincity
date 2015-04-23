@@ -89,7 +89,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../sincity/include;..\..\doubango\thirdparties\win32\include;..\..\doubango\thirdparties\common\include;..\..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../sincity/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;TINYSAK_IMPORTS_IGNORE;TINYHTTP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;TINYDAV_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -118,7 +118,7 @@ xcopy /Y $(SolutionDir)..\SSL_CA.pem $(OutDir)</Command>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>../sincity/include;..\..\doubango\thirdparties\win32\include;..\..\doubango\thirdparties\common\include;..\..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../sincity/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;TINYSAK_IMPORTS_IGNORE;TINYHTTP_IMPORTS_IGNORE;TINYNET_IMPORTS_IGNORE;TINYMEDIA_IMPORTS_IGNORE;TINYDAV_IMPORTS_IGNORE;TINYSDP_IMPORTS_IGNORE;TINYIPSEC_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -149,7 +149,7 @@ xcopy /Y $(SolutionDir)..\SSL_CA.pem $(OutDir)</Command>
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>../sincity/include;..\..\doubango\thirdparties\win32\include;..\..\doubango\thirdparties\common\include;..\..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../sincity/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -180,7 +180,7 @@ xcopy /Y $(SolutionDir)..\SSL_CA.pem $(OutDir)</Command>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>../sincity/include;..\..\doubango\thirdparties\win32\include;..\..\doubango\thirdparties\common\include;..\..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../sincity/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>

@@ -2,6 +2,7 @@
 #include "sincity/sc_nettransport_ws.h"
 #include "sincity/sc_engine.h"
 #include "sincity/sc_parser_url.h"
+#include "sincity/sc_debug.h"
 #include "sincity/jsoncpp/sc_json.h"
 
 #include "tinyhttp.h"
@@ -173,7 +174,7 @@ bool SCSignaling::disConnect()
 * @param _nDataSize Size (in bytes) of the data to send.
 * @retval <b>true</b> if no error; otherwise <b>false</b>.
 */
-bool SCSignaling::sendData(const void* _pcData, tsk_size_t _nDataSize)
+bool SCSignaling::sendData(const void* _pcData, size_t _nDataSize)
 {
     SCAutoLock<SCSignaling> autoLock(this);
 
@@ -321,7 +322,7 @@ bail:
 * @param nDataSize
 * @retval <b>true</b> if no error; otherwise <b>false</b>.
 */
-bool SCSignaling::handleData(const char* pcData, tsk_size_t nDataSize)
+bool SCSignaling::handleData(const char* pcData, size_t nDataSize)
 {
     SCAutoLock<SCSignaling> autoLock(this);
 

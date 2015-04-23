@@ -5,7 +5,7 @@
 #include "sincity/sc_common.h"
 #include "sincity/sc_url.h"
 
-SCObjWrapper<SCUrl*> sc_url_parse(const char *urlstring, tsk_size_t length);
+SCObjWrapper<SCUrl*> sc_url_parse(const char *urlstring, size_t length);
 
 
 #endif /* SINCITY_PARSER_URL_H */

@@ -58,16 +58,6 @@
 #	define SC_DEPRECATED(func) func
 #endif
 
-#include "tsk_debug.h"
-#define SC_DEBUG_INFO(FMT, ...) TSK_DEBUG_INFO("[SINCITY] " FMT, ##__VA_ARGS__)
-#define SC_DEBUG_WARN(FMT, ...) TSK_DEBUG_WARN("[SINCITY] " FMT, ##__VA_ARGS__)
-#define SC_DEBUG_ERROR(FMT, ...) TSK_DEBUG_ERROR("[SINCITY] " FMT, ##__VA_ARGS__)
-#define SC_DEBUG_FATAL(FMT, ...) TSK_DEBUG_FATAL("[SINCITY] " FMT, ##__VA_ARGS__)
-
-#define SC_DEBUG_INFO_EX(MODULE, FMT, ...) SC_DEBUG_INFO("[" MODULE "] " FMT, ##__VA_ARGS__)
-#define SC_DEBUG_WARN_EX(MODULE, FMT, ...) SC_DEBUG_WARN("[" MODULE "] " FMT, ##__VA_ARGS__)
-#define SC_DEBUG_ERROR_EX(MODULE, FMT, ...) SC_DEBUG_ERROR("[" MODULE "] " FMT, ##__VA_ARGS__)
-#define SC_DEBUG_FATAL_EX(MODULE, FMT, ...) SC_DEBUG_FATAL("[" MODULE "] " FMT, ##__VA_ARGS__)
 
 #if SC_UNDER_WINDOWS
 #	define _WINSOCKAPI_
@@ -77,6 +67,11 @@
 #endif
 
 #include <stdlib.h>
+#include <string.h>
+#include <stdint.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <stdio.h>
 
 #if HAVE_CONFIG_H
 #include <config.h>
