@@ -48,6 +48,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pluginDirectShow", "..\plug
 		{6BC9B796-10C6-4CF7-A6E4-E2DACCDA84DA} = {6BC9B796-10C6-4CF7-A6E4-E2DACCDA84DA}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cpu", "cpu\cpu.vcproj", "{FF3E2CA5-013D-4A53-BB8B-B643A8799630}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|GE vPC WEC7 SDK (x86) = Debug|GE vPC WEC7 SDK (x86)
@@ -98,6 +100,12 @@ Global
 		{6A69773C-0C70-4BD4-8362-C274CAFD58F2}.Release|GE vPC WEC7 SDK (x86).ActiveCfg = Release|GE vPC WEC7 SDK (x86)
 		{6A69773C-0C70-4BD4-8362-C274CAFD58F2}.Release|GE vPC WEC7 SDK (x86).Build.0 = Release|GE vPC WEC7 SDK (x86)
 		{6A69773C-0C70-4BD4-8362-C274CAFD58F2}.Release|GE vPC WEC7 SDK (x86).Deploy.0 = Release|GE vPC WEC7 SDK (x86)
+		{FF3E2CA5-013D-4A53-BB8B-B643A8799630}.Debug|GE vPC WEC7 SDK (x86).ActiveCfg = Debug|GE vPC WEC7 SDK (x86)
+		{FF3E2CA5-013D-4A53-BB8B-B643A8799630}.Debug|GE vPC WEC7 SDK (x86).Build.0 = Debug|GE vPC WEC7 SDK (x86)
+		{FF3E2CA5-013D-4A53-BB8B-B643A8799630}.Debug|GE vPC WEC7 SDK (x86).Deploy.0 = Debug|GE vPC WEC7 SDK (x86)
+		{FF3E2CA5-013D-4A53-BB8B-B643A8799630}.Release|GE vPC WEC7 SDK (x86).ActiveCfg = Release|GE vPC WEC7 SDK (x86)
+		{FF3E2CA5-013D-4A53-BB8B-B643A8799630}.Release|GE vPC WEC7 SDK (x86).Build.0 = Release|GE vPC WEC7 SDK (x86)
+		{FF3E2CA5-013D-4A53-BB8B-B643A8799630}.Release|GE vPC WEC7 SDK (x86).Deploy.0 = Release|GE vPC WEC7 SDK (x86)
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
