@@ -193,17 +193,7 @@ int main(int argc, char* argv[])
     SC_ASSERT(SCEngine::init(jsonConfig["local_id"].asCString()));
     SC_ASSERT(SCEngine::setDebugLevel(jsonConfig["debug_level"].isNumeric() ? (SCDebugLevel_t)jsonConfig["debug_level"].asInt() : SCDebugLevel_Info));
 
-    static const char* __entries[] = {
-        "debug_level",
-        "ssl_file_pub", "ssl_file_priv", "ssl_file_ca", "connection_url", "local_id", "remote_id",
-        "video_pref_size", "video_fps", "video_bandwidth_up_max", "video_bandwidth_down_max", "video_motion_rank", "video_congestion_ctrl_enabled",
-        "video_jb_enabled", "video_zeroartifacts_enabled", "video_avpf_tail",
-        "audio_echo_supp_enabled", "audio_echo_tail",
-        "natt_ice_servers", "natt_ice_stun_enabled", "natt_ice_turn_enabled"
-    };
-    for (size_t i = 0; i < sizeof(__entries)/sizeof(__entries[0]); ++i) {
-        SC_DEBUG_INFO_EX("CONFIG", "%s: %s", __entries[i], jsonConfig[__entries[i]].toStyledString().c_str());
-    }
+	SC_DEBUG_INFO("Config = %s", jsonConfig.toStyledString().c_str());
 
     SC_ASSERT(SCEngine::setSSLCertificates(
                   jsonConfig["ssl_file_pub"].isString() ? jsonConfig["ssl_file_pub"].asCString() : "SSL_Pub.pem",
