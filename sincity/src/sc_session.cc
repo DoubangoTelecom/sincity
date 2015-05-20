@@ -17,3 +17,14 @@ SCSession::~SCSession()
 {
 
 }
+
+/**@ingroup _Group_CPP_Session
+ * Sends data to the server.
+ * @param _pcData Pointer to the data to send.
+ * @param _nDataSize Size (in bytes) of the data to send.
+ * @retval <b>true</b> if no error; otherwise <b>false</b>.
+ */
+bool SCSession::sendData(const void* pcData, size_t nDataSize)
+{
+    return m_oSignaling->sendData(pcData, nDataSize);
+}

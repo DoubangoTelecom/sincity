@@ -23,6 +23,21 @@
 #else
 #	define SC_STDCALL
 #endif
+// OS X or iOS
+#if defined(__APPLE__)
+#	define SC_UNDER_APPLE				1
+#   include <TargetConditionals.h>
+#endif
+#if TARGET_OS_MAC
+#	define SC_UNDER_MAC                 1
+#endif
+#if TARGET_OS_IPHONE
+#	define SC_UNDER_IPHONE              1
+#endif
+#if TARGET_IPHONE_SIMULATOR
+#	define SC_UNDER_IPHONE_SIMULATOR	1
+#endif
+
 // Disable some well-known warnings
 #ifdef _MSC_VER
 #if !defined(_CRT_SECURE_NO_WARNINGS)

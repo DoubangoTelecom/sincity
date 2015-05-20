@@ -25,7 +25,7 @@ static int sc_display_fake_set(tmedia_consumer_t *self, const tmedia_param_t* pa
 {
     int ret = 0;
     sc_display_fake_t* p_display = (sc_display_fake_t*)self;
-    (p_display);
+    (void)(p_display);
 
     if (!self || !param) {
         SC_DEBUG_ERROR("Invalid parameter");

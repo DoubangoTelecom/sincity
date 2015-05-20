@@ -160,10 +160,11 @@ static bool SC_INLINE SCNetTransporType_isStream(SCNetTransporType_t eType)
 #define kSCMobuleNameWsTransport "WebSocketTransport"
 #define kSCMobuleNameSignaling "Signaling"
 #define kSCMobuleNameFakeDisplay "Fake display"
+#define kSCMobuleNameOSXDisplay "OSX/iOS display"
 #define kSCMobuleNameWEC7 "WEC7"
 
 
-template <typename T>
+template <typename T >
 class SCAutoLock
 {
 public:

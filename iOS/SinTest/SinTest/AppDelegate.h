@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "sincity/sc_api_objc.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@class ViewController;
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+    ViewController* viewController;
+}
++(AppDelegate*)sharedInstance;
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (readonly) NSObject<SCObjcConfig>* config;
 
 @end
 
