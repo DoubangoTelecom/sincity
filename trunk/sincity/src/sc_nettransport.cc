@@ -195,7 +195,17 @@ bool SCNetTransport::sendData(SCObjWrapper<SCNetPeer*> oPeer, const void* pcData
 
 bool SCNetTransport::close(SCNetFd nFd)
 {
-    return (tnet_transport_remove_socket(m_pWrappedTransport, &nFd) == 0);
+    SCNetFd _nFd = nFd;
+    bool ret = (tnet_transport_remove_socket(m_pWrappedTransport, &nFd) == 0);
+#if SC_UNDER_IPHONE || SC_UNDER_IPHONE_SIMULATOR // FIXME: hack, on iOS no callback from Doubango network layer when socket is closed
+    if(SCNetFd_IsValid(_nFd) && !SCNetFd_IsValid(nFd)) {
+#if !defined(TSK_DEBUG_WARN)
+#   define TSK_DEBUG_WARN SC_DEBUG_WARN
+#endif
+        TSK_RUNNABLE_ENQUEUE(m_pWrappedTransport, event_removed, ((tnet_transport_t*)m_pWrappedTransport)->callback_data, _nFd);
+    }
+#endif
+    return ret;
 }
 
 bool SCNetTransport::stop()

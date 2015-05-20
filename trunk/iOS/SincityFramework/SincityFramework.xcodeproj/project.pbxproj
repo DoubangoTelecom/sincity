@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15106DEF1AFC4CDD00F18916 /* sc_annotation_circle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15106DEE1AFC4CDD00F18916 /* sc_annotation_circle.mm */; };
+		15106DF41AFD7BDF00F18916 /* sc_annotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15106DF31AFD7BDF00F18916 /* sc_annotation.mm */; };
+		15106DF91B01771600F18916 /* sc_annotation_freehand.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15106DF81B01771600F18916 /* sc_annotation_freehand.mm */; };
+		15106E021B02D28C00F18916 /* sc_annotation_arrow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15106E001B02D28C00F18916 /* sc_annotation_arrow.mm */; };
+		15106E031B02D28C00F18916 /* sc_annotation_text.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15106E011B02D28C00F18916 /* sc_annotation_text.mm */; };
 		15B158831AE83E5B0013651B /* trtp_rtcp_header.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B158651AE83E5B0013651B /* trtp_rtcp_header.c */; };
 		15B158841AE83E5B0013651B /* trtp_rtcp_packet.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B158661AE83E5B0013651B /* trtp_rtcp_packet.c */; };
 		15B158851AE83E5B0013651B /* trtp_rtcp_rblock.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B158671AE83E5B0013651B /* trtp_rtcp_rblock.c */; };
@@ -170,6 +175,7 @@
 		15B15B171AE84C660013651B /* SSL_CA.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 15B15B131AE84C050013651B /* SSL_CA.pem */; };
 		15B15B181AE84C660013651B /* SSL_Priv.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 15B15B141AE84C050013651B /* SSL_Priv.pem */; };
 		15B15B191AE84C660013651B /* SSL_Pub.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 15B15B151AE84C050013651B /* SSL_Pub.pem */; };
+		15B15B481AEB17E40013651B /* sc_api_objc.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15B15B471AEB17E40013651B /* sc_api_objc.mm */; };
 		15B7454A1AE82C2C0001E1C7 /* tsk.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B744E51AE82C2C0001E1C7 /* tsk.c */; };
 		15B7454B1AE82C2C0001E1C7 /* tsk_base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B744E71AE82C2C0001E1C7 /* tsk_base64.c */; };
 		15B7454C1AE82C2C0001E1C7 /* tsk_binaryutils.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B744E91AE82C2C0001E1C7 /* tsk_binaryutils.c */; };
@@ -275,6 +281,8 @@
 		15B746B71AE83AFF0001E1C7 /* tsdp_parser_message.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B746921AE83AFF0001E1C7 /* tsdp_parser_message.c */; };
 		15B746B81AE83AFF0001E1C7 /* tsdp.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B746931AE83AFF0001E1C7 /* tsdp.c */; };
 		15B746B91AE83AFF0001E1C7 /* tsdp_message.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B746941AE83AFF0001E1C7 /* tsdp_message.c */; };
+		15E343D91AF31517007C24C3 /* sc_display_osx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15E343D71AF31517007C24C3 /* sc_display_osx.mm */; };
+		15E343DA1AF31517007C24C3 /* sc_glview_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15E343D81AF31517007C24C3 /* sc_glview_ios.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -294,6 +302,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		15106DEB1AFC4BEB00F18916 /* sc_annotation_circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_annotation_circle.h; sourceTree = "<group>"; };
+		15106DEE1AFC4CDD00F18916 /* sc_annotation_circle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_annotation_circle.mm; sourceTree = "<group>"; };
+		15106DF01AFD7B9200F18916 /* sc_annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_annotation.h; sourceTree = "<group>"; };
+		15106DF31AFD7BDF00F18916 /* sc_annotation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_annotation.mm; sourceTree = "<group>"; };
+		15106DF51B01766A00F18916 /* sc_annotation_freehand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_annotation_freehand.h; sourceTree = "<group>"; };
+		15106DF81B01771600F18916 /* sc_annotation_freehand.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_annotation_freehand.mm; sourceTree = "<group>"; };
+		15106DFA1B02D20B00F18916 /* sc_annotation_text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_annotation_text.h; sourceTree = "<group>"; };
+		15106DFD1B02D25900F18916 /* sc_annotation_arrow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_annotation_arrow.h; sourceTree = "<group>"; };
+		15106E001B02D28C00F18916 /* sc_annotation_arrow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_annotation_arrow.mm; sourceTree = "<group>"; };
+		15106E011B02D28C00F18916 /* sc_annotation_text.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_annotation_text.mm; sourceTree = "<group>"; };
 		15B1584B1AE83E5B0013651B /* trtp_rtcp_header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trtp_rtcp_header.h; sourceTree = "<group>"; };
 		15B1584C1AE83E5B0013651B /* trtp_rtcp_packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trtp_rtcp_packet.h; sourceTree = "<group>"; };
 		15B1584D1AE83E5B0013651B /* trtp_rtcp_rblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trtp_rtcp_rblock.h; sourceTree = "<group>"; };
@@ -615,7 +633,7 @@
 		15B15AF81AE84BC40013651B /* sc_obj.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sc_obj.cc; sourceTree = "<group>"; };
 		15B15AF91AE84BC40013651B /* sc_parser_url.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sc_parser_url.cc; sourceTree = "<group>"; };
 		15B15AFA1AE84BC40013651B /* sc_session.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sc_session.cc; sourceTree = "<group>"; };
-		15B15AFB1AE84BC40013651B /* sc_session_call.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sc_session_call.cc; sourceTree = "<group>"; };
+		15B15AFB1AE84BC40013651B /* sc_session_call.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = sc_session_call.cc; sourceTree = "<group>"; };
 		15B15AFC1AE84BC40013651B /* sc_signaling.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sc_signaling.cc; sourceTree = "<group>"; };
 		15B15AFD1AE84BC40013651B /* sc_thread.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sc_thread.cc; sourceTree = "<group>"; };
 		15B15AFE1AE84BC40013651B /* sc_url.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sc_url.cc; sourceTree = "<group>"; };
@@ -626,6 +644,9 @@
 		15B15B131AE84C050013651B /* SSL_CA.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SSL_CA.pem; path = ../../SSL_CA.pem; sourceTree = "<group>"; };
 		15B15B141AE84C050013651B /* SSL_Priv.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SSL_Priv.pem; path = ../../SSL_Priv.pem; sourceTree = "<group>"; };
 		15B15B151AE84C050013651B /* SSL_Pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SSL_Pub.pem; path = ../../SSL_Pub.pem; sourceTree = "<group>"; };
+		15B15B471AEB17E40013651B /* sc_api_objc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_api_objc.mm; sourceTree = "<group>"; };
+		15B15B491AEB17F30013651B /* sc_api_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_api_objc.h; sourceTree = "<group>"; };
+		15B15B4A1AEB17F30013651B /* sc_debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_debug.h; sourceTree = "<group>"; };
 		15B744BF1AE82B9B0001E1C7 /* libSincityFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSincityFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		15B744E41AE82C2C0001E1C7 /* tinysak_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinysak_config.h; sourceTree = "<group>"; };
 		15B744E51AE82C2C0001E1C7 /* tsk.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tsk.c; sourceTree = "<group>"; };
@@ -847,6 +868,10 @@
 		15B746921AE83AFF0001E1C7 /* tsdp_parser_message.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tsdp_parser_message.c; sourceTree = "<group>"; };
 		15B746931AE83AFF0001E1C7 /* tsdp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tsdp.c; sourceTree = "<group>"; };
 		15B746941AE83AFF0001E1C7 /* tsdp_message.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tsdp_message.c; sourceTree = "<group>"; };
+		15E343D11AF311A4007C24C3 /* sc_display_osx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_display_osx.h; sourceTree = "<group>"; };
+		15E343D21AF31286007C24C3 /* sc_glview_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_glview_ios.h; sourceTree = "<group>"; };
+		15E343D71AF31517007C24C3 /* sc_display_osx.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_display_osx.mm; sourceTree = "<group>"; };
+		15E343D81AF31517007C24C3 /* sc_glview_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_glview_ios.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2053,6 +2078,7 @@
 		15B15ADB1AE84B870013651B /* Sincity */ = {
 			isa = PBXGroup;
 			children = (
+				15E343CE1AF310A1007C24C3 /* iOS */,
 				15B15B121AE84C050013651B /* config.json */,
 				15B15B131AE84C050013651B /* SSL_CA.pem */,
 				15B15B141AE84C050013651B /* SSL_Priv.pem */,
@@ -2077,6 +2103,8 @@
 			isa = PBXGroup;
 			children = (
 				15B15ADF1AE84BC30013651B /* jsoncpp */,
+				15B15B491AEB17F30013651B /* sc_api_objc.h */,
+				15B15B4A1AEB17F30013651B /* sc_debug.h */,
 				15B15AE21AE84BC30013651B /* sc_api.h */,
 				15B15AE31AE84BC30013651B /* sc_common.h */,
 				15B15AE41AE84BC30013651B /* sc_display_fake.h */,
@@ -2092,6 +2120,13 @@
 				15B15AEE1AE84BC30013651B /* sc_thread.h */,
 				15B15AEF1AE84BC30013651B /* sc_url.h */,
 				15B15AF01AE84BC30013651B /* sc_utils.h */,
+				15E343D21AF31286007C24C3 /* sc_glview_ios.h */,
+				15E343D11AF311A4007C24C3 /* sc_display_osx.h */,
+				15106DEB1AFC4BEB00F18916 /* sc_annotation_circle.h */,
+				15106DF01AFD7B9200F18916 /* sc_annotation.h */,
+				15106DF51B01766A00F18916 /* sc_annotation_freehand.h */,
+				15106DFA1B02D20B00F18916 /* sc_annotation_text.h */,
+				15106DFD1B02D25900F18916 /* sc_annotation_arrow.h */,
 			);
 			path = sincity;
 			sourceTree = "<group>";
@@ -2108,6 +2143,14 @@
 		15B15AF11AE84BC30013651B /* src */ = {
 			isa = PBXGroup;
 			children = (
+				15106E001B02D28C00F18916 /* sc_annotation_arrow.mm */,
+				15106E011B02D28C00F18916 /* sc_annotation_text.mm */,
+				15106DF81B01771600F18916 /* sc_annotation_freehand.mm */,
+				15106DF31AFD7BDF00F18916 /* sc_annotation.mm */,
+				15106DEE1AFC4CDD00F18916 /* sc_annotation_circle.mm */,
+				15E343D71AF31517007C24C3 /* sc_display_osx.mm */,
+				15E343D81AF31517007C24C3 /* sc_glview_ios.mm */,
+				15B15B471AEB17E40013651B /* sc_api_objc.mm */,
 				15B15AF21AE84BC30013651B /* sc_display_fake.cc */,
 				15B15AF31AE84BC30013651B /* sc_engine.cc */,
 				15B15AF41AE84BC30013651B /* sc_jsoncpp.cc */,
@@ -2532,6 +2575,13 @@
 			path = parsers;
 			sourceTree = "<group>";
 		};
+		15E343CE1AF310A1007C24C3 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2572,6 +2622,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 15B744B61AE82B9B0001E1C7;
 			productRefGroup = 15B744C01AE82B9B0001E1C7 /* Products */;
@@ -2596,6 +2647,7 @@
 				15B746171AE82D200001E1C7 /* tnet_dns_aaaa.c in Sources */,
 				15B746281AE82D200001E1C7 /* tnet_ice_event.c in Sources */,
 				15B15A981AE849600013651B /* tdav_jitterbuffer.c in Sources */,
+				15B15B481AEB17E40013651B /* sc_api_objc.mm in Sources */,
 				15B7462E1AE82D200001E1C7 /* tnet_stun_binding.c in Sources */,
 				15B15AC21AE849600013651B /* tdav_consumer_msrp.c in Sources */,
 				15B7455A1AE82C2C0001E1C7 /* tsk_ppfcs16.c in Sources */,
@@ -2662,6 +2714,7 @@
 				15B15AC11AE849600013651B /* tdav_codec_vp8.c in Sources */,
 				15B7462F1AE82D200001E1C7 /* tnet_stun_message.c in Sources */,
 				15B746AC1AE83AFF0001E1C7 /* tsdp_header_I.c in Sources */,
+				15E343D91AF31517007C24C3 /* sc_display_osx.mm in Sources */,
 				15B159181AE8485F0013651B /* thttp_parser_message.c in Sources */,
 				15B15AC51AE849600013651B /* tdav_consumer_t140.c in Sources */,
 				15B158931AE83E5B0013651B /* trtp.c in Sources */,
@@ -2669,6 +2722,7 @@
 				15B15AC81AE849600013651B /* tdav.c in Sources */,
 				15B15AD21AE849600013651B /* tdav_consumer_video.c in Sources */,
 				15B159851AE8491B0013651B /* tmedia_session_ghost.c in Sources */,
+				15106E021B02D28C00F18916 /* sc_annotation_arrow.mm in Sources */,
 				15B1597F1AE8491B0013651B /* tmedia_params.c in Sources */,
 				15B746B81AE83AFF0001E1C7 /* tsdp.c in Sources */,
 				15B15AD01AE849600013651B /* tdav_consumer_video_mf.cxx in Sources */,
@@ -2682,6 +2736,7 @@
 				15B159141AE8485F0013651B /* thttp_header_Transfer_Encoding.c in Sources */,
 				15B746181AE82D200001E1C7 /* tnet_dns_cname.c in Sources */,
 				15B7455F1AE82C2C0001E1C7 /* tsk_semaphore.c in Sources */,
+				15106DEF1AFC4CDD00F18916 /* sc_annotation_circle.mm in Sources */,
 				15B745561AE82C2C0001E1C7 /* tsk_object.c in Sources */,
 				15B7463A1AE82D200001E1C7 /* tnet_transport.c in Sources */,
 				15B15ABE1AE849600013651B /* tdav_codec_speex.c in Sources */,
@@ -2690,6 +2745,7 @@
 				15B15AB31AE849600013651B /* tdav_codec_h261.c in Sources */,
 				15B15ABA1AE849600013651B /* tdav_codec_ilbc.c in Sources */,
 				15B15B031AE84BC40013651B /* sc_engine.cc in Sources */,
+				15106DF41AFD7BDF00F18916 /* sc_annotation.mm in Sources */,
 				15B15B0F1AE84BC40013651B /* sc_utils.cc in Sources */,
 				15B745501AE82C2C0001E1C7 /* tsk_fsm.c in Sources */,
 				15B7463C1AE82D200001E1C7 /* tnet_transport_poll.c in Sources */,
@@ -2701,6 +2757,7 @@
 				15B746331AE82D200001E1C7 /* tnet_tls.c in Sources */,
 				15B745621AE82C2C0001E1C7 /* tsk_thread.c in Sources */,
 				15B15AD81AE849600013651B /* tdav_producer_winm.cxx in Sources */,
+				15106DF91B01771600F18916 /* sc_annotation_freehand.mm in Sources */,
 				15B15AC71AE849600013651B /* tdav_session_t140.c in Sources */,
 				15B158941AE83E5B0013651B /* trtp_manager.c in Sources */,
 				15B745581AE82C2C0001E1C7 /* tsk_params.c in Sources */,
@@ -2726,6 +2783,7 @@
 				15B15ACB1AE849600013651B /* tdav_win32.c in Sources */,
 				15B15A8F1AE849600013651B /* tdav_consumer_audioqueue.c in Sources */,
 				15B15AB41AE849600013651B /* tdav_codec_h263.c in Sources */,
+				15E343DA1AF31517007C24C3 /* sc_glview_ios.mm in Sources */,
 				15B15ACE1AE849600013651B /* tdav_video_frame.c in Sources */,
 				15B746311AE82D200001E1C7 /* tnet_stun_utils.c in Sources */,
 				15B15AA51AE849600013651B /* tdav_codec_amr.c in Sources */,
@@ -2838,6 +2896,7 @@
 				15B746371AE82D200001E1C7 /* tnet_nat.c in Sources */,
 				15B15A991AE849600013651B /* tdav_producer_audio.c in Sources */,
 				15B158911AE83E5B0013651B /* trtp_rtp_packet.c in Sources */,
+				15106E031B02D28C00F18916 /* sc_annotation_text.mm in Sources */,
 				15B746161AE82D200001E1C7 /* tnet_dns_a.c in Sources */,
 				15B7463D1AE82D200001E1C7 /* tnet_transport_win32.c in Sources */,
 				15B1590B1AE8485F0013651B /* thttp_header_Authorization.c in Sources */,
@@ -2876,6 +2935,7 @@
 				COPY_PHASE_STRIP = NO;
 				DOUBANGO_HOME = ../../../doubango;
 				DOUBANGO_LIBS = $DOUBANGO_HOME/thirdparties/iphone/lib/i386;
+				"DOUBANGO_LIBS[arch=*]" = $DOUBANGO_HOME/thirdparties/iphone/lib/i386;
 				"DOUBANGO_LIBS[arch=arm64]" = $DOUBANGO_HOME/thirdparties/iphone/lib/arm64;
 				"DOUBANGO_LIBS[arch=armv6]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv6;
 				"DOUBANGO_LIBS[arch=armv7]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv7;
@@ -2907,7 +2967,7 @@
 					"-DHAVE_TINYBFCP=0",
 					"-DHAVE_SPEEX_DSP=1",
 					"-DHAVE_SPEEX_DENOISE=1",
-					"-DHAVE_LIB_SPEEX=1",
+					"-DHAVE_LIB_SPEEX=0",
 					"-DHAVE_SPEEX_JB=1",
 					"-DHAVE_LIBOPUS=1",
 					"-DHAVE_LIBGSM=0",
@@ -2919,8 +2979,8 @@
 					"-DHAVE_OPENH264=0",
 					"-DHAVE_LIBYUV=1",
 					"-DHAVE_SWSSCALE=0",
-					"-DHAVE_OPENSSL=1",
 					"-DHAVE_SRTP=1",
+					"-DHAVE_OPENSSL=1",
 				);
 				SDKROOT = iphoneos;
 				SINCITY_HOME = ../..;
@@ -2946,6 +3006,7 @@
 				COPY_PHASE_STRIP = YES;
 				DOUBANGO_HOME = ../../../doubango;
 				DOUBANGO_LIBS = $DOUBANGO_HOME/thirdparties/iphone/lib/i386;
+				"DOUBANGO_LIBS[arch=*]" = $DOUBANGO_HOME/thirdparties/iphone/lib/i386;
 				"DOUBANGO_LIBS[arch=arm64]" = $DOUBANGO_HOME/thirdparties/iphone/lib/arm64;
 				"DOUBANGO_LIBS[arch=armv6]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv6;
 				"DOUBANGO_LIBS[arch=armv7]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv7;
@@ -2970,7 +3031,7 @@
 					"-DHAVE_TINYBFCP=0",
 					"-DHAVE_SPEEX_DSP=1",
 					"-DHAVE_SPEEX_DENOISE=1",
-					"-DHAVE_LIB_SPEEX=1",
+					"-DHAVE_LIB_SPEEX=0",
 					"-DHAVE_SPEEX_JB=1",
 					"-DHAVE_LIBOPUS=1",
 					"-DHAVE_LIBGSM=0",
@@ -2982,8 +3043,8 @@
 					"-DHAVE_OPENH264=0",
 					"-DHAVE_LIBYUV=1",
 					"-DHAVE_SWSSCALE=0",
-					"-DHAVE_OPENSSL=1",
 					"-DHAVE_SRTP=1",
+					"-DHAVE_OPENSSL=1",
 				);
 				SDKROOT = iphoneos;
 				SINCITY_HOME = ../..;

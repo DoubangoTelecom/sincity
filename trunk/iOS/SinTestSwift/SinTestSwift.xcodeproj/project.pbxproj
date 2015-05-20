@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		15578F951B059B71008119D4 /* certificate.pfx in Resources */ = {isa = PBXBuildFile; fileRef = 15578F8E1B059B71008119D4 /* certificate.pfx */; };
+		15578F961B059B71008119D4 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 15578F8F1B059B71008119D4 /* config.json */; };
+		15578F971B059B71008119D4 /* SSL_CA.der in Resources */ = {isa = PBXBuildFile; fileRef = 15578F901B059B71008119D4 /* SSL_CA.der */; };
+		15578F981B059B71008119D4 /* SSL_CA.pem in Resources */ = {isa = PBXBuildFile; fileRef = 15578F911B059B71008119D4 /* SSL_CA.pem */; };
+		15578F991B059B71008119D4 /* SSL_Priv.pem in Resources */ = {isa = PBXBuildFile; fileRef = 15578F921B059B71008119D4 /* SSL_Priv.pem */; };
+		15578F9A1B059B71008119D4 /* SSL_Pub.der in Resources */ = {isa = PBXBuildFile; fileRef = 15578F931B059B71008119D4 /* SSL_Pub.der */; };
+		15578F9B1B059B71008119D4 /* SSL_Pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 15578F941B059B71008119D4 /* SSL_Pub.pem */; };
+		15B15B641AEC3B0D0013651B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B15B631AEC3B0D0013651B /* AppDelegate.swift */; };
+		15B15B661AEC3B0D0013651B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B15B651AEC3B0D0013651B /* ViewController.swift */; };
+		15B15B691AEC3B0D0013651B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B15B671AEC3B0D0013651B /* Main.storyboard */; };
+		15B15B6B1AEC3B0D0013651B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15B15B6A1AEC3B0D0013651B /* Images.xcassets */; };
+		15B15B6E1AEC3B0D0013651B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B15B6C1AEC3B0D0013651B /* LaunchScreen.xib */; };
+		15B15B7A1AEC3B0D0013651B /* SinTestSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B15B791AEC3B0D0013651B /* SinTestSwiftTests.swift */; };
+		15B15B891AEC3BED0013651B /* libSincityFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B881AEC3B770013651B /* libSincityFramework.a */; };
+		15B15B8E1AEC3C040013651B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B8A1AEC3C040013651B /* AudioToolbox.framework */; };
+		15B15B8F1AEC3C040013651B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B8B1AEC3C040013651B /* AVFoundation.framework */; };
+		15B15B901AEC3C040013651B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B8C1AEC3C040013651B /* CFNetwork.framework */; };
+		15B15B911AEC3C040013651B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B8D1AEC3C040013651B /* Security.framework */; };
+		15B15B9E1AEC47370013651B /* SinTestSwift-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 15B15B9B1AEC41E20013651B /* SinTestSwift-Bridging-Header.h */; };
+		15B15BA01AEC49C00013651B /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B9F1AEC49C00013651B /* libstdc++.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		15B15B741AEC3B0D0013651B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15B15B561AEC3B0D0013651B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15B15B5D1AEC3B0D0013651B;
+			remoteInfo = SinTestSwift;
+		};
+		15B15B871AEC3B770013651B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15B15B831AEC3B770013651B /* SincityFramework.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 15B744BF1AE82B9B0001E1C7;
+			remoteInfo = SincityFramework;
+		};
+		15B15B921AEC3C0B0013651B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15B15B831AEC3B770013651B /* SincityFramework.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 15B744BE1AE82B9B0001E1C7;
+			remoteInfo = SincityFramework;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		15578F8E1B059B71008119D4 /* certificate.pfx */ = {isa = PBXFileReference; lastKnownFileType = file; name = certificate.pfx; path = ../../certificate.pfx; sourceTree = "<group>"; };
+		15578F8F1B059B71008119D4 /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = config.json; path = ../../config.json; sourceTree = "<group>"; };
+		15578F901B059B71008119D4 /* SSL_CA.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = SSL_CA.der; path = ../../SSL_CA.der; sourceTree = "<group>"; };
+		15578F911B059B71008119D4 /* SSL_CA.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SSL_CA.pem; path = ../../SSL_CA.pem; sourceTree = "<group>"; };
+		15578F921B059B71008119D4 /* SSL_Priv.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SSL_Priv.pem; path = ../../SSL_Priv.pem; sourceTree = "<group>"; };
+		15578F931B059B71008119D4 /* SSL_Pub.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = SSL_Pub.der; path = ../../SSL_Pub.der; sourceTree = "<group>"; };
+		15578F941B059B71008119D4 /* SSL_Pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SSL_Pub.pem; path = ../../SSL_Pub.pem; sourceTree = "<group>"; };
+		15B15B5E1AEC3B0D0013651B /* SinTestSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SinTestSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15B15B621AEC3B0D0013651B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15B15B631AEC3B0D0013651B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		15B15B651AEC3B0D0013651B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		15B15B681AEC3B0D0013651B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		15B15B6A1AEC3B0D0013651B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		15B15B6D1AEC3B0D0013651B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		15B15B731AEC3B0D0013651B /* SinTestSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SinTestSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		15B15B781AEC3B0D0013651B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15B15B791AEC3B0D0013651B /* SinTestSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinTestSwiftTests.swift; sourceTree = "<group>"; };
+		15B15B831AEC3B770013651B /* SincityFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SincityFramework.xcodeproj; path = ../SincityFramework/SincityFramework.xcodeproj; sourceTree = "<group>"; };
+		15B15B8A1AEC3C040013651B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		15B15B8B1AEC3C040013651B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		15B15B8C1AEC3C040013651B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		15B15B8D1AEC3C040013651B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		15B15B9B1AEC41E20013651B /* SinTestSwift-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; path = "SinTestSwift-Bridging-Header.h"; sourceTree = "<group>"; };
+		15B15B9F1AEC49C00013651B /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		15B15B5B1AEC3B0D0013651B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15B15BA01AEC49C00013651B /* libstdc++.dylib in Frameworks */,
+				15B15B8E1AEC3C040013651B /* AudioToolbox.framework in Frameworks */,
+				15B15B8F1AEC3C040013651B /* AVFoundation.framework in Frameworks */,
+				15B15B901AEC3C040013651B /* CFNetwork.framework in Frameworks */,
+				15B15B911AEC3C040013651B /* Security.framework in Frameworks */,
+				15B15B891AEC3BED0013651B /* libSincityFramework.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15B15B701AEC3B0D0013651B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		15578F8D1B059B3E008119D4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				15578F8E1B059B71008119D4 /* certificate.pfx */,
+				15578F8F1B059B71008119D4 /* config.json */,
+				15578F901B059B71008119D4 /* SSL_CA.der */,
+				15578F911B059B71008119D4 /* SSL_CA.pem */,
+				15578F921B059B71008119D4 /* SSL_Priv.pem */,
+				15578F931B059B71008119D4 /* SSL_Pub.der */,
+				15578F941B059B71008119D4 /* SSL_Pub.pem */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		15B15B551AEC3B0D0013651B = {
+			isa = PBXGroup;
+			children = (
+				15B15B9F1AEC49C00013651B /* libstdc++.dylib */,
+				15B15B8A1AEC3C040013651B /* AudioToolbox.framework */,
+				15B15B8B1AEC3C040013651B /* AVFoundation.framework */,
+				15B15B8C1AEC3C040013651B /* CFNetwork.framework */,
+				15B15B8D1AEC3C040013651B /* Security.framework */,
+				15B15B831AEC3B770013651B /* SincityFramework.xcodeproj */,
+				15B15B601AEC3B0D0013651B /* SinTestSwift */,
+				15B15B761AEC3B0D0013651B /* SinTestSwiftTests */,
+				15B15B5F1AEC3B0D0013651B /* Products */,
+				15578F8D1B059B3E008119D4 /* Resources */,
+			);
+			sourceTree = "<group>";
+		};
+		15B15B5F1AEC3B0D0013651B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				15B15B5E1AEC3B0D0013651B /* SinTestSwift.app */,
+				15B15B731AEC3B0D0013651B /* SinTestSwiftTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		15B15B601AEC3B0D0013651B /* SinTestSwift */ = {
+			isa = PBXGroup;
+			children = (
+				15B15B631AEC3B0D0013651B /* AppDelegate.swift */,
+				15B15B651AEC3B0D0013651B /* ViewController.swift */,
+				15B15B671AEC3B0D0013651B /* Main.storyboard */,
+				15B15B6A1AEC3B0D0013651B /* Images.xcassets */,
+				15B15B6C1AEC3B0D0013651B /* LaunchScreen.xib */,
+				15B15B611AEC3B0D0013651B /* Supporting Files */,
+				15B15B9B1AEC41E20013651B /* SinTestSwift-Bridging-Header.h */,
+			);
+			path = SinTestSwift;
+			sourceTree = "<group>";
+		};
+		15B15B611AEC3B0D0013651B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				15B15B621AEC3B0D0013651B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		15B15B761AEC3B0D0013651B /* SinTestSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				15B15B791AEC3B0D0013651B /* SinTestSwiftTests.swift */,
+				15B15B771AEC3B0D0013651B /* Supporting Files */,
+			);
+			path = SinTestSwiftTests;
+			sourceTree = "<group>";
+		};
+		15B15B771AEC3B0D0013651B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				15B15B781AEC3B0D0013651B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		15B15B841AEC3B770013651B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				15B15B881AEC3B770013651B /* libSincityFramework.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		15B15B5D1AEC3B0D0013651B /* SinTestSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15B15B7D1AEC3B0D0013651B /* Build configuration list for PBXNativeTarget "SinTestSwift" */;
+			buildPhases = (
+				15B15B5A1AEC3B0D0013651B /* Sources */,
+				15B15B5B1AEC3B0D0013651B /* Frameworks */,
+				15B15B5C1AEC3B0D0013651B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				15B15B931AEC3C0B0013651B /* PBXTargetDependency */,
+			);
+			name = SinTestSwift;
+			productName = SinTestSwift;
+			productReference = 15B15B5E1AEC3B0D0013651B /* SinTestSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
+		15B15B721AEC3B0D0013651B /* SinTestSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15B15B801AEC3B0D0013651B /* Build configuration list for PBXNativeTarget "SinTestSwiftTests" */;
+			buildPhases = (
+				15B15B6F1AEC3B0D0013651B /* Sources */,
+				15B15B701AEC3B0D0013651B /* Frameworks */,
+				15B15B711AEC3B0D0013651B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				15B15B751AEC3B0D0013651B /* PBXTargetDependency */,
+			);
+			name = SinTestSwiftTests;
+			productName = SinTestSwiftTests;
+			productReference = 15B15B731AEC3B0D0013651B /* SinTestSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		15B15B561AEC3B0D0013651B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Doubango Telecom";
+				TargetAttributes = {
+					15B15B5D1AEC3B0D0013651B = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					15B15B721AEC3B0D0013651B = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 15B15B5D1AEC3B0D0013651B;
+					};
+				};
+			};
+			buildConfigurationList = 15B15B591AEC3B0D0013651B /* Build configuration list for PBXProject "SinTestSwift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 15B15B551AEC3B0D0013651B;
+			productRefGroup = 15B15B5F1AEC3B0D0013651B /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 15B15B841AEC3B770013651B /* Products */;
+					ProjectRef = 15B15B831AEC3B770013651B /* SincityFramework.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				15B15B5D1AEC3B0D0013651B /* SinTestSwift */,
+				15B15B721AEC3B0D0013651B /* SinTestSwiftTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		15B15B881AEC3B770013651B /* libSincityFramework.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSincityFramework.a;
+			remoteRef = 15B15B871AEC3B770013651B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		15B15B5C1AEC3B0D0013651B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15578F981B059B71008119D4 /* SSL_CA.pem in Resources */,
+				15578F9A1B059B71008119D4 /* SSL_Pub.der in Resources */,
+				15B15B691AEC3B0D0013651B /* Main.storyboard in Resources */,
+				15B15B6E1AEC3B0D0013651B /* LaunchScreen.xib in Resources */,
+				15578F971B059B71008119D4 /* SSL_CA.der in Resources */,
+				15578F961B059B71008119D4 /* config.json in Resources */,
+				15578F951B059B71008119D4 /* certificate.pfx in Resources */,
+				15578F991B059B71008119D4 /* SSL_Priv.pem in Resources */,
+				15B15B6B1AEC3B0D0013651B /* Images.xcassets in Resources */,
+				15578F9B1B059B71008119D4 /* SSL_Pub.pem in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15B15B711AEC3B0D0013651B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		15B15B5A1AEC3B0D0013651B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15B15B661AEC3B0D0013651B /* ViewController.swift in Sources */,
+				15B15B641AEC3B0D0013651B /* AppDelegate.swift in Sources */,
+				15B15B9E1AEC47370013651B /* SinTestSwift-Bridging-Header.h in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15B15B6F1AEC3B0D0013651B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15B15B7A1AEC3B0D0013651B /* SinTestSwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		15B15B751AEC3B0D0013651B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 15B15B5D1AEC3B0D0013651B /* SinTestSwift */;
+			targetProxy = 15B15B741AEC3B0D0013651B /* PBXContainerItemProxy */;
+		};
+		15B15B931AEC3C0B0013651B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SincityFramework;
+			targetProxy = 15B15B921AEC3C0B0013651B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		15B15B671AEC3B0D0013651B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				15B15B681AEC3B0D0013651B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		15B15B6C1AEC3B0D0013651B /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				15B15B6D1AEC3B0D0013651B /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		15B15B7B1AEC3B0D0013651B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DOUBANGO_HOME = ../../../doubango;
+				DOUBANGO_LIBS = "";
+				"DOUBANGO_LIBS[arch=arm64]" = $DOUBANGO_HOME/thirdparties/iphone/lib/arm64;
+				"DOUBANGO_LIBS[arch=armv6]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv6;
+				"DOUBANGO_LIBS[arch=armv7]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv7;
+				"DOUBANGO_LIBS[arch=armv7s]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv7s;
+				"DOUBANGO_LIBS[sdk=iphonesimulator*]" = $DOUBANGO_HOME/thirdparties/iphone/lib/x86_64;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					$SINCITY_HOME/sincity/include,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = $DOUBANGO_LIBS;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SINCITY_HOME = ../..;
+				SWIFT_OBJC_BRIDGING_HEADER = "SinTestSwift/SinTestSwift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		15B15B7C1AEC3B0D0013651B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				DOUBANGO_HOME = ../../../doubango;
+				DOUBANGO_LIBS = "";
+				"DOUBANGO_LIBS[arch=arm64]" = $DOUBANGO_HOME/thirdparties/iphone/lib/arm64;
+				"DOUBANGO_LIBS[arch=armv6]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv6;
+				"DOUBANGO_LIBS[arch=armv7]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv7;
+				"DOUBANGO_LIBS[arch=armv7s]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv7s;
+				"DOUBANGO_LIBS[sdk=iphonesimulator*]" = $DOUBANGO_HOME/thirdparties/iphone/lib/x86_64;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					$SINCITY_HOME/sincity/include,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = $DOUBANGO_LIBS;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SINCITY_HOME = ../..;
+				SWIFT_OBJC_BRIDGING_HEADER = "SinTestSwift/SinTestSwift-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		15B15B7E1AEC3B0D0013651B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = SinTestSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-lsrtp",
+					"-lssl",
+					"-lcrypto",
+					"-lyuv",
+					"-lvpx",
+					"-lopus",
+					"-lspeexdsp",
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SinTestSwift/SinTestSwift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		15B15B7F1AEC3B0D0013651B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = SinTestSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-lsrtp",
+					"-lssl",
+					"-lcrypto",
+					"-lyuv",
+					"-lvpx",
+					"-lopus",
+					"-lspeexdsp",
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SinTestSwift/SinTestSwift-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		15B15B811AEC3B0D0013651B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SinTestSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SinTestSwift.app/SinTestSwift";
+			};
+			name = Debug;
+		};
+		15B15B821AEC3B0D0013651B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SinTestSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SinTestSwift.app/SinTestSwift";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		15B15B591AEC3B0D0013651B /* Build configuration list for PBXProject "SinTestSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15B15B7B1AEC3B0D0013651B /* Debug */,
+				15B15B7C1AEC3B0D0013651B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15B15B7D1AEC3B0D0013651B /* Build configuration list for PBXNativeTarget "SinTestSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15B15B7E1AEC3B0D0013651B /* Debug */,
+				15B15B7F1AEC3B0D0013651B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15B15B801AEC3B0D0013651B /* Build configuration list for PBXNativeTarget "SinTestSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15B15B811AEC3B0D0013651B /* Debug */,
+				15B15B821AEC3B0D0013651B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 15B15B561AEC3B0D0013651B /* Project object */;
+}

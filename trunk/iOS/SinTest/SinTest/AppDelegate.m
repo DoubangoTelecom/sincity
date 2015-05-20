@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+
+#define kTAG @"[SinTest::AppDelegate]"
 
 @interface AppDelegate ()
 
@@ -14,9 +17,23 @@
 
 @implementation AppDelegate
 
+@synthesize config;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    NSString* configPath = [[NSBundle mainBundle] pathForResource:@"config" ofType:@"json"];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:configPath]) {
+        SCNSLog(kTAG, @"Found config file at: %@", configPath);
+        assert(config = [SCObjcFactory createConfigWithFile:configPath]);
+    }
+    else {
+        SCNSLog(kTAG, @"Failed to find config file at: %@", configPath);
+        assert(false);
+    }
+    
+    viewController = (ViewController*) self.window.rootViewController;
+    
     return YES;
 }
 
@@ -40,6 +57,12 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    viewController = nil;
+}
+
++(AppDelegate*) sharedInstance {
+    return ((AppDelegate*) [[UIApplication sharedApplication] delegate]);
 }
 
 @end

@@ -14,6 +14,17 @@
 		150DB6A41AE829C70004FC60 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 150DB6A31AE829C70004FC60 /* Images.xcassets */; };
 		150DB6A71AE829C70004FC60 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 150DB6A51AE829C70004FC60 /* LaunchScreen.xib */; };
 		150DB6B31AE829C70004FC60 /* SinTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 150DB6B21AE829C70004FC60 /* SinTestTests.m */; };
+		15B15B1D1AEAFBE90013651B /* libSincityFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B746D31AE83D730001E1C7 /* libSincityFramework.a */; };
+		15B15B4F1AEC374A0013651B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B4B1AEC374A0013651B /* AudioToolbox.framework */; };
+		15B15B511AEC374A0013651B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B4D1AEC374A0013651B /* AVFoundation.framework */; };
+		15B15B521AEC374A0013651B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B4E1AEC374A0013651B /* CFNetwork.framework */; };
+		15B15B541AEC37640013651B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B531AEC37640013651B /* Security.framework */; };
+		15E343C51AF14E9F007C24C3 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 15E343BF1AF14E9F007C24C3 /* config.json */; };
+		15E343C61AF14E9F007C24C3 /* SSL_CA.der in Resources */ = {isa = PBXBuildFile; fileRef = 15E343C01AF14E9F007C24C3 /* SSL_CA.der */; };
+		15E343C71AF14E9F007C24C3 /* SSL_CA.pem in Resources */ = {isa = PBXBuildFile; fileRef = 15E343C11AF14E9F007C24C3 /* SSL_CA.pem */; };
+		15E343C81AF14E9F007C24C3 /* SSL_Priv.pem in Resources */ = {isa = PBXBuildFile; fileRef = 15E343C21AF14E9F007C24C3 /* SSL_Priv.pem */; };
+		15E343C91AF14E9F007C24C3 /* SSL_Pub.der in Resources */ = {isa = PBXBuildFile; fileRef = 15E343C31AF14E9F007C24C3 /* SSL_Pub.der */; };
+		15E343CA1AF14E9F007C24C3 /* SSL_Pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 15E343C41AF14E9F007C24C3 /* SSL_Pub.pem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,6 +34,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 150DB6921AE829C70004FC60;
 			remoteInfo = SinTest;
+		};
+		15B15B1E1AEAFCA80013651B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15B746CE1AE83D730001E1C7 /* SincityFramework.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 15B744BE1AE82B9B0001E1C7;
+			remoteInfo = SincityFramework;
 		};
 		15B746D21AE83D730001E1C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -38,16 +56,27 @@
 		150DB6971AE829C70004FC60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		150DB6981AE829C70004FC60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		150DB69A1AE829C70004FC60 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		150DB69B1AE829C70004FC60 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		150DB69B1AE829C70004FC60 /* AppDelegate.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = AppDelegate.m; sourceTree = "<group>"; };
 		150DB69D1AE829C70004FC60 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		150DB69E1AE829C70004FC60 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		150DB69E1AE829C70004FC60 /* ViewController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = ViewController.m; sourceTree = "<group>"; };
 		150DB6A11AE829C70004FC60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		150DB6A31AE829C70004FC60 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		150DB6A61AE829C70004FC60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		150DB6AC1AE829C70004FC60 /* SinTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SinTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		150DB6B11AE829C70004FC60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		150DB6B21AE829C70004FC60 /* SinTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SinTestTests.m; sourceTree = "<group>"; };
+		15B15B4B1AEC374A0013651B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		15B15B4C1AEC374A0013651B /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		15B15B4D1AEC374A0013651B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		15B15B4E1AEC374A0013651B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		15B15B531AEC37640013651B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		15B746CE1AE83D730001E1C7 /* SincityFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SincityFramework.xcodeproj; path = ../SincityFramework/SincityFramework.xcodeproj; sourceTree = "<group>"; };
+		15E343BF1AF14E9F007C24C3 /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = config.json; path = ../../config.json; sourceTree = "<group>"; };
+		15E343C01AF14E9F007C24C3 /* SSL_CA.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = SSL_CA.der; path = ../../SSL_CA.der; sourceTree = "<group>"; };
+		15E343C11AF14E9F007C24C3 /* SSL_CA.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SSL_CA.pem; path = ../../SSL_CA.pem; sourceTree = "<group>"; };
+		15E343C21AF14E9F007C24C3 /* SSL_Priv.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SSL_Priv.pem; path = ../../SSL_Priv.pem; sourceTree = "<group>"; };
+		15E343C31AF14E9F007C24C3 /* SSL_Pub.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = SSL_Pub.der; path = ../../SSL_Pub.der; sourceTree = "<group>"; };
+		15E343C41AF14E9F007C24C3 /* SSL_Pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SSL_Pub.pem; path = ../../SSL_Pub.pem; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +84,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15B15B541AEC37640013651B /* Security.framework in Frameworks */,
+				15B15B4F1AEC374A0013651B /* AudioToolbox.framework in Frameworks */,
+				15B15B511AEC374A0013651B /* AVFoundation.framework in Frameworks */,
+				15B15B521AEC374A0013651B /* CFNetwork.framework in Frameworks */,
+				15B15B1D1AEAFBE90013651B /* libSincityFramework.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,10 +105,16 @@
 		150DB68A1AE829C70004FC60 = {
 			isa = PBXGroup;
 			children = (
+				15B15B531AEC37640013651B /* Security.framework */,
+				15B15B4B1AEC374A0013651B /* AudioToolbox.framework */,
+				15B15B4C1AEC374A0013651B /* AudioUnit.framework */,
+				15B15B4D1AEC374A0013651B /* AVFoundation.framework */,
+				15B15B4E1AEC374A0013651B /* CFNetwork.framework */,
 				15B746CE1AE83D730001E1C7 /* SincityFramework.xcodeproj */,
 				150DB6951AE829C70004FC60 /* SinTest */,
 				150DB6AF1AE829C70004FC60 /* SinTestTests */,
 				150DB6941AE829C70004FC60 /* Products */,
+				15E343BE1AF14E74007C24C3 /* Resources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,6 +176,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		15E343BE1AF14E74007C24C3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				15E343BF1AF14E9F007C24C3 /* config.json */,
+				15E343C01AF14E9F007C24C3 /* SSL_CA.der */,
+				15E343C11AF14E9F007C24C3 /* SSL_CA.pem */,
+				15E343C21AF14E9F007C24C3 /* SSL_Priv.pem */,
+				15E343C31AF14E9F007C24C3 /* SSL_Pub.der */,
+				15E343C41AF14E9F007C24C3 /* SSL_Pub.pem */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,6 +203,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				15B15B1F1AEAFCA80013651B /* PBXTargetDependency */,
 			);
 			name = SinTest;
 			productName = SinTest;
@@ -185,6 +239,7 @@
 				TargetAttributes = {
 					150DB6921AE829C70004FC60 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = E6F3H8ENQM;
 					};
 					150DB6AB1AE829C70004FC60 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -233,8 +288,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				150DB6A21AE829C70004FC60 /* Main.storyboard in Resources */,
+				15E343C71AF14E9F007C24C3 /* SSL_CA.pem in Resources */,
+				15E343C51AF14E9F007C24C3 /* config.json in Resources */,
 				150DB6A71AE829C70004FC60 /* LaunchScreen.xib in Resources */,
+				15E343C91AF14E9F007C24C3 /* SSL_Pub.der in Resources */,
 				150DB6A41AE829C70004FC60 /* Images.xcassets in Resources */,
+				15E343C61AF14E9F007C24C3 /* SSL_CA.der in Resources */,
+				15E343CA1AF14E9F007C24C3 /* SSL_Pub.pem in Resources */,
+				15E343C81AF14E9F007C24C3 /* SSL_Priv.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +334,11 @@
 			isa = PBXTargetDependency;
 			target = 150DB6921AE829C70004FC60 /* SinTest */;
 			targetProxy = 150DB6AD1AE829C70004FC60 /* PBXContainerItemProxy */;
+		};
+		15B15B1F1AEAFCA80013651B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SincityFramework;
+			targetProxy = 15B15B1E1AEAFCA80013651B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -315,6 +381,13 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DOUBANGO_HOME = ../../../doubango;
+				DOUBANGO_LIBS = "";
+				"DOUBANGO_LIBS[arch=arm64]" = $DOUBANGO_HOME/thirdparties/iphone/lib/arm64;
+				"DOUBANGO_LIBS[arch=armv6]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv6;
+				"DOUBANGO_LIBS[arch=armv7]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv7;
+				"DOUBANGO_LIBS[arch=armv7s]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv7s;
+				"DOUBANGO_LIBS[sdk=iphonesimulator*]" = $DOUBANGO_HOME/thirdparties/iphone/lib/x86_64;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -330,10 +403,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					$SINCITY_HOME/sincity/include,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = $DOUBANGO_LIBS;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SINCITY_HOME = ../..;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -357,6 +437,13 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DOUBANGO_HOME = ../../../doubango;
+				DOUBANGO_LIBS = "";
+				"DOUBANGO_LIBS[arch=arm64]" = $DOUBANGO_HOME/thirdparties/iphone/lib/arm64;
+				"DOUBANGO_LIBS[arch=armv6]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv6;
+				"DOUBANGO_LIBS[arch=armv7]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv7;
+				"DOUBANGO_LIBS[arch=armv7s]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv7s;
+				"DOUBANGO_LIBS[sdk=iphonesimulator*]" = $DOUBANGO_HOME/thirdparties/iphone/lib/x86_64;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -366,9 +453,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					$SINCITY_HOME/sincity/include,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = $DOUBANGO_LIBS;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SINCITY_HOME = ../..;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -378,9 +472,25 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SinTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-lsrtp",
+					"-lssl",
+					"-lcrypto",
+					"-lyuv",
+					"-lvpx",
+					"-lopus",
+					"-lspeexdsp",
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -388,9 +498,25 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SinTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-lsrtp",
+					"-lssl",
+					"-lcrypto",
+					"-lyuv",
+					"-lvpx",
+					"-lopus",
+					"-lspeexdsp",
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -17,7 +17,7 @@ public:
 public:
     virtual SC_INLINE const char* getObjectId() = 0;
 #if !defined(SWIG)
-    SC_INLINE int getRefCount() const {
+    SC_INLINE long getRefCount() const {
         return m_nRefCount;
     }
     void operator=(const SCObj &) {}
@@ -25,11 +25,11 @@ public:
 
 
 public:
-    SC_INLINE int takeRef() { /*const*/
+    SC_INLINE long takeRef() { /*const*/
         sc_atomic_inc(&m_nRefCount);
         return m_nRefCount;
     }
-    SC_INLINE int releaseRef() { /*const*/
+    SC_INLINE long releaseRef() { /*const*/
         if (m_nRefCount) { // must never be equal to zero
             sc_atomic_dec(&m_nRefCount);
         }
@@ -66,8 +66,8 @@ public:
 #endif
 
 protected:
-    SC_INLINE int takeRef();
-    SC_INLINE int releaseRef();
+    SC_INLINE long takeRef();
+    SC_INLINE long releaseRef();
 
     SC_INLINE SCObjType getWrappedObject() const;
     SC_INLINE void wrapObject(SCObjType obj);
@@ -101,7 +101,7 @@ SCObjWrapper<SCObjType>::~SCObjWrapper()
 
 
 template<class SCObjType>
-int SCObjWrapper<SCObjType>::takeRef()
+long SCObjWrapper<SCObjType>::takeRef()
 {
     if (m_WrappedObject /*&& m_WrappedObject->getRefCount() At startup*/) {
         return m_WrappedObject->takeRef();
@@ -110,7 +110,7 @@ int SCObjWrapper<SCObjType>::takeRef()
 }
 
 template<class SCObjType>
-int SCObjWrapper<SCObjType>::releaseRef()
+long SCObjWrapper<SCObjType>::releaseRef()
 {
     if (m_WrappedObject && m_WrappedObject->getRefCount()) {
         if (m_WrappedObject->releaseRef() == 0) {

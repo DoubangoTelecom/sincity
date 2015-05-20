@@ -19,6 +19,7 @@ public:
     virtual SC_INLINE SCSessionType_t getType()const {
         return m_eType;
     }
+    virtual bool sendData(const void* pcData, size_t nDataSize);
 
 protected:
     SCObjWrapper<SCSignaling*> m_oSignaling;

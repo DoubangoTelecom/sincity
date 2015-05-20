@@ -8,6 +8,14 @@
 
 #include <assert.h>
 
+#if SC_UNDER_APPLE
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#   if SC_UNDER_IPHONE || SC_UNDER_IPHONE_SIMULATOR
+#   import "sincity/sc_glview_ios.h"
+#   endif
+#endif
+
 /**@defgroup _Group_CPP_SessionCall Call session
 * @brief Call session class.
 */
@@ -87,6 +95,13 @@ SCSessionCall::SCSessionCall(SCObjWrapper<SCSignaling*> oSignaling, std::string 
 SCSessionCall::~SCSessionCall()
 {
     cleanup();
+    
+#if SC_UNDER_APPLE
+    [(id)m_VideoDisplayLocal release];
+    [(id)m_VideoDisplayRemote release];
+    [(id)m_ScreenCastDisplayLocal release];
+    [(id)m_ScreenCastDisplayRemote release];
+#endif
 
     SC_DEBUG_INFO("*** SCSessionCall destroyed ***");
 }
@@ -138,8 +153,32 @@ bool SCSessionCall::setVideoDisplays(SCMediaType_t eVideoType, SCVideoDisplay di
 	SCVideoDisplay* pLocal = (eVideoType == SCMediaType_Video) ? &m_VideoDisplayLocal : &m_ScreenCastDisplayLocal;
 	SCVideoDisplay* pRemote = (eVideoType == SCMediaType_Video) ? &m_VideoDisplayRemote : &m_ScreenCastDisplayRemote;
 
+#if SC_UNDER_APPLE
+    id displayLocal_ = (id)displayLocal;
+    id displayRemote_ = (id)displayRemote;
+    if (displayLocal_ && ![displayLocal_ isKindOfClass:[UIView class]]) {
+        SC_DEBUG_ERROR("Invalid type");
+        return false;
+    }
+    if (displayRemote_) {
+#if SC_UNDER_IPHONE || SC_UNDER_IPHONE_SIMULATOR
+        if(![displayRemote_ isKindOfClass:[SCGlviewIOS class]]) {
+#else
+        if(![displayRemote_ isKindOfClass:[UIView class]]) {
+#endif
+            SC_DEBUG_ERROR("Invalid type");
+            return false;
+        }
+    }
+    [((id)(*pLocal)) release];
+    [((id)(*pRemote)) release];
+    
+    *pLocal = [displayLocal_ retain];
+    *pRemote = [displayRemote_ retain];
+#else
 	*pLocal = displayLocal;
 	*pRemote = displayRemote;
+#endif
 
 	return attachVideoDisplays();
 }

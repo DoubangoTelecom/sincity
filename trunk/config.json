@@ -27,7 +27,7 @@
 		},
 		{
 			"protocol": "udp",
-			"enable_turn": true,
+			"enable_turn": false,
 			"enable_stun": true,
 			"host": "ns313841.ovh.net",
 			"port": 3478,

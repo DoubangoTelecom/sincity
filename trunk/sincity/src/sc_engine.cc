@@ -1,6 +1,9 @@
 #include "sincity/sc_engine.h"
 #include "sincity/sc_utils.h"
 #include "sincity/sc_display_fake.h"
+#if SC_UNDER_APPLE
+#include "sincity/sc_display_osx.h"
+#endif
 #include "sincity/sc_debug.h"
 
 #include "tinynet.h"
@@ -85,15 +88,21 @@ bool SCEngine::init(std::string strCredUserId, std::string strCredPassword /*= "
 
         SC_ASSERT(tmedia_defaults_set_pref_video_size(tmedia_pref_video_size_vga) == 0);
         SC_ASSERT(tmedia_defaults_set_video_fps(15) == 0);
+        
 #if SC_UNDER_WINDOWS
 #else
         SC_ASSERT(tmedia_producer_set_friendly_name(tmedia_video, "/dev/video") == 0);
         SC_ASSERT(tmedia_producer_set_friendly_name(tmedia_bfcp_video, "/dev/video") == 0);
 #endif
-
+#if HAVE_COREAUDIO_AUDIO_UNIT && TARGET_OS_IPHONE // iOS devices have native AEC
+        SC_ASSERT(tmedia_defaults_set_echo_supp_enabled(tsk_false) == 0);
+        SC_ASSERT(tmedia_defaults_set_echo_skew(0) == 0);
+        SC_ASSERT(tmedia_defaults_set_echo_tail(0) == 0);
+#else
         SC_ASSERT(tmedia_defaults_set_echo_supp_enabled(tsk_true) == 0);
         SC_ASSERT(tmedia_defaults_set_echo_skew(0) == 0);
         SC_ASSERT(tmedia_defaults_set_echo_tail(100) == 0);
+#endif
 
         SC_ASSERT(tmedia_defaults_set_opus_maxcapturerate(16000) == 0);
         SC_ASSERT(tmedia_defaults_set_opus_maxplaybackrate(16000) == 0);
@@ -107,6 +116,11 @@ bool SCEngine::init(std::string strCredUserId, std::string strCredPassword /*= "
         // Do not use BFCP signaling: Chrome will reject SDP with "m=application 56906 UDP/BFCP *\r\n"
 #if !defined(HAVE_TINYBFCP) || HAVE_TINYBFCP
         tmedia_session_plugin_unregister(tdav_session_bfcp_plugin_def_t);
+#endif
+        
+        // Register OSX display (Video consumer for iOS and OSX)
+#if SC_UNDER_APPLE
+        SC_ASSERT(tmedia_consumer_plugin_register(sc_display_osx_plugin_def_t) == 0);
 #endif
 
         // Register fake display (Video consumer)
