@@ -229,6 +229,12 @@
     <Filter Include="resources%28%2a.rc%29">
       <UniqueIdentifier>{5f1f0e7e-6f64-4e2f-acfc-c260066db967}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source%28%2a.c%29\video\directx">
+      <UniqueIdentifier>{5f882038-e669-41d1-9766-4f076bd3e256}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers%28%2a.h%29\video\directx">
+      <UniqueIdentifier>{b8d591c6-f883-4f9f-a923-0959d5b44aac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\doubango\tinyDAV\include\tinydav\tdav.h">
@@ -425,6 +431,12 @@
     </ClInclude>
     <ClInclude Include="..\doubango\tinyDAV\include\tinydav\bfcp\tdav_session_bfcp.h">
       <Filter>headers%28%2a.h%29\bfcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\video\directx\tdav_producer_screencast_d3d9.h">
+      <Filter>headers%28%2a.h%29\video\directx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\video\directx\tdav_producer_screencast_ddraw.h">
+      <Filter>headers%28%2a.h%29\video\directx</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -640,6 +652,12 @@
     </ClCompile>
     <ClCompile Include="..\doubango\tinyDAV\src\codecs\h264\tdav_codec_h264_intel.cxx">
       <Filter>source%28%2a.c%29\codecs\h264</Filter>
+    </ClCompile>
+    <ClCompile Include="..\doubango\tinyDAV\src\video\directx\tdav_producer_screencast_d3d9.cxx">
+      <Filter>source%28%2a.c%29\video\directx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\doubango\tinyDAV\src\video\directx\tdav_producer_screencast_ddraw.cxx">
+      <Filter>source%28%2a.c%29\video\directx</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
