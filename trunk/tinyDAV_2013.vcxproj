@@ -207,6 +207,8 @@
     <ClInclude Include="..\doubango\tinyDAV\include\tinydav\tdav.h" />
     <ClInclude Include="..\doubango\tinyDAV\include\tinydav\tdav_session_av.h" />
     <ClInclude Include="..\doubango\tinyDAV\include\tinydav\tdav_win32.h" />
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\video\directx\tdav_producer_screencast_d3d9.h" />
+    <ClInclude Include="..\doubango\tinyDAV\include\tinydav\video\directx\tdav_producer_screencast_ddraw.h" />
     <ClInclude Include="..\doubango\tinyDAV\include\tinydav\video\gdi\tdav_consumer_video_gdi.h" />
     <ClInclude Include="..\doubango\tinyDAV\include\tinydav\video\gdi\tdav_producer_screencast_gdi.h" />
     <ClInclude Include="..\doubango\tinyDAV\include\tinydav\video\jb\tdav_video_frame.h" />
@@ -280,6 +282,8 @@
     <ClCompile Include="..\doubango\tinyDAV\src\tdav.c" />
     <ClCompile Include="..\doubango\tinyDAV\src\tdav_session_av.c" />
     <ClCompile Include="..\doubango\tinyDAV\src\tdav_win32.c" />
+    <ClCompile Include="..\doubango\tinyDAV\src\video\directx\tdav_producer_screencast_d3d9.cxx" />
+    <ClCompile Include="..\doubango\tinyDAV\src\video\directx\tdav_producer_screencast_ddraw.cxx" />
     <ClCompile Include="..\doubango\tinyDAV\src\video\gdi\tdav_consumer_video_gdi.c" />
     <ClCompile Include="..\doubango\tinyDAV\src\video\gdi\tdav_producer_screencast_gdi.c" />
     <ClCompile Include="..\doubango\tinyDAV\src\video\jb\tdav_video_frame.c" />
