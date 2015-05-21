@@ -87,7 +87,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_INFO;HAVE_OPENSSL=1;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;NO_SYS_TYPES_H;TINYNET_EXPORTS;TINYSAK_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_INFO;HAVE_OPENSSL=1;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;NO_SYS_TYPES_H;SIN_CITY=1;BUILD_TYPE_GE=1;TINYNET_EXPORTS;TINYSAK_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -103,7 +103,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_INFO;HAVE_OPENSSL=1;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;NO_SYS_TYPES_H;TINYNET_EXPORTS;TINYSAK_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_INFO;HAVE_OPENSSL=1;WIN32;_WIN32_WINNT=0x0501;_DEBUG;_WINDOWS;_USRDLL;NO_SYS_TYPES_H;SIN_CITY=1;BUILD_TYPE_GE=1;TINYNET_EXPORTS;TINYSAK_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <PrecompiledHeader>
@@ -122,7 +122,7 @@
       <Optimization>Full</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_ERROR;WIN32;_WIN32_WINNT=0x0501;HAVE_OPENSSL=1;NDEBUG;_WINDOWS;_USRDLL;NO_SYS_TYPES_H;TINYNET_EXPORTS;TINYSAK_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_ERROR;WIN32;_WIN32_WINNT=0x0501;HAVE_OPENSSL=1;NDEBUG;_WINDOWS;_USRDLL;NO_SYS_TYPES_H;SIN_CITY=1;BUILD_TYPE_GE=1;TINYNET_EXPORTS;TINYSAK_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>false</FunctionLevelLinking>
       <PrecompiledHeader />
@@ -138,7 +138,7 @@
       <Optimization>Full</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>..\doubango\thirdparties\win32\include;..\doubango\thirdparties\common\include;..\doubango\tinyNET\src;..\doubango\tinySAK\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_ERROR;WIN32;_WIN32_WINNT=0x0501;HAVE_OPENSSL=1;NDEBUG;_WINDOWS;_USRDLL;NO_SYS_TYPES_H;TINYNET_EXPORTS;TINYSAK_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG_LEVEL=DEBUG_LEVEL_ERROR;WIN32;_WIN32_WINNT=0x0501;HAVE_OPENSSL=1;NDEBUG;_WINDOWS;_USRDLL;NO_SYS_TYPES_H;SIN_CITY=1;BUILD_TYPE_GE=1;TINYNET_EXPORTS;TINYSAK_IMPORTS_IGNORE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>false</FunctionLevelLinking>
       <PrecompiledHeader>

@@ -2,12 +2,12 @@
 <tagfile>
   <compound kind="file">
     <name>index.doxy</name>
-    <path>C:/Projects/sincity/doxygen/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/doxygen/</path>
     <filename>index_8doxy</filename>
   </compound>
   <compound kind="file">
     <name>sc_config.h</name>
-    <path>C:/Projects/sincity/sincity/include/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/</path>
     <filename>sc__config_8h</filename>
     <member kind="define">
       <type>#define</type>
@@ -72,66 +72,10 @@
       <anchor>aaea94703214a9212e36dd9e84b254bdd</anchor>
       <arglist>(func)</arglist>
     </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>SC_DEBUG_INFO</name>
-      <anchorfile>sc__config_8h.html</anchorfile>
-      <anchor>ad617ec1e62998f3219d8aae0abd9a1fe</anchor>
-      <arglist>(FMT,...)</arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>SC_DEBUG_WARN</name>
-      <anchorfile>sc__config_8h.html</anchorfile>
-      <anchor>af5a963416b34e00dcae81be046403bec</anchor>
-      <arglist>(FMT,...)</arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>SC_DEBUG_ERROR</name>
-      <anchorfile>sc__config_8h.html</anchorfile>
-      <anchor>a35f4f0b2c994dfd9424abfe16858d69d</anchor>
-      <arglist>(FMT,...)</arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>SC_DEBUG_FATAL</name>
-      <anchorfile>sc__config_8h.html</anchorfile>
-      <anchor>adbc14206db92c3d6dc2f746127b440c8</anchor>
-      <arglist>(FMT,...)</arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>SC_DEBUG_INFO_EX</name>
-      <anchorfile>sc__config_8h.html</anchorfile>
-      <anchor>afcb9f206c959e254e6aed124b6aaedb9</anchor>
-      <arglist>(MODULE, FMT,...)</arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>SC_DEBUG_WARN_EX</name>
-      <anchorfile>sc__config_8h.html</anchorfile>
-      <anchor>a178de686b36625dd184d5ad70fab1504</anchor>
-      <arglist>(MODULE, FMT,...)</arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>SC_DEBUG_ERROR_EX</name>
-      <anchorfile>sc__config_8h.html</anchorfile>
-      <anchor>a169f4e380e721aa67b734917c9f2f7db</anchor>
-      <arglist>(MODULE, FMT,...)</arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>SC_DEBUG_FATAL_EX</name>
-      <anchorfile>sc__config_8h.html</anchorfile>
-      <anchor>a1f86ca188e90cae6086c2dfacd70ccb5</anchor>
-      <arglist>(MODULE, FMT,...)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>sc_json-forwards.h</name>
-    <path>C:/Projects/sincity/sincity/include/sincity/jsoncpp/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/jsoncpp/</path>
     <filename>sc__json-forwards_8h</filename>
     <namespace>Json</namespace>
     <member kind="define">
@@ -235,7 +179,7 @@
   </compound>
   <compound kind="file">
     <name>sc_json.h</name>
-    <path>C:/Projects/sincity/sincity/include/sincity/jsoncpp/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/jsoncpp/</path>
     <filename>sc__json_8h</filename>
     <class kind="class">Json::Features</class>
     <class kind="class">Json::StaticString</class>
@@ -498,8 +442,93 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>sc_annotation.h</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
+    <filename>sc__annotation_8h</filename>
+    <class kind="protocol">SCAnnotationDelegate-p</class>
+    <class kind="protocol">SCAnnotation-p</class>
+    <class kind="class">SCAnnotationAny</class>
+    <member kind="define">
+      <type>#define</type>
+      <name>kAnnotationTextFieldTag</name>
+      <anchorfile>sc__annotation_8h.html</anchorfile>
+      <anchor>a2f52867eab46b1c73e8e27b63874ba06</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>SCAnnotationType</name>
+      <anchorfile>sc__annotation_8h.html</anchorfile>
+      <anchor>ae455414fbaf27668daf2a14e5ca0fea7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SCAnnotationTypeNone</name>
+      <anchorfile>sc__annotation_8h.html</anchorfile>
+      <anchor>ae455414fbaf27668daf2a14e5ca0fea7a88fa6104fea8cc62f89bda341f39eeb3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SCAnnotationTypeCircle</name>
+      <anchorfile>sc__annotation_8h.html</anchorfile>
+      <anchor>ae455414fbaf27668daf2a14e5ca0fea7a4d8e82c55474bac9fd0c998355887643</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SCAnnotationTypeArrow</name>
+      <anchorfile>sc__annotation_8h.html</anchorfile>
+      <anchor>ae455414fbaf27668daf2a14e5ca0fea7afa7e7f54d089499e4e3b29c926cf7ba4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SCAnnotationTypeText</name>
+      <anchorfile>sc__annotation_8h.html</anchorfile>
+      <anchor>ae455414fbaf27668daf2a14e5ca0fea7a7567ff94e2cee45c58e592e08ee12fb8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SCAnnotationTypeFreehand</name>
+      <anchorfile>sc__annotation_8h.html</anchorfile>
+      <anchor>ae455414fbaf27668daf2a14e5ca0fea7a64cf8256e058e911b9e44721e166ded8</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>sc_annotation_arrow.h</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
+    <filename>sc__annotation__arrow_8h</filename>
+    <includes id="sc__annotation_8h" name="sc_annotation.h" local="yes" imported="yes">sincity/sc_annotation.h</includes>
+    <class kind="class">SCAnnotationArrow</class>
+  </compound>
+  <compound kind="file">
+    <name>sc_annotation_circle.h</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
+    <filename>sc__annotation__circle_8h</filename>
+    <includes id="sc__annotation_8h" name="sc_annotation.h" local="yes" imported="yes">sincity/sc_annotation.h</includes>
+    <class kind="class">SCAnnotationCircle</class>
+  </compound>
+  <compound kind="file">
+    <name>sc_annotation_freehand.h</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
+    <filename>sc__annotation__freehand_8h</filename>
+    <includes id="sc__annotation_8h" name="sc_annotation.h" local="yes" imported="yes">sincity/sc_annotation.h</includes>
+    <class kind="class">SCAnnotationFreehand</class>
+  </compound>
+  <compound kind="file">
+    <name>sc_annotation_text.h</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
+    <filename>sc__annotation__text_8h</filename>
+    <includes id="sc__annotation_8h" name="sc_annotation.h" local="yes" imported="yes">sincity/sc_annotation.h</includes>
+    <class kind="class">SCAnnotationText</class>
+  </compound>
+  <compound kind="file">
     <name>sc_api.h</name>
-    <path>C:/Projects/sincity/sincity/include/sincity/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
     <filename>sc__api_8h</filename>
     <includes id="sc__config_8h" name="sc_config.h" local="yes" imported="no">sc_config.h</includes>
     <includes id="sc__engine_8h" name="sc_engine.h" local="yes" imported="no">sincity/sc_engine.h</includes>
@@ -510,8 +539,136 @@
     <includes id="sc__thread_8h" name="sc_thread.h" local="yes" imported="no">sincity/sc_thread.h</includes>
   </compound>
   <compound kind="file">
+    <name>sc_api_objc.h</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
+    <filename>sc__api__objc_8h</filename>
+    <class kind="protocol">SCObjcViewport-p</class>
+    <class kind="protocol">SCObjcIceServer-p</class>
+    <class kind="protocol">SCObjcConfig-p</class>
+    <class kind="class">SCObjcEngine</class>
+    <class kind="protocol">SCObjcSignalingDelegate-p</class>
+    <class kind="protocol">SCObjcSignaling-p</class>
+    <class kind="protocol">SCObjcSignalingCallEvent-p</class>
+    <class kind="protocol">SCObjcSessionCallDelegate-p</class>
+    <class kind="protocol">SCObjcSession-p</class>
+    <class kind="protocol">SCObjcSessionCall-p</class>
+    <class kind="class">SCObjcFactory</class>
+    <member kind="define">
+      <type>#define</type>
+      <name>SCObjcVideoDisplayLocal</name>
+      <anchorfile>sc__api__objc_8h.html</anchorfile>
+      <anchor>adc993f93f6e309a995698789f6bed424</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>SCObjcVideoDisplayRemote</name>
+      <anchorfile>sc__api__objc_8h.html</anchorfile>
+      <anchor>aca6eadd0861535173c8f711b53a2a8b7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>SCNSLog</name>
+      <anchorfile>sc__api__objc_8h.html</anchorfile>
+      <anchor>a963cdec91fbb5433a72e8daed1aea0f4</anchor>
+      <arglist>(TAG, FMT,...)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>kSCOjcSessionCallTypeHangup</name>
+      <anchorfile>sc__api__objc_8h.html</anchorfile>
+      <anchor>ab91367cbbd896afa93f57b384fcd8b7f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>kSCOjcSessionCallTypeOffer</name>
+      <anchorfile>sc__api__objc_8h.html</anchorfile>
+      <anchor>ab7c41f2ef6b344730eecf5f00c897ca3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>kSCOjcSessionCallTypeAnswer</name>
+      <anchorfile>sc__api__objc_8h.html</anchorfile>
+      <anchor>ac6e910b929fa568d086d284c7551ccfc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>kSCOjcSessionCallTypeProvisional</name>
+      <anchorfile>sc__api__objc_8h.html</anchorfile>
+      <anchor>aaf296895258d1a988896d248af31dbfb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>NS_ENUM</name>
+      <anchorfile>sc__api__objc_8h.html</anchorfile>
+      <anchor>a1cd5423db1dd8b54fe8fcdb7b9cb5041</anchor>
+      <arglist>(_type, _name)</arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>SCObjcDebugLevel</name>
+      <anchorfile>sc__api__objc_8h.html</anchorfile>
+      <anchor>a73b167e5b992de7e5ca6e1bccfdb1418</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SCObjcDebugLevelInfo</name>
+      <anchorfile>sc__api__objc_8h.html</anchorfile>
+      <anchor>a73b167e5b992de7e5ca6e1bccfdb1418a991e4b772326732ff7995edb81981029</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SCObjcDebugLevelWarn</name>
+      <anchorfile>sc__api__objc_8h.html</anchorfile>
+      <anchor>a73b167e5b992de7e5ca6e1bccfdb1418a675175e9e3494d3dbcbeb7ec0e1a1e5a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SCObjcDebugLevelError</name>
+      <anchorfile>sc__api__objc_8h.html</anchorfile>
+      <anchor>a73b167e5b992de7e5ca6e1bccfdb1418a7c8aad2c48de559b8f55dfbf08862363</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SCObjcDebugLevelFatal</name>
+      <anchorfile>sc__api__objc_8h.html</anchorfile>
+      <anchor>a73b167e5b992de7e5ca6e1bccfdb1418a9835deeb8a3edcf5af42531c05804710</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>typedef</type>
+      <name>NS_ENUM</name>
+      <anchorfile>sc__api__objc_8h.html</anchorfile>
+      <anchor>a8f16143d072dfd3295934adf286a242b</anchor>
+      <arglist>(NSInteger, SCObjcMediaType)</arglist>
+    </member>
+    <member kind="function">
+      <type>typedef</type>
+      <name>NS_ENUM</name>
+      <anchorfile>sc__api__objc_8h.html</anchorfile>
+      <anchor>a2c4c5b2e8c638f15d67983310a5baa1f</anchor>
+      <arglist>(NSInteger, SCObjcIceState)</arglist>
+    </member>
+    <member kind="function">
+      <type>typedef</type>
+      <name>NS_ENUM</name>
+      <anchorfile>sc__api__objc_8h.html</anchorfile>
+      <anchor>a35110158b8e33dcf98c4d5b44a72c0cc</anchor>
+      <arglist>(NSInteger, SCObjcSessionType)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>sc_common.h</name>
-    <path>C:/Projects/sincity/sincity/include/sincity/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
     <filename>sc__common_8h</filename>
     <includes id="sc__config_8h" name="sc_config.h" local="yes" imported="no">sc_config.h</includes>
     <class kind="class">SCAutoLock</class>
@@ -641,6 +798,20 @@
       <anchor>ab22387b975b723dc8901c9ca03de93c8</anchor>
       <arglist></arglist>
     </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>kSCMobuleNameOSXDisplay</name>
+      <anchorfile>sc__common_8h.html</anchorfile>
+      <anchor>a2009562285912cc9c6ddeffad01d33cc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>kSCMobuleNameWEC7</name>
+      <anchorfile>sc__common_8h.html</anchorfile>
+      <anchor>a33efcd35e2b648fa8dc6a7eab4d40ac2</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="typedef">
       <type>int32_t</type>
       <name>SCNetFd</name>
@@ -755,41 +926,6 @@
     </member>
     <member kind="enumeration">
       <type></type>
-      <name>SCSessionState_t</name>
-      <anchorfile>sc__common_8h.html</anchorfile>
-      <anchor>a347d503c11fb9963c1b66f2308b11b87</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>SCSessionState_None</name>
-      <anchorfile>sc__common_8h.html</anchorfile>
-      <anchor>a347d503c11fb9963c1b66f2308b11b87a5945c3a5aa47e4e58881419689a4da53</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>SCSessionState_Connecting</name>
-      <anchorfile>sc__common_8h.html</anchorfile>
-      <anchor>a347d503c11fb9963c1b66f2308b11b87a256bfe61eaa9152e66e25e4d2672efd7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>SCSessionState_Connected</name>
-      <anchorfile>sc__common_8h.html</anchorfile>
-      <anchor>a347d503c11fb9963c1b66f2308b11b87a1d9640cd7198307cd935ff302d0eafcf</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <type>@</type>
-      <name>SCSessionState_Terminated</name>
-      <anchorfile>sc__common_8h.html</anchorfile>
-      <anchor>a347d503c11fb9963c1b66f2308b11b87ab62bdaa758795e99e17afbcd8fb86f40</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumeration">
-      <type></type>
       <name>SCMediaType_t</name>
       <anchorfile>sc__common_8h.html</anchorfile>
       <anchor>a374b4fc136ca459571d2add479378bc1</anchor>
@@ -884,6 +1020,48 @@
       <name>SCCallState_IceGathering</name>
       <anchorfile>sc__common_8h.html</anchorfile>
       <anchor>a084ae132eabb810cc3b7d542f575a4d5af71d60cd947ba21214847a119949be7e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>SCIceState_t</name>
+      <anchorfile>sc__common_8h.html</anchorfile>
+      <anchor>aac50a7299830155a9cf9446ebd9627e8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SCIceState_None</name>
+      <anchorfile>sc__common_8h.html</anchorfile>
+      <anchor>aac50a7299830155a9cf9446ebd9627e8a85d64d432cfd367720dc9a08e4e6493b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SCIceState_Failed</name>
+      <anchorfile>sc__common_8h.html</anchorfile>
+      <anchor>aac50a7299830155a9cf9446ebd9627e8ab14910152b849035b6d6b1dd3ef27765</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SCIceState_GatheringDone</name>
+      <anchorfile>sc__common_8h.html</anchorfile>
+      <anchor>aac50a7299830155a9cf9446ebd9627e8a1632db47a96a643798a95df1b87729f4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SCIceState_Connected</name>
+      <anchorfile>sc__common_8h.html</anchorfile>
+      <anchor>aac50a7299830155a9cf9446ebd9627e8a8a0e3050ed89c6dff4c75647af5fd6ee</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <type>@</type>
+      <name>SCIceState_Teminated</name>
+      <anchorfile>sc__common_8h.html</anchorfile>
+      <anchor>aac50a7299830155a9cf9446ebd9627e8aa85aa834af5480a99b2b1da6905b50a5</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumeration">
@@ -1070,8 +1248,188 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>sc_debug.h</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
+    <filename>sc__debug_8h</filename>
+    <member kind="define">
+      <type>#define</type>
+      <name>DEBUG_LEVEL_INFO</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>a5f068e0ead7c7e158d2ff28e7b2f2794</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>DEBUG_LEVEL_WARN</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>a07c8ec1cc5bc17da4b0dcecf724251bd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>DEBUG_LEVEL_ERROR</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>a6c7c6775845a96501c54d1f08b0f00c4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>DEBUG_LEVEL_FATAL</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>ade8136c97f2dd21c2449282fe0ce0f97</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>SC_DEBUG_EXTERN</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>a522756355ea2c3025dff03c8673a891a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>SC_DEBUG_INFO</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>ad617ec1e62998f3219d8aae0abd9a1fe</anchor>
+      <arglist>(FMT,...)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>SC_DEBUG_WARN</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>af5a963416b34e00dcae81be046403bec</anchor>
+      <arglist>(FMT,...)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>SC_DEBUG_ERROR</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>a35f4f0b2c994dfd9424abfe16858d69d</anchor>
+      <arglist>(FMT,...)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>SC_DEBUG_FATAL</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>adbc14206db92c3d6dc2f746127b440c8</anchor>
+      <arglist>(FMT,...)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>SC_DEBUG_INFO_EX</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>afcb9f206c959e254e6aed124b6aaedb9</anchor>
+      <arglist>(MODULE, FMT,...)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>SC_DEBUG_WARN_EX</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>a178de686b36625dd184d5ad70fab1504</anchor>
+      <arglist>(MODULE, FMT,...)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>SC_DEBUG_ERROR_EX</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>a169f4e380e721aa67b734917c9f2f7db</anchor>
+      <arglist>(MODULE, FMT,...)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>SC_DEBUG_FATAL_EX</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>a1f86ca188e90cae6086c2dfacd70ccb5</anchor>
+      <arglist>(MODULE, FMT,...)</arglist>
+    </member>
+    <member kind="function">
+      <type>SC_DEBUG_EXTERN void</type>
+      <name>tsk_debug_set_arg_data</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>ad8e033065c3a43b9d310a6753c54028d</anchor>
+      <arglist>(const void *)</arglist>
+    </member>
+    <member kind="function">
+      <type>SC_DEBUG_EXTERN const void *</type>
+      <name>tsk_debug_get_arg_data</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>a7f96c9b8607213cb17733317423d63c2</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>SC_DEBUG_EXTERN void</type>
+      <name>tsk_debug_set_info_cb</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>acf258079bf1ae293b6c38e39488fd5d1</anchor>
+      <arglist>(int(*tsk_debug_f)(const void *arg, const char *fmt,...))</arglist>
+    </member>
+    <member kind="function">
+      <type>SC_DEBUG_EXTERN void</type>
+      <name>tsk_debug_set_warn_cb</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>a67d79f3c285e5187d96a6e15854b012e</anchor>
+      <arglist>(int(*tsk_debug_f)(const void *arg, const char *fmt,...))</arglist>
+    </member>
+    <member kind="function">
+      <type>SC_DEBUG_EXTERN void</type>
+      <name>tsk_debug_set_error_cb</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>a1332ab4aa68e578a08c8523716af6812</anchor>
+      <arglist>(int(*tsk_debug_f)(const void *arg, const char *fmt,...))</arglist>
+    </member>
+    <member kind="function">
+      <type>SC_DEBUG_EXTERN void</type>
+      <name>tsk_debug_set_fatal_cb</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>aacefbd898a5aaecc85548e78521e08a4</anchor>
+      <arglist>(int(*tsk_debug_f)(const void *arg, const char *fmt,...))</arglist>
+    </member>
+    <member kind="function">
+      <type>SC_DEBUG_EXTERN int</type>
+      <name>tsk_debug_get_level</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>a85436f6af1504fa3047896446753def4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>SC_DEBUG_EXTERN void</type>
+      <name>tsk_debug_set_level</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>a1a759b3d4b79c0097327ecccc06c636d</anchor>
+      <arglist>(int)</arglist>
+    </member>
+    <member kind="variable">
+      <type>SC_DEBUG_EXTERN int(*)(const void *arg, const char *fmt,...)</type>
+      <name>tsk_debug_get_info_cb</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>a0f260bde54b8537f6e03f4898a0fbf0f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>SC_DEBUG_EXTERN int(*)(const void *arg, const char *fmt,...)</type>
+      <name>tsk_debug_get_warn_cb</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>a9b28a869a0307cd3e3053f39998252bd</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>SC_DEBUG_EXTERN int(*)(const void *arg, const char *fmt,...)</type>
+      <name>tsk_debug_get_error_cb</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>ae8316d5c48bbd1642f09efa01e51b24c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>SC_DEBUG_EXTERN int(*)(const void *arg, const char *fmt,...)</type>
+      <name>tsk_debug_get_fatal_cb</name>
+      <anchorfile>sc__debug_8h.html</anchorfile>
+      <anchor>a03f10390389ad4466d558ed80a4e6508</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>sc_display_fake.h</name>
-    <path>C:/Projects/sincity/sincity/include/sincity/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
     <filename>sc__display__fake_8h</filename>
     <includes id="sc__config_8h" name="sc_config.h" local="yes" imported="no">sc_config.h</includes>
     <member kind="variable">
@@ -1083,8 +1441,21 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>sc_display_osx.h</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
+    <filename>sc__display__osx_8h</filename>
+    <includes id="sc__config_8h" name="sc_config.h" local="yes" imported="no">sc_config.h</includes>
+    <member kind="variable">
+      <type>const struct tmedia_consumer_plugin_def_s *</type>
+      <name>sc_display_osx_plugin_def_t</name>
+      <anchorfile>sc__display__osx_8h.html</anchorfile>
+      <anchor>ab8bdd7f7262635425bddf087670c9ac2</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>sc_engine.h</name>
-    <path>C:/Projects/sincity/sincity/include/sincity/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
     <filename>sc__engine_8h</filename>
     <includes id="sc__config_8h" name="sc_config.h" local="yes" imported="no">sc_config.h</includes>
     <includes id="sc__obj_8h" name="sc_obj.h" local="yes" imported="no">sincity/sc_obj.h</includes>
@@ -1095,8 +1466,16 @@
     <class kind="class">SCEngine</class>
   </compound>
   <compound kind="file">
+    <name>sc_glview_ios.h</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
+    <filename>sc__glview__ios_8h</filename>
+    <includes id="sc__annotation_8h" name="sc_annotation.h" local="yes" imported="yes">sincity/sc_annotation.h</includes>
+    <class kind="protocol">SCGlviewIOSDelegate-p</class>
+    <class kind="class">SCGlviewIOS</class>
+  </compound>
+  <compound kind="file">
     <name>sc_mutex.h</name>
-    <path>C:/Projects/sincity/sincity/include/sincity/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
     <filename>sc__mutex_8h</filename>
     <includes id="sc__config_8h" name="sc_config.h" local="yes" imported="no">sc_config.h</includes>
     <includes id="sc__common_8h" name="sc_common.h" local="yes" imported="no">sincity/sc_common.h</includes>
@@ -1105,7 +1484,7 @@
   </compound>
   <compound kind="file">
     <name>sc_nettransport.h</name>
-    <path>C:/Projects/sincity/sincity/include/sincity/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
     <filename>sc__nettransport_8h</filename>
     <includes id="sc__config_8h" name="sc_config.h" local="yes" imported="no">sc_config.h</includes>
     <includes id="sc__common_8h" name="sc_common.h" local="yes" imported="no">sincity/sc_common.h</includes>
@@ -1119,7 +1498,7 @@
   </compound>
   <compound kind="file">
     <name>sc_nettransport_ws.h</name>
-    <path>C:/Projects/sincity/sincity/include/sincity/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
     <filename>sc__nettransport__ws_8h</filename>
     <includes id="sc__config_8h" name="sc_config.h" local="yes" imported="no">sc_config.h</includes>
     <includes id="sc__url_8h" name="sc_url.h" local="yes" imported="no">sincity/sc_url.h</includes>
@@ -1130,9 +1509,10 @@
   </compound>
   <compound kind="file">
     <name>sc_obj.h</name>
-    <path>C:/Projects/sincity/sincity/include/sincity/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
     <filename>sc__obj_8h</filename>
     <includes id="sc__config_8h" name="sc_config.h" local="yes" imported="no">sc_config.h</includes>
+    <includes id="sc__debug_8h" name="sc_debug.h" local="yes" imported="no">sincity/sc_debug.h</includes>
     <class kind="class">SCObj</class>
     <class kind="class">SCObjWrapper</class>
     <member kind="define">
@@ -1152,7 +1532,7 @@
   </compound>
   <compound kind="file">
     <name>sc_parser_url.h</name>
-    <path>C:/Projects/sincity/sincity/include/sincity/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
     <filename>sc__parser__url_8h</filename>
     <includes id="sc__config_8h" name="sc_config.h" local="yes" imported="no">sc_config.h</includes>
     <includes id="sc__common_8h" name="sc_common.h" local="yes" imported="no">sincity/sc_common.h</includes>
@@ -1161,13 +1541,13 @@
       <type>SCObjWrapper&lt; SCUrl * &gt;</type>
       <name>sc_url_parse</name>
       <anchorfile>sc__parser__url_8h.html</anchorfile>
-      <anchor>a3da352ba65b2a4653a927a70e03b4578</anchor>
-      <arglist>(const char *urlstring, tsk_size_t length)</arglist>
+      <anchor>aa55e4ee8eaa5cf4f07b16e1280b1c4e2</anchor>
+      <arglist>(const char *urlstring, size_t length)</arglist>
     </member>
   </compound>
   <compound kind="file">
     <name>sc_session.h</name>
-    <path>C:/Projects/sincity/sincity/include/sincity/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
     <filename>sc__session_8h</filename>
     <includes id="sc__config_8h" name="sc_config.h" local="yes" imported="no">sc_config.h</includes>
     <includes id="sc__common_8h" name="sc_common.h" local="yes" imported="no">sincity/sc_common.h</includes>
@@ -1177,12 +1557,13 @@
   </compound>
   <compound kind="file">
     <name>sc_session_call.h</name>
-    <path>C:/Projects/sincity/sincity/include/sincity/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
     <filename>sc__session__call_8h</filename>
     <includes id="sc__config_8h" name="sc_config.h" local="yes" imported="no">sc_config.h</includes>
     <includes id="sc__session_8h" name="sc_session.h" local="yes" imported="no">sincity/sc_session.h</includes>
     <includes id="sc__signaling_8h" name="sc_signaling.h" local="yes" imported="no">sincity/sc_signaling.h</includes>
     <includes id="sc__mutex_8h" name="sc_mutex.h" local="yes" imported="no">sincity/sc_mutex.h</includes>
+    <class kind="class">SCSessionCallIceCallback</class>
     <class kind="class">SCSessionCall</class>
     <member kind="typedef">
       <type>int</type>
@@ -1194,7 +1575,7 @@
   </compound>
   <compound kind="file">
     <name>sc_signaling.h</name>
-    <path>C:/Projects/sincity/sincity/include/sincity/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
     <filename>sc__signaling_8h</filename>
     <includes id="sc__config_8h" name="sc_config.h" local="yes" imported="no">sc_config.h</includes>
     <includes id="sc__obj_8h" name="sc_obj.h" local="yes" imported="no">sincity/sc_obj.h</includes>
@@ -1209,7 +1590,7 @@
   </compound>
   <compound kind="file">
     <name>sc_thread.h</name>
-    <path>C:/Projects/sincity/sincity/include/sincity/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
     <filename>sc__thread_8h</filename>
     <includes id="sc__config_8h" name="sc_config.h" local="yes" imported="no">sc_config.h</includes>
     <includes id="sc__common_8h" name="sc_common.h" local="yes" imported="no">sincity/sc_common.h</includes>
@@ -1218,7 +1599,7 @@
   </compound>
   <compound kind="file">
     <name>sc_url.h</name>
-    <path>C:/Projects/sincity/sincity/include/sincity/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
     <filename>sc__url_8h</filename>
     <includes id="sc__config_8h" name="sc_config.h" local="yes" imported="no">sc_config.h</includes>
     <includes id="sc__common_8h" name="sc_common.h" local="yes" imported="no">sincity/sc_common.h</includes>
@@ -1227,19 +1608,136 @@
   </compound>
   <compound kind="file">
     <name>sc_utils.h</name>
-    <path>C:/Projects/sincity/sincity/include/sincity/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
     <filename>sc__utils_8h</filename>
     <includes id="sc__config_8h" name="sc_config.h" local="yes" imported="no">sc_config.h</includes>
     <includes id="sc__common_8h" name="sc_common.h" local="yes" imported="no">sincity/sc_common.h</includes>
     <class kind="class">SCUtils</class>
   </compound>
   <compound kind="file">
+    <name>sc_annotation.mm</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
+    <filename>sc__annotation_8mm</filename>
+    <includes id="sc__annotation_8h" name="sc_annotation.h" local="yes" imported="yes">sincity/sc_annotation.h</includes>
+    <includes id="sc__debug_8h" name="sc_debug.h" local="yes" imported="yes">sincity/sc_debug.h</includes>
+    <member kind="define">
+      <type>#define</type>
+      <name>kTAG</name>
+      <anchorfile>sc__annotation_8mm.html</anchorfile>
+      <anchor>aadbcfc67807cd6628c1f316469b1a10f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>TSK_CLAMP</name>
+      <anchorfile>sc__annotation_8mm.html</anchorfile>
+      <anchor>afb252c3f63259a40bd1d9f80c0cbe170</anchor>
+      <arglist>(nMin, nVal, nMax)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>sc_annotation_arrow.mm</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
+    <filename>sc__annotation__arrow_8mm</filename>
+    <includes id="sc__annotation__arrow_8h" name="sc_annotation_arrow.h" local="yes" imported="yes">sincity/sc_annotation_arrow.h</includes>
+    <includes id="sc__debug_8h" name="sc_debug.h" local="yes" imported="yes">sincity/sc_debug.h</includes>
+    <includes id="sc__json_8h" name="sc_json.h" local="yes" imported="yes">sincity/jsoncpp/sc_json.h</includes>
+    <member kind="define">
+      <type>#define</type>
+      <name>kTAG</name>
+      <anchorfile>sc__annotation__arrow_8mm.html</anchorfile>
+      <anchor>aadbcfc67807cd6628c1f316469b1a10f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>kArrowWingLength</name>
+      <anchorfile>sc__annotation__arrow_8mm.html</anchorfile>
+      <anchor>adf6b71810b0db3a1441dc6efdbbac136</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>kArrowWingAngle</name>
+      <anchorfile>sc__annotation__arrow_8mm.html</anchorfile>
+      <anchor>abed988f4bc5c98372c23432f262cd689</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>sc_annotation_circle.mm</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
+    <filename>sc__annotation__circle_8mm</filename>
+    <includes id="sc__annotation__circle_8h" name="sc_annotation_circle.h" local="yes" imported="yes">sincity/sc_annotation_circle.h</includes>
+    <includes id="sc__debug_8h" name="sc_debug.h" local="yes" imported="yes">sincity/sc_debug.h</includes>
+    <includes id="sc__json_8h" name="sc_json.h" local="yes" imported="yes">sincity/jsoncpp/sc_json.h</includes>
+    <member kind="define">
+      <type>#define</type>
+      <name>kTAG</name>
+      <anchorfile>sc__annotation__circle_8mm.html</anchorfile>
+      <anchor>aadbcfc67807cd6628c1f316469b1a10f</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>sc_annotation_freehand.mm</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
+    <filename>sc__annotation__freehand_8mm</filename>
+    <includes id="sc__annotation__freehand_8h" name="sc_annotation_freehand.h" local="yes" imported="yes">sincity/sc_annotation_freehand.h</includes>
+    <includes id="sc__debug_8h" name="sc_debug.h" local="yes" imported="yes">sincity/sc_debug.h</includes>
+    <includes id="sc__json_8h" name="sc_json.h" local="yes" imported="yes">sincity/jsoncpp/sc_json.h</includes>
+    <member kind="define">
+      <type>#define</type>
+      <name>kTAG</name>
+      <anchorfile>sc__annotation__freehand_8mm.html</anchorfile>
+      <anchor>aadbcfc67807cd6628c1f316469b1a10f</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>sc_annotation_text.mm</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
+    <filename>sc__annotation__text_8mm</filename>
+    <includes id="sc__annotation__text_8h" name="sc_annotation_text.h" local="yes" imported="yes">sincity/sc_annotation_text.h</includes>
+    <includes id="sc__debug_8h" name="sc_debug.h" local="yes" imported="yes">sincity/sc_debug.h</includes>
+    <includes id="sc__json_8h" name="sc_json.h" local="yes" imported="yes">sincity/jsoncpp/sc_json.h</includes>
+    <member kind="define">
+      <type>#define</type>
+      <name>kTAG</name>
+      <anchorfile>sc__annotation__text_8mm.html</anchorfile>
+      <anchor>aadbcfc67807cd6628c1f316469b1a10f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>kPlaceholderText</name>
+      <anchorfile>sc__annotation__text_8mm.html</anchorfile>
+      <anchor>ae85d5f9737dff3eec70e1c98ff0dcc3b</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>sc_api_objc.mm</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
+    <filename>sc__api__objc_8mm</filename>
+    <includes id="sc__api__objc_8h" name="sc_api_objc.h" local="yes" imported="yes">sincity/sc_api_objc.h</includes>
+    <includes id="sc__api_8h" name="sc_api.h" local="yes" imported="yes">sincity/sc_api.h</includes>
+    <member kind="define">
+      <type>#define</type>
+      <name>kTAG</name>
+      <anchorfile>sc__api__objc_8mm.html</anchorfile>
+      <anchor>aadbcfc67807cd6628c1f316469b1a10f</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>sc_display_fake.cc</name>
-    <path>C:/Projects/sincity/sincity/src/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
     <filename>sc__display__fake_8cc</filename>
     <includes id="sc__display__fake_8h" name="sc_display_fake.h" local="yes" imported="no">sincity/sc_display_fake.h</includes>
     <includes id="sc__utils_8h" name="sc_utils.h" local="yes" imported="no">sincity/sc_utils.h</includes>
     <includes id="sc__common_8h" name="sc_common.h" local="yes" imported="no">sincity/sc_common.h</includes>
+    <includes id="sc__debug_8h" name="sc_debug.h" local="yes" imported="no">sincity/sc_debug.h</includes>
     <member kind="variable">
       <type>const tmedia_consumer_plugin_def_t *</type>
       <name>sc_display_fake_plugin_def_t</name>
@@ -1249,12 +1747,50 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>sc_display_osx.mm</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
+    <filename>sc__display__osx_8mm</filename>
+    <includes id="sc__display__osx_8h" name="sc_display_osx.h" local="yes" imported="yes">sincity/sc_display_osx.h</includes>
+    <includes id="sc__utils_8h" name="sc_utils.h" local="yes" imported="no">sincity/sc_utils.h</includes>
+    <includes id="sc__common_8h" name="sc_common.h" local="yes" imported="no">sincity/sc_common.h</includes>
+    <includes id="sc__debug_8h" name="sc_debug.h" local="yes" imported="no">sincity/sc_debug.h</includes>
+    <member kind="define">
+      <type>#define</type>
+      <name>kDefaultVideoWidth</name>
+      <anchorfile>sc__display__osx_8mm.html</anchorfile>
+      <anchor>ae2e11861c0fb860edccf9087c38b66a9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>kDefaultVideoHeight</name>
+      <anchorfile>sc__display__osx_8mm.html</anchorfile>
+      <anchor>ae15c52bc0a8d64830c748e88c30d42cc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>kDefaultVideoFrameRate</name>
+      <anchorfile>sc__display__osx_8mm.html</anchorfile>
+      <anchor>abf5730d5a2be7b27f09048a3bb9e8424</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const tmedia_consumer_plugin_def_t *</type>
+      <name>sc_display_osx_plugin_def_t</name>
+      <anchorfile>sc__display__osx_8mm.html</anchorfile>
+      <anchor>a9a3aea290e12b6202758c436d6f95589</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>sc_engine.cc</name>
-    <path>C:/Projects/sincity/sincity/src/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
     <filename>sc__engine_8cc</filename>
     <includes id="sc__engine_8h" name="sc_engine.h" local="yes" imported="no">sincity/sc_engine.h</includes>
     <includes id="sc__utils_8h" name="sc_utils.h" local="yes" imported="no">sincity/sc_utils.h</includes>
     <includes id="sc__display__fake_8h" name="sc_display_fake.h" local="yes" imported="no">sincity/sc_display_fake.h</includes>
+    <includes id="sc__debug_8h" name="sc_debug.h" local="yes" imported="no">sincity/sc_debug.h</includes>
     <member kind="define">
       <type>#define</type>
       <name>stricmp</name>
@@ -1271,8 +1807,327 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>sc_glview_ios.mm</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
+    <filename>sc__glview__ios_8mm</filename>
+    <includes id="sc__glview__ios_8h" name="sc_glview_ios.h" local="yes" imported="yes">sincity/sc_glview_ios.h</includes>
+    <includes id="sc__annotation__circle_8h" name="sc_annotation_circle.h" local="yes" imported="yes">sincity/sc_annotation_circle.h</includes>
+    <includes id="sc__annotation__freehand_8h" name="sc_annotation_freehand.h" local="yes" imported="yes">sincity/sc_annotation_freehand.h</includes>
+    <includes id="sc__annotation__text_8h" name="sc_annotation_text.h" local="yes" imported="yes">sincity/sc_annotation_text.h</includes>
+    <includes id="sc__annotation__arrow_8h" name="sc_annotation_arrow.h" local="yes" imported="yes">sincity/sc_annotation_arrow.h</includes>
+    <includes id="sc__debug_8h" name="sc_debug.h" local="yes" imported="yes">sincity/sc_debug.h</includes>
+    <member kind="define">
+      <type>#define</type>
+      <name>DEFAULT_FPS</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>aaa0b8e2587392b1fa7ea5b2cfc12b029</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>kTAG</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>aadbcfc67807cd6628c1f316469b1a10f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>SOURCE_SHADER_VERTEX</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>ab4777628b40eda49d79227a9e4adf315</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>SOURCE_SHADER_FRAGMENT</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>aa5c4486f0585a49b76b6646b01732648</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>const Vertex</type>
+      <name>Vertices</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>ad9a5b1986f756fa2469b6aec3d504d69</anchor>
+      <arglist>[]</arglist>
+    </member>
+    <member kind="variable">
+      <type>const GLubyte</type>
+      <name>Indices</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a89389a94e34cf19cfdb05fa8db825f88</anchor>
+      <arglist>[]</arglist>
+    </member>
+    <member kind="variable">
+      <type>EAGLContext *</type>
+      <name>_context</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a6da945e06217a8df0eef122e2c25bb23</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>CADisplayLink *</type>
+      <name>_displayLink</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a038997f55a909a29b84d6162ec3599b0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLuint</type>
+      <name>_program</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a25fec1c93a555aa88e664a28975d34d4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLuint</type>
+      <name>_renderBuffer</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>abed61ff38d1f234cf470b87a69434730</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLuint</type>
+      <name>_framebuffer</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a172991f851c3820b10ac5a5d1c843704</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLuint</type>
+      <name>_positionSlot</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a5425acc3770a23cb4dbfad1a7cb3e75f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLuint</type>
+      <name>_texCoordSlot</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a3f52b15bc6e976dfd42759fe32d74ac0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLuint</type>
+      <name>_lumaUniform</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a65adbcce671dd8faf15d1168f7dbb0e9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLuint</type>
+      <name>_chromaUniformU</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>ac91ee8147bafd40d6058c553e63494a9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLuint</type>
+      <name>_chromaUniformV</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a17f82194f1303a5f8a566241d4be5225</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLuint</type>
+      <name>_lumaTexture</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a034f11813f4d1be5473d9f90164b0d02</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLuint</type>
+      <name>_chromaTextureU</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a95bd624561cb78821bc230d1b00e56ee</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLuint</type>
+      <name>_chromaTextureV</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a603782977ac0352cef216cdb7e3cbaf3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>CGFloat</type>
+      <name>_screenWidth</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a5158c3e8304e255aff934ce91fcaff0c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>CGFloat</type>
+      <name>_screenHeight</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a68110e6cd145d3975bbeaa75952f676c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLint</type>
+      <name>_textureWidth</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>ad11f463f78bca092df347b5b92eab6fe</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLint</type>
+      <name>_textureHeight</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a9ef06105c38df054d3bc93d528157d88</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLint</type>
+      <name>_viewportX</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a6f26133a175730917d52cc4bbcd7f95a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLint</type>
+      <name>_viewportY</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a531f719a4b443d988db9ed6f0499edf9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLint</type>
+      <name>_viewportW</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a2d40caffb849f6798f1f52692b0e0e1d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLint</type>
+      <name>_viewportH</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a64b4d552eecbf0015e51385057eb6311</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLint</type>
+      <name>_parNumerator</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a340c1985815a28fcabdd4100e82ce551</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLint</type>
+      <name>_parDenominator</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>adf6fc23bb2135a6f729049d5d17d169e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLuint</type>
+      <name>_vertexShader</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a61c9d3290155ee75c68de2398c959710</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLuint</type>
+      <name>_fragmentShader</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a2d105fbc9dea98efbaa116a51eb296e9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>uint</type>
+      <name>_bufferWidth</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a721279ad6a3799683a71493e615fbe9b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>uint</type>
+      <name>_bufferHeight</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a1139f60f71c413988b8b2ad856890012</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>uint</type>
+      <name>_bufferSize</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>affb75729ded60154692ef7a07f55b2d3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>uint8_t *</type>
+      <name>_buffer</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a0a032bdb29f9f3bab90a5cdea28b4d5c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLboolean</type>
+      <name>_animating</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a4bf31f17f66a6a7705036c468a84c64c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLboolean</type>
+      <name>_stopping</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>ad5344fac42b4edafb00e16a1f0d9987c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLboolean</type>
+      <name>_freezed</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a44da57492c1696b65103a71582c81308</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLuint</type>
+      <name>_fps</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a2297a6ded9dca65d6357dc81a6437d2e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLfloat</type>
+      <name>_aspectRatio</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>aa8bfa3d40d4fa62d8464f2b47abd3966</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>GLboolean</type>
+      <name>_fullScreen</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>afae12c7cf3733bfa193d12c738d10438</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>id&lt; SCGlviewIOSDelegate &gt;</type>
+      <name>_delegate</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>ac56d39dced4eaa2305b8598d4edf494d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>SCAnnotationType</type>
+      <name>_annoCurrentType</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a3d1656e24d2275c05fa301eeef07a313</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>NSObject&lt; SCAnnotation &gt; *</type>
+      <name>_annoCurrent</name>
+      <anchorfile>sc__glview__ios_8mm.html</anchorfile>
+      <anchor>a5df40b6a56294ed51c6121104f8e1fa0</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>sc_jsoncpp.cc</name>
-    <path>C:/Projects/sincity/sincity/src/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
     <filename>sc__jsoncpp_8cc</filename>
     <includes id="sc__json_8h" name="sc_json.h" local="yes" imported="no">sincity/jsoncpp/sc_json.h</includes>
     <namespace>Json</namespace>
@@ -1335,15 +2190,17 @@
   </compound>
   <compound kind="file">
     <name>sc_mutex.cc</name>
-    <path>C:/Projects/sincity/sincity/src/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
     <filename>sc__mutex_8cc</filename>
     <includes id="sc__mutex_8h" name="sc_mutex.h" local="yes" imported="no">sincity/sc_mutex.h</includes>
+    <includes id="sc__debug_8h" name="sc_debug.h" local="yes" imported="no">sincity/sc_debug.h</includes>
   </compound>
   <compound kind="file">
     <name>sc_nettransport.cc</name>
-    <path>C:/Projects/sincity/sincity/src/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
     <filename>sc__nettransport_8cc</filename>
     <includes id="sc__nettransport_8h" name="sc_nettransport.h" local="yes" imported="no">sincity/sc_nettransport.h</includes>
+    <includes id="sc__debug_8h" name="sc_debug.h" local="yes" imported="no">sincity/sc_debug.h</includes>
     <member kind="define">
       <type>#define</type>
       <name>kSCMaxStreamBufferSize</name>
@@ -1354,10 +2211,11 @@
   </compound>
   <compound kind="file">
     <name>sc_nettransport_ws.cc</name>
-    <path>C:/Projects/sincity/sincity/src/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
     <filename>sc__nettransport__ws_8cc</filename>
     <includes id="sc__nettransport__ws_8h" name="sc_nettransport_ws.h" local="yes" imported="no">sincity/sc_nettransport_ws.h</includes>
     <includes id="sc__engine_8h" name="sc_engine.h" local="yes" imported="no">sincity/sc_engine.h</includes>
+    <includes id="sc__debug_8h" name="sc_debug.h" local="yes" imported="no">sincity/sc_debug.h</includes>
     <includes id="sc__json_8h" name="sc_json.h" local="yes" imported="no">sincity/jsoncpp/sc_json.h</includes>
     <member kind="define">
       <type>#define</type>
@@ -1530,16 +2388,17 @@
   </compound>
   <compound kind="file">
     <name>sc_obj.cc</name>
-    <path>C:/Projects/sincity/sincity/src/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
     <filename>sc__obj_8cc</filename>
     <includes id="sc__obj_8h" name="sc_obj.h" local="yes" imported="no">sincity/sc_obj.h</includes>
   </compound>
   <compound kind="file">
     <name>sc_parser_url.cc</name>
-    <path>C:/Projects/sincity/sincity/src/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
     <filename>sc__parser__url_8cc</filename>
     <includes id="sc__parser__url_8h" name="sc_parser_url.h" local="yes" imported="no">sincity/sc_parser_url.h</includes>
     <includes id="sc__url_8h" name="sc_url.h" local="yes" imported="no">sincity/sc_url.h</includes>
+    <includes id="sc__debug_8h" name="sc_debug.h" local="yes" imported="no">sincity/sc_debug.h</includes>
     <member kind="function">
       <type>SCObjWrapper&lt; SCUrl * &gt;</type>
       <name>sc_url_parse</name>
@@ -1550,27 +2409,29 @@
   </compound>
   <compound kind="file">
     <name>sc_session.cc</name>
-    <path>C:/Projects/sincity/sincity/src/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
     <filename>sc__session_8cc</filename>
     <includes id="sc__session_8h" name="sc_session.h" local="yes" imported="no">sincity/sc_session.h</includes>
   </compound>
   <compound kind="file">
     <name>sc_session_call.cc</name>
-    <path>C:/Projects/sincity/sincity/src/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
     <filename>sc__session__call_8cc</filename>
     <includes id="sc__session__call_8h" name="sc_session_call.h" local="yes" imported="no">sincity/sc_session_call.h</includes>
     <includes id="sc__engine_8h" name="sc_engine.h" local="yes" imported="no">sincity/sc_engine.h</includes>
     <includes id="sc__utils_8h" name="sc_utils.h" local="yes" imported="no">sincity/sc_utils.h</includes>
+    <includes id="sc__debug_8h" name="sc_debug.h" local="yes" imported="no">sincity/sc_debug.h</includes>
     <includes id="sc__json_8h" name="sc_json.h" local="yes" imported="no">sincity/jsoncpp/sc_json.h</includes>
   </compound>
   <compound kind="file">
     <name>sc_signaling.cc</name>
-    <path>C:/Projects/sincity/sincity/src/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
     <filename>sc__signaling_8cc</filename>
     <includes id="sc__signaling_8h" name="sc_signaling.h" local="yes" imported="no">sincity/sc_signaling.h</includes>
     <includes id="sc__nettransport__ws_8h" name="sc_nettransport_ws.h" local="yes" imported="no">sincity/sc_nettransport_ws.h</includes>
     <includes id="sc__engine_8h" name="sc_engine.h" local="yes" imported="no">sincity/sc_engine.h</includes>
     <includes id="sc__parser__url_8h" name="sc_parser_url.h" local="yes" imported="no">sincity/sc_parser_url.h</includes>
+    <includes id="sc__debug_8h" name="sc_debug.h" local="yes" imported="no">sincity/sc_debug.h</includes>
     <includes id="sc__json_8h" name="sc_json.h" local="yes" imported="no">sincity/jsoncpp/sc_json.h</includes>
     <member kind="define">
       <type>#define</type>
@@ -1582,19 +2443,20 @@
   </compound>
   <compound kind="file">
     <name>sc_thread.cc</name>
-    <path>C:/Projects/sincity/sincity/src/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
     <filename>sc__thread_8cc</filename>
     <includes id="sc__thread_8h" name="sc_thread.h" local="yes" imported="no">sincity/sc_thread.h</includes>
+    <includes id="sc__debug_8h" name="sc_debug.h" local="yes" imported="no">sincity/sc_debug.h</includes>
   </compound>
   <compound kind="file">
     <name>sc_url.cc</name>
-    <path>C:/Projects/sincity/sincity/src/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
     <filename>sc__url_8cc</filename>
     <includes id="sc__url_8h" name="sc_url.h" local="yes" imported="no">sincity/sc_url.h</includes>
   </compound>
   <compound kind="file">
     <name>sc_utils.cc</name>
-    <path>C:/Projects/sincity/sincity/src/</path>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
     <filename>sc__utils_8cc</filename>
     <includes id="sc__utils_8h" name="sc_utils.h" local="yes" imported="no">sincity/sc_utils.h</includes>
     <member kind="define">
@@ -1604,6 +2466,16 @@
       <anchor>af306c318ed28a703722b031183e68294</anchor>
       <arglist>(path)</arglist>
     </member>
+  </compound>
+  <compound kind="file">
+    <name>sc_wec7.c</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
+    <filename>sc__wec7_8c</filename>
+  </compound>
+  <compound kind="file">
+    <name>sc_wec7_time.c</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
+    <filename>sc__wec7__time_8c</filename>
   </compound>
   <compound kind="page">
     <name>_Page_CPP_Overview</name>
@@ -1772,11 +2644,25 @@
     <name>_Group_CPP_Session</name>
     <title>Base session</title>
     <filename>group_____group___c_p_p___session.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>sendData</name>
+      <anchorfile>group_____group___c_p_p___session.html</anchorfile>
+      <anchor>ga64bd9b3d054bb47d2f2fafe5a1dd8cd9</anchor>
+      <arglist>(const void *pcData, size_t nDataSize)</arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>_Group_CPP_SessionCall</name>
     <title>Call session</title>
     <filename>group_____group___c_p_p___session_call.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>setIceCallback</name>
+      <anchorfile>group_____group___c_p_p___session_call.html</anchorfile>
+      <anchor>ga9bd1e66cb40611529edabc40635dad3a</anchor>
+      <arglist>(SCObjWrapper&lt; SCSessionCallIceCallback * &gt; oIceCallback)</arglist>
+    </member>
     <member kind="function" virtualness="virtual">
       <type>virtual bool</type>
       <name>setVideoDisplays</name>
@@ -1807,10 +2693,38 @@
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual bool</type>
+      <name>setMute</name>
+      <anchorfile>group_____group___c_p_p___session_call.html</anchorfile>
+      <anchor>ga5ddb30f398a1410eb21d96c1f24c4953</anchor>
+      <arglist>(bool bMuted, SCMediaType_t eMediaType=SCMediaType_All)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
       <name>hangup</name>
       <anchorfile>group_____group___c_p_p___session_call.html</anchorfile>
       <anchor>gab0a5abd73cf0907e152689b1b563ef83</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>setVideoFps</name>
+      <anchorfile>group_____group___c_p_p___session_call.html</anchorfile>
+      <anchor>ga4b56dbae4d7f0075ef795922098e0ccc</anchor>
+      <arglist>(int nFps, SCMediaType_t eMediaType=SCMediaType_Video)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>setVideoBandwidthUploadMax</name>
+      <anchorfile>group_____group___c_p_p___session_call.html</anchorfile>
+      <anchor>ga1c5687ebe7601069d9a67adb1a5d8682</anchor>
+      <arglist>(int nMax, SCMediaType_t eMediaType=(SCMediaType_t)(SCMediaType_Video|SCMediaType_ScreenCast))</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>setVideoBandwidthDownloadMax</name>
+      <anchorfile>group_____group___c_p_p___session_call.html</anchorfile>
+      <anchor>gaf92d4bb2ee8444aa0e432aab0233b7a1</anchor>
+      <arglist>(int nMax, SCMediaType_t eMediaType=(SCMediaType_t)(SCMediaType_Video|SCMediaType_ScreenCast))</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static SCObjWrapper&lt; SCSessionCall * &gt;</type>
@@ -1873,8 +2787,8 @@
       <type>bool</type>
       <name>sendData</name>
       <anchorfile>group_____group___c_p_p___signaling.html</anchorfile>
-      <anchor>ga5d1be9c5b86ce9731d06aaf04e059764</anchor>
-      <arglist>(const void *pcData, tsk_size_t nDataSize)</arglist>
+      <anchor>gaaf81da8ec5f2f9257b4d0dc296727dae</anchor>
+      <arglist>(const void *pcData, size_t nDataSize)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static SCObjWrapper&lt; SCSignaling * &gt;</type>
@@ -1955,10 +2869,10 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>SC_INLINE int</type>
+      <type>SC_INLINE long</type>
       <name>getRefCount</name>
       <anchorfile>class_s_c_obj.html</anchorfile>
-      <anchor>aa28ee79284583aeb969e814ee114ac31</anchor>
+      <anchor>aa9409478100bb2bd9e0319536a75c329</anchor>
       <arglist>() const </arglist>
     </member>
     <member kind="function">
@@ -1969,17 +2883,17 @@
       <arglist>(const SCObj &amp;)</arglist>
     </member>
     <member kind="function">
-      <type>SC_INLINE int</type>
+      <type>SC_INLINE long</type>
       <name>takeRef</name>
       <anchorfile>class_s_c_obj.html</anchorfile>
-      <anchor>ac1e3e6c91de403932d69353b887a1f4b</anchor>
+      <anchor>a797094eba37e88908652906a5e266b58</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>SC_INLINE int</type>
+      <type>SC_INLINE long</type>
       <name>releaseRef</name>
       <anchorfile>class_s_c_obj.html</anchorfile>
-      <anchor>ac0c5f1507b24f658f244f51af416a7f5</anchor>
+      <anchor>abc193bfa604d847b3bb403f0b0ae3bfb</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="friend" protection="private">
@@ -2108,6 +3022,214 @@
     <name>SCSignalingCallback</name>
     <filename>group_____group___c_p_p___signaling.html</filename>
     <anchor>class_s_c_signaling_callback</anchor>
+  </compound>
+  <compound kind="protocol" objc="yes">
+    <name>SCAnnotation-p</name>
+    <filename>protocol_s_c_annotation-p.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>id&lt; SCAnnotation &gt;</type>
+      <name>initWithView:</name>
+      <anchorfile>protocol_s_c_annotation-p.html</anchorfile>
+      <anchor>a3648f3f7b211cfcc33b458b579ca141d</anchor>
+      <arglist>(UIView *view)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>setDelegate:</name>
+      <anchorfile>protocol_s_c_annotation-p.html</anchorfile>
+      <anchor>a3d6bf61cd77772a55ec55581ce189cf0</anchor>
+      <arglist>(id&lt; SCAnnotationDelegate &gt; delegate)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>setStrokeColor:</name>
+      <anchorfile>protocol_s_c_annotation-p.html</anchorfile>
+      <anchor>a4e3dd6893e5fa2e39c20e6b9219d13f9</anchor>
+      <arglist>(UIColor *color)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>setStrokeWidth:</name>
+      <anchorfile>protocol_s_c_annotation-p.html</anchorfile>
+      <anchor>a8633ff0c5f7526706a87e188b2ba1e0f</anchor>
+      <arglist>(CGFloat width)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>begin:</name>
+      <anchorfile>protocol_s_c_annotation-p.html</anchorfile>
+      <anchor>adcdc807153102b2b14e2d29fb39f3fad</anchor>
+      <arglist>(CGPoint *pt)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>move:</name>
+      <anchorfile>protocol_s_c_annotation-p.html</anchorfile>
+      <anchor>a2f608f38f49b70f765cc9b136f758c7b</anchor>
+      <arglist>(CGPoint *pt)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>end:</name>
+      <anchorfile>protocol_s_c_annotation-p.html</anchorfile>
+      <anchor>a7b18b6d4c70ba83e6d97de44bb8fe8a3</anchor>
+      <arglist>(CGPoint *pt)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>cancel</name>
+      <anchorfile>protocol_s_c_annotation-p.html</anchorfile>
+      <anchor>aa523b04674179f0c5a88d2248b9a95f4</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="property">
+      <type>NSString *</type>
+      <name>json</name>
+      <anchorfile>protocol_s_c_annotation-p.html</anchorfile>
+      <anchor>a4e4972e1ec97160ac45fca306db86468</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class" objc="yes">
+    <name>SCAnnotationAny</name>
+    <filename>interface_s_c_annotation_any.html</filename>
+    <base>SCAnnotation-p</base>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>NSString *</type>
+      <name>colorToHexString:</name>
+      <anchorfile>interface_s_c_annotation_any.html</anchorfile>
+      <anchor>a5d202b643e52119c562212f0d1fb196a</anchor>
+      <arglist>(CGColorRef color)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>NSString *</type>
+      <name>bezierPathToSVG:</name>
+      <anchorfile>interface_s_c_annotation_any.html</anchorfile>
+      <anchor>a05a7a16e3aaffaa983b8d8297880d368</anchor>
+      <arglist>(UIBezierPath *path)</arglist>
+    </member>
+    <member kind="property">
+      <type>long</type>
+      <name>ID</name>
+      <anchorfile>interface_s_c_annotation_any.html</anchorfile>
+      <anchor>a788d095c1c4b6c66d4d330c69cf97e24</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>long</type>
+      <name>localID</name>
+      <anchorfile>interface_s_c_annotation_any.html</anchorfile>
+      <anchor>a7f355f80dd574a6e1d728644b24b5259</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>UIView *</type>
+      <name>view</name>
+      <anchorfile>interface_s_c_annotation_any.html</anchorfile>
+      <anchor>acdcf5eb6bd067e27931ab121c6855e28</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>UIColor *</type>
+      <name>fillColor</name>
+      <anchorfile>interface_s_c_annotation_any.html</anchorfile>
+      <anchor>af2a77593b5aeeee2188c7063f943c681</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>UIColor *</type>
+      <name>strokeColor</name>
+      <anchorfile>interface_s_c_annotation_any.html</anchorfile>
+      <anchor>a3b0176ef10b71910a6fb837104fb0efd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>NSString *</type>
+      <name>strokeColorAsHexString</name>
+      <anchorfile>interface_s_c_annotation_any.html</anchorfile>
+      <anchor>a896c8b6764b20a4dd11960ee0ad92042</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>CGFloat</type>
+      <name>strokeWidth</name>
+      <anchorfile>interface_s_c_annotation_any.html</anchorfile>
+      <anchor>adea23722ffd7f33a6b9465b8cec32386</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>id&lt; SCAnnotationDelegate &gt;</type>
+      <name>delegate</name>
+      <anchorfile>interface_s_c_annotation_any.html</anchorfile>
+      <anchor>a49908b7eb9101b8e171a313d9f35dc6c</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class" objc="yes">
+    <name>SCAnnotationArrow</name>
+    <filename>interface_s_c_annotation_arrow.html</filename>
+    <base>SCAnnotationAny</base>
+    <member kind="function" virtualness="virtual">
+      <type>SCAnnotationArrow *</type>
+      <name>initWithView:</name>
+      <anchorfile>interface_s_c_annotation_arrow.html</anchorfile>
+      <anchor>a2ec153f25e045ecdba316cd58f657ba0</anchor>
+      <arglist>(UIView *view)</arglist>
+    </member>
+  </compound>
+  <compound kind="class" objc="yes">
+    <name>SCAnnotationCircle</name>
+    <filename>interface_s_c_annotation_circle.html</filename>
+    <base>SCAnnotationAny</base>
+    <member kind="function" virtualness="virtual">
+      <type>SCAnnotationCircle *</type>
+      <name>initWithView:</name>
+      <anchorfile>interface_s_c_annotation_circle.html</anchorfile>
+      <anchor>ad4bb9257b2c85ffe763d82d8ddc1c390</anchor>
+      <arglist>(UIView *view)</arglist>
+    </member>
+  </compound>
+  <compound kind="protocol" objc="yes">
+    <name>SCAnnotationDelegate-p</name>
+    <filename>protocol_s_c_annotation_delegate-p.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>annotationReady:</name>
+      <anchorfile>protocol_s_c_annotation_delegate-p.html</anchorfile>
+      <anchor>a4f583cd559da7926b585594f3c9a47cf</anchor>
+      <arglist>(id&lt; SCAnnotation &gt; annotation)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>annotationGotPath:</name>
+      <anchorfile>protocol_s_c_annotation_delegate-p.html</anchorfile>
+      <anchor>adf33db3e67a5d2be3ff669db5e0f8b55</anchor>
+      <arglist>(UIBezierPath *path)</arglist>
+    </member>
+  </compound>
+  <compound kind="class" objc="yes">
+    <name>SCAnnotationFreehand</name>
+    <filename>interface_s_c_annotation_freehand.html</filename>
+    <base>SCAnnotationAny</base>
+    <member kind="function" virtualness="virtual">
+      <type>SCAnnotationFreehand *</type>
+      <name>initWithView:</name>
+      <anchorfile>interface_s_c_annotation_freehand.html</anchorfile>
+      <anchor>a1d7d6587a543d8afabe5492775900dd3</anchor>
+      <arglist>(UIView *view)</arglist>
+    </member>
+  </compound>
+  <compound kind="class" objc="yes">
+    <name>SCAnnotationText</name>
+    <filename>interface_s_c_annotation_text.html</filename>
+    <base>SCAnnotationAny</base>
+    <member kind="function" virtualness="virtual">
+      <type>SCAnnotationText *</type>
+      <name>initWithView:</name>
+      <anchorfile>interface_s_c_annotation_text.html</anchorfile>
+      <anchor>ad098eb96345b2c221011c97edcb2c8ca</anchor>
+      <arglist>(UIView *view)</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>SCAutoLock</name>
@@ -2327,6 +3449,183 @@
       <anchorfile>class_s_c_engine.html</anchorfile>
       <anchor>a8e964b8fb430313bc12db78d2620e7ab</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class" objc="yes">
+    <name>SCGlviewIOS</name>
+    <filename>interface_s_c_glview_i_o_s.html</filename>
+    <base>SCAnnotationDelegate-p</base>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>setFps:</name>
+      <anchorfile>interface_s_c_glview_i_o_s.html</anchorfile>
+      <anchor>a349a1cab690a7fb1e7eb7dde8441aaab</anchor>
+      <arglist>(GLuint fps)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>startAnimation</name>
+      <anchorfile>interface_s_c_glview_i_o_s.html</anchorfile>
+      <anchor>a88fa2c63c471171fe95d5123ac3e011f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>stopAnimation</name>
+      <anchorfile>interface_s_c_glview_i_o_s.html</anchorfile>
+      <anchor>a580d216b1a69ece89b28515587af2787</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>setOrientation:</name>
+      <anchorfile>interface_s_c_glview_i_o_s.html</anchorfile>
+      <anchor>acb313b73807c1fabe57419769773073e</anchor>
+      <arglist>(UIDeviceOrientation orientation)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>setBufferYUV:width:height:</name>
+      <anchorfile>interface_s_c_glview_i_o_s.html</anchorfile>
+      <anchor>a596c6c90a21a6c5300997b1758af6bbc</anchor>
+      <arglist>(const uint8_t *buffer,[width] uint bufferWidth,[height] uint bufferHeight)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>setDelegate:</name>
+      <anchorfile>interface_s_c_glview_i_o_s.html</anchorfile>
+      <anchor>a54f35fed229e79d485837c955ad3d294</anchor>
+      <arglist>(id&lt; SCGlviewIOSDelegate &gt; delegate)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>setPAR:denominator:</name>
+      <anchorfile>interface_s_c_glview_i_o_s.html</anchorfile>
+      <anchor>a8e1310d9b183b356bb5f852709d3d67c</anchor>
+      <arglist>(int numerator,[denominator] int denominator)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>setFullscreen:</name>
+      <anchorfile>interface_s_c_glview_i_o_s.html</anchorfile>
+      <anchor>a2354a75e59ff4b1a32f7977de64f478a</anchor>
+      <arglist>(BOOL fullscreen)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>setFreeze:</name>
+      <anchorfile>interface_s_c_glview_i_o_s.html</anchorfile>
+      <anchor>ac3ea87bc76177651b059d8dacf72463a</anchor>
+      <arglist>(BOOL freeze)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>setAnnotationType:</name>
+      <anchorfile>interface_s_c_glview_i_o_s.html</anchorfile>
+      <anchor>a2655d8e3542fa19f984aeb04b22d7a15</anchor>
+      <arglist>(SCAnnotationType annotationType)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>clearAnnotations</name>
+      <anchorfile>interface_s_c_glview_i_o_s.html</anchorfile>
+      <anchor>aa100a3c525944cf544cf2f412d582024</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="property">
+      <type>int</type>
+      <name>viewportX</name>
+      <anchorfile>interface_s_c_glview_i_o_s.html</anchorfile>
+      <anchor>a63e868ea484173fb5ae94d6dfbea81fa</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>int</type>
+      <name>viewportY</name>
+      <anchorfile>interface_s_c_glview_i_o_s.html</anchorfile>
+      <anchor>a6e103ff0050749a328b99cd998a6c996</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>int</type>
+      <name>viewportWidth</name>
+      <anchorfile>interface_s_c_glview_i_o_s.html</anchorfile>
+      <anchor>a1212269788e12cbf004f6c47ab559aea</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>int</type>
+      <name>viewportHeight</name>
+      <anchorfile>interface_s_c_glview_i_o_s.html</anchorfile>
+      <anchor>ae73836476f0de1889f525a19d6ec14d5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>int</type>
+      <name>videoWidth</name>
+      <anchorfile>interface_s_c_glview_i_o_s.html</anchorfile>
+      <anchor>a069ef3cb8de62f87a8ce51f608513ee2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>int</type>
+      <name>videoHeight</name>
+      <anchorfile>interface_s_c_glview_i_o_s.html</anchorfile>
+      <anchor>ad167e4345c6205649649fead2ab22638</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>BOOL</type>
+      <name>animating</name>
+      <anchorfile>interface_s_c_glview_i_o_s.html</anchorfile>
+      <anchor>a68daea27d9e043d447a96968e4ba7a16</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>BOOL</type>
+      <name>freezed</name>
+      <anchorfile>interface_s_c_glview_i_o_s.html</anchorfile>
+      <anchor>a15eceb846cabb94025c3297b08874aaa</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="protocol" objc="yes">
+    <name>SCGlviewIOSDelegate-p</name>
+    <filename>protocol_s_c_glview_i_o_s_delegate-p.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>glviewAnimationStarted</name>
+      <anchorfile>protocol_s_c_glview_i_o_s_delegate-p.html</anchorfile>
+      <anchor>a2ffee8b974c5a6166d3271401928b3ff</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>glviewAnimationStopped</name>
+      <anchorfile>protocol_s_c_glview_i_o_s_delegate-p.html</anchorfile>
+      <anchor>a8f69a2d4981e3dc84765c41c1d2298ad</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>glviewVideoSizeChanged</name>
+      <anchorfile>protocol_s_c_glview_i_o_s_delegate-p.html</anchorfile>
+      <anchor>ad62bc76bd76ae2e8a101fba1c9ade0fc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>glviewViewportSizeChanged</name>
+      <anchorfile>protocol_s_c_glview_i_o_s_delegate-p.html</anchorfile>
+      <anchor>a8ddfca767d5448562dab8d8d57c59c99</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>void</type>
+      <name>glviewAnnotationReady:</name>
+      <anchorfile>protocol_s_c_glview_i_o_s_delegate-p.html</anchorfile>
+      <anchor>a1b6a7f8408bb764aeba58f26dac693a0</anchor>
+      <arglist>(NSString *json)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -2865,6 +4164,814 @@
     <name>SCObj</name>
     <filename>class_s_c_obj.html</filename>
   </compound>
+  <compound kind="protocol" objc="yes">
+    <name>SCObjcConfig-p</name>
+    <filename>protocol_s_c_objc_config-p.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>debugLevel:</name>
+      <anchorfile>protocol_s_c_objc_config-p.html</anchorfile>
+      <anchor>a95bf8568910e53409a9cf2acf3fa61ae</anchor>
+      <arglist>(SCObjcDebugLevel *level)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>localID:</name>
+      <anchorfile>protocol_s_c_objc_config-p.html</anchorfile>
+      <anchor>ac4447200d0c446abaa08c2e7941a190c</anchor>
+      <arglist>(NSString **strId)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>remoteID:</name>
+      <anchorfile>protocol_s_c_objc_config-p.html</anchorfile>
+      <anchor>a9b5f245d12d108506a949978761ac1f1</anchor>
+      <arglist>(NSString **strId)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>connectionUrl:</name>
+      <anchorfile>protocol_s_c_objc_config-p.html</anchorfile>
+      <anchor>a5889a7459c5b271c117e66a716d3bb84</anchor>
+      <arglist>(NSString **strUrl)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>sslCertificates:privateKey:CA:</name>
+      <anchorfile>protocol_s_c_objc_config-p.html</anchorfile>
+      <anchor>a6293eddde245e41d622e4a382398748c</anchor>
+      <arglist>(NSString **strPublicKey,[privateKey] NSString **strPrivateKey,[CA] NSString **strCA)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>videoPrefSize:</name>
+      <anchorfile>protocol_s_c_objc_config-p.html</anchorfile>
+      <anchor>afb83e2bf7f87d127d3a4fca1a7775f45</anchor>
+      <arglist>(NSString **strPrefSize)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>videoFps:</name>
+      <anchorfile>protocol_s_c_objc_config-p.html</anchorfile>
+      <anchor>afe53ea255b459f6736d3990497992470</anchor>
+      <arglist>(int *fps)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>videoBandwidthUpMax:</name>
+      <anchorfile>protocol_s_c_objc_config-p.html</anchorfile>
+      <anchor>a766086b16752f5aa1ad11fa12655afd8</anchor>
+      <arglist>(int *bandwidth)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>videoBandwidthDownMax:</name>
+      <anchorfile>protocol_s_c_objc_config-p.html</anchorfile>
+      <anchor>a65993f65b26583e3ceeda9d41a8ddd57</anchor>
+      <arglist>(int *bandwidth)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>videoMotionRank:</name>
+      <anchorfile>protocol_s_c_objc_config-p.html</anchorfile>
+      <anchor>ad2640c86e95b1d780fd131b8c7909bf0</anchor>
+      <arglist>(int *motionRank)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>videoCongestionCtrlEnabled:</name>
+      <anchorfile>protocol_s_c_objc_config-p.html</anchorfile>
+      <anchor>aa251233edc78c1cc06a52f086356e4ca</anchor>
+      <arglist>(BOOL *enabled)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>videoJbEnabled:</name>
+      <anchorfile>protocol_s_c_objc_config-p.html</anchorfile>
+      <anchor>ac68899833be1ce8bc91733bede28fbf1</anchor>
+      <arglist>(BOOL *enabled)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>videoAvpfTail:max:</name>
+      <anchorfile>protocol_s_c_objc_config-p.html</anchorfile>
+      <anchor>a817252573f83df1ec96106ce0e027157</anchor>
+      <arglist>(int *min,[max] int *max)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>videoZeroArtifactsEnabled:</name>
+      <anchorfile>protocol_s_c_objc_config-p.html</anchorfile>
+      <anchor>a4bb79548a8f5f9770d03b9139da92cf7</anchor>
+      <arglist>(BOOL *enabled)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>audioEchoSuppEnabled:</name>
+      <anchorfile>protocol_s_c_objc_config-p.html</anchorfile>
+      <anchor>a79968657f8664ee19d833a4c2f6c192e</anchor>
+      <arglist>(BOOL *enabled)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>audioEchoTail:</name>
+      <anchorfile>protocol_s_c_objc_config-p.html</anchorfile>
+      <anchor>a7cb7f84a76c1a61d772891d94de6d01c</anchor>
+      <arglist>(int *tailLength)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>nattIceServersCount:</name>
+      <anchorfile>protocol_s_c_objc_config-p.html</anchorfile>
+      <anchor>adf53fd3bb02c6473723ab051e5536129</anchor>
+      <arglist>(NSUInteger *count)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>nattIceServersAt:server:</name>
+      <anchorfile>protocol_s_c_objc_config-p.html</anchorfile>
+      <anchor>af7964b675c24b7bfbfdc9377155a56e4</anchor>
+      <arglist>(NSUInteger index,[server] id&lt; SCObjcIceServer &gt; *iceServer)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>nattIceStunEnabled:</name>
+      <anchorfile>protocol_s_c_objc_config-p.html</anchorfile>
+      <anchor>aa1f05199e1dff5af67e2252309685c68</anchor>
+      <arglist>(BOOL *enabled)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>nattIceTurnEnabled:</name>
+      <anchorfile>protocol_s_c_objc_config-p.html</anchorfile>
+      <anchor>a46ebc6497af59bbdfb05e2946db44b32</anchor>
+      <arglist>(BOOL *enabled)</arglist>
+    </member>
+  </compound>
+  <compound kind="class" objc="yes">
+    <name>SCObjcEngine</name>
+    <filename>interface_s_c_objc_engine.html</filename>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>initWithUserId:andPassword:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>a79531ff7129a28d6e79fd02afaa104be</anchor>
+      <arglist>(const NSString *userId,[andPassword] const NSString *password)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>initWithUserId:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>a1c5a8c17fad5882f9b8482b89cde89d2</anchor>
+      <arglist>(const NSString *userId)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>setDebugLevel:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>ab527b95906c35aa025a414eb8fe96afc</anchor>
+      <arglist>(SCObjcDebugLevel eLevel)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>setSSLCertificates:privateKey:CA:mutualAuth:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>a130094938a9ce3c855347d65b4fa540a</anchor>
+      <arglist>(const NSString *strPublicKey,[privateKey] const NSString *strPrivateKey,[CA] const NSString *strCA,[mutualAuth] BOOL bMutualAuth)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>setSSLCertificates:privateKey:CA:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>aa19fcbfce7da52c2ee496ccd1877c738</anchor>
+      <arglist>(const NSString *strPublicKey,[privateKey] const NSString *strPrivateKey,[CA] const NSString *strCA)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>setVideoPrefSize:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>a96e5251a67965e8ebaa205c5b36897e5</anchor>
+      <arglist>(const NSString *strPrefVideoSize)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>setVideoFps:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>acdf4d08f21f4f2d4f3111a5ed80076d0</anchor>
+      <arglist>(int fps)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>setVideoBandwidthUpMax:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>a0dfa7a836a4f1a4ed1d6685b14145d47</anchor>
+      <arglist>(int bandwidthMax)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>setVideoBandwidthDownMax:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>a9f24d6d2fd32ea0e9fd573ab30397773</anchor>
+      <arglist>(int bandwidthMax)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>setVideoMotionRank:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>ab62d53e4f224fb2854b7ec5af8a519c8</anchor>
+      <arglist>(int motionRank)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>setVideoCongestionCtrlEnabled:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>a864be59f03037800dbbc658541d61191</anchor>
+      <arglist>(BOOL congestionCtrl)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>setVideoJbEnabled:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>a2e2c2fdc22059ee5b6b3a0b125dc1535</anchor>
+      <arglist>(BOOL enabled)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>setVideoAvpfTail:max:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>a576b18b1b07732a7edc1afced9d85558</anchor>
+      <arglist>(int min,[max] int max)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>setVideoZeroArtifactsEnabled:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>a77935a63a049aecf88092eb76bd45587</anchor>
+      <arglist>(BOOL enabled)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>setAudioEchoSuppEnabled:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>a64bdacbbb78d67141a30264e56a48cdb</anchor>
+      <arglist>(BOOL enabled)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>setAudioEchoTail:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>a8e9e99757bb7b42cd2780d336225872c</anchor>
+      <arglist>(int tailLength)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>addNattIceServer:serverHost:serverPort:useTurn:useStun:userName:password:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>a6bc6847f71410ca35165d37b7930279f</anchor>
+      <arglist>(const NSString *strTransportProto,[serverHost] const NSString *strServerHost,[serverPort] unsigned short iServerPort,[useTurn] BOOL bUseTurn,[useStun] BOOL bUseStun,[userName] const NSString *strUsername,[password] const NSString *strPassword)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>addNattIceServer:serverHost:serverPort:useTurn:useStun:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>ac85d1a29a326c95245edb323d6051250</anchor>
+      <arglist>(const NSString *strTransportProto,[serverHost] const NSString *strServerHost,[serverPort] unsigned short iServerPort,[useTurn] BOOL bUseTurn,[useStun] BOOL bUseStun)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>addNattIceServer:serverHost:serverPort:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>ab9c5662cb61b5b271882e8ef1a9e7cea</anchor>
+      <arglist>(const NSString *strTransportProto,[serverHost] const NSString *strServerHost,[serverPort] unsigned short iServerPort)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>clearNattIceServers</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>a5eb016c43516b522500a5fc2000e6241</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>setNattIceStunEnabled:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>adfdf6bf9dcf54ea434bf0cbbb17fab73</anchor>
+      <arglist>(BOOL enabled)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>BOOL</type>
+      <name>setNattIceTurnEnabled:</name>
+      <anchorfile>interface_s_c_objc_engine.html</anchorfile>
+      <anchor>a02ea0b64d8179b9962a0fc81d9d9b542</anchor>
+      <arglist>(BOOL enabled)</arglist>
+    </member>
+  </compound>
+  <compound kind="class" objc="yes">
+    <name>SCObjcFactory</name>
+    <filename>interface_s_c_objc_factory.html</filename>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>id&lt; SCObjcSignaling &gt;</type>
+      <name>createSignalingWithConnectionUrl:localIP:localPort:</name>
+      <anchorfile>interface_s_c_objc_factory.html</anchorfile>
+      <anchor>af1426dec09dcb8f1a6782465e0fc7922</anchor>
+      <arglist>(const NSString *connectionUrl,[localIP] const NSString *strLocalIP,[localPort] const unsigned short uLocalPort)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>id&lt; SCObjcSignaling &gt;</type>
+      <name>createSignalingWithConnectionUrl:localIP:</name>
+      <anchorfile>interface_s_c_objc_factory.html</anchorfile>
+      <anchor>a246765b2cf89d34bd01e37557b5391aa</anchor>
+      <arglist>(const NSString *connectionUrl,[localIP] const NSString *strLocalIP)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>id&lt; SCObjcSignaling &gt;</type>
+      <name>createSignalingWithConnectionUrl:</name>
+      <anchorfile>interface_s_c_objc_factory.html</anchorfile>
+      <anchor>a73817e9e4362f72b8fd5af0833b4a268</anchor>
+      <arglist>(const NSString *connectionUr)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>id&lt; SCObjcConfig &gt;</type>
+      <name>createConfigWithFile:</name>
+      <anchorfile>interface_s_c_objc_factory.html</anchorfile>
+      <anchor>acf838a066362b75067573f400b5b9074</anchor>
+      <arglist>(const NSString *fullPath)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>id&lt; SCObjcSessionCall &gt;</type>
+      <name>createCallWithSignaling:offer:</name>
+      <anchorfile>interface_s_c_objc_factory.html</anchorfile>
+      <anchor>aafde1c0cc0cc599ee6eb9caa717f1305</anchor>
+      <arglist>(id&lt; SCObjcSignaling &gt; signaling,[offer] id&lt; SCObjcSignalingCallEvent &gt; e)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual" static="yes">
+      <type>id&lt; SCObjcSessionCall &gt;</type>
+      <name>createCallWithSignaling:</name>
+      <anchorfile>interface_s_c_objc_factory.html</anchorfile>
+      <anchor>a1dfadbbe7ebf74949a9ed380036282c7</anchor>
+      <arglist>(id&lt; SCObjcSignaling &gt; signaling)</arglist>
+    </member>
+  </compound>
+  <compound kind="protocol" objc="yes">
+    <name>SCObjcIceServer-p</name>
+    <filename>protocol_s_c_objc_ice_server-p.html</filename>
+    <member kind="property">
+      <type>NSString *</type>
+      <name>protocol</name>
+      <anchorfile>protocol_s_c_objc_ice_server-p.html</anchorfile>
+      <anchor>a76e1d0b7703e0ddd0615211c924cbc6c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>NSString *</type>
+      <name>host</name>
+      <anchorfile>protocol_s_c_objc_ice_server-p.html</anchorfile>
+      <anchor>a4f36d76c222eaf198203d6b6b4811443</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>unsigned short</type>
+      <name>port</name>
+      <anchorfile>protocol_s_c_objc_ice_server-p.html</anchorfile>
+      <anchor>ad1e9104981e292d60075c9dc4925e598</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>BOOL</type>
+      <name>turnEnabled</name>
+      <anchorfile>protocol_s_c_objc_ice_server-p.html</anchorfile>
+      <anchor>a97e35a8c0891c5840f4212d67576c874</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>BOOL</type>
+      <name>stunEnabled</name>
+      <anchorfile>protocol_s_c_objc_ice_server-p.html</anchorfile>
+      <anchor>a76161a990cbc4980d049ce857029eda2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>NSString *</type>
+      <name>login</name>
+      <anchorfile>protocol_s_c_objc_ice_server-p.html</anchorfile>
+      <anchor>afe2e1a46c199e221e929b67bbef4cd2e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>NSString *</type>
+      <name>password</name>
+      <anchorfile>protocol_s_c_objc_ice_server-p.html</anchorfile>
+      <anchor>a6fc7aaee3033f1d882c03030479ab926</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="protocol" objc="yes">
+    <name>SCObjcSession-p</name>
+    <filename>protocol_s_c_objc_session-p.html</filename>
+    <member kind="property">
+      <type>SCObjcSessionType</type>
+      <name>type</name>
+      <anchorfile>protocol_s_c_objc_session-p.html</anchorfile>
+      <anchor>a080f9f7916f26430aaa8528c6159a850</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="protocol" objc="yes">
+    <name>SCObjcSessionCall-p</name>
+    <filename>protocol_s_c_objc_session_call-p.html</filename>
+    <base>SCObjcSession-p</base>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>setDelegate:</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a119da91b87b5bead5652ec028aeb2ba4</anchor>
+      <arglist>(id&lt; SCObjcSessionCallDelegate &gt; delegate)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>call:destinationID:</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a2ee08d5f7fd79faab1973f6555b5d344</anchor>
+      <arglist>(SCObjcMediaType mediaType,[destinationID] const NSString *strDestinationID)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>reset</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a632da1e764b1b974ef3023a1f4a0812c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>isReady</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a2817e287779f15e783e199a116d465a0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>start</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a4e48db6b58d5d4ea4e01ca34efe782c1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>stop</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>afd76130c4fdc743dab70d8cf899b9a19</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>pause</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a61c36462e64408603b592ff552571f78</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>resume</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a6893c879320495a2c0842263d1dd6ab2</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>acceptEvent:</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a231933399da66501609e1a63ca51cb86</anchor>
+      <arglist>(id&lt; SCObjcSignalingCallEvent &gt; e)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>rejectEvent:</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a70b008e57d16720dad2ba72245cc6f39</anchor>
+      <arglist>(id&lt; SCObjcSignalingCallEvent &gt; e)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>setMute:mediaType:</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>af5090ea3dbc522a33542f0fe874615ad</anchor>
+      <arglist>(BOOL bMuted,[mediaType] SCObjcMediaType eMediaType)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>setMute:</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>aeb138097c28ca390b010a183be1110d0</anchor>
+      <arglist>(BOOL bMuted)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>hangup</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a92bb1e309e95b5a7401ae4e1783b71cd</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>setVideoDisplays:local:remote:</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>abd6fb0452985e41a5b5b6978109d5641</anchor>
+      <arglist>(SCObjcMediaType eVideoType,[local] SCObjcVideoDisplayLocal localDisplay,[remote] SCObjcVideoDisplayRemote remoteDisplay)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>setVideoDisplays:local:</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a4a934aa5a0a1eb0136ef6c08d04d90bc</anchor>
+      <arglist>(SCObjcMediaType eVideoType,[local] SCObjcVideoDisplayLocal localDisplay)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>setVideoDisplays:remote:</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>afe2603e62595899e6fd2902de9bdd447</anchor>
+      <arglist>(SCObjcMediaType eVideoType,[remote] SCObjcVideoDisplayRemote remoteDisplay)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>setVideoFps:mediaType:</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a78d1865927e80a9949a0fee0082d6348</anchor>
+      <arglist>(int fps,[mediaType] SCObjcMediaType eMediaType)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>setVideoFps:</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a1a05ba2a3c646c96c3b105e27a1f0525</anchor>
+      <arglist>(int fps)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>setVideoBandwidthUploadMax:mediaType:</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a98c7aac3842758b7537cb8b2c09f3276</anchor>
+      <arglist>(int maxBandwidth,[mediaType] SCObjcMediaType eMediaType)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>setVideoBandwidthUploadMax:</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a43d7b132b9067c51322099d0808aaf8f</anchor>
+      <arglist>(int maxBandwidth)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>setVideoBandwidthDownloadMax:mediaType:</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a79e1bf1e0b85394f550624d06cf6caa9</anchor>
+      <arglist>(int maxBandwidth,[mediaType] SCObjcMediaType eMediaType)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>setVideoBandwidthDownloadMax:</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>ad8ed81c3e9f10f819bf9dbfdff4de21e</anchor>
+      <arglist>(int maxBandwidth)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>sendData:</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a2a21c9419ca036c957d2c6753a34c2c9</anchor>
+      <arglist>(NSData *data)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>sendFreezeFrame:</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a4c335b48d816112190ab3f471ddea256</anchor>
+      <arglist>(BOOL freeze)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>sendClearAnnotations</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a3dfde2b37831c9629a659762af7bfcd3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="property">
+      <type>BOOL</type>
+      <name>ready</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a4a0ae88cedc26b4d49b63a6bfeb55c29</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>NSString *</type>
+      <name>callID</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a643956d3590a2b35b7789d9e713a3d88</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>SCObjcMediaType</type>
+      <name>mediaType</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a27e92cecff169f98722b4aa0cac3eeba</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>SCObjcIceState</type>
+      <name>iceState</name>
+      <anchorfile>protocol_s_c_objc_session_call-p.html</anchorfile>
+      <anchor>a2cc6695a399d5db473ee3c613d7e729c</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="protocol" objc="yes">
+    <name>SCObjcSessionCallDelegate-p</name>
+    <filename>protocol_s_c_objc_session_call_delegate-p.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>callIceStateChanged</name>
+      <anchorfile>protocol_s_c_objc_session_call_delegate-p.html</anchorfile>
+      <anchor>a47b84315aa0e7b1d8e9e6818e33aa5ff</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="protocol" objc="yes">
+    <name>SCObjcSignaling-p</name>
+    <filename>protocol_s_c_objc_signaling-p.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>setDelegate:</name>
+      <anchorfile>protocol_s_c_objc_signaling-p.html</anchorfile>
+      <anchor>a61b1a37066acd23039e9e8a9a84b305b</anchor>
+      <arglist>(id&lt; SCObjcSignalingDelegate &gt; delegate)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>isConnected</name>
+      <anchorfile>protocol_s_c_objc_signaling-p.html</anchorfile>
+      <anchor>a9dc9db4df63534ace92fd1ea414c16e5</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>isReady</name>
+      <anchorfile>protocol_s_c_objc_signaling-p.html</anchorfile>
+      <anchor>a3d2aa3739df47b2d47732600d36821ca</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>connect</name>
+      <anchorfile>protocol_s_c_objc_signaling-p.html</anchorfile>
+      <anchor>a841cc68cdda208ba4e06e3253dff1d74</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>sendData:</name>
+      <anchorfile>protocol_s_c_objc_signaling-p.html</anchorfile>
+      <anchor>a7efe0a3c86736109a4241f817b7c1b98</anchor>
+      <arglist>(const NSData *data)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>disConnect</name>
+      <anchorfile>protocol_s_c_objc_signaling-p.html</anchorfile>
+      <anchor>a07a1ac33c1751ca2660ee4718cdb6f5f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>rejectEventCall:</name>
+      <anchorfile>protocol_s_c_objc_signaling-p.html</anchorfile>
+      <anchor>ab5a8b3b3aaaf21ab0500be42abc433a8</anchor>
+      <arglist>(id&lt; SCObjcSignalingCallEvent &gt; e)</arglist>
+    </member>
+    <member kind="property">
+      <type>BOOL</type>
+      <name>connected</name>
+      <anchorfile>protocol_s_c_objc_signaling-p.html</anchorfile>
+      <anchor>abdd09755da38383fcf14de43014afa9d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>BOOL</type>
+      <name>ready</name>
+      <anchorfile>protocol_s_c_objc_signaling-p.html</anchorfile>
+      <anchor>a24a3f9f10046e480eff40395f9145603</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="protocol" objc="yes">
+    <name>SCObjcSignalingCallEvent-p</name>
+    <filename>protocol_s_c_objc_signaling_call_event-p.html</filename>
+    <member kind="property">
+      <type>NSString *</type>
+      <name>type</name>
+      <anchorfile>protocol_s_c_objc_signaling_call_event-p.html</anchorfile>
+      <anchor>ad1f2e66995761b920b90f3e44f6423f0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>NSString *</type>
+      <name>from</name>
+      <anchorfile>protocol_s_c_objc_signaling_call_event-p.html</anchorfile>
+      <anchor>aa159c6515fe8c2c65ac5401d50ccc8ec</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>NSString *</type>
+      <name>to</name>
+      <anchorfile>protocol_s_c_objc_signaling_call_event-p.html</anchorfile>
+      <anchor>a3455d7ffdb021a49eb7f90b1272fec2d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>NSString *</type>
+      <name>callID</name>
+      <anchorfile>protocol_s_c_objc_signaling_call_event-p.html</anchorfile>
+      <anchor>a54ce21e700a7c6642322366b1f21440b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>NSString *</type>
+      <name>transactionID</name>
+      <anchorfile>protocol_s_c_objc_signaling_call_event-p.html</anchorfile>
+      <anchor>ac7be1ed802e48e6c574371988cfd8fb5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>NSString *</type>
+      <name>sdp</name>
+      <anchorfile>protocol_s_c_objc_signaling_call_event-p.html</anchorfile>
+      <anchor>a5d69767ecd462d4ec8e6a5997fd8881e</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="protocol" objc="yes">
+    <name>SCObjcSignalingDelegate-p</name>
+    <filename>protocol_s_c_objc_signaling_delegate-p.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>signalingDidConnect:</name>
+      <anchorfile>protocol_s_c_objc_signaling_delegate-p.html</anchorfile>
+      <anchor>a410009290a5b36a80d343d178600b1a9</anchor>
+      <arglist>(const NSString *description)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>signalingDidDisconnect:</name>
+      <anchorfile>protocol_s_c_objc_signaling_delegate-p.html</anchorfile>
+      <anchor>a53d749444f0f7e1e8612622503091f30</anchor>
+      <arglist>(const NSString *description)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>signalingGotData:</name>
+      <anchorfile>protocol_s_c_objc_signaling_delegate-p.html</anchorfile>
+      <anchor>aadf171aa8e725b045fc667a6186bea43</anchor>
+      <arglist>(const NSData *data)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>BOOL</type>
+      <name>signalingGotEventCall:</name>
+      <anchorfile>protocol_s_c_objc_signaling_delegate-p.html</anchorfile>
+      <anchor>a9be8c8aa7c7e2c7e721c468203e5101b</anchor>
+      <arglist>(id&lt; SCObjcSignalingCallEvent &gt; event)</arglist>
+    </member>
+  </compound>
+  <compound kind="protocol" objc="yes">
+    <name>SCObjcViewport-p</name>
+    <filename>protocol_s_c_objc_viewport-p.html</filename>
+    <member kind="property">
+      <type>int</type>
+      <name>x</name>
+      <anchorfile>protocol_s_c_objc_viewport-p.html</anchorfile>
+      <anchor>ada3a088b3ba34cf463cddf45c4fb35cb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>int</type>
+      <name>y</name>
+      <anchorfile>protocol_s_c_objc_viewport-p.html</anchorfile>
+      <anchor>a3574c8828af17b562c5bb4bdf30051b6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>int</type>
+      <name>width</name>
+      <anchorfile>protocol_s_c_objc_viewport-p.html</anchorfile>
+      <anchor>ac5d1568bbbbde7e4c99faa6ccab68c98</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="property">
+      <type>int</type>
+      <name>height</name>
+      <anchorfile>protocol_s_c_objc_viewport-p.html</anchorfile>
+      <anchor>a36231b52c9d27f42a2e1b168b8b3d6bd</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>SCObjWrapper</name>
     <filename>class_s_c_obj_wrapper.html</filename>
@@ -2947,17 +5054,17 @@
       <arglist>() const </arglist>
     </member>
     <member kind="function" protection="protected">
-      <type>SC_INLINE int</type>
+      <type>SC_INLINE long</type>
       <name>takeRef</name>
       <anchorfile>class_s_c_obj_wrapper.html</anchorfile>
-      <anchor>a30bbfd56bffecc2d997048c0c7ac240d</anchor>
+      <anchor>ac4324fb8259cbd71d412983dc39f4309</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected">
-      <type>SC_INLINE int</type>
+      <type>SC_INLINE long</type>
       <name>releaseRef</name>
       <anchorfile>class_s_c_obj_wrapper.html</anchorfile>
-      <anchor>abbb3c38872f041a1ba854288ff3db6fb</anchor>
+      <anchor>ac94ac9ba02736deb876845a237d313e3</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected">
@@ -3000,6 +5107,13 @@
       <anchor>a38ecc4e48d44b945d1add7d74f5c7f9a</anchor>
       <arglist>() const </arglist>
     </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>sendData</name>
+      <anchorfile>group_____group___c_p_p___session.html</anchorfile>
+      <anchor>ga64bd9b3d054bb47d2f2fafe5a1dd8cd9</anchor>
+      <arglist>(const void *pcData, size_t nDataSize)</arglist>
+    </member>
     <member kind="function" protection="protected">
       <type></type>
       <name>SCSession</name>
@@ -3035,6 +5149,13 @@
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual bool</type>
+      <name>setIceCallback</name>
+      <anchorfile>group_____group___c_p_p___session_call.html</anchorfile>
+      <anchor>ga9bd1e66cb40611529edabc40635dad3a</anchor>
+      <arglist>(SCObjWrapper&lt; SCSessionCallIceCallback * &gt; oIceCallback)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
       <name>setVideoDisplays</name>
       <anchorfile>group_____group___c_p_p___session_call.html</anchorfile>
       <anchor>gaaf28eee61a2465876febdcb3a65de8a0</anchor>
@@ -3047,6 +5168,48 @@
       <anchor>ga7e7778a3d5b463bf1f8ab2f6453f1268</anchor>
       <arglist>(SCMediaType_t eMediaType, std::string strDestUserId)</arglist>
     </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>sessionMgrReset</name>
+      <anchorfile>class_s_c_session_call.html</anchorfile>
+      <anchor>a778fef7142de0aa0860fd640efcec7ea</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool SC_INLINE</type>
+      <name>sessionMgrIsReady</name>
+      <anchorfile>class_s_c_session_call.html</anchorfile>
+      <anchor>a450f24a1840c969fe97ca01caaab958f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>sessionMgrStart</name>
+      <anchorfile>class_s_c_session_call.html</anchorfile>
+      <anchor>a6867a598415c0957d438fc5d41169c83</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>sessionMgrStop</name>
+      <anchorfile>class_s_c_session_call.html</anchorfile>
+      <anchor>a639046adfaf11b8110326b389fe46628</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>sessionMgrPause</name>
+      <anchorfile>class_s_c_session_call.html</anchorfile>
+      <anchor>a8af8a34cea66c77788be607e7bbc138a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>sessionMgrResume</name>
+      <anchorfile>class_s_c_session_call.html</anchorfile>
+      <anchor>a63d942a31e26b1deed9768921b7a87bc</anchor>
+      <arglist>()</arglist>
+    </member>
     <member kind="function" virtualness="virtual">
       <type>virtual bool</type>
       <name>acceptEvent</name>
@@ -3056,10 +5219,38 @@
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual bool</type>
+      <name>setMute</name>
+      <anchorfile>group_____group___c_p_p___session_call.html</anchorfile>
+      <anchor>ga5ddb30f398a1410eb21d96c1f24c4953</anchor>
+      <arglist>(bool bMuted, SCMediaType_t eMediaType=SCMediaType_All)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
       <name>hangup</name>
       <anchorfile>group_____group___c_p_p___session_call.html</anchorfile>
       <anchor>gab0a5abd73cf0907e152689b1b563ef83</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>setVideoFps</name>
+      <anchorfile>group_____group___c_p_p___session_call.html</anchorfile>
+      <anchor>ga4b56dbae4d7f0075ef795922098e0ccc</anchor>
+      <arglist>(int nFps, SCMediaType_t eMediaType=SCMediaType_Video)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>setVideoBandwidthUploadMax</name>
+      <anchorfile>group_____group___c_p_p___session_call.html</anchorfile>
+      <anchor>ga1c5687ebe7601069d9a67adb1a5d8682</anchor>
+      <arglist>(int nMax, SCMediaType_t eMediaType=(SCMediaType_t)(SCMediaType_Video|SCMediaType_ScreenCast))</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>setVideoBandwidthDownloadMax</name>
+      <anchorfile>group_____group___c_p_p___session_call.html</anchorfile>
+      <anchor>gaf92d4bb2ee8444aa0e432aab0233b7a1</anchor>
+      <arglist>(int nMax, SCMediaType_t eMediaType=(SCMediaType_t)(SCMediaType_Video|SCMediaType_ScreenCast))</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual SC_INLINE std::string</type>
@@ -3073,6 +5264,13 @@
       <name>getMediaType</name>
       <anchorfile>class_s_c_session_call.html</anchorfile>
       <anchor>af1c534da8c459a4eaeaeea73734bd21e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual SC_INLINE enum SCIceState_e</type>
+      <name>getIceState</name>
+      <anchorfile>class_s_c_session_call.html</anchorfile>
+      <anchor>a9adc099371a80e598eccb6e213fc6a3f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" static="yes">
@@ -3109,6 +5307,25 @@
       <anchorfile>class_s_c_session_call.html</anchorfile>
       <anchor>a50e6b812d8bc648b4ff9e651d8994d44</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>SCSessionCallIceCallback</name>
+    <filename>class_s_c_session_call_ice_callback.html</filename>
+    <base>SCObj</base>
+    <member kind="function">
+      <type></type>
+      <name>SCSessionCallIceCallback</name>
+      <anchorfile>class_s_c_session_call_ice_callback.html</anchorfile>
+      <anchor>ae6891cf190d631ec5df5b67f495e90d2</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual bool</type>
+      <name>onStateChanged</name>
+      <anchorfile>class_s_c_session_call_ice_callback.html</anchorfile>
+      <anchor>acaf5d0dc52b9cbeee52372eaba0e4bd7</anchor>
+      <arglist>(SCObjWrapper&lt; SCSessionCall * &gt; oCall)=0</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -3161,8 +5378,8 @@
       <type>bool</type>
       <name>sendData</name>
       <anchorfile>group_____group___c_p_p___signaling.html</anchorfile>
-      <anchor>ga5d1be9c5b86ce9731d06aaf04e059764</anchor>
-      <arglist>(const void *pcData, tsk_size_t nDataSize)</arglist>
+      <anchor>gaaf81da8ec5f2f9257b4d0dc296727dae</anchor>
+      <arglist>(const void *pcData, size_t nDataSize)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -5107,28 +7324,37 @@
     </member>
   </compound>
   <compound kind="dir">
-    <name>C:/Projects/sincity/sincity/include</name>
-    <path>C:/Projects/sincity/sincity/include/</path>
+    <name>C:/Projects/SincityWorkspace/sincity/sincity/include</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/</path>
     <filename>dir_181fff97fbad37fa14a7361e12da871a.html</filename>
-    <dir>C:/Projects/sincity/sincity/include/sincity</dir>
+    <dir>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity</dir>
     <file>sc_config.h</file>
   </compound>
   <compound kind="dir">
-    <name>C:/Projects/sincity/sincity/include/sincity/jsoncpp</name>
-    <path>C:/Projects/sincity/sincity/include/sincity/jsoncpp/</path>
+    <name>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/jsoncpp</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/jsoncpp/</path>
     <filename>dir_6f6157a5ddf9cff8aa17072af5a5b45a.html</filename>
     <file>sc_json-forwards.h</file>
     <file>sc_json.h</file>
   </compound>
   <compound kind="dir">
-    <name>C:/Projects/sincity/sincity/include/sincity</name>
-    <path>C:/Projects/sincity/sincity/include/sincity/</path>
+    <name>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/</path>
     <filename>dir_8486d663c67eea959bedf6fa09d775e7.html</filename>
-    <dir>C:/Projects/sincity/sincity/include/sincity/jsoncpp</dir>
+    <dir>C:/Projects/SincityWorkspace/sincity/sincity/include/sincity/jsoncpp</dir>
+    <file>sc_annotation.h</file>
+    <file>sc_annotation_arrow.h</file>
+    <file>sc_annotation_circle.h</file>
+    <file>sc_annotation_freehand.h</file>
+    <file>sc_annotation_text.h</file>
     <file>sc_api.h</file>
+    <file>sc_api_objc.h</file>
     <file>sc_common.h</file>
+    <file>sc_debug.h</file>
     <file>sc_display_fake.h</file>
+    <file>sc_display_osx.h</file>
     <file>sc_engine.h</file>
+    <file>sc_glview_ios.h</file>
     <file>sc_mutex.h</file>
     <file>sc_nettransport.h</file>
     <file>sc_nettransport_ws.h</file>
@@ -5142,18 +7368,26 @@
     <file>sc_utils.h</file>
   </compound>
   <compound kind="dir">
-    <name>C:/Projects/sincity/sincity</name>
-    <path>C:/Projects/sincity/sincity/</path>
+    <name>C:/Projects/SincityWorkspace/sincity/sincity</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/</path>
     <filename>dir_533576e3b8b73a338156a9d3e0903aa7.html</filename>
-    <dir>C:/Projects/sincity/sincity/include</dir>
-    <dir>C:/Projects/sincity/sincity/src</dir>
+    <dir>C:/Projects/SincityWorkspace/sincity/sincity/include</dir>
+    <dir>C:/Projects/SincityWorkspace/sincity/sincity/src</dir>
   </compound>
   <compound kind="dir">
-    <name>C:/Projects/sincity/sincity/src</name>
-    <path>C:/Projects/sincity/sincity/src/</path>
+    <name>C:/Projects/SincityWorkspace/sincity/sincity/src</name>
+    <path>C:/Projects/SincityWorkspace/sincity/sincity/src/</path>
     <filename>dir_81ef8421d90cc8142a3d391a2dffc215.html</filename>
+    <file>sc_annotation.mm</file>
+    <file>sc_annotation_arrow.mm</file>
+    <file>sc_annotation_circle.mm</file>
+    <file>sc_annotation_freehand.mm</file>
+    <file>sc_annotation_text.mm</file>
+    <file>sc_api_objc.mm</file>
     <file>sc_display_fake.cc</file>
+    <file>sc_display_osx.mm</file>
     <file>sc_engine.cc</file>
+    <file>sc_glview_ios.mm</file>
     <file>sc_jsoncpp.cc</file>
     <file>sc_mutex.cc</file>
     <file>sc_nettransport.cc</file>
@@ -5166,5 +7400,7 @@
     <file>sc_thread.cc</file>
     <file>sc_url.cc</file>
     <file>sc_utils.cc</file>
+    <file>sc_wec7.c</file>
+    <file>sc_wec7_time.c</file>
   </compound>
 </tagfile>
