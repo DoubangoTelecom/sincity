@@ -538,11 +538,19 @@
 						>
 					</File>
 					<File
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\h264\tdav_codec_h264_cisco.h"
+						>
+					</File>
+					<File
 						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\h264\tdav_codec_h264_common.h"
 						>
 					</File>
 					<File
 						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\h264\tdav_codec_h264_cuda.h"
+						>
+					</File>
+					<File
+						RelativePath="..\doubango\tinyDAV\include\tinydav\codecs\h264\tdav_codec_h264_intel.h"
 						>
 					</File>
 					<File
