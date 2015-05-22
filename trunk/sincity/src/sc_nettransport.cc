@@ -62,7 +62,7 @@ bool SCNetPeer::buildWsKey()
         WsKey[i] = rand() % 0xFF;
     }
     WsKey[count - 1] = '\0';
-
+    
     return tsk_base64_encode((const uint8_t*)WsKey, (count - 1), &m_pWsKey) > 0;
 }
 
@@ -91,37 +91,37 @@ bool SCNetPeerStream::cleanupData()
 //	SCNetTransport
 //
 SCNetTransport::SCNetTransport(SCNetTransporType_t eType, const char* pcLocalIP, unsigned short nLocalPort)
-    : m_bValid(false)
-    , m_bStarted(false)
+: m_bValid(false)
+, m_bStarted(false)
 {
     m_eType = eType;
     const char *pcDescription;
     tnet_socket_type_t eSocketType;
     bool bIsIPv6 = false;
-
+    
     if(pcLocalIP && nLocalPort) {
         bIsIPv6 = (tnet_get_family(pcLocalIP, nLocalPort) == AF_INET6);
     }
-
+    
     switch (eType) {
-    case SCNetTransporType_TCP:
-    case SCNetTransporType_WS: {
-        pcDescription = bIsIPv6 ? "TCP/IPv6 transport" : "TCP/IPv4 transport";
-        eSocketType = bIsIPv6 ? tnet_socket_type_tcp_ipv6 : tnet_socket_type_tcp_ipv4;
-        break;
+        case SCNetTransporType_TCP:
+        case SCNetTransporType_WS: {
+            pcDescription = bIsIPv6 ? "TCP/IPv6 transport" : "TCP/IPv4 transport";
+            eSocketType = bIsIPv6 ? tnet_socket_type_tcp_ipv6 : tnet_socket_type_tcp_ipv4;
+            break;
+        }
+        case SCNetTransporType_TLS:
+        case SCNetTransporType_WSS: {
+            pcDescription = bIsIPv6 ? "TLS/IPv6 transport" : "TLS/IPv4 transport";
+            eSocketType = bIsIPv6 ? tnet_socket_type_tls_ipv6 : tnet_socket_type_tls_ipv4;
+            break;
+        }
+        default: {
+            SC_ASSERT(false);
+            return;
+        }
     }
-    case SCNetTransporType_TLS:
-    case SCNetTransporType_WSS: {
-        pcDescription = bIsIPv6 ? "TLS/IPv6 transport" : "TLS/IPv4 transport";
-        eSocketType = bIsIPv6 ? tnet_socket_type_tls_ipv6 : tnet_socket_type_tls_ipv4;
-        break;
-    }
-    default: {
-        SC_ASSERT(false);
-        return;
-    }
-    }
-
+    
     if ((m_pWrappedTransport = tnet_transport_create(pcLocalIP, nLocalPort, eSocketType, pcDescription))) {
         if (TNET_SOCKET_TYPE_IS_STREAM(eSocketType)) {
             tnet_transport_set_callback(m_pWrappedTransport, SCNetTransport::SCNetTransportCb_Stream, this);
@@ -131,9 +131,9 @@ SCNetTransport::SCNetTransport(SCNetTransporType_t eType, const char* pcLocalIP,
             return;
         }
     }
-
+    
     m_oPeersMutex = new SCMutex();
-
+    
     m_bValid = (m_oPeersMutex && m_pWrappedTransport);
 }
 
@@ -169,7 +169,7 @@ SCNetFd SCNetTransport::connectTo(const char* pcHost, unsigned short nPort)
         SC_DEBUG_ERROR_EX(kSCMobuleNameNetTransport, "Transport not started");
         return (SCNetFd)TNET_INVALID_FD;
     }
-
+    
     return tnet_transport_connectto_2(m_pWrappedTransport, pcHost, nPort);
 }
 
@@ -218,13 +218,13 @@ SCObjWrapper<SCNetPeer*> SCNetTransport::getPeerByFd(SCNetFd nFd)
 {
     m_oPeersMutex->lock();
     SCObjWrapper<SCNetPeer*> m_Peer = NULL;
-
+    
     std::map<SCNetFd, SCObjWrapper<SCNetPeer*> >::iterator iter = m_Peers.find(nFd);
     if (iter != m_Peers.end()) {
         m_Peer = iter->second;
     }
     m_oPeersMutex->unlock();
-
+    
     return m_Peer;
 }
 
@@ -252,67 +252,67 @@ int SCNetTransport::SCNetTransportCb_Stream(const tnet_transport_event_t* e)
 {
     SCObjWrapper<SCNetPeer*> oPeer = NULL;
     SCNetTransport* This = (SCNetTransport*)e->callback_data;
-
+    
     switch (e->type) {
-    case event_removed:
-    case event_closed: {
-        oPeer = (This)->getPeerByFd(e->local_fd);
-        if (oPeer) {
-            oPeer->setConnected(false);
-            (This)->removePeer(e->local_fd);
+        case event_error:
+        case event_removed:
+        case event_closed: {
+            oPeer = (This)->getPeerByFd(e->local_fd);
+            if (oPeer) {
+                oPeer->setConnected(false);
+                (This)->removePeer(e->local_fd);
+                if ((This)->m_oCallback) {
+                    (This)->m_oCallback->onConnectionStateChanged(oPeer);
+                }
+            }
+            break;
+        }
+        case event_connected:
+        case event_accepted: {
+            oPeer = (This)->getPeerByFd(e->local_fd);
+            if (oPeer) {
+                oPeer->setConnected(true);
+            }
+            else {
+                oPeer = new SCNetPeerStream(e->local_fd, true);
+                (This)->insertPeer(oPeer);
+            }
             if ((This)->m_oCallback) {
                 (This)->m_oCallback->onConnectionStateChanged(oPeer);
             }
+            break;
         }
-        break;
-    }
-    case event_connected:
-    case event_accepted: {
-        oPeer = (This)->getPeerByFd(e->local_fd);
-        if (oPeer) {
-            oPeer->setConnected(true);
-        }
-        else {
-            oPeer = new SCNetPeerStream(e->local_fd, true);
-            (This)->insertPeer(oPeer);
-        }
-        if ((This)->m_oCallback) {
-            (This)->m_oCallback->onConnectionStateChanged(oPeer);
-        }
-        break;
-    }
-
-    case event_data: {
-        oPeer = (This)->getPeerByFd(e->local_fd);
-        if (!oPeer) {
-            SC_DEBUG_ERROR_EX(kSCMobuleNameNetTransport, "Data event but no peer found!");
-            return -1;
-        }
-
-        size_t nConsumedBytes = oPeer->getDataSize();
-        if ((nConsumedBytes + e->size) > kSCMaxStreamBufferSize) {
-            SC_DEBUG_ERROR_EX(kSCMobuleNameNetTransport, "Stream buffer too large[%u > %u]. Did you forget to consume the bytes?", (unsigned)(nConsumedBytes + e->size), (unsigned)kSCMaxStreamBufferSize);
-            dynamic_cast<SCNetPeerStream*>(*oPeer)->cleanupData();
-        }
-        else {
-            if ((This)->m_oCallback) {
-                if (dynamic_cast<SCNetPeerStream*>(*oPeer)->appenData(e->data, e->size)) {
-                    nConsumedBytes += e->size;
+        
+        case event_data: {
+            oPeer = (This)->getPeerByFd(e->local_fd);
+            if (!oPeer) {
+                SC_DEBUG_ERROR_EX(kSCMobuleNameNetTransport, "Data event but no peer found!");
+                return -1;
+            }
+            
+            size_t nConsumedBytes = oPeer->getDataSize();
+            if ((nConsumedBytes + e->size) > kSCMaxStreamBufferSize) {
+                SC_DEBUG_ERROR_EX(kSCMobuleNameNetTransport, "Stream buffer too large[%u > %u]. Did you forget to consume the bytes?", (unsigned)(nConsumedBytes + e->size), (unsigned)kSCMaxStreamBufferSize);
+                dynamic_cast<SCNetPeerStream*>(*oPeer)->cleanupData();
+            }
+            else {
+                if ((This)->m_oCallback) {
+                    if (dynamic_cast<SCNetPeerStream*>(*oPeer)->appenData(e->data, e->size)) {
+                        nConsumedBytes += e->size;
+                    }
+                    (This)->m_oCallback->onData(oPeer, nConsumedBytes);
                 }
-                (This)->m_oCallback->onData(oPeer, nConsumedBytes);
+                if (nConsumedBytes) {
+                    dynamic_cast<SCNetPeerStream*>(*oPeer)->remoteData(0, nConsumedBytes);
+                }
             }
-            if (nConsumedBytes) {
-                dynamic_cast<SCNetPeerStream*>(*oPeer)->remoteData(0, nConsumedBytes);
-            }
+            break;
         }
-        break;
+        
+        default: {
+            break;
+        }
     }
-
-    case event_error:
-    default: {
-        break;
-    }
-    }
-
+    
     return 0;
 }
