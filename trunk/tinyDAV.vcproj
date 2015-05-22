@@ -826,6 +826,10 @@
 					Name="directx"
 					>
 					<File
+						RelativePath="..\doubango\tinyDAV\include\tinydav\video\directx\tdav_producer_screencast_d3d9.h"
+						>
+					</File>
+					<File
 						RelativePath="..\doubango\tinyDAV\include\tinydav\video\directx\tdav_producer_screencast_ddraw.h"
 						>
 					</File>
@@ -1261,6 +1265,10 @@
 				<Filter
 					Name="directx"
 					>
+					<File
+						RelativePath="..\doubango\tinyDAV\src\video\directx\tdav_producer_screencast_d3d9.cxx"
+						>
+					</File>
 					<File
 						RelativePath="..\doubango\tinyDAV\src\video\directx\tdav_producer_screencast_ddraw.cxx"
 						>
