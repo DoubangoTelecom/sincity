@@ -569,21 +569,23 @@ bool SCSignalingTransportCallback::onConnectionStateChanged(SCObjWrapper<SCNetPe
 {
     SCAutoLock<SCSignaling> autoLock(const_cast<SCSignaling*>(m_pcSCSignaling));
 
-    if ((oPeer->getFd() == m_pcSCSignaling->m_Fd || m_pcSCSignaling->m_Fd == kSCNetFdInvalid) && oPeer->isConnected()) {
-        const SCWsTransport* pcTransport = dynamic_cast<const SCWsTransport*>(*m_pcSCSignaling->m_oNetTransport);
-        SC_ASSERT(pcTransport);
-        const_cast<SCSignaling*>(m_pcSCSignaling)->raiseEvent(SCSignalingEventType_NetConnected, "Connected");
-        if ((m_pcSCSignaling->m_oConnectionUrl->getType() == SCUrlType_WS || m_pcSCSignaling->m_oConnectionUrl->getType() == SCUrlType_WSS)) {
-            if (!m_pcSCSignaling->m_bWsHandshakingDone) {
-                return const_cast<SCWsTransport*>(pcTransport)->handshaking(oPeer, const_cast<SCSignaling*>(m_pcSCSignaling)->m_oConnectionUrl);
+    if ((oPeer->getFd() == m_pcSCSignaling->m_Fd || m_pcSCSignaling->m_Fd == kSCNetFdInvalid)) {
+        if (oPeer->isConnected()) {
+            const SCWsTransport* pcTransport = dynamic_cast<const SCWsTransport*>(*m_pcSCSignaling->m_oNetTransport);
+            SC_ASSERT(pcTransport);
+            const_cast<SCSignaling*>(m_pcSCSignaling)->raiseEvent(SCSignalingEventType_NetConnected, "Connected");
+            if ((m_pcSCSignaling->m_oConnectionUrl->getType() == SCUrlType_WS || m_pcSCSignaling->m_oConnectionUrl->getType() == SCUrlType_WSS)) {
+                if (!m_pcSCSignaling->m_bWsHandshakingDone) {
+                    return const_cast<SCWsTransport*>(pcTransport)->handshaking(oPeer, const_cast<SCSignaling*>(m_pcSCSignaling)->m_oConnectionUrl);
+                }
             }
+            return const_cast<SCSignaling*>(m_pcSCSignaling)->raiseEvent(SCSignalingEventType_NetReady, "Ready");
         }
-        return const_cast<SCSignaling*>(m_pcSCSignaling)->raiseEvent(SCSignalingEventType_NetReady, "Ready");
-    }
-    else if (m_pcSCSignaling->m_Fd == oPeer->getFd() && !oPeer->isConnected()) {
-        const_cast<SCSignaling*>(m_pcSCSignaling)->m_Fd = kSCNetFdInvalid;
-        const_cast<SCSignaling*>(m_pcSCSignaling)->m_bWsHandshakingDone = false;
-        return const_cast<SCSignaling*>(m_pcSCSignaling)->raiseEvent(SCSignalingEventType_NetDisconnected, "Disconnected");
+        else {
+            const_cast<SCSignaling*>(m_pcSCSignaling)->m_Fd = kSCNetFdInvalid;
+            const_cast<SCSignaling*>(m_pcSCSignaling)->m_bWsHandshakingDone = false;
+            return const_cast<SCSignaling*>(m_pcSCSignaling)->raiseEvent(SCSignalingEventType_NetDisconnected, "Disconnected");
+        }
     }
 
     return true;

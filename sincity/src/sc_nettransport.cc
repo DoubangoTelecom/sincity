@@ -214,11 +214,19 @@ bool SCNetTransport::stop()
     return (tnet_transport_shutdown(m_pWrappedTransport) == 0);
 }
 
-SCObjWrapper<SCNetPeer*> SCNetTransport::getPeerByFd(SCNetFd nFd)
+bool SCNetTransport::hasPeer(SCNetFd nFd)
 {
     m_oPeersMutex->lock();
+    bool exists = (m_Peers.find(nFd) != m_Peers.end());
+    m_oPeersMutex->unlock();
+    return exists;
+}
+
+SCObjWrapper<SCNetPeer*> SCNetTransport::getPeerByFd(SCNetFd nFd)
+{
     SCObjWrapper<SCNetPeer*> m_Peer = NULL;
     
+    m_oPeersMutex->lock();
     std::map<SCNetFd, SCObjWrapper<SCNetPeer*> >::iterator iter = m_Peers.find(nFd);
     if (iter != m_Peers.end()) {
         m_Peer = iter->second;
@@ -230,19 +238,18 @@ SCObjWrapper<SCNetPeer*> SCNetTransport::getPeerByFd(SCNetFd nFd)
 
 void SCNetTransport::insertPeer(SCObjWrapper<SCNetPeer*> oPeer)
 {
-    m_oPeersMutex->lock();
     if (oPeer) {
+        m_oPeersMutex->lock();
         m_Peers.insert( std::pair<SCNetFd, SCObjWrapper<SCNetPeer*> >(oPeer->getFd(), oPeer) );
+        m_oPeersMutex->unlock();
     }
-    m_oPeersMutex->unlock();
 }
 
 void SCNetTransport::removePeer(SCNetFd nFd)
 {
-    m_oPeersMutex->lock();
     std::map<SCNetFd, SCObjWrapper<SCNetPeer*> >::iterator iter;
+    m_oPeersMutex->lock();
     if ((iter = m_Peers.find(nFd)) != m_Peers.end()) {
-        SCObjWrapper<SCNetPeer*> oPeer = iter->second;
         m_Peers.erase(iter);
     }
     m_oPeersMutex->unlock();
@@ -258,6 +265,10 @@ int SCNetTransport::SCNetTransportCb_Stream(const tnet_transport_event_t* e)
         case event_removed:
         case event_closed: {
             oPeer = (This)->getPeerByFd(e->local_fd);
+            if (!oPeer) {
+                // Peer doesn't exist because we never received "event_connected" or "event_accepted"
+                oPeer = new SCNetPeerStream(e->local_fd, false);
+            }
             if (oPeer) {
                 oPeer->setConnected(false);
                 (This)->removePeer(e->local_fd);
