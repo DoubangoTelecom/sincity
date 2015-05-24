@@ -241,6 +241,7 @@ class ViewController: UIViewController, SCObjcSignalingDelegate, SCObjcSessionCa
     func signalingDidConnect(description: String) -> Bool {
         NSLog("%@ signalingDidConnect(%@)", kTAG, description)
         connected = true
+        connecting = false
         dispatch_async(dispatch_get_main_queue()) {
             self.buttonConnect!.setTitle("disconnect", forState:UIControlState.Normal)
             self.buttonCall!.enabled = true
@@ -253,6 +254,7 @@ class ViewController: UIViewController, SCObjcSignalingDelegate, SCObjcSessionCa
     func signalingDidDisconnect(description: String) -> Bool {
         NSLog("%@ signalingDidDisconnect(%@)", kTAG, description)
         connected = false
+        connecting = false
         dispatch_async(dispatch_get_main_queue()) {
             self.buttonConnect!.setTitle("connect", forState:UIControlState.Normal)
             self.buttonCall!.enabled = false

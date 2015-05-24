@@ -236,6 +236,7 @@
 -(BOOL)signalingDidConnect:(const NSString*)description {
     SCNSLog(kTAG, @"signalingDidConnect(%@)", description);
     connected = YES;
+    connecting = NO;
     dispatch_async(dispatch_get_main_queue(), ^{
         [buttonConnect setTitle:@"disconnect" forState:UIControlStateNormal];
         buttonCall.enabled = YES;
@@ -248,6 +249,7 @@
 -(BOOL)signalingDidDisconnect:(const NSString*)description {
     SCNSLog(kTAG, @"signalingDidDisconnect(%@)", description);
     connected = NO;
+    connecting = NO;
     dispatch_async(dispatch_get_main_queue(), ^{
         [buttonConnect setTitle:@"connect" forState:UIControlStateNormal];
         buttonCall.enabled = NO;

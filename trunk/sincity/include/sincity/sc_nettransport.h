@@ -143,6 +143,7 @@ public:
     virtual bool stop();
 
 private:
+    bool hasPeer(SCNetFd nFd);
     SCObjWrapper<SCNetPeer*> getPeerByFd(SCNetFd nFd);
     void insertPeer(SCObjWrapper<SCNetPeer*> oPeer);
     void removePeer(SCNetFd nFd);
