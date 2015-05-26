@@ -97,7 +97,7 @@ function checkboxClick(cb) {
 }
 
 window.onload = function() {
-    txtConnUrl.value = window.localStorage.getItem('sincity.conn_url') || "ws://ns313841.ovh.net:9000/wsStringStaticMulti?roomId=0";
+    txtConnUrl.value = window.localStorage.getItem('sincity.conn_url') || "ws://ns313841.ovh.net:80/wsStringStaticMulti?roomId=0";
     txtLocalId.value = window.localStorage.getItem('sincity.localId') || "002";
     txtRemoteId.value = window.localStorage.getItem('sincity.remote_id') || "001";
     cbAudioSend.checked = window.localStorage.getItem('sincity.audio_send') === "true";
