@@ -23,6 +23,18 @@
 #	endif
 #endif /* _MSC_VER */
 
+#if !defined(MAX_PATH)
+#	if defined(PATH_MAX)
+#		define MAX_PATH PATH_MAX
+#	else
+#		define MAX_PATH 260
+#	endif
+#endif /* MAX_PATH */
+
+#if !defined(SC_LOG_TO_FILE)
+#	define SC_LOG_TO_FILE 0
+#endif /* SC_LOG_TO_FILE */
+
 static SCObjWrapper<SCSessionCall*>callSession;
 static SCObjWrapper<SCSignaling*>signalSession;
 static SCObjWrapper<SCSignalingCallEvent*>pendingOffer;
@@ -32,6 +44,10 @@ static SCVideoDisplay displayVideoLocal = NULL;
 static SCVideoDisplay displayVideoRemote = NULL;
 static SCVideoDisplay displayScreenCastLocal = NULL;
 static SCVideoDisplay displayScreenCastRemote = NULL;
+#if SC_LOG_TO_FILE
+static FILE* ouputFile = NULL;
+#define SC_LOG_FILE_PATH	"./sincity.log"
+#endif /* SC_LOG_TO_FILE */
 static bool connected = false;
 
 #if SC_UNDER_WINDOWS
@@ -41,14 +57,6 @@ static DWORD mainThreadId = 0;
 #define DEFAULT_VIDEO_LOCAL_WINDOW_NAME		L"Local video window (Preview)" // Local window is where the encoded video frames are displayed before sending (preview, PIP mode).
 static LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 #endif /* SC_UNDER_WINDOWS */
-
-#if !defined(MAX_PATH)
-#	if defined(PATH_MAX)
-#		define MAX_PATH PATH_MAX
-#	else
-#		define MAX_PATH 260
-#	endif
-#endif /* MAX_PATH */
 
 static void printHelp();
 static bool loadConfig();
@@ -187,6 +195,15 @@ int main(int argc, char* argv[])
            "*******************************************************************\n\n"
            , SC_VERSION_STRING);
 
+	/* Redirect outputs to a file */
+#if SC_LOG_TO_FILE
+	SC_DEBUG_INFO("Redirecting logs to '" SC_LOG_FILE_PATH "')\n");
+	ouputFile = freopen(SC_LOG_FILE_PATH, "w", stderr);
+	if (!ouputFile) {
+		SC_DEBUG_ERROR("freopen(" SC_LOG_FILE_PATH ") failed");
+	}
+#endif /* SC_LOG_TO_FILE */
+
     /* load configuration */
     SC_ASSERT(loadConfig());
 
@@ -295,7 +312,13 @@ int main(int argc, char* argv[])
     threadConsoleReader->join();
 #endif
 
-    threadConsoleReader = NULL;
+    threadConsoleReader = NULL; // join (if not already done) and destoy the thread
+
+#if SC_LOG_TO_FILE
+	if (ouputFile) {
+		fclose(ouputFile), ouputFile = NULL;
+	}
+#endif /* SC_LOG_TO_FILE */
 
     return 0;
 }
