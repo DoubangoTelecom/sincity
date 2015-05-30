@@ -290,6 +290,13 @@ var SCWebRtcEvents = {
             call.pc.addStream(stream);
             SCUtils.attachStream(call, stream, true/*local*/);
         }
+    },
+    onnegotiationneeded: function (call, e) {
+        console.info("onnegotiationneeded");
+        var This = call;
+        if (This.pc && (This.pc.iceGatheringState || This.pc.iceState) !== "new") {
+            // SCUtils.makeOffer(This);
+        }
     }
 };
 
@@ -421,7 +428,8 @@ var SCUtils = {
             }
         }
         call.pc.onicecandidate = function(e) { SCWebRtcEvents.onicecandidate(This, e); }
-        call.pc.onaddstream = function(e) { SCWebRtcEvents.onaddstream(This, e); }
+        call.pc.onaddstream = function (e) { SCWebRtcEvents.onaddstream(This, e); }
+        call.pc.onnegotiationneeded = function (e) { SCWebRtcEvents.onnegotiationneeded(This, e); }
         call.pc.createOffer(
             function(desc) {
                 console.info("createOffer:" + desc.sdp);
@@ -451,7 +459,8 @@ var SCUtils = {
             }
         }
         call.pc.onicecandidate = function(e) { SCWebRtcEvents.onicecandidate(This, e); }
-        call.pc.onaddstream = function(e) { SCWebRtcEvents.onaddstream(This, e); }
+        call.pc.onaddstream = function (e) { SCWebRtcEvents.onaddstream(This, e); }
+        call.pc.onnegotiationneeded = function (e) { SCWebRtcEvents.onnegotiationneeded(This, e); }
         var sdpRemote = new RTCSessionDescription({ type: "offer", sdp: Msg.sdp.replace(/UDP\/TLS\/RTP\/SAVPF/g, 'RTP/SAVPF') });
         call.pc.setRemoteDescription(sdpRemote,
             function() {
