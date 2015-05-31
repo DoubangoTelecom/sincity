@@ -12,6 +12,9 @@
 		15106DF91B01771600F18916 /* sc_annotation_freehand.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15106DF81B01771600F18916 /* sc_annotation_freehand.mm */; };
 		15106E021B02D28C00F18916 /* sc_annotation_arrow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15106E001B02D28C00F18916 /* sc_annotation_arrow.mm */; };
 		15106E031B02D28C00F18916 /* sc_annotation_text.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15106E011B02D28C00F18916 /* sc_annotation_text.mm */; };
+		15423B381B1295E80046C437 /* tnet_proxy_plugin.c in Sources */ = {isa = PBXBuildFile; fileRef = 15423B371B1295E80046C437 /* tnet_proxy_plugin.c */; };
+		15423B3A1B12A7BE0046C437 /* thttp_proxy_node_plugin.c in Sources */ = {isa = PBXBuildFile; fileRef = 15423B391B12A7BE0046C437 /* thttp_proxy_node_plugin.c */; };
+		15423B3E1B12F8970046C437 /* tnet_proxy_node_socks_plugin.c in Sources */ = {isa = PBXBuildFile; fileRef = 15423B3C1B12F8970046C437 /* tnet_proxy_node_socks_plugin.c */; };
 		15B158831AE83E5B0013651B /* trtp_rtcp_header.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B158651AE83E5B0013651B /* trtp_rtcp_header.c */; };
 		15B158841AE83E5B0013651B /* trtp_rtcp_packet.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B158661AE83E5B0013651B /* trtp_rtcp_packet.c */; };
 		15B158851AE83E5B0013651B /* trtp_rtcp_rblock.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B158671AE83E5B0013651B /* trtp_rtcp_rblock.c */; };
@@ -312,6 +315,12 @@
 		15106DFD1B02D25900F18916 /* sc_annotation_arrow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_annotation_arrow.h; sourceTree = "<group>"; };
 		15106E001B02D28C00F18916 /* sc_annotation_arrow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_annotation_arrow.mm; sourceTree = "<group>"; };
 		15106E011B02D28C00F18916 /* sc_annotation_text.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_annotation_text.mm; sourceTree = "<group>"; };
+		15423B361B1295A60046C437 /* tnet_proxy_plugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tnet_proxy_plugin.h; sourceTree = "<group>"; };
+		15423B371B1295E80046C437 /* tnet_proxy_plugin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tnet_proxy_plugin.c; sourceTree = "<group>"; };
+		15423B391B12A7BE0046C437 /* thttp_proxy_node_plugin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = thttp_proxy_node_plugin.c; sourceTree = "<group>"; };
+		15423B3B1B12A7D20046C437 /* thttp_proxy_node_plugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thttp_proxy_node_plugin.h; sourceTree = "<group>"; };
+		15423B3C1B12F8970046C437 /* tnet_proxy_node_socks_plugin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tnet_proxy_node_socks_plugin.c; sourceTree = "<group>"; };
+		15423B3D1B12F8970046C437 /* tnet_proxy_node_socks_plugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tnet_proxy_node_socks_plugin.h; sourceTree = "<group>"; };
 		15B1584B1AE83E5B0013651B /* trtp_rtcp_header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trtp_rtcp_header.h; sourceTree = "<group>"; };
 		15B1584C1AE83E5B0013651B /* trtp_rtcp_packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trtp_rtcp_packet.h; sourceTree = "<group>"; };
 		15B1584D1AE83E5B0013651B /* trtp_rtcp_rblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trtp_rtcp_rblock.h; sourceTree = "<group>"; };
@@ -1038,6 +1047,7 @@
 				15B158BB1AE8485F0013651B /* thttp_message.h */,
 				15B158BC1AE8485F0013651B /* thttp_session.h */,
 				15B158BD1AE8485F0013651B /* thttp_url.h */,
+				15423B3B1B12A7D20046C437 /* thttp_proxy_node_plugin.h */,
 			);
 			path = tinyhttp;
 			sourceTree = "<group>";
@@ -1093,6 +1103,7 @@
 				15B158F01AE8485F0013651B /* thttp_message.c */,
 				15B158F11AE8485F0013651B /* thttp_session.c */,
 				15B158F21AE8485F0013651B /* thttp_url.c */,
+				15423B391B12A7BE0046C437 /* thttp_proxy_node_plugin.c */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -2294,15 +2305,16 @@
 		15B745781AE82D200001E1C7 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				15B745E71AE82D200001E1C7 /* turn */,
 				15B745791AE82D200001E1C7 /* dhcp */,
 				15B745821AE82D200001E1C7 /* dhcp6 */,
 				15B7458B1AE82D200001E1C7 /* dns */,
 				15B745AC1AE82D200001E1C7 /* ice */,
 				15B745B91AE82D200001E1C7 /* stun */,
-				15B745CA1AE82D200001E1C7 /* tinynet.h */,
-				15B745CB1AE82D200001E1C7 /* tinynet_config.h */,
 				15B745CC1AE82D200001E1C7 /* tls */,
 				15B745D11AE82D200001E1C7 /* tnet.c */,
+				15B745CA1AE82D200001E1C7 /* tinynet.h */,
+				15B745CB1AE82D200001E1C7 /* tinynet_config.h */,
 				15B745D21AE82D200001E1C7 /* tnet.h */,
 				15B745D31AE82D200001E1C7 /* tnet_auth.c */,
 				15B745D41AE82D200001E1C7 /* tnet_auth.h */,
@@ -2324,7 +2336,10 @@
 				15B745E41AE82D200001E1C7 /* tnet_types.h */,
 				15B745E51AE82D200001E1C7 /* tnet_utils.c */,
 				15B745E61AE82D200001E1C7 /* tnet_utils.h */,
-				15B745E71AE82D200001E1C7 /* turn */,
+				15423B361B1295A60046C437 /* tnet_proxy_plugin.h */,
+				15423B371B1295E80046C437 /* tnet_proxy_plugin.c */,
+				15423B3C1B12F8970046C437 /* tnet_proxy_node_socks_plugin.c */,
+				15423B3D1B12F8970046C437 /* tnet_proxy_node_socks_plugin.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -2640,6 +2655,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15B159781AE8491B0013651B /* tmedia_common.c in Sources */,
+				15423B381B1295E80046C437 /* tnet_proxy_plugin.c in Sources */,
 				15B15ACF1AE849600013651B /* tdav_video_jb.c in Sources */,
 				15B159841AE8491B0013651B /* tmedia_session_dummy.c in Sources */,
 				15B159761AE8491B0013651B /* tmedia_codec.c in Sources */,
@@ -2656,6 +2672,7 @@
 				15B746B51AE83AFF0001E1C7 /* tsdp_header_V.c in Sources */,
 				15B15AA71AE849600013651B /* tdav_codec_bv16.c in Sources */,
 				15B158891AE83E5B0013651B /* trtp_rtcp_report_rr.c in Sources */,
+				15423B3E1B12F8970046C437 /* tnet_proxy_node_socks_plugin.c in Sources */,
 				15B746301AE82D200001E1C7 /* tnet_stun_pkt.c in Sources */,
 				15B7460E1AE82D200001E1C7 /* tnet_dhcp_message.c in Sources */,
 				15B15ACC1AE849600013651B /* tdav_consumer_video_gdi.c in Sources */,
@@ -2764,6 +2781,7 @@
 				15B15AC31AE849600013651B /* tdav_producer_msrp.c in Sources */,
 				15B15A8D1AE849600013651B /* tdav_producer_alsa.c in Sources */,
 				15B7455E1AE82C2C0001E1C7 /* tsk_safeobj.c in Sources */,
+				15423B3A1B12A7BE0046C437 /* thttp_proxy_node_plugin.c in Sources */,
 				15B15A9D1AE849600013651B /* tdav_speex_jitterbuffer.c in Sources */,
 				15B15AAD1AE849600013651B /* tdav_codec_g711.c in Sources */,
 				15B746341AE82D200001E1C7 /* tnet.c in Sources */,
@@ -2934,13 +2952,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DOUBANGO_HOME = ../../../doubango;
-				DOUBANGO_LIBS = $DOUBANGO_HOME/thirdparties/iphone/lib/i386;
-				"DOUBANGO_LIBS[arch=*]" = $DOUBANGO_HOME/thirdparties/iphone/lib/i386;
-				"DOUBANGO_LIBS[arch=arm64]" = $DOUBANGO_HOME/thirdparties/iphone/lib/arm64;
-				"DOUBANGO_LIBS[arch=armv6]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv6;
-				"DOUBANGO_LIBS[arch=armv7]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv7;
-				"DOUBANGO_LIBS[arch=armv7s]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv7s;
-				"DOUBANGO_LIBS[sdk=iphonesimulator*][arch=*]" = $DOUBANGO_HOME/thirdparties/iphone/lib/x86_64;
+				DOUBANGO_LIBS = $DOUBANGO_HOME/thirdparties/iphone/lib/universal;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -3005,13 +3017,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DOUBANGO_HOME = ../../../doubango;
-				DOUBANGO_LIBS = $DOUBANGO_HOME/thirdparties/iphone/lib/i386;
-				"DOUBANGO_LIBS[arch=*]" = $DOUBANGO_HOME/thirdparties/iphone/lib/i386;
-				"DOUBANGO_LIBS[arch=arm64]" = $DOUBANGO_HOME/thirdparties/iphone/lib/arm64;
-				"DOUBANGO_LIBS[arch=armv6]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv6;
-				"DOUBANGO_LIBS[arch=armv7]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv7;
-				"DOUBANGO_LIBS[arch=armv7s]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv7s;
-				"DOUBANGO_LIBS[sdk=iphonesimulator*][arch=*]" = $DOUBANGO_HOME/thirdparties/iphone/lib/x86_64;
+				DOUBANGO_LIBS = $DOUBANGO_HOME/thirdparties/iphone/lib/universal;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
