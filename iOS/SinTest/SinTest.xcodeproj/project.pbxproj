@@ -382,12 +382,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DOUBANGO_HOME = ../../../doubango;
-				DOUBANGO_LIBS = "";
-				"DOUBANGO_LIBS[arch=arm64]" = $DOUBANGO_HOME/thirdparties/iphone/lib/arm64;
-				"DOUBANGO_LIBS[arch=armv6]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv6;
-				"DOUBANGO_LIBS[arch=armv7]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv7;
-				"DOUBANGO_LIBS[arch=armv7s]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv7s;
-				"DOUBANGO_LIBS[sdk=iphonesimulator*]" = $DOUBANGO_HOME/thirdparties/iphone/lib/x86_64;
+				DOUBANGO_LIBS = $DOUBANGO_HOME/thirdparties/iphone/lib/universal;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -438,12 +433,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DOUBANGO_HOME = ../../../doubango;
-				DOUBANGO_LIBS = "";
-				"DOUBANGO_LIBS[arch=arm64]" = $DOUBANGO_HOME/thirdparties/iphone/lib/arm64;
-				"DOUBANGO_LIBS[arch=armv6]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv6;
-				"DOUBANGO_LIBS[arch=armv7]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv7;
-				"DOUBANGO_LIBS[arch=armv7s]" = $DOUBANGO_HOME/thirdparties/iphone/lib/armv7s;
-				"DOUBANGO_LIBS[sdk=iphonesimulator*]" = $DOUBANGO_HOME/thirdparties/iphone/lib/x86_64;
+				DOUBANGO_LIBS = $DOUBANGO_HOME/thirdparties/iphone/lib/universal;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
