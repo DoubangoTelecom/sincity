@@ -97,10 +97,15 @@ private:
     SCMediaType_t m_eMediaType;
 
     struct tnet_ice_ctx_s *m_pIceCtxVideo;
+	SCIceRole_t m_eIceCtxVideoRole;
     struct tnet_ice_ctx_s *m_pIceCtxScreenCast;
+	SCIceRole_t m_eIceCtxScreenCastRole;
     struct tnet_ice_ctx_s *m_pIceCtxAudio;
+	SCIceRole_t m_eIceCtxAudioRole;
 
     struct tmedia_session_mgr_s* m_pSessionMgr;
+
+	uint32_t m_nRoSessionVersion;
 
     SCObjWrapper<SCMutex*> m_oMutex;
 

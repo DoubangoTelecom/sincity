@@ -66,8 +66,13 @@ SCSessionCall::SCSessionCall(SCObjWrapper<SCSignaling*> oSignaling, std::string 
     , m_pIceCtxVideo(NULL)
     , m_pIceCtxAudio(NULL)
 	, m_pIceCtxScreenCast(NULL)
+	, m_eIceCtxVideoRole(SCIceRole_None)
+	, m_eIceCtxAudioRole(SCIceRole_None)
+	, m_eIceCtxScreenCastRole(SCIceRole_None)
 
     , m_pSessionMgr(NULL)
+
+	, m_nRoSessionVersion(0)
 
     , m_strCallId(strCallId)
 
@@ -260,6 +265,15 @@ bool SCSessionCall::acceptEvent(SCObjWrapper<SCSignalingCallEvent*>& e)
             bRet = false;
             goto bail;
         }
+		// Make sure RO has changed
+		uint32_t newSessionVersion = -1; // "m_nRoSessionVersion" default value is "0"
+		if (tsdp_message_get_sess_version(pSdp_ro, &newSessionVersion) == 0) {
+			if (m_nRoSessionVersion != 0 && newSessionVersion == m_nRoSessionVersion) {
+				SC_DEBUG_INFO("Remote sdp has same version number: %u", m_nRoSessionVersion);
+				goto bail; // not an error
+			}
+			m_nRoSessionVersion = newSessionVersion;
+		}
 
         if (!iceIsEnabled(pSdp_ro)) {
             SC_DEBUG_ERROR("ICE is required. SDP='%s'", e->getSdp().c_str());
@@ -279,27 +293,32 @@ bool SCSessionCall::acceptEvent(SCObjWrapper<SCSignalingCallEvent*>& e)
         m_eMediaType = (SCMediaType_t)(newMediaType & SCMediaType_Video);
 #else
 		if (m_eMediaType != newMediaType) {
-			SC_DEBUG_INFO("Media type mismatch: offer=%d,reponse=%d", m_eMediaType, newMediaType);
+			if (ro_type != tmedia_ro_type_offer) {
+				SC_DEBUG_INFO("Media type mismatch: offer=%d,reponse=%d", m_eMediaType, newMediaType);
+			}
 			// Cleanup ICE contexes
 			if (!(newMediaType & SCMediaType_Audio) && m_pIceCtxAudio) {
 				SC_DEBUG_INFO("Destroying ICE audio context");
 				TSK_OBJECT_SAFE_FREE(m_pIceCtxAudio);
+				m_eIceCtxAudioRole = SCIceRole_None;
 				if (m_pSessionMgr) {
-					tmedia_session_mgr_set_ice_ctx_2(m_pSessionMgr, tmedia_audio, tsk_null);
+					bRet = (tmedia_session_mgr_set_ice_ctx_2(m_pSessionMgr, tmedia_audio, tsk_null) == 0);
 				}
 			}
 			if (!(newMediaType & SCMediaType_Video) && m_pIceCtxVideo) {
 				SC_DEBUG_INFO("Destroying ICE video context");
 				TSK_OBJECT_SAFE_FREE(m_pIceCtxVideo);
+				m_eIceCtxVideoRole = SCIceRole_None;
 				if (m_pSessionMgr) {
-					tmedia_session_mgr_set_ice_ctx_2(m_pSessionMgr, tmedia_video, tsk_null);
+					bRet = (tmedia_session_mgr_set_ice_ctx_2(m_pSessionMgr, tmedia_video, tsk_null) == 0);
 				}
 			}
 			if (!(newMediaType & SCMediaType_ScreenCast) && m_pIceCtxScreenCast) {
 				SC_DEBUG_INFO("Destroying ICE screencast context");
 				TSK_OBJECT_SAFE_FREE(m_pIceCtxScreenCast);
+				m_eIceCtxScreenCastRole = SCIceRole_None;
 				if (m_pSessionMgr) {
-					tmedia_session_mgr_set_ice_ctx_2(m_pSessionMgr, tmedia_bfcp_video, tsk_null);
+					bRet = (tmedia_session_mgr_set_ice_ctx_2(m_pSessionMgr, tmedia_bfcp_video, tsk_null) == 0);
 				}
 			}
 			m_eMediaType = newMediaType;
@@ -507,8 +526,14 @@ bool SCSessionCall::cleanup()
 	TSK_OBJECT_SAFE_FREE(m_pIceCtxScreenCast);
     TSK_OBJECT_SAFE_FREE(m_pIceCtxVideo);
     TSK_OBJECT_SAFE_FREE(m_pIceCtxAudio);
+	
+	m_eIceCtxVideoRole = SCIceRole_None;
+	m_eIceCtxAudioRole = SCIceRole_None;
+	m_eIceCtxScreenCastRole = SCIceRole_None;
 
     m_strLocalSdpType = "";
+
+	m_nRoSessionVersion = 0;
 
     return true;
 }
@@ -520,17 +545,8 @@ bool SCSessionCall::cleanup()
 bool SCSessionCall::createSessionMgr()
 {
     SCAutoLock<SCSessionCall> autoLock(this);
-
-    TSK_OBJECT_SAFE_FREE(m_pSessionMgr);
-
-	TSK_OBJECT_SAFE_FREE(m_pIceCtxScreenCast);
-    TSK_OBJECT_SAFE_FREE(m_pIceCtxVideo);
-    TSK_OBJECT_SAFE_FREE(m_pIceCtxAudio);
-
-    // Create ICE contexts
-    if (!iceCreateCtxAll()) {
-        return false;
-    }
+	
+	SC_ASSERT(!m_pSessionMgr);
 
     int iRet;
 	tmedia_type_t nativeMediaType;
@@ -547,20 +563,6 @@ bool SCSessionCall::createSessionMgr()
                     bestsource, tsk_false/*IPv6*/, tsk_true/* offerer */);
     if (!m_pSessionMgr) {
         SC_DEBUG_ERROR("Failed to create media session manager");
-        return false;
-    }
-
-    // Set ICE contexts
-	if (tmedia_session_mgr_set_ice_ctx_2(m_pSessionMgr, _mediaTypeToNative(SCMediaType_Audio), m_pIceCtxAudio) != 0) {
-        SC_DEBUG_ERROR("Failed to set ICE contexts for 'audio' media type");
-        return false;
-    }
-	if (tmedia_session_mgr_set_ice_ctx_2(m_pSessionMgr, _mediaTypeToNative(SCMediaType_Video), m_pIceCtxVideo) != 0) {
-        SC_DEBUG_ERROR("Failed to set ICE contexts for 'video' media type");
-        return false;
-    }
-	if (tmedia_session_mgr_set_ice_ctx_2(m_pSessionMgr, _mediaTypeToNative(SCMediaType_ScreenCast), m_pIceCtxScreenCast) != 0) {
-        SC_DEBUG_ERROR("Failed to set ICE contexts for 'screencast' media type");
         return false;
     }
 
@@ -596,6 +598,7 @@ bool SCSessionCall::createLocalOffer(const struct tsdp_message_s* pc_Ro /*= NULL
     SCAutoLock<SCSessionCall> autoLock(this);
 
     enum tmedia_ro_type_e eRoType = (enum tmedia_ro_type_e)_eRoType;
+	bool bNewSession = (m_pSessionMgr == NULL);
 	
     if (!m_pSessionMgr) {
         if (!createSessionMgr()) {
@@ -609,6 +612,25 @@ bool SCSessionCall::createLocalOffer(const struct tsdp_message_s* pc_Ro /*= NULL
             return false;
         }
     }
+
+	// Create ICE contexts
+	if (!iceCreateCtxAll()) {
+		return false;
+	}
+
+	// Set ICE contexts (before set_ro() to make sure new sessions will take a reference)
+	if (tmedia_session_mgr_set_ice_ctx_2(m_pSessionMgr, _mediaTypeToNative(SCMediaType_Audio), m_pIceCtxAudio) != 0) {
+		SC_DEBUG_ERROR("Failed to set ICE contexts for 'audio' media type");
+		return false;
+	}
+	if (tmedia_session_mgr_set_ice_ctx_2(m_pSessionMgr, _mediaTypeToNative(SCMediaType_Video), m_pIceCtxVideo) != 0) {
+		SC_DEBUG_ERROR("Failed to set ICE contexts for 'video' media type");
+		return false;
+	}
+	if (tmedia_session_mgr_set_ice_ctx_2(m_pSessionMgr, _mediaTypeToNative(SCMediaType_ScreenCast), m_pIceCtxScreenCast) != 0) {
+		SC_DEBUG_ERROR("Failed to set ICE contexts for 'screencast' media type");
+		return false;
+	}
 
     if (pc_Ro) {
         if (tmedia_session_mgr_set_ro(m_pSessionMgr, pc_Ro, eRoType) != 0) {
@@ -813,6 +835,8 @@ bool SCSessionCall::iceProcessRo(const struct tsdp_message_s* pc_SdpRo, bool isO
     const char* sess_pwd = tsk_null;
     int ret = 0;
 	tmedia_type_t mt_ro, mt_lo;
+	SCIceRole_t new_role = isOffer ? SCIceRole_Controlled : SCIceRole_Controlling;
+	SCIceRole_t* p_role = tsk_null;
 	
     if (!pc_SdpRo) {
         SC_DEBUG_ERROR("Invalid argument");
@@ -844,12 +868,15 @@ bool SCSessionCall::iceProcessRo(const struct tsdp_message_s* pc_SdpRo, bool isO
 		switch (mt_ro) {
         case tmedia_audio:
             _ctx = m_pIceCtxAudio;
+			p_role = &m_eIceCtxAudioRole;
             break;
         case tmedia_video:
             _ctx = m_pIceCtxVideo;
+			p_role = &m_eIceCtxVideoRole;
             break;
         case tmedia_bfcp_video:
             _ctx = m_pIceCtxScreenCast;
+			p_role = &m_eIceCtxScreenCastRole;
             break;
         default:
             SC_DEBUG_WARN("ignoring ICE candidates from media type=%d", mt_ro);
@@ -870,7 +897,10 @@ bool SCSessionCall::iceProcessRo(const struct tsdp_message_s* pc_SdpRo, bool isO
         }
         // ICE processing will be automatically stopped if the remote candidates are not valid
         // ICE-CONTROLLING role if we are the offerer
-        ret = tnet_ice_ctx_set_remote_candidates(_ctx, ice_remote_candidates, ufrag, pwd, !isOffer, tsk_false/*Jingle?*/);
+		if (*p_role == SCIceRole_None) { // do not change ICE role if already negotiated
+			*p_role = new_role;
+		}
+		ret = tnet_ice_ctx_set_remote_candidates(_ctx, ice_remote_candidates, ufrag, pwd, (*p_role == SCIceRole_Controlling), tsk_false/*Jingle?*/);
         TSK_SAFE_FREE(ice_remote_candidates);
 	}
 
@@ -1054,6 +1084,12 @@ bool SCSessionCall::sendSdp()
     }
 
     Json::Value message;
+
+	// Make sure all new changes (e.g. ICE context) are applied
+	if (tmedia_session_mgr_lo_apply_changes(m_pSessionMgr) != 0) {
+		SC_DEBUG_ERROR("Failed to refresh local offer");
+		return false;
+	}
 
     // Get local now that ICE gathering is done
     const tsdp_message_t* sdp_lo = tmedia_session_mgr_get_lo(m_pSessionMgr);

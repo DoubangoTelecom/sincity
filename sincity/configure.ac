@@ -1,8 +1,8 @@
 #
-# Copyright (C) 2013 Mamadou DIOP
-# Copyright (C) 2013 Doubango Telecom <http://www.doubango.org>
+# Copyright (C) 2013-2015 Mamadou DIOP
+# Copyright (C) 2013-2015 Doubango Telecom <http://www.doubango.org>
 # License: GPLv3 or commercial
-# This file is part of Doubango Open Source SIP TelePresence System <https://code.google.com/p/telepresence/>
+# This file is part of Sincity <https://code.google.com/p/sincity/>
 #
 
 AC_PREREQ([2.0])
@@ -28,7 +28,7 @@ AC_PROG_MAKE_SET
 
 PKG_PROG_PKG_CONFIG
 
-AC_SUBST(DOUBANGO_MINVER, 2.0.1200)
+AC_SUBST(DOUBANGO_MINVER, 2.0.1305)
 
 target_cpu=`uname -m`
 target_os=`uname -s`
