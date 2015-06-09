@@ -102,6 +102,13 @@ typedef enum SCIceState_e {
 }
 SCIceState_t;
 
+typedef enum SCIceRole_e {
+	SCIceRole_None,
+	SCIceRole_Controlling,
+	SCIceRole_Controlled
+}
+SCIceRole_t;
+
 typedef enum SCSessionType_e {
     SCSessionType_None,
     SCSessionType_Call
