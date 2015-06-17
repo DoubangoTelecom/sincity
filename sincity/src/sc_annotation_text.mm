@@ -140,16 +140,20 @@
     Json::Value root;
     root["messageType"] = "annotation";
     root["passthrough"] = YES;
-    root["id"] = (Json::Int64)self.ID;
-    root["localId"] = (Json::Int64)self.localID;
+    root["id"] = [[NSString stringWithFormat:@"%ld", self.ID] UTF8String];
+    root["localId"] = [[NSString stringWithFormat:@"%ld", self.localID] UTF8String];
     root["type"] = "o-text";
-    root["hexColor"] = [[[self class] colorToHexString:super.strokeColor.CGColor] UTF8String];
-    root["strokeWidth"] = super.strokeWidth;
+    root["hexColor"] =   [[NSString stringWithFormat:@"%@%@", @"#", [[self class] colorToHexString:super.strokeColor.CGColor]]UTF8String];
+    root["strokeWidth"] = [[NSString stringWithFormat:@"%.f", super.strokeWidth] UTF8String];
     root["data"] = [textField.text UTF8String];
-    root["posX"] = textField.frame.origin.x;
-    root["posY"] = textField.frame.origin.y;
+    root["centerX"];
+    root["centerY"];
+    root["radius"];
+    root["posX"]=[[NSString stringWithFormat:@"%.f", textField.frame.origin.x] UTF8String];;
+    root["posY"]=[[NSString stringWithFormat:@"%.f", textField.frame.origin.y] UTF8String];;
     std::string json = root.toStyledString();
     return [NSString stringWithCString:json.c_str() encoding:NSUTF8StringEncoding];
+    
 }
 
 -(void)dealloc {

@@ -46,7 +46,8 @@
     if (bezierPath) {
         [bezierPath release];
     }
-    
+    pt->x = lroundf(pt->x);
+    pt->y = lroundf(pt->y);
     bezierPath = [[UIBezierPath alloc] init];
     bezierPath.lineCapStyle = kCGLineCapRound;
     bezierPath.lineJoinStyle = kCGLineJoinRound;
@@ -59,12 +60,16 @@
 
 -(void)move:(CGPoint*)pt {
     SC_DEBUG_INFO_EX(kTAG, "FreehandMove(%f, %f)", pt->x, pt->y);
+    pt->x = lroundf(pt->x);
+    pt->y = lroundf(pt->y);
     [bezierPath addLineToPoint:*pt];
     [self draw];
 }
 
 -(void)end:(CGPoint*)pt {
     SC_DEBUG_INFO_EX(kTAG, "FreehandEnd(%f, %f)", pt->x, pt->y);
+    pt->x = lroundf(pt->x);
+    pt->y = lroundf(pt->y);
     [bezierPath addLineToPoint:*pt];
     [self draw];
     if ([super.delegate respondsToSelector:@selector(annotationReady:)]) {
@@ -85,14 +90,20 @@
     Json::Value root;
     root["messageType"] = "annotation";
     root["passthrough"] = YES;
-    root["id"] = (Json::Int64)self.ID;
-    root["localId"] = (Json::Int64)self.localID;
+    root["id"] = [[NSString stringWithFormat:@"%ld", self.ID] UTF8String];
+    root["localId"] = [[NSString stringWithFormat:@"%ld", self.localID] UTF8String];
     root["type"] = "o-path";
-    root["hexColor"] = [[[self class] colorToHexString:layer.strokeColor] UTF8String];
-    root["strokeWidth"] = layer.lineWidth;
-    root["data"] = [[[self class] bezierPathToSVG:bezierPath] UTF8String];
+    root["hexColor"] = [[NSString stringWithFormat:@"%@%@", @"#", [[self class] colorToHexString:layer.strokeColor]]UTF8String];
+    root["strokeWidth"] = [[NSString stringWithFormat:@"%.f", layer.lineWidth] UTF8String];
+    root["data"]=[[[self class] bezierPathToSVG:bezierPath] UTF8String];;
+    root["centerX"];
+    root["centerY"];
+    root["radius"];
+    root["posX"];
+    root["posY"];
     std::string json = root.toStyledString();
-    return [NSString stringWithCString:json.c_str() encoding:NSUTF8StringEncoding];
+    return [NSString stringWithCString:json.c_str() encoding: NSUTF8StringEncoding];
+    
 }
 
 -(void)dealloc {
