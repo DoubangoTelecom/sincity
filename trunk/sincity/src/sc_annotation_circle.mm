@@ -80,14 +80,17 @@
     Json::Value root;
     root["messageType"] = "annotation";
     root["passthrough"] = YES;
-    root["id"] = (Json::Int64)self.ID;
-    root["localId"] = (Json::Int64)self.localID;
+    root["id"] = [[NSString stringWithFormat:@"%ld", self.ID] UTF8String];
+    root["localId"] = [[NSString stringWithFormat:@"%ld", self.localID] UTF8String];
     root["type"] = "o-circle";
-    root["centerX"] = beginX;
-    root["centerY"] = beginY;
-    root["radius"] = radius;
-    root["hexColor"] = [[[self class] colorToHexString:layer.strokeColor] UTF8String];
-    root["strokeWidth"] = layer.lineWidth;
+    root["hexColor"] = [[NSString stringWithFormat:@"%@%@", @"#", [[self class] colorToHexString:layer.strokeColor]]UTF8String];
+    root["strokeWidth"] = [[NSString stringWithFormat:@"%.f", layer.lineWidth] UTF8String];
+    root["data"];
+    root["centerX"]=[[NSString stringWithFormat:@"%.f", beginX] UTF8String];
+    root["centerY"]=[[NSString stringWithFormat:@"%.f", beginY] UTF8String];
+    root["radius"]=[[NSString stringWithFormat:@"%.f", radius] UTF8String];
+    root["posX"];
+    root["posY"];
     std::string json = root.toStyledString();
     return [NSString stringWithCString:json.c_str() encoding: NSUTF8StringEncoding];
 }

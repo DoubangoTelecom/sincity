@@ -16,16 +16,16 @@ static void SCCGPathApplierFunc(void *info, const CGPathElement *element) {
     
     switch(element->type) {
         case kCGPathElementMoveToPoint: // #1 point
-            tsk_strcat_2(&svgData->data, "M%.2f,%.2f", points[0].x, points[0].y);
+            tsk_strcat_2(&svgData->data, "M%.2f %.2f", points[0].x, points[0].y);
             break;
         case kCGPathElementAddLineToPoint: // #1 point
-            tsk_strcat_2(&svgData->data, "L%.2f,%.2f", points[0].x, points[0].y);
+            tsk_strcat_2(&svgData->data, "L%.2f %.2f", points[0].x, points[0].y);
             break;
         case kCGPathElementAddQuadCurveToPoint: // #2 points
-            tsk_strcat_2(&svgData->data, "Q%.2f,%.2f,%.2f,%.2f", points[0].x, points[0].y, points[1].x, points[1].y);
+            tsk_strcat_2(&svgData->data, "Q%.2f %.2f %.2f %.2f", points[0].x, points[0].y, points[1].x, points[1].y);
             break;
         case kCGPathElementAddCurveToPoint: // #3 points
-            tsk_strcat_2(&svgData->data, "C%.2f,%.2f,%.2f,%.2f,%.2f,%.2f", points[0].x, points[0].y, points[1].x, points[1].y, points[2].x, points[2].y);
+            tsk_strcat_2(&svgData->data, "C%.2f %.2f %.2f %.2f %.2f %.2f", points[0].x, points[0].y, points[1].x, points[1].y, points[2].x, points[2].y);
             break;
         case kCGPathElementCloseSubpath: // contains #0 point
             tsk_strcat_2(&svgData->data, "Z");
