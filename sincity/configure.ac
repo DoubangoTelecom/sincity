@@ -28,7 +28,7 @@ AC_PROG_MAKE_SET
 
 PKG_PROG_PKG_CONFIG
 
-AC_SUBST(DOUBANGO_MINVER, 2.0.1305)
+AC_SUBST(DOUBANGO_MINVER, 2.0.1311)
 
 target_cpu=`uname -m`
 target_os=`uname -s`
