@@ -57,6 +57,9 @@ std::string SCUtils::macAddress()
 			if (info) {
 				if ((ret = GetAdaptersInfo(info, &size)) == ERROR_SUCCESS) {
 					for (pos = info; pos != NULL && address == tsk_null; pos = pos->Next) {
+						if (pos->Type == MIB_IF_TYPE_LOOPBACK && pos->Next) { // skip loopback if we still have items to check
+							continue;
+						}
 						for (UINT i = 0; i < pos->AddressLength; ++i) {
 							tsk_strcat_2(&address, "%2.2x", pos->Address[i]);
 						}
