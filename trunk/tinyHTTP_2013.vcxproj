@@ -173,6 +173,7 @@
     <ClCompile Include="..\doubango\tinyHTTP\src\thttp_dialog.c" />
     <ClCompile Include="..\doubango\tinyHTTP\src\thttp_event.c" />
     <ClCompile Include="..\doubango\tinyHTTP\src\thttp_message.c" />
+    <ClCompile Include="..\doubango\tinyHTTP\src\thttp_proxy_node_plugin.c" />
     <ClCompile Include="..\doubango\tinyHTTP\src\thttp_session.c" />
     <ClCompile Include="..\doubango\tinyHTTP\src\thttp_url.c" />
   </ItemGroup>
@@ -200,6 +201,7 @@
     <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\thttp_dialog.h" />
     <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\thttp_event.h" />
     <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\thttp_message.h" />
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyhttp\thttp_proxy_node_plugin.h" />
     <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\thttp_session.h" />
     <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\thttp_url.h" />
     <ClInclude Include="..\doubango\tinyHTTP\include\tinyhttp_config.h" />

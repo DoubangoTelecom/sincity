@@ -283,7 +283,14 @@ int main(int argc, char* argv[])
     if (jsonConfig["natt_ice_turn_enabled"].isBool()) {
         SC_ASSERT(SCEngine::setNattIceTurnEnabled(jsonConfig["natt_ice_turn_enabled"].asBool()));
     }
-
+	if (jsonConfig["webproxy_discovery_auto_enabled"].isBool()) {
+		SC_ASSERT(SCEngine::setWebProxyAutodetect(jsonConfig["webproxy_discovery_auto_enabled"].asBool()));
+	}
+	if (!jsonConfig["webproxy"].isNull() && jsonConfig["webproxy"].isObject()) {
+		Json::Value webproxy = jsonConfig["webproxy"];
+		SC_ASSERT(SCEngine::setWebProxyInfo(webproxy["type"].asCString(), webproxy["host"].asCString(), webproxy["port"].asUInt(), webproxy["login"].asCString(), webproxy["password"].asCString()));
+	}
+	
     /* connect */
     signalSession = SCSignaling::newObj(jsonConfig["connection_url"].asCString());
     SC_ASSERT(signalSession);

@@ -194,6 +194,9 @@
     <ClCompile Include="..\doubango\tinyNET\src\tnet_endianness.c" />
     <ClCompile Include="..\doubango\tinyNET\src\tnet_nat.c" />
     <ClCompile Include="..\doubango\tinyNET\src\tnet_poll.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\tnet_proxydetect.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\tnet_proxy_node_socks_plugin.c" />
+    <ClCompile Include="..\doubango\tinyNET\src\tnet_proxy_plugin.c" />
     <ClCompile Include="..\doubango\tinyNET\src\tnet_socket.c" />
     <ClCompile Include="..\doubango\tinyNET\src\tnet_transport.c" />
     <ClCompile Include="..\doubango\tinyNET\src\tnet_transport_cfsocket.c" />
@@ -255,6 +258,9 @@
     <ClInclude Include="..\doubango\tinyNET\src\tnet_nat.h" />
     <ClInclude Include="..\doubango\tinyNET\src\tnet_poll.h" />
     <ClInclude Include="..\doubango\tinyNET\src\tnet_proto.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\tnet_proxydetect.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\tnet_proxy_node_socks_plugin.h" />
+    <ClInclude Include="..\doubango\tinyNET\src\tnet_proxy_plugin.h" />
     <ClInclude Include="..\doubango\tinyNET\src\tnet_socket.h" />
     <ClInclude Include="..\doubango\tinyNET\src\tnet_transport.h" />
     <ClInclude Include="..\doubango\tinyNET\src\tnet_types.h" />

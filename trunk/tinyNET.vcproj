@@ -472,6 +472,18 @@
 				>
 			</File>
 			<File
+				RelativePath="..\doubango\tinyNET\src\tnet_proxy_node_socks_plugin.c"
+				>
+			</File>
+			<File
+				RelativePath="..\doubango\tinyNET\src\tnet_proxy_plugin.c"
+				>
+			</File>
+			<File
+				RelativePath="..\doubango\tinyNET\src\tnet_proxydetect.c"
+				>
+			</File>
+			<File
 				RelativePath="..\doubango\tinyNET\src\tnet_socket.c"
 				>
 			</File>
@@ -733,6 +745,18 @@
 			</File>
 			<File
 				RelativePath="..\doubango\tinyNET\src\tnet_proto.h"
+				>
+			</File>
+			<File
+				RelativePath="..\doubango\tinyNET\src\tnet_proxy_node_socks_plugin.h"
+				>
+			</File>
+			<File
+				RelativePath="..\doubango\tinyNET\src\tnet_proxy_plugin.h"
+				>
+			</File>
+			<File
+				RelativePath="..\doubango\tinyNET\src\tnet_proxydetect.h"
 				>
 			</File>
 			<File
