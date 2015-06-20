@@ -42,7 +42,7 @@
         "host" : "ns313841.ovh.net",
         "port" : 3128,
         "login" : "user1",
-        "password": "82089ad25386eb3099b7b7b812e79a52"
+        "password": "your pass here"
     },
     "webproxy_discovery_auto_enabled": true
 }
