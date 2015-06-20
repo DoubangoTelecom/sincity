@@ -108,6 +108,9 @@
     <ClCompile Include="..\doubango\tinyHTTP\src\parsers\thttp_parser_url.c">
       <Filter>source%28%2a.c%29\parsers</Filter>
     </ClCompile>
+    <ClCompile Include="..\doubango\tinyHTTP\src\thttp_proxy_node_plugin.c">
+      <Filter>source%28%2a.c%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\doubango\tinyHTTP\include\thttp.h">
@@ -187,6 +190,9 @@
     </ClInclude>
     <ClInclude Include="..\doubango\tinyHTTP\include\tinyHTTP\parsers\thttp_parser_url.h">
       <Filter>include%28%2a.h%29\parsers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\doubango\tinyHTTP\include\tinyhttp\thttp_proxy_node_plugin.h">
+      <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

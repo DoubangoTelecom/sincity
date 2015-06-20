@@ -219,6 +219,15 @@
     <ClCompile Include="..\doubango\tinyNET\src\tls\tnet_tls.c">
       <Filter>source%28%2a.c%29\tls</Filter>
     </ClCompile>
+    <ClCompile Include="..\doubango\tinyNET\src\tnet_proxy_node_socks_plugin.c">
+      <Filter>source%28%2a.c%29</Filter>
+    </ClCompile>
+    <ClCompile Include="..\doubango\tinyNET\src\tnet_proxy_plugin.c">
+      <Filter>source%28%2a.c%29</Filter>
+    </ClCompile>
+    <ClCompile Include="..\doubango\tinyNET\src\tnet_proxydetect.c">
+      <Filter>source%28%2a.c%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\doubango\tinyNET\src\tinynet.h">
@@ -391,6 +400,15 @@
     </ClInclude>
     <ClInclude Include="..\doubango\tinyNET\src\tls\tnet_tls.h">
       <Filter>include%28%2a.h%29\tls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\doubango\tinyNET\src\tnet_proxy_node_socks_plugin.h">
+      <Filter>include%28%2a.h%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\doubango\tinyNET\src\tnet_proxy_plugin.h">
+      <Filter>include%28%2a.h%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\doubango\tinyNET\src\tnet_proxydetect.h">
+      <Filter>include%28%2a.h%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
