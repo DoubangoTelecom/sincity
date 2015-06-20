@@ -168,6 +168,8 @@ static bool SC_INLINE SCNetTransporType_isStream(SCNetTransporType_t eType)
 #define kSCMobuleNameSignaling "Signaling"
 #define kSCMobuleNameFakeDisplay "Fake display"
 #define kSCMobuleNameOSXDisplay "OSX/iOS display"
+#define kSCMobuleNameiOSVideoProducer "iOS video producer"
+#define kSCMobuleNameiOSCamera "iOS camera"
 #define kSCMobuleNameWEC7 "WEC7"
 
 

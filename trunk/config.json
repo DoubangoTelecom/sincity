@@ -1,13 +1,13 @@
 {
 	"debug_level": 4,
-	"connection_url": "ws://ns313841.ovh.net:80/wsStringStaticMulti?roomId=83",
+	"connection_url": "ws://ns313841.ovh.net:80/wsStringStaticMulti?roomId=0",
 	"local_id": "001",
 	"remote_id": "002",
 	"ssl_file_pub": "SSL_Pub.pem",
 	"ssl_file_priv": "SSL_Priv.pem",
 	"ssl_file_ca": "SSL_CA.pem",
 	"video_pref_size": "xga",
-	"video_fps": 60,
+	"video_fps": 15,
 	"video_bandwidth_up_max": -1,
 	"video_bandwidth_down_max": -1,
 	"video_motion_rank": 2,
@@ -36,5 +36,13 @@
 		}
 	],
 	"natt_ice_stun_enabled": true,
-	"natt_ice_turn_enabled": true
+	"natt_ice_turn_enabled": true,
+    "webproxy": {
+        "type" : "none",
+        "host" : "ns313841.ovh.net",
+        "port" : 3128,
+        "login" : "user1",
+        "password": "82089ad25386eb3099b7b7b812e79a52"
+    },
+    "webproxy_discovery_auto_enabled": true
 }

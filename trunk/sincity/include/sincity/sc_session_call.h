@@ -37,6 +37,8 @@ public:
 	virtual bool setIceCallback(SCObjWrapper<SCSessionCallIceCallback*> oIceCallback);
 
     virtual bool setVideoDisplays(SCMediaType_t eVideoType, SCVideoDisplay displayLocal = NULL, SCVideoDisplay displayRemote = NULL);
+    virtual bool toggleCamera();
+    virtual bool useFrontCamera(bool bFfront = true);
     virtual bool call(SCMediaType_t eMediaType, std::string strDestUserId);
 	
 	bool sessionMgrReset();  //  sets current ICE state to "none" AND returns if the *prior* state was "connected"
@@ -51,6 +53,9 @@ public:
     static bool rejectEvent(SCObjWrapper<SCSignaling*> oSignaling, SCObjWrapper<SCSignalingCallEvent*>& e);
 
 	virtual bool setMute(bool bMuted, SCMediaType_t eMediaType = SCMediaType_All);
+#if SC_UNDER_IPHONE ||  SC_UNDER_IPHONE_SIMULATOR
+    virtual bool setAudioInterrupt(bool interrupt);
+#endif /* SC_UNDER_IPHONE ||  SC_UNDER_IPHONE_SIMULATOR */
     virtual bool hangup();
 
 	virtual bool setVideoFps(int nFps, SCMediaType_t eMediaType = SCMediaType_Video);

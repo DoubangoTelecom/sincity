@@ -103,6 +103,8 @@ typedef NS_ENUM(NSInteger, SCObjcSessionType) {
 -(BOOL) nattIceServersAt:(NSUInteger)index server:(id<SCObjcIceServer>*)iceServer;
 -(BOOL) nattIceStunEnabled:(BOOL*)enabled;
 -(BOOL) nattIceTurnEnabled:(BOOL*)enabled;
+-(BOOL) webproxyAutoDetect:(BOOL*)autodetect;
+-(BOOL) webproxyInfo:(NSString**)strType host:(NSString**)strHost port:(unsigned short*)iPort login:(NSString**)strLogin password:(NSString**)strPassword;
 @end
 
 // ==SCObjcEngine==
@@ -130,6 +132,8 @@ typedef NS_ENUM(NSInteger, SCObjcSessionType) {
 +(BOOL) clearNattIceServers;
 +(BOOL) setNattIceStunEnabled:(BOOL)enabled;
 +(BOOL) setNattIceTurnEnabled:(BOOL)enabled;
++(BOOL) setWebProxyAutodetect:(BOOL)autodetect;
++(BOOL) setWebProxyInfo:(const NSString*)strType host:(const NSString*)strHost port:(unsigned short)iPort login:(const NSString*)strLogin password:(const NSString*)strPassword;
 @end
 
 // ==SCObjcSignalingDelegate==
@@ -139,6 +143,7 @@ typedef NS_ENUM(NSInteger, SCObjcSessionType) {
 -(BOOL) signalingDidDisconnect:(const NSString*)description;
 -(BOOL) signalingGotData:(const NSData*)data;
 -(BOOL) signalingGotEventCall:(id<SCObjcSignalingCallEvent>)event;
+-(BOOL) signalingGotChatMessage:(const NSString*)message username:(const NSString*)strUsername;
 @end
 
 // ==SCObjcSignaling==
@@ -151,6 +156,7 @@ typedef NS_ENUM(NSInteger, SCObjcSessionType) {
 @property(readonly, getter=isReady) BOOL ready;
 -(BOOL) connect;
 -(BOOL) sendData:(const NSData*)data;
+-(BOOL) sendChatMessage:(const NSString*)message username:(const NSString*)strUsername;
 -(BOOL) disConnect;
 -(BOOL) rejectEventCall:(id<SCObjcSignalingCallEvent>)e;
 @end
@@ -170,6 +176,7 @@ typedef NS_ENUM(NSInteger, SCObjcSessionType) {
 @protocol SCObjcSessionCallDelegate <NSObject>
 @optional
 -(BOOL) callIceStateChanged;
+-(BOOL) callInterruptionChanged:(BOOL)interrupted;
 @end
 
 // ==SCObjcSession==
@@ -194,6 +201,10 @@ typedef NS_ENUM(NSInteger, SCObjcSessionType) {
 -(BOOL) rejectEvent:(id<SCObjcSignalingCallEvent>)e;
 -(BOOL) setMute:(BOOL)bMuted mediaType:(SCObjcMediaType)eMediaType;
 -(BOOL) setMute:(BOOL)bMuted;
+-(BOOL) toggleCamera;
+-(BOOL) useFrontCamera:(BOOL)bFront;
+-(BOOL) useFrontCamera;
+-(BOOL) useBackCamera;
 -(BOOL) hangup;
 -(BOOL) setVideoDisplays:(SCObjcMediaType)eVideoType local:(SCObjcVideoDisplayLocal)localDisplay remote:(SCObjcVideoDisplayRemote)remoteDisplay;
 -(BOOL) setVideoDisplays:(SCObjcMediaType)eVideoType local:(SCObjcVideoDisplayLocal)localDisplay;

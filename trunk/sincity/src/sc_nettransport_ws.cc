@@ -7,6 +7,7 @@
 #include "tsk_memory.h"
 
 #include "tinyhttp.h"
+
 #include <assert.h>
 
 /* min size of a stream chunck to form a valid HTTP message */
@@ -139,6 +140,7 @@ bool SCWsTransport::handshaking(SCObjWrapper<SCNetPeer*> oPeer, SCObjWrapper<SCU
 	   "Sec-WebSocket-Key: %s\r\n" \
 	   "Origin: %s\r\n" \
 	   "Sec-WebSocket-Protocol: ge-webrtc-signaling\r\n" \
+       "User-Agent: GE WebRTC Native Client(v" SC_VERSION_STRING ")\r\n" \
 	   "Sec-WebSocket-Version: 13\r\n" \
 		"\r\n"
 

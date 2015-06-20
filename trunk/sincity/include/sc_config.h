@@ -27,6 +27,7 @@
 #if defined(__APPLE__)
 #	define SC_UNDER_APPLE				1
 #   include <TargetConditionals.h>
+#   include <Availability.h>
 #endif
 #if TARGET_OS_MAC
 #	define SC_UNDER_MAC                 1
@@ -90,6 +91,11 @@
 
 #if HAVE_CONFIG_H
 #include <config.h>
+#endif
+
+// Default values after including "config.h"
+#if !defined(SC_PRODUCER_IOS_HAVE_VIDEO_CAPTURE)
+#   define SC_PRODUCER_IOS_HAVE_VIDEO_CAPTURE (__IPHONE_OS_VERSION_MIN_REQUIRED >= 40000 && TARGET_OS_EMBEDDED)
 #endif
 
 #endif /* _SINCITY_CONFIG_H_ */

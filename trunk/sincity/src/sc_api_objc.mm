@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 #import "sincity/sc_api_objc.h"
 #import "sincity/sc_api.h"
 
@@ -23,9 +24,15 @@
 
 @interface SessionCall: Session<SCObjcSessionCall> {
     SCObjWrapper<SCSessionCall*> call;
+    NSObject<SCObjcSessionCallDelegate>* delegate;
 }
 -(SessionCall*)initWithSignaling:(id<SCObjcSignaling>)signaling  offer:(id<SCObjcSignalingCallEvent>)e;
 -(SessionCall*)initWithSignaling:(id<SCObjcSignaling>)signaling;
+-(void) onAudioSessionInterruptionEvent:(NSNotification*)notif;
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 6000
+-(void)beginInterruption;
+-(void)endInterruption;
+#endif /* __IPHONE_OS_VERSION_MIN_REQUIRED < 6000 */
 @end
 
 @interface Signaling : NSObject<SCObjcSignaling> {
@@ -147,7 +154,18 @@ public:
                     break;
                 }
                 case SCSignalingEventType_NetData: {
-                    SC_DEBUG_INFO_EX(kTAG, "***Signaling module passthrough DATA:%.*s ***", (int)e_->getDataSize(), (const char*)e_->getDataPtr());
+                    SC_DEBUG_INFO_EX(kTAG, "***Signaling module [%s] DATA:%.*s ***", e_->getDescription().c_str(), (int)e_->getDataSize(), (const char*)e_->getDataPtr());
+                    if (e_->getDescription() == "chat") {
+                        if ([delegate respondsToSelector:@selector(signalingGotChatMessage: username:)]) {
+                            Json::Reader reader;
+                            Json::Value chat;
+                            if (reader.parse(std::string((const char*)e_->getDataPtr(), e_->getDataSize()), chat, false)) {
+                                if (chat["message"].isString() && chat["username"].isString()) {
+                                    [delegate signalingGotChatMessage:toNSString(chat["message"].asCString()) username:toNSString(chat["username"].asCString())];
+                                }
+                            }
+                        }
+                    }
                     if ([delegate respondsToSelector:@selector(signalingGotData:)]) {
                         [delegate signalingGotData:[[[NSData alloc] initWithBytes:e_->getDataPtr() length:e_->getDataSize()] autorelease]];
                     }
@@ -413,6 +431,28 @@ private:
     return NO;
 }
 
+-(BOOL) webproxyAutoDetect:(BOOL*)autodetect {
+    if (jsonConfig["webproxy_discovery_auto_enabled"].isBool()) {
+        *autodetect = jsonConfig["webproxy_discovery_auto_enabled"].asBool();
+        return YES;
+    }
+    return NO;
+}
+
+-(BOOL) webproxyInfo:(NSString**)strType host:(NSString**)strHost port:(unsigned short*)iPort login:(NSString**)strLogin password:(NSString**)strPassword
+{
+    Json::Value webproxy = jsonConfig["webproxy"];
+    if (!webproxy.isNull() && webproxy.isObject()) {
+        *strType = webproxy["type"].isString() ? toNSString(webproxy["type"].asCString()) : NULL;
+        *strHost = webproxy["host"].isString() ? toNSString(webproxy["host"].asCString()) : NULL;
+        *iPort = webproxy["port"].isNumeric() ? webproxy["port"].asInt() : 0;
+        *strLogin = webproxy["login"].isString() ? toNSString(webproxy["login"].asCString()) : NULL;
+        *strPassword = webproxy["password"].isString() ? toNSString(webproxy["password"].asCString()) : NULL;
+        return YES;
+    }
+    return NO;
+}
+
 @end
 
 //
@@ -538,6 +578,14 @@ private:
     return SCEngine::setNattIceTurnEnabled(enabled);
 }
 
++(BOOL) setWebProxyAutodetect:(BOOL)autodetect{
+    return SCEngine::setWebProxyAutodetect(autodetect);
+}
+
++(BOOL) setWebProxyInfo:(const NSString*)strType host:(const NSString*)strHost port:(unsigned short)iPort login:(const NSString*)strLogin password:(const NSString*)strPassword {
+    return SCEngine::setWebProxyInfo(toCString(strType), toCString(strHost), iPort, toCString(strLogin), toCString(strPassword));
+}
+
 @end
 
 //
@@ -625,6 +673,16 @@ private:
         SC_ASSERT((call = SCSessionCall::newObj(((Signaling*)signaling_)->signalSession)));
     }
     
+    if ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 6.0) {
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self selector:@selector(onAudioSessionInterruptionEvent:) name:AVAudioSessionInterruptionNotification object:[AVAudioSession sharedInstance]];
+    }
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 6000
+    else {
+        [[AVAudioSession sharedInstance] setDelegate:self]; // deprecated starting SDK6
+    }
+#endif
+    
     return self;
 }
 
@@ -632,8 +690,48 @@ private:
     return [self initWithSignaling:signaling_ offer:nil];
 }
 
+-(void)onAudioSessionInterruptionEvent:(NSNotification*)notif {
+    const NSInteger iType = [[[notif userInfo] valueForKey:AVAudioSessionInterruptionTypeKey] intValue];
+    SC_DEBUG_INFO_EX(kTAG, "onAudioSessionInterruptionEvent:%d", (int)iType);
+    switch (iType) {
+        case AVAudioSessionInterruptionTypeBegan: {
+            call->setAudioInterrupt(true);
+            if (delegate && [delegate respondsToSelector:@selector(callInterruptionChanged:)]) {
+                [delegate callInterruptionChanged:YES];
+            }
+            break;
+        }
+        case AVAudioSessionInterruptionTypeEnded: {
+            call->setAudioInterrupt(false);
+            if (delegate && [delegate respondsToSelector:@selector(callInterruptionChanged:)]) {
+                [delegate callInterruptionChanged:NO];
+            }
+            break;
+        }
+    }
+}
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 6000
+-(void)beginInterruption {
+    SC_DEBUG_INFO_EX(kTAG, "beginInterruption");
+    call->setAudioInterrupt(true);
+    if (delegate && [delegate respondsToSelector:@selector(callInterruptionChanged:)]) {
+        [delegate callInterruptionChanged:YES];
+    }
+}
+
+-(void)endInterruption {
+    SC_DEBUG_INFO_EX(kTAG, "endInterruption");
+    call->setAudioInterrupt(false);
+    if (delegate && [delegate respondsToSelector:@selector(callInterruptionChanged:)]) {
+        [delegate callInterruptionChanged:NO];
+    }
+}
+#endif /* __IPHONE_OS_VERSION_MIN_REQUIRED < 6000 */
+
 -(BOOL) setDelegate:(id<SCObjcSessionCallDelegate>)delegate_ {
-    return call->setIceCallback(SCSessionCallIceCallbackDummy::newObj(delegate_));
+    delegate = delegate_;
+    return call->setIceCallback(SCSessionCallIceCallbackDummy::newObj(delegate));
 }
 
 -(BOOL) call:(SCObjcMediaType)mediaType destinationID:(const NSString*)strDestinationID {
@@ -686,6 +784,22 @@ private:
 
 -(BOOL) setMute:(BOOL)bMuted {
     return [self setMute:bMuted mediaType:SCObjcMediaTypeAll];
+}
+
+-(BOOL) toggleCamera {
+    return call->toggleCamera();
+}
+
+-(BOOL) useFrontCamera:(BOOL)bFront {
+    return call->useFrontCamera(bFront);
+}
+
+-(BOOL) useFrontCamera {
+    return [self useFrontCamera:YES];
+}
+
+-(BOOL) useBackCamera {
+    return [self useFrontCamera:NO];
 }
 
 -(BOOL) hangup {
@@ -772,6 +886,7 @@ private:
 
 -(void)dealloc {
     call = NULL;
+    delegate = nil;
     [super dealloc];
     
     SC_DEBUG_INFO_EX(kTAG, "*** SessionCall destroyed ***");
@@ -812,6 +927,19 @@ private:
 -(BOOL) sendData:(const NSData*)data {
     if (data) {
         return signalSession->sendData(data.bytes, data.length);
+    }
+    return NO;
+}
+
+-(BOOL) sendChatMessage:(const NSString*)message username:(const NSString*)strUsername {
+    if (strUsername && message) {
+        Json::Value root;
+        root["messageType"] = "chat";
+        root["username"] = toCString(strUsername);
+        root["message"] = toCString(message);
+        root["passthrough"] = YES;
+        std::string json = root.toStyledString();
+        return signalSession->sendData(json.c_str(), json.length());
     }
     return NO;
 }

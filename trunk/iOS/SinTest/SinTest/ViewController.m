@@ -12,12 +12,19 @@
 #define kTAG @"[SinTest::ViewController]"
 #define kRejectIncomingCalls NO
 
+//#define kDefaultMediaType (SCObjcMediaType)(SCObjcMediaTypeVideo)
+#define kDefaultMediaType (SCObjcMediaType)(SCObjcMediaTypeScreenCast)
+//#define kDefaultMediaType (SCObjcMediaType)(SCObjcMediaTypeScreenCast | SCObjcMediaTypeAudio)
+//#define kDefaultMediaType (SCObjcMediaType)(SCObjcMediaTypeVideo| SCObjcMediaTypeAudio)
+
+
 #define kSegmentIndexCircle     0
 #define kSegmentIndexArrow      1
 #define kSegmentIndexText       2
 #define kSegmentIndexFreehand   3
 
 @interface ViewController ()
+-(void)notifyCallEvent:(NSObject<SCObjcSignalingCallEvent>*)e;
 -(void)showInfo:(NSString*)msg;
 -(void)showSuccess:(NSString*)msg;
 -(void)showError:(NSString*)msg;
@@ -38,12 +45,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    pendingOffers = [[NSMutableDictionary alloc] init];
     buttonFreeze.tag = 0;
     buttonFreeze.enabled = NO;
     buttonClear.enabled = NO;
     buttonCall.enabled = NO;
     
-    NSString *nsString1, *nsString2, *nsString3;
+    NSString *nsString1, *nsString2, *nsString3, *nsString4;
     NSUInteger ui1, ui2;
     int i1, i2;
     BOOL b1;
@@ -125,6 +133,14 @@
     if ([[AppDelegate sharedInstance].config nattIceTurnEnabled:&b1]) {
         assert([SCObjcEngine setNattIceTurnEnabled:b1]);
     }
+    // webproxy
+    unsigned short port;
+    if ([[AppDelegate sharedInstance].config webproxyAutoDetect:&b1]) {
+        assert([SCObjcEngine setWebProxyAutodetect:b1]);
+    }
+    if ([[AppDelegate sharedInstance].config webproxyInfo:&nsString1 host:&nsString2 port:&port login:&nsString3 password:&nsString4]) {
+        assert([SCObjcEngine setWebProxyInfo:nsString1 host:nsString2 port:port login:nsString3 password:nsString4]);
+    }
     
     /*** signaling ***/
     assert([[AppDelegate sharedInstance].config connectionUrl:&nsString1]);
@@ -175,15 +191,16 @@
             [buttonCall setTitle:@"call" forState:UIControlStateNormal];
         }
         else {
-            if (pendingOffer) {
+            NSObject<SCObjcSignalingCallEvent>* _pendingOffer = [pendingOffers count] > 0 ? [[pendingOffers allValues] objectAtIndex:0] : nil;
+            if (_pendingOffer) {
                 assert(!callSession);
                 if (kRejectIncomingCalls) {
-                    assert([signalingSession rejectEventCall:pendingOffer]);
+                    assert([signalingSession rejectEventCall:_pendingOffer]);
                     [buttonCall setTitle:@"call" forState:UIControlStateNormal];
                 }
                 else {
                     // create a call session from the pending offer
-                    assert(callSession = [SCObjcFactory createCallWithSignaling:signalingSession offer:pendingOffer]);
+                    assert(callSession = [SCObjcFactory createCallWithSignaling:signalingSession offer:_pendingOffer]);
                 }
             }
             else {
@@ -194,17 +211,19 @@
                 assert([callSession setDelegate:self]);
                 assert([callSession setVideoDisplays:SCObjcMediaTypeScreenCast local:localView remote:remoteView]);
                 assert([callSession setVideoDisplays:SCObjcMediaTypeVideo local:localView remote:remoteView]);
-                if (pendingOffer) {
-                    assert([callSession acceptEvent:pendingOffer]); // send answer
+                if ([pendingOffers count] > 0) {
+                    assert([callSession acceptEvent:_pendingOffer]); // send answer
                 }
                 else {
                     NSString* remoteID = @"002";
                     [[AppDelegate sharedInstance].config remoteID:&remoteID];
-                    assert([callSession call:SCObjcMediaTypeScreenCast destinationID:remoteID]); // send offer
+                    assert([callSession call:kDefaultMediaType destinationID:remoteID]); // send offer
                 }
                 [buttonCall setTitle:@"hang" forState:UIControlStateNormal];
             }
-            pendingOffer = nil;
+            if (_pendingOffer) {
+                [pendingOffers removeObjectForKey:_pendingOffer.callID];
+            }
         }
     }
     else if (buttonFreeze == sender) {
@@ -230,6 +249,36 @@
             case kSegmentIndexFreehand: [remoteView setAnnotationType:SCAnnotationTypeFreehand]; break;
         }
     }
+}
+
+-(void) applicationWillTerminate {
+    assert([signalingSession setDelegate:nil]);
+    [remoteView setDelegate:nil];
+    if (connecting || connected) {
+        if (callSession) {
+            [callSession hangup];
+        }
+        callSession = nil;
+        connecting = NO;
+        [signalingSession disConnect];
+    }
+    signalingSession = nil;
+}
+
+-(BOOL) acceptPendingOffer:(NSString*)callID {
+    NSObject<SCObjcSignalingCallEvent>* _pendingOffer = [pendingOffers objectForKey:callID];
+    if (_pendingOffer) {
+        // TODO: accept the pending offer
+    }
+    return NO; // not implemented
+}
+
+-(BOOL) rejectPendingOffer:(NSString*)callID {
+    NSObject<SCObjcSignalingCallEvent>* _pendingOffer = [pendingOffers objectForKey:callID];
+    if (_pendingOffer) {
+        // TODO: reject the pending offer
+    }
+    return NO; // not implemented
 }
 
 // SCObjcSignalingDelegate
@@ -287,20 +336,21 @@
     }
     else {
         if ([e.type isEqualToString:kSCOjcSessionCallTypeOffer]) {
-            if (callSession || pendingOffer) { // already in call?
+            if (callSession || [pendingOffers count] > 0) { // already in call?
                 return [signalingSession rejectEventCall:e];
             }
             SCNSLog(kTAG, "+++Incoming call: 'accept'/'reject'? +++");
-            pendingOffer = e;
+            [pendingOffers setObject:e forKey:e.callID];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self showInfo:@"Incoming call"];
                 [buttonCall setTitle:@"accept" forState:UIControlStateNormal];
             });
         }
         if ([e.type isEqualToString:kSCOjcSessionCallTypeHangup]) {
-            if (pendingOffer && [pendingOffer.callID isEqualToString:e.callID]) {
+            NSObject<SCObjcSignalingCallEvent>* _pendingOffer = [pendingOffers objectForKey:e.callID];
+            if (_pendingOffer && [_pendingOffer.callID isEqualToString:e.callID]) {
                 SCNSLog(kTAG, "+++ pending call cancelled +++");
-                pendingOffer = nil;
+                [pendingOffers removeObjectForKey:_pendingOffer.callID];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self showInfo:@"Pending call cancelled"];
                     [buttonCall setTitle:@"call" forState:UIControlStateNormal];
@@ -309,6 +359,29 @@
         }
         
         // Silently ignore any other event type
+    }
+    // notify the app delegate
+    [self notifyCallEvent:e];
+    
+    return YES;
+}
+
+// SCObjcSignalingDelegate
+-(BOOL) signalingGotChatMessage:(const NSString*)message username:(const NSString*)strUsername {
+    SCNSLog(kTAG, @"signalingGotChatMessage(%@, %@)", message, strUsername);
+    if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground) {
+        UILocalNotification* localNotif = [[UILocalNotification alloc] init];
+        localNotif.alertBody = [NSString stringWithFormat:@"%@: %@", strUsername, message];
+        localNotif.soundName = UILocalNotificationDefaultSoundName;
+        localNotif.applicationIconBadgeNumber = ++[UIApplication sharedApplication].applicationIconBadgeNumber;
+        localNotif.repeatInterval = 0;
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  @"chat", @"type",
+                                  message, @"message",
+                                  strUsername, @"username",
+                                  nil];
+        localNotif.userInfo = userInfo;
+        [[UIApplication sharedApplication]  presentLocalNotificationNow:localNotif];
     }
     return YES;
 }
@@ -319,6 +392,14 @@
     if (callSession.iceState == SCObjcIceStateConnected) {
         return [callSession start];
     }
+    return YES;
+}
+
+// SCObjcSessionCallDelegate
+-(BOOL) callInterruptionChanged:(BOOL)interrupted {
+    SCNSLog(kTAG, @"callIceStateChanged(%@)", interrupted ? @"YES" : @"NO");
+    // For example, you can send a JSON message to alert the remote party that the session is interrupted because of incoming GSM call
+    // You dont need to call any AudioUnit function (up to Doubango native code)
     return YES;
 }
 
@@ -357,6 +438,34 @@
     SCNSLog(kTAG, @"glviewAnnotationReady(%@)", json);
     if (callSession) {
         [callSession sendData:[json dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+}
+
+-(void)notifyCallEvent:(NSObject<SCObjcSignalingCallEvent>*)e {
+    // show notifications only when app is in background
+    if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground) {
+        // show notification for incoming calls only
+        if ([e.type isEqualToString:kSCOjcSessionCallTypeOffer]) {
+            UILocalNotification* localNotif = [[UILocalNotification alloc] init];
+            if (localNotif) {
+                NSString *stringAlert = [NSString stringWithFormat:@"Call from \n %@", e.from];
+                
+                localNotif.alertBody = stringAlert;
+                localNotif.soundName = UILocalNotificationDefaultSoundName;
+                localNotif.applicationIconBadgeNumber = ++[UIApplication sharedApplication].applicationIconBadgeNumber;
+                localNotif.repeatInterval = 0;
+                NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          e.type, @"type",
+                                          e.from, @"from",
+                                          e.to, @"to",
+                                          e.callID, @"callID",
+                                          e.transactionID, @"transactionID",
+                                          e.sdp, @"sdp",
+                                          nil];
+                localNotif.userInfo = userInfo;
+                [[UIApplication sharedApplication]  presentLocalNotificationNow:localNotif];
+            }
+        }
     }
 }
 

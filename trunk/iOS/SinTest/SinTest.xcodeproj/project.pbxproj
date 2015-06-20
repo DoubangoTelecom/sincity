@@ -14,8 +14,10 @@
 		150DB6A41AE829C70004FC60 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 150DB6A31AE829C70004FC60 /* Images.xcassets */; };
 		150DB6A71AE829C70004FC60 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 150DB6A51AE829C70004FC60 /* LaunchScreen.xib */; };
 		150DB6B31AE829C70004FC60 /* SinTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 150DB6B21AE829C70004FC60 /* SinTestTests.m */; };
+		1553C3BA1B2751FF00D62C77 /* GSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1553C3B91B2751FF00D62C77 /* GSS.framework */; };
+		1553C4031B32EF0C00D62C77 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1553C4021B32EF0C00D62C77 /* CoreMedia.framework */; };
+		1553C40A1B35088000D62C77 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1553C4091B35088000D62C77 /* AudioToolbox.framework */; };
 		15B15B1D1AEAFBE90013651B /* libSincityFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B746D31AE83D730001E1C7 /* libSincityFramework.a */; };
-		15B15B4F1AEC374A0013651B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B4B1AEC374A0013651B /* AudioToolbox.framework */; };
 		15B15B511AEC374A0013651B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B4D1AEC374A0013651B /* AVFoundation.framework */; };
 		15B15B521AEC374A0013651B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B4E1AEC374A0013651B /* CFNetwork.framework */; };
 		15B15B541AEC37640013651B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B531AEC37640013651B /* Security.framework */; };
@@ -65,7 +67,10 @@
 		150DB6AC1AE829C70004FC60 /* SinTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SinTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		150DB6B11AE829C70004FC60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		150DB6B21AE829C70004FC60 /* SinTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SinTestTests.m; sourceTree = "<group>"; };
-		15B15B4B1AEC374A0013651B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		1553C3B91B2751FF00D62C77 /* GSS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSS.framework; path = System/Library/Frameworks/GSS.framework; sourceTree = SDKROOT; };
+		1553C4021B32EF0C00D62C77 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		1553C4071B35077D00D62C77 /* SinTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SinTest.entitlements; sourceTree = "<group>"; };
+		1553C4091B35088000D62C77 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		15B15B4C1AEC374A0013651B /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		15B15B4D1AEC374A0013651B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		15B15B4E1AEC374A0013651B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -84,9 +89,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15B15B541AEC37640013651B /* Security.framework in Frameworks */,
-				15B15B4F1AEC374A0013651B /* AudioToolbox.framework in Frameworks */,
+				1553C40A1B35088000D62C77 /* AudioToolbox.framework in Frameworks */,
+				1553C4031B32EF0C00D62C77 /* CoreMedia.framework in Frameworks */,
 				15B15B511AEC374A0013651B /* AVFoundation.framework in Frameworks */,
+				1553C3BA1B2751FF00D62C77 /* GSS.framework in Frameworks */,
+				15B15B541AEC37640013651B /* Security.framework in Frameworks */,
 				15B15B521AEC374A0013651B /* CFNetwork.framework in Frameworks */,
 				15B15B1D1AEAFBE90013651B /* libSincityFramework.a in Frameworks */,
 			);
@@ -105,8 +112,10 @@
 		150DB68A1AE829C70004FC60 = {
 			isa = PBXGroup;
 			children = (
+				1553C4091B35088000D62C77 /* AudioToolbox.framework */,
+				1553C4021B32EF0C00D62C77 /* CoreMedia.framework */,
+				1553C3B91B2751FF00D62C77 /* GSS.framework */,
 				15B15B531AEC37640013651B /* Security.framework */,
-				15B15B4B1AEC374A0013651B /* AudioToolbox.framework */,
 				15B15B4C1AEC374A0013651B /* AudioUnit.framework */,
 				15B15B4D1AEC374A0013651B /* AVFoundation.framework */,
 				15B15B4E1AEC374A0013651B /* CFNetwork.framework */,
@@ -130,6 +139,7 @@
 		150DB6951AE829C70004FC60 /* SinTest */ = {
 			isa = PBXGroup;
 			children = (
+				1553C4071B35077D00D62C77 /* SinTest.entitlements */,
 				150DB69A1AE829C70004FC60 /* AppDelegate.h */,
 				150DB69B1AE829C70004FC60 /* AppDelegate.m */,
 				150DB69D1AE829C70004FC60 /* ViewController.h */,
@@ -240,6 +250,14 @@
 					150DB6921AE829C70004FC60 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = E6F3H8ENQM;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InterAppAudio = {
+								enabled = 0;
+							};
+						};
 					};
 					150DB6AB1AE829C70004FC60 = {
 						CreatedOnToolsVersion = 6.1.1;
