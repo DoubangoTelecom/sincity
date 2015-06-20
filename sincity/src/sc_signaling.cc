@@ -340,7 +340,8 @@ bool SCSignaling::handleData(const char* pcData, size_t nDataSize)
 
     if (passthrough.isBool() && passthrough.asBool() == true) {
         if (m_oSignCallback) {
-            return raiseEvent(SCSignalingEventType_NetData, "'passthrough' JSON data", (const void*)pcData, nDataSize);
+            SC_JSON_GET(root, messageType, "messageType", isString, true);
+            return raiseEvent(SCSignalingEventType_NetData, messageType.isNull() ? "passthrough" : messageType.asCString(), (const void*)pcData, nDataSize);
         }
         return false;
     }

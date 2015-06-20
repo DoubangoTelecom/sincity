@@ -12,7 +12,7 @@ public:
     static std::string randomString();
     static bool fileExists(const char* path);
     static const char* currentDirectoryPath();
-	static std::string macAddress();
+	static std::string deviceIdentifier();
 };
 
 #endif /* SINCITY_UTILS_H */

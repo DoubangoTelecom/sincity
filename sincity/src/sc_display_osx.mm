@@ -252,6 +252,8 @@
     }
     
     [super dealloc];
+    
+    SC_DEBUG_INFO_EX(kSCMobuleNameOSXDisplay, "*** dealloc ***");
 }
 
 @end
@@ -274,7 +276,7 @@ static int sc_display_osx_set(tmedia_consumer_t *self, const tmedia_param_t* par
     (void)(p_display);
     
     if (!self || !param) {
-        SC_DEBUG_ERROR("Invalid parameter");
+        SC_DEBUG_ERROR_EX(kSCMobuleNameOSXDisplay, "Invalid parameter");
         return -1;
     }
     

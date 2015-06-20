@@ -15,6 +15,9 @@
 		15423B381B1295E80046C437 /* tnet_proxy_plugin.c in Sources */ = {isa = PBXBuildFile; fileRef = 15423B371B1295E80046C437 /* tnet_proxy_plugin.c */; };
 		15423B3A1B12A7BE0046C437 /* thttp_proxy_node_plugin.c in Sources */ = {isa = PBXBuildFile; fileRef = 15423B391B12A7BE0046C437 /* thttp_proxy_node_plugin.c */; };
 		15423B3E1B12F8970046C437 /* tnet_proxy_node_socks_plugin.c in Sources */ = {isa = PBXBuildFile; fileRef = 15423B3C1B12F8970046C437 /* tnet_proxy_node_socks_plugin.c */; };
+		1553C3B81B269CDE00D62C77 /* tnet_proxydetect.c in Sources */ = {isa = PBXBuildFile; fileRef = 1553C3B61B269CDE00D62C77 /* tnet_proxydetect.c */; };
+		1553C3FC1B32456400D62C77 /* sc_producer_video_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1553C3FB1B32456400D62C77 /* sc_producer_video_ios.mm */; };
+		1553C4011B32512400D62C77 /* sc_camera_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1553C4001B32512400D62C77 /* sc_camera_ios.mm */; };
 		15B158831AE83E5B0013651B /* trtp_rtcp_header.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B158651AE83E5B0013651B /* trtp_rtcp_header.c */; };
 		15B158841AE83E5B0013651B /* trtp_rtcp_packet.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B158661AE83E5B0013651B /* trtp_rtcp_packet.c */; };
 		15B158851AE83E5B0013651B /* trtp_rtcp_rblock.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B158671AE83E5B0013651B /* trtp_rtcp_rblock.c */; };
@@ -321,6 +324,12 @@
 		15423B3B1B12A7D20046C437 /* thttp_proxy_node_plugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thttp_proxy_node_plugin.h; sourceTree = "<group>"; };
 		15423B3C1B12F8970046C437 /* tnet_proxy_node_socks_plugin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tnet_proxy_node_socks_plugin.c; sourceTree = "<group>"; };
 		15423B3D1B12F8970046C437 /* tnet_proxy_node_socks_plugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tnet_proxy_node_socks_plugin.h; sourceTree = "<group>"; };
+		1553C3B61B269CDE00D62C77 /* tnet_proxydetect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tnet_proxydetect.c; sourceTree = "<group>"; };
+		1553C3B71B269CDE00D62C77 /* tnet_proxydetect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tnet_proxydetect.h; sourceTree = "<group>"; };
+		1553C3FA1B32455600D62C77 /* sc_producer_video_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_producer_video_ios.h; sourceTree = "<group>"; };
+		1553C3FB1B32456400D62C77 /* sc_producer_video_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_producer_video_ios.mm; sourceTree = "<group>"; };
+		1553C3FD1B32508000D62C77 /* sc_camera_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_camera_ios.h; sourceTree = "<group>"; };
+		1553C4001B32512400D62C77 /* sc_camera_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_camera_ios.mm; sourceTree = "<group>"; };
 		15B1584B1AE83E5B0013651B /* trtp_rtcp_header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trtp_rtcp_header.h; sourceTree = "<group>"; };
 		15B1584C1AE83E5B0013651B /* trtp_rtcp_packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trtp_rtcp_packet.h; sourceTree = "<group>"; };
 		15B1584D1AE83E5B0013651B /* trtp_rtcp_rblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trtp_rtcp_rblock.h; sourceTree = "<group>"; };
@@ -646,7 +655,7 @@
 		15B15AFC1AE84BC40013651B /* sc_signaling.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sc_signaling.cc; sourceTree = "<group>"; };
 		15B15AFD1AE84BC40013651B /* sc_thread.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sc_thread.cc; sourceTree = "<group>"; };
 		15B15AFE1AE84BC40013651B /* sc_url.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sc_url.cc; sourceTree = "<group>"; };
-		15B15AFF1AE84BC40013651B /* sc_utils.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sc_utils.cc; sourceTree = "<group>"; };
+		15B15AFF1AE84BC40013651B /* sc_utils.cc */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = sc_utils.cc; sourceTree = "<group>"; };
 		15B15B001AE84BC40013651B /* sc_wec7.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sc_wec7.c; sourceTree = "<group>"; };
 		15B15B011AE84BC40013651B /* sc_wec7_time.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sc_wec7_time.c; sourceTree = "<group>"; };
 		15B15B121AE84C050013651B /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = config.json; path = ../../config.json; sourceTree = "<group>"; };
@@ -2120,6 +2129,7 @@
 				15B15AE31AE84BC30013651B /* sc_common.h */,
 				15B15AE41AE84BC30013651B /* sc_display_fake.h */,
 				15B15AE51AE84BC30013651B /* sc_engine.h */,
+				1553C3FA1B32455600D62C77 /* sc_producer_video_ios.h */,
 				15B15AE61AE84BC30013651B /* sc_mutex.h */,
 				15B15AE71AE84BC30013651B /* sc_nettransport.h */,
 				15B15AE81AE84BC30013651B /* sc_nettransport_ws.h */,
@@ -2138,6 +2148,7 @@
 				15106DF51B01766A00F18916 /* sc_annotation_freehand.h */,
 				15106DFA1B02D20B00F18916 /* sc_annotation_text.h */,
 				15106DFD1B02D25900F18916 /* sc_annotation_arrow.h */,
+				1553C3FD1B32508000D62C77 /* sc_camera_ios.h */,
 			);
 			path = sincity;
 			sourceTree = "<group>";
@@ -2154,6 +2165,8 @@
 		15B15AF11AE84BC30013651B /* src */ = {
 			isa = PBXGroup;
 			children = (
+				1553C4001B32512400D62C77 /* sc_camera_ios.mm */,
+				1553C3FB1B32456400D62C77 /* sc_producer_video_ios.mm */,
 				15106E001B02D28C00F18916 /* sc_annotation_arrow.mm */,
 				15106E011B02D28C00F18916 /* sc_annotation_text.mm */,
 				15106DF81B01771600F18916 /* sc_annotation_freehand.mm */,
@@ -2305,6 +2318,8 @@
 		15B745781AE82D200001E1C7 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				1553C3B61B269CDE00D62C77 /* tnet_proxydetect.c */,
+				1553C3B71B269CDE00D62C77 /* tnet_proxydetect.h */,
 				15B745E71AE82D200001E1C7 /* turn */,
 				15B745791AE82D200001E1C7 /* dhcp */,
 				15B745821AE82D200001E1C7 /* dhcp6 */,
@@ -2778,9 +2793,11 @@
 				15B15AC71AE849600013651B /* tdav_session_t140.c in Sources */,
 				15B158941AE83E5B0013651B /* trtp_manager.c in Sources */,
 				15B745581AE82C2C0001E1C7 /* tsk_params.c in Sources */,
+				1553C3B81B269CDE00D62C77 /* tnet_proxydetect.c in Sources */,
 				15B15AC31AE849600013651B /* tdav_producer_msrp.c in Sources */,
 				15B15A8D1AE849600013651B /* tdav_producer_alsa.c in Sources */,
 				15B7455E1AE82C2C0001E1C7 /* tsk_safeobj.c in Sources */,
+				1553C4011B32512400D62C77 /* sc_camera_ios.mm in Sources */,
 				15423B3A1B12A7BE0046C437 /* thttp_proxy_node_plugin.c in Sources */,
 				15B15A9D1AE849600013651B /* tdav_speex_jitterbuffer.c in Sources */,
 				15B15AAD1AE849600013651B /* tdav_codec_g711.c in Sources */,
@@ -2846,6 +2863,7 @@
 				15B159711AE8491B0013651B /* tmedia_content.c in Sources */,
 				15B7455C1AE82C2C0001E1C7 /* tsk_ragel_state.c in Sources */,
 				15B15B0B1AE84BC40013651B /* sc_session_call.cc in Sources */,
+				1553C3FC1B32456400D62C77 /* sc_producer_video_ios.mm in Sources */,
 				15B746351AE82D200001E1C7 /* tnet_auth.c in Sources */,
 				15B15A941AE849600013651B /* tdav_producer_dsound.c in Sources */,
 				15B745551AE82C2C0001E1C7 /* tsk_mutex.c in Sources */,

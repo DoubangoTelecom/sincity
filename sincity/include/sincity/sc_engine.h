@@ -106,6 +106,8 @@ public:
     static bool clearNattIceServers();
     static bool setNattIceStunEnabled(bool enabled);
     static bool setNattIceTurnEnabled(bool enabled);
+    static bool setWebProxyAutodetect(bool autodetect);
+    static bool setWebProxyInfo(const char* type, const char* host, unsigned short port, const char* login, const char* password);
 
 private:
     static bool s_bInitialized;

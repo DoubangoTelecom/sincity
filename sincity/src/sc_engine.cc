@@ -3,8 +3,13 @@
 #include "sincity/sc_display_fake.h"
 #if SC_UNDER_APPLE
 #include "sincity/sc_display_osx.h"
-#endif
+#endif /* SC_UNDER_APPLE */
+#if SC_UNDER_IPHONE || SC_UNDER_IPHONE_SIMULATOR
+#include "sincity/sc_producer_video_ios.h"
+#endif /* SC_UNDER_IPHONE || SC_UNDER_IPHONE_SIMULATOR */
 #include "sincity/sc_debug.h"
+
+#include "tinyhttp.h"
 
 #include "tinynet.h"
 
@@ -75,6 +80,10 @@ bool SCEngine::init(std::string strCredUserId, std::string strCredPassword /*= "
         if (tnet_startup() != 0) {
             return false;
         }
+        
+        if (thttp_startup() != 0) {
+            return false;
+        }
 
         if (tdav_init() != 0) {
             return false;
@@ -85,15 +94,24 @@ bool SCEngine::init(std::string strCredUserId, std::string strCredPassword /*= "
         SC_ASSERT(tmedia_defaults_set_srtp_type(tmedia_srtp_type_dtls) == 0);
         SC_ASSERT(tmedia_defaults_set_srtp_mode(tmedia_srtp_mode_mandatory) == 0);
         SC_ASSERT(tmedia_defaults_set_ice_enabled(tsk_true) == 0);
+        
+        SC_ASSERT(tmedia_defaults_set_rtcpmux_enabled(tsk_true) == 0);
+        SC_ASSERT(tmedia_defaults_set_rtcp_enabled(tsk_true) == 0);
 
         SC_ASSERT(tmedia_defaults_set_pref_video_size(tmedia_pref_video_size_vga) == 0);
         SC_ASSERT(tmedia_defaults_set_video_fps(15) == 0);
+        
+#if SC_UNDER_IPHONE || SC_UNDER_IPHONE_SIMULATOR /* IOS devices have same features as the browser */
+        SC_ASSERT(tmedia_defaults_set_webproxy_auto_detect(tsk_true) == 0);
+#else
+        SC_ASSERT(tmedia_defaults_set_webproxy_auto_detect(tsk_false) == 0); // use SCEngine::setWebProxyAutodetect(<#bool autodetect#>) to change this default values
+#endif /* SC_UNDER_IPHONE || SC_UNDER_IPHONE_SIMULATOR */
         
 #if SC_UNDER_WINDOWS
 #else
         SC_ASSERT(tmedia_producer_set_friendly_name(tmedia_video, "/dev/video") == 0);
         SC_ASSERT(tmedia_producer_set_friendly_name(tmedia_bfcp_video, "/dev/video") == 0);
-#endif
+#endif /* SC_UNDER_WINDOWS */
 #if HAVE_COREAUDIO_AUDIO_UNIT && TARGET_OS_IPHONE // iOS devices have native AEC
         SC_ASSERT(tmedia_defaults_set_echo_supp_enabled(tsk_false) == 0);
         SC_ASSERT(tmedia_defaults_set_echo_skew(0) == 0);
@@ -102,7 +120,7 @@ bool SCEngine::init(std::string strCredUserId, std::string strCredPassword /*= "
         SC_ASSERT(tmedia_defaults_set_echo_supp_enabled(tsk_true) == 0);
         SC_ASSERT(tmedia_defaults_set_echo_skew(0) == 0);
         SC_ASSERT(tmedia_defaults_set_echo_tail(100) == 0);
-#endif
+#endif /* HAVE_COREAUDIO_AUDIO_UNIT && TARGET_OS_IPHONE */
 
         SC_ASSERT(tmedia_defaults_set_opus_maxcapturerate(16000) == 0);
         SC_ASSERT(tmedia_defaults_set_opus_maxplaybackrate(16000) == 0);
@@ -111,16 +129,20 @@ bool SCEngine::init(std::string strCredUserId, std::string strCredPassword /*= "
         SC_ASSERT(tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_vp8, 0) == 0);
         SC_ASSERT(tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_opus, 1) == 0);
         SC_ASSERT(tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_pcma, 2) == 0);
-        SC_ASSERT(tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_opus, 3) == 0);
+        SC_ASSERT(tdav_codec_set_priority((tdav_codec_id_t)tmedia_codec_id_pcmu, 3) == 0);
 
         // Do not use BFCP signaling: Chrome will reject SDP with "m=application 56906 UDP/BFCP *\r\n"
 #if !defined(HAVE_TINYBFCP) || HAVE_TINYBFCP
         tmedia_session_plugin_unregister(tdav_session_bfcp_plugin_def_t);
-#endif
+#endif /* !defined(HAVE_TINYBFCP) || HAVE_TINYBFCP */
         
         // Register OSX display (Video consumer for iOS and OSX)
 #if SC_UNDER_APPLE
         SC_ASSERT(tmedia_consumer_plugin_register(sc_display_osx_plugin_def_t) == 0);
+#endif /* SC_UNDER_APPLE */
+        
+#if SC_UNDER_IPHONE || SC_UNDER_IPHONE_SIMULATOR
+        SC_ASSERT(tmedia_producer_plugin_register(sc_producer_video_ios_plugin_def_t) == 0);
 #endif
 
         // Register fake display (Video consumer)
@@ -467,4 +489,30 @@ bool SCEngine::setNattIceStunEnabled(bool enabled)
 bool SCEngine::setNattIceTurnEnabled(bool enabled)
 {
     return ((tmedia_defaults_set_iceturn_enabled(enabled ? tsk_true : tsk_false) == 0));
+}
+
+/**@ingroup _Group_CPP_Engine
+ * Defines whether to automatically find the network proxy (HTTP(S) or SOCKS). The proxy defined using @ref setProxyInfo() will be used as fallback if we fail to automatically find the proxy.
+ * @param autodetect
+ * @retval <b>true</b> if no error; otherwise <b>false</b>.
+ * @sa @ref setProxyInfo()
+ */
+bool SCEngine::setWebProxyAutodetect(bool autodetect)
+{
+    return ((tmedia_defaults_set_webproxy_auto_detect(autodetect ? tsk_true : tsk_false) == 0));
+}
+
+/**@ingroup _Group_CPP_Engine
+ * Defines a network proxy to use. If automatic detection is enabled then, we'll use this proxy only if none is found.
+ * @param type The proxy type ("http", "https", "socks5", "socks4", "socks4a" or "none")
+ * @param host The proxy fqdn or IP address (e.g. "example.com" or "192.168.0.1")
+ * @param port The proxy port (e.g. 3268)
+ * @param login The username for authentication.
+ * @param password The password for authentication.
+  * @retval <b>true</b> if no error; otherwise <b>false</b>.
+ * @sa @ref setProxyAutodetect()
+ */
+bool SCEngine::setWebProxyInfo(const char* type, const char* host, unsigned short port, const char* login, const char* password)
+{
+    return ((tmedia_defaults_set_webproxy_info(type, host, port, login, password) == 0));
 }

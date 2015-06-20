@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1553C3F21B2F456700D62C77 /* GSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1553C3F11B2F456700D62C77 /* GSS.framework */; };
+		1553C40E1B3509F900D62C77 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1553C40D1B3509F900D62C77 /* CoreMedia.framework */; };
 		15578F951B059B71008119D4 /* certificate.pfx in Resources */ = {isa = PBXBuildFile; fileRef = 15578F8E1B059B71008119D4 /* certificate.pfx */; };
 		15578F961B059B71008119D4 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 15578F8F1B059B71008119D4 /* config.json */; };
 		15578F971B059B71008119D4 /* SSL_CA.der in Resources */ = {isa = PBXBuildFile; fileRef = 15578F901B059B71008119D4 /* SSL_CA.der */; };
@@ -54,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1553C3F11B2F456700D62C77 /* GSS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSS.framework; path = System/Library/Frameworks/GSS.framework; sourceTree = SDKROOT; };
+		1553C40D1B3509F900D62C77 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		15578F8E1B059B71008119D4 /* certificate.pfx */ = {isa = PBXFileReference; lastKnownFileType = file; name = certificate.pfx; path = ../../certificate.pfx; sourceTree = "<group>"; };
 		15578F8F1B059B71008119D4 /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = config.json; path = ../../config.json; sourceTree = "<group>"; };
 		15578F901B059B71008119D4 /* SSL_CA.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = SSL_CA.der; path = ../../SSL_CA.der; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1553C40E1B3509F900D62C77 /* CoreMedia.framework in Frameworks */,
+				1553C3F21B2F456700D62C77 /* GSS.framework in Frameworks */,
 				15B15BA01AEC49C00013651B /* libstdc++.dylib in Frameworks */,
 				15B15B8E1AEC3C040013651B /* AudioToolbox.framework in Frameworks */,
 				15B15B8F1AEC3C040013651B /* AVFoundation.framework in Frameworks */,
@@ -121,6 +127,8 @@
 		15B15B551AEC3B0D0013651B = {
 			isa = PBXGroup;
 			children = (
+				1553C40D1B3509F900D62C77 /* CoreMedia.framework */,
+				1553C3F11B2F456700D62C77 /* GSS.framework */,
 				15B15B9F1AEC49C00013651B /* libstdc++.dylib */,
 				15B15B8A1AEC3C040013651B /* AudioToolbox.framework */,
 				15B15B8B1AEC3C040013651B /* AVFoundation.framework */,
@@ -240,6 +248,11 @@
 				TargetAttributes = {
 					15B15B5D1AEC3B0D0013651B = {
 						CreatedOnToolsVersion = 6.1.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					15B15B721AEC3B0D0013651B = {
 						CreatedOnToolsVersion = 6.1.1;

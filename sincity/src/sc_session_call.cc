@@ -189,6 +189,47 @@ bool SCSessionCall::setVideoDisplays(SCMediaType_t eVideoType, SCVideoDisplay di
 }
 
 /**@ingroup _Group_CPP_SessionCall
+ * Toggles the camera (back -> front or front -> back).
+ * @retval <b>true</b> if no error; otherwise <b>false</b>.
+ * @sa @ref useFrontCamera()
+ */
+bool SCSessionCall::toggleCamera()
+{
+    SCAutoLock<SCSessionCall> autoLock(this);
+    static tmedia_type_t __videoType = _mediaTypeToNative(SCMediaType_Video);
+    static int32_t __toggleCamera = 1;
+    
+    if (m_pSessionMgr && (m_eMediaType & SCMediaType_Video) == SCMediaType_Video) {
+        return (tmedia_session_mgr_set(m_pSessionMgr,
+                               TMEDIA_SESSION_PRODUCER_SET_INT32(__videoType, "camera-toggle", __toggleCamera),
+                               TMEDIA_SESSION_SET_NULL()
+                               ) == 0);
+    }
+    return false;
+}
+
+/**@ingroup _Group_CPP_SessionCall
+* Defines whether to uset the front camera.
+* @param bFfront True=front camera, False=back camera.
+* @retval <b>true</b> if no error; otherwise <b>false</b>.
+* @sa @ref useFrontCamera()
+*/
+bool SCSessionCall::useFrontCamera(bool bFfront /*= true*/)
+{
+    SCAutoLock<SCSessionCall> autoLock(this);
+    static tmedia_type_t __videoType = _mediaTypeToNative(SCMediaType_Video);
+    int32_t usefrontCamera = bFfront ? 1 : 0;
+    
+    if (m_pSessionMgr && (m_eMediaType & SCMediaType_Video) == SCMediaType_Video) {
+        return (tmedia_session_mgr_set(m_pSessionMgr,
+                                       TMEDIA_SESSION_PRODUCER_SET_INT32(__videoType, "camera-front", usefrontCamera),
+                                       TMEDIA_SESSION_SET_NULL()
+                                       ) == 0);
+    }
+    return false;
+}
+
+/**@ingroup _Group_CPP_SessionCall
 * Makes a call to the specified destination id.
 * @param eMediaType The session media type. You can combine several media types using a binary OR(<b>|</b>).
 * @param strDestUserId The destination id.
@@ -405,6 +446,27 @@ bool SCSessionCall::setMute(bool bMuted, SCMediaType_t eMediaType /*= SCMediaTyp
 	}
 	return false;
 }
+    
+#if SC_UNDER_IPHONE ||  SC_UNDER_IPHONE_SIMULATOR
+    /**@ingroup _Group_CPP_SessionCall
+     * Defines whether the audio session is interrupted (e.g incoming GSM call or alarm)
+     * @param interrupt
+     * @retval <b>true</b> if no error; otherwise <b>false</b>.
+     */
+bool SCSessionCall::setAudioInterrupt(bool interrupt)
+{
+    SCAutoLock<SCSessionCall> autoLock(this);
+    if (m_pSessionMgr) {
+        static const tmedia_type_t __audioMediaType = _mediaTypeToNative(SCMediaType_Audio);
+        const int32_t iInterrupt = interrupt ? 1 : 0;
+        return (tmedia_session_mgr_set(m_pSessionMgr,
+                                       TMEDIA_SESSION_PRODUCER_SET_INT32(__audioMediaType, "interrupt", iInterrupt),
+                                       TMEDIA_SESSION_CONSUMER_SET_INT32(__audioMediaType, "interrupt", iInterrupt),
+                                       TMEDIA_SESSION_SET_NULL()) == 0);
+    }
+    return false;
+}
+#endif /* SC_UNDER_IPHONE ||  SC_UNDER_IPHONE_SIMULATOR */
 
 /**@ingroup _Group_CPP_SessionCall
 * Terminates the call session. Send <b>hangup</b> message and teardown the media sessions.
@@ -693,13 +755,14 @@ struct tnet_ice_ctx_s* SCSessionCall::iceCreateCtx(bool bVideo)
     static tsk_bool_t __use_ice_rtcp = tsk_true;
 
 	struct tnet_ice_ctx_s* p_ctx = tsk_null;
-    const char* ssl_priv_path = tsk_null;
-    const char* ssl_pub_path = tsk_null;
-    const char* ssl_ca_path = tsk_null;
-    tsk_bool_t ssl_verify = tsk_false;
-    SC_ASSERT(tmedia_defaults_get_ssl_certs(&ssl_priv_path, &ssl_pub_path, &ssl_ca_path, &ssl_verify) == 0);
     
 	if ((p_ctx = tnet_ice_ctx_create(__use_ice_jingle, __use_ipv6, __use_ice_rtcp, bVideo?tsk_true:tsk_false, &SCSessionCall::iceCallback, this))) {
+        const char *webproxy_type = tsk_null, *webproxy_host = tsk_null, *webproxy_login = tsk_null, *webproxy_password = tsk_null;
+        unsigned short webproxy_port = 0;
+        const char* ssl_priv_path = tsk_null;
+        const char* ssl_pub_path = tsk_null;
+        const char* ssl_ca_path = tsk_null;
+        tsk_bool_t ssl_verify = tsk_false;
 		// Add ICE servers
 		SCEngine::s_listIceServersMutex->lock();
 		for (std::list<SCObjWrapper<SCIceServer*> >::const_iterator it = SCEngine::s_listIceServers.begin(); it != SCEngine::s_listIceServers.end(); ++it) {
@@ -714,11 +777,17 @@ struct tnet_ice_ctx_s* SCSessionCall::iceCreateCtx(bool bVideo)
 				(*it)->getPassword());
 		}
 		SCEngine::s_listIceServersMutex->unlock();
+        // Get SSL certificates
+        SC_ASSERT(tmedia_defaults_get_ssl_certs(&ssl_priv_path, &ssl_pub_path, &ssl_ca_path, &ssl_verify) == 0);
 		// Set SSL certificates
 		tnet_ice_ctx_set_ssl_certs(p_ctx, ssl_priv_path, ssl_pub_path, ssl_ca_path, ssl_verify);
 		// Enable/Disable TURN/STUN
 		tnet_ice_ctx_set_stun_enabled(p_ctx, tmedia_defaults_get_icestun_enabled());
 		tnet_ice_ctx_set_turn_enabled(p_ctx, tmedia_defaults_get_iceturn_enabled());
+        // Set WebProxy Info
+        SC_ASSERT(tnet_ice_ctx_set_proxy_auto_detect(p_ctx, tmedia_defaults_get_webproxy_auto_detect()) == 0);
+        SC_ASSERT(tmedia_defaults_get_webproxy_info(&webproxy_type, &webproxy_host, &webproxy_port, &webproxy_login, &webproxy_password) == 0);
+        SC_ASSERT(tnet_ice_ctx_set_proxy_info(p_ctx, tnet_proxy_type_from_string(webproxy_type), webproxy_host, webproxy_port, webproxy_login, webproxy_password) == 0);
 	}
 	return p_ctx;
 }
@@ -731,6 +800,7 @@ bool SCSessionCall::iceCreateCtxAll()
 {
     SCAutoLock<SCSessionCall> autoLock(this);
 
+#if 0
     const char* stun_server_ip = "stun.l.google.com";
     uint16_t stun_server_port = 19302;
     const char* stun_usr_name = tsk_null;
@@ -742,6 +812,7 @@ bool SCSessionCall::iceCreateCtxAll()
     SC_ASSERT(tmedia_defaults_get_stun_server(&stun_server_ip, &stun_server_port) == 0);
     SC_ASSERT(tmedia_defaults_get_stun_cred(&stun_usr_name, &stun_usr_pwd) == 0);
     SC_ASSERT(tmedia_defaults_get_ssl_certs(&ssl_priv_path, &ssl_pub_path, &ssl_ca_path, &ssl_verify) == 0);
+#endif
 
     if (!m_pIceCtxAudio && (m_eMediaType & SCMediaType_Audio)) {
         if (!(m_pIceCtxAudio = iceCreateCtx(false/*audio*/))) {
@@ -837,6 +908,8 @@ bool SCSessionCall::iceProcessRo(const struct tsdp_message_s* pc_SdpRo, bool isO
 	tmedia_type_t mt_ro, mt_lo;
 	SCIceRole_t new_role = isOffer ? SCIceRole_Controlled : SCIceRole_Controlling;
 	SCIceRole_t* p_role = tsk_null;
+    tsk_bool_t remote_use_rtcpmux_media, remote_use_rtcpmux_session;
+#define kIceJingleNO    tsk_false
 	
     if (!pc_SdpRo) {
         SC_DEBUG_ERROR("Invalid argument");
@@ -855,11 +928,14 @@ bool SCSessionCall::iceProcessRo(const struct tsdp_message_s* pc_SdpRo, bool isO
     if ((A = tsdp_message_get_headerA(pc_SdpRo, "ice-pwd"))) {
         sess_pwd = A->value;
     }
+    
+    remote_use_rtcpmux_session = (tsdp_message_get_headerA(pc_SdpRo, "rtcp-mux") != tsk_null);
 	
 	while ((M_ro = (const tsdp_header_M_t*)tsdp_message_get_headerAt(pc_SdpRo, tsdp_htype_M, index0++))) {
 		struct tnet_ice_ctx_s * _ctx = tsk_null;
 		M_lo = (m_pSessionMgr && m_pSessionMgr->sdp.lo) ? (const tsdp_header_M_t*)tsdp_message_get_headerAt(m_pSessionMgr->sdp.lo, tsdp_htype_M, (index0 - 1)) : tsk_null;
 		mt_ro = tmedia_type_from_sdp_headerM(M_ro);
+        remote_use_rtcpmux_media = remote_use_rtcpmux_session || (tsdp_header_M_findA(M_ro, "rtcp-mux") != tsk_null);
 		mt_lo = M_lo ? tmedia_type_from_sdp_headerM(M_lo) : mt_ro;
 		if (mt_lo != mt_ro && mt_lo == tmedia_bfcp_video) {
 			SC_DEBUG_INFO("Patching remote media type from 'video' to 'bfcpvid'");
@@ -900,7 +976,7 @@ bool SCSessionCall::iceProcessRo(const struct tsdp_message_s* pc_SdpRo, bool isO
 		if (*p_role == SCIceRole_None) { // do not change ICE role if already negotiated
 			*p_role = new_role;
 		}
-		ret = tnet_ice_ctx_set_remote_candidates(_ctx, ice_remote_candidates, ufrag, pwd, (*p_role == SCIceRole_Controlling), tsk_false/*Jingle?*/);
+		ret = tnet_ice_ctx_set_remote_candidates_2(_ctx, ice_remote_candidates, ufrag, pwd, (*p_role == SCIceRole_Controlling), kIceJingleNO, remote_use_rtcpmux_media);
         TSK_SAFE_FREE(ice_remote_candidates);
 	}
 

@@ -17,6 +17,10 @@ let kSegmentIndexCircle:Int = 0
 let kSegmentIndexArrow:Int = 1
 let kSegmentIndexText:Int = 2
 let kSegmentIndexFreehand:Int = 3
+//let kDefaultMediaType:SCObjcMediaType = (SCObjcMediaType.Video)
+let kDefaultMediaType:SCObjcMediaType = (SCObjcMediaType.ScreenCast)
+//let kDefaultMediaType:SCObjcMediaType = SCObjcMediaType(rawValue: (SCObjcMediaType.ScreenCast.rawValue | SCObjcMediaType.Audio.rawValue))!
+//let kDefaultMediaType:SCObjcMediaType = SCObjcMediaType(rawValue: (SCObjcMediaType.Video.rawValue | SCObjcMediaType.Audio.rawValue))!
 
 class ViewController: UIViewController, SCObjcSignalingDelegate, SCObjcSessionCallDelegate, SCGlviewIOSDelegate {
     @IBOutlet weak var buttonConnect:UIButton?
@@ -43,7 +47,7 @@ class ViewController: UIViewController, SCObjcSignalingDelegate, SCObjcSessionCa
         
         let appDelegate:AppDelegate! = UIApplication.sharedApplication().delegate as! AppDelegate
         
-        var nsString1:NSString? = nil, nsString2:NSString? = nil, nsString3:NSString? = nil
+        var nsString1:NSString? = nil, nsString2:NSString? = nil, nsString3:NSString? = nil, nsString4:NSString? = nil
         var ui1:UInt = 0, ui2:UInt = 0
         var i1:Int32 = 0, i2:Int32 = 0
         var b1:ObjCBool = false
@@ -125,6 +129,14 @@ class ViewController: UIViewController, SCObjcSignalingDelegate, SCObjcSessionCa
         if (appDelegate.config!.nattIceTurnEnabled(&b1)) {
             assert(SCObjcEngine.setNattIceTurnEnabled(b1.boolValue))
         }
+        // webproxy
+        var port:UInt16 = 0
+        if (appDelegate.config!.webproxyAutoDetect(&b1)) {
+            assert(SCObjcEngine.setWebProxyAutodetect(b1.boolValue));
+        }
+        if (appDelegate.config!.webproxyInfo(&nsString1, host:&nsString2, port:&port, login:&nsString3, password:&nsString4)) {
+            assert(SCObjcEngine.setWebProxyInfo(nsString1 as! String, host:nsString2 as! String, port:port, login:nsString3 as! String, password:nsString4 as! String));
+        }
         
         /*** signaling ***/
         assert(appDelegate.config!.connectionUrl(&nsString1));
@@ -204,7 +216,7 @@ class ViewController: UIViewController, SCObjcSignalingDelegate, SCObjcSessionCa
                         var remoteID:NSString? = "002"
                         let appDelegate:AppDelegate! = UIApplication.sharedApplication().delegate as! AppDelegate
                         appDelegate.config?.remoteID(&remoteID)
-                        assert(callSession!.call(.ScreenCast, destinationID:(remoteID as! String))) // send offer
+                        assert(callSession!.call(kDefaultMediaType, destinationID:(remoteID as! String))) // send offer
                     }
                     buttonCall!.setTitle("hang", forState:UIControlState.Normal)
                 }
@@ -234,6 +246,19 @@ class ViewController: UIViewController, SCObjcSignalingDelegate, SCObjcSessionCa
             case kSegmentIndexFreehand: remoteView!.setAnnotationType(SCAnnotationTypeFreehand); break
             default: break
             }
+        }
+    }
+    
+    func applicationWillTerminate() -> Void {
+        assert(signalingSession!.setDelegate(nil))
+        remoteView!.setDelegate(nil)
+        if (connecting! || connected!) {
+            if (callSession != nil) {
+                callSession!.hangup()
+            }
+            callSession = nil
+            connecting = false
+            assert(signalingSession!.disConnect())
         }
     }
     
@@ -273,6 +298,7 @@ class ViewController: UIViewController, SCObjcSignalingDelegate, SCObjcSessionCa
     // SCObjcSignalingDelegate
     func signalingGotEventCall(e: SCObjcSignalingCallEvent) -> Bool {
         NSLog("%@ signalingGotEventCall(%@)", kTAG, e.description)
+        self.notifyCallEvent(e)
         //!\Deadlock issue: You must not call any function from 'SCSignaling' class unless you fork a new thread.
         if (callSession != nil) {
             if (callSession!.callID != e.callID) {
@@ -318,6 +344,28 @@ class ViewController: UIViewController, SCObjcSignalingDelegate, SCObjcSessionCa
         return true
     }
     
+    // SCObjcSignalingDelegate
+    func signalingGotChatMessage(message: String, username: String) -> Bool {
+        NSLog("%@ signalingGotChatMessage(%@, %@)", kTAG, message, username);
+        // show notifications only when app is in background
+        if (UIApplication.sharedApplication().applicationState == .Background) {
+            let localNotif:UILocalNotification!  = UILocalNotification()
+            if (localNotif != nil) {
+                let stringAlert:String = String(format:"%@: %@", username, message)
+                localNotif.alertBody = stringAlert
+                localNotif.soundName = UILocalNotificationDefaultSoundName
+                localNotif.applicationIconBadgeNumber = ++UIApplication.sharedApplication().applicationIconBadgeNumber
+                localNotif.userInfo = [
+                    "type": "chat",
+                    "message": message,
+                    "username": username
+                ]
+                UIApplication.sharedApplication().presentLocalNotificationNow(localNotif)
+            }
+        }
+        return true
+    }
+    
     // SCObjcSessionCallDelegate
     func callIceStateChanged() -> Bool {
         NSLog("%@ callIceStateChanged(%i)", kTAG, callSession!.iceState.rawValue)
@@ -325,6 +373,14 @@ class ViewController: UIViewController, SCObjcSignalingDelegate, SCObjcSessionCa
             return callSession!.start()
         }
         return true
+    }
+    
+    // SCObjcSessionCallDelegate
+    func callInterruptionChanged(interrupted: Bool) -> Bool {
+        NSLog("%@ callIceStateChanged(%@)", kTAG, interrupted ? "YES" : "NO")
+        // For example, you can send a JSON message to alert the remote party that the session is interrupted because of incoming GSM call
+        // You dont need to call any AudioUnit function (up to Doubango native code)
+        return true;
     }
     
     // SCGlviewIOSDelegate
@@ -378,6 +434,31 @@ class ViewController: UIViewController, SCObjcSignalingDelegate, SCObjcSessionCa
     func showError(msg: String) {
         labelInfo!.textColor = UIColor.redColor()
         labelInfo!.text = msg
+    }
+    
+    func notifyCallEvent(e:SCObjcSignalingCallEvent) {
+        // show notifications only when app is in background
+        if (UIApplication.sharedApplication().applicationState == .Background) {
+            // show notification for incoming calls only
+            if (e.type == kSCOjcSessionCallTypeOffer) {
+                let localNotif:UILocalNotification!  = UILocalNotification()
+                if (localNotif != nil) {
+                    let stringAlert:String = String(format:"Call from \n %@", e.from)
+                    localNotif.alertBody = stringAlert
+                    localNotif.soundName = UILocalNotificationDefaultSoundName
+                    localNotif.applicationIconBadgeNumber = ++UIApplication.sharedApplication().applicationIconBadgeNumber
+                    localNotif.userInfo = [
+                        "type": e.type,
+                        "from": e.from,
+                        "to": e.to,
+                        "callID": e.callID,
+                        "transactionID": e.transactionID,
+                        "sdp": e.sdp
+                    ]
+                    UIApplication.sharedApplication().presentLocalNotificationNow(localNotif)
+                }
+            }
+        }
     }
 }
 

@@ -21,12 +21,15 @@
     IBOutlet SCGlviewIOS* remoteView;
     NSObject<SCObjcSignaling>* signalingSession;
     NSObject<SCObjcSessionCall>* callSession;
-    NSObject<SCObjcSignalingCallEvent>* pendingOffer;
+    NSMutableDictionary* pendingOffers;
     
     BOOL connecting;
     BOOL connected;
 }
 -(IBAction) onButtonUp:(id)sender;
+-(void) applicationWillTerminate;
+-(BOOL) acceptPendingOffer:(NSString*)callID;
+-(BOOL) rejectPendingOffer:(NSString*)callID;
 
 @property (retain, nonatomic) IBOutlet UIButton *buttonConnect;
 @property (retain, nonatomic) IBOutlet UIButton *buttonCall;

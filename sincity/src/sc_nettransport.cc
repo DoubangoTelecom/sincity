@@ -1,7 +1,10 @@
 #include "sincity/sc_nettransport.h"
 #include "sincity/sc_debug.h"
 
+#include "tinymedia/tmedia_defaults.h"
+
 #include "tnet_transport.h"
+#include "tnet_utils.h"
 
 #include "tsk_buffer.h"
 #include "tsk_memory.h"
@@ -130,6 +133,13 @@ SCNetTransport::SCNetTransport(SCNetTransporType_t eType, const char* pcLocalIP,
             SC_ASSERT(false);
             return;
         }
+        
+        // webproxy
+        const char *webproxy_type = tsk_null, *webproxy_host = tsk_null, *webproxy_login = tsk_null, *webproxy_password = tsk_null;
+        unsigned short webproxy_port = 0;
+        SC_ASSERT(tnet_transport_set_proxy_auto_detect(m_pWrappedTransport, tmedia_defaults_get_webproxy_auto_detect()) == 0);
+        SC_ASSERT(tmedia_defaults_get_webproxy_info(&webproxy_type, &webproxy_host, &webproxy_port, &webproxy_login, &webproxy_password) == 0);
+        SC_ASSERT(tnet_transport_set_proxy_info(m_pWrappedTransport, tnet_proxy_type_from_string(webproxy_type), webproxy_host, webproxy_port, webproxy_login, webproxy_password) == 0);
     }
     
     m_oPeersMutex = new SCMutex();
