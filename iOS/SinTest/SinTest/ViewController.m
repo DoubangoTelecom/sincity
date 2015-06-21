@@ -12,8 +12,8 @@
 #define kTAG @"[SinTest::ViewController]"
 #define kRejectIncomingCalls NO
 
-//#define kDefaultMediaType (SCObjcMediaType)(SCObjcMediaTypeVideo)
 #define kDefaultMediaType (SCObjcMediaType)(SCObjcMediaTypeScreenCast)
+//#define kDefaultMediaType (SCObjcMediaType)(SCObjcMediaTypeVideo)
 //#define kDefaultMediaType (SCObjcMediaType)(SCObjcMediaTypeScreenCast | SCObjcMediaTypeAudio)
 //#define kDefaultMediaType (SCObjcMediaType)(SCObjcMediaTypeVideo| SCObjcMediaTypeAudio)
 
