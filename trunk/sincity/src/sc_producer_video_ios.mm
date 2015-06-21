@@ -458,8 +458,25 @@ const tmedia_producer_plugin_def_t *sc_producer_video_ios_plugin_def_t = &sc_pro
 -(void) setOrientation: (AVCaptureVideoOrientation)orientation{
     if (mOrientation != orientation) {
         mOrientation = orientation;
-        [self stopPreview];
-        [self startPreview];
+        if (mPreview) {
+            for(CALayer *ly in mPreview.layer.sublayers) {
+                if ([ly isKindOfClass:[AVCaptureVideoPreviewLayer class]]) {
+                    AVCaptureVideoPreviewLayer* previewLayer = (AVCaptureVideoPreviewLayer*)ly;
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_6_0
+                    BOOL orientationSupported = [[previewLayer connection] isVideoOrientationSupported];
+#else
+                    BOOL orientationSupported = previewLayer.orientationSupported;
+#endif /* __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_6_0 */
+                    if (orientationSupported) {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_6_0
+                        [previewLayer.connection setVideoOrientation:mOrientation];
+#else
+                        previewLayer.orientation = mOrientation;
+#endif /* __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_6_0 */
+                    }
+                }
+            }
+        }
     }
     switch (mOrientation) {
         case AVCaptureVideoOrientationPortrait:
@@ -702,17 +719,16 @@ const tmedia_producer_plugin_def_t *sc_producer_video_ios_plugin_def_t = &sc_pro
             previewLayer.orientation = mOrientation;
 #endif /* __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_6_0 */
         }
+        
         // remove all sublayers and add new one
-        if (mPreview) {
-            for(CALayer *ly in mPreview.layer.sublayers) {
-                if ([ly isKindOfClass:[AVCaptureVideoPreviewLayer class]]) {
-                    [ly removeFromSuperlayer];
-                    break;
-                }
+        for(CALayer *ly in mPreview.layer.sublayers) {
+            if ([ly isKindOfClass:[AVCaptureVideoPreviewLayer class]]) {
+                [ly removeFromSuperlayer];
+                break;
             }
-            
-            [mPreview.layer addSublayer:previewLayer];
         }
+        
+        [mPreview.layer addSublayer:previewLayer];
         
         if (![mCaptureSession isRunning]) {
             [mCaptureSession startRunning];

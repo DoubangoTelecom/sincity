@@ -17,8 +17,9 @@ let kSegmentIndexCircle:Int = 0
 let kSegmentIndexArrow:Int = 1
 let kSegmentIndexText:Int = 2
 let kSegmentIndexFreehand:Int = 3
-//let kDefaultMediaType:SCObjcMediaType = (SCObjcMediaType.Video)
+
 let kDefaultMediaType:SCObjcMediaType = (SCObjcMediaType.ScreenCast)
+//let kDefaultMediaType:SCObjcMediaType = (SCObjcMediaType.Video)
 //let kDefaultMediaType:SCObjcMediaType = SCObjcMediaType(rawValue: (SCObjcMediaType.ScreenCast.rawValue | SCObjcMediaType.Audio.rawValue))!
 //let kDefaultMediaType:SCObjcMediaType = SCObjcMediaType(rawValue: (SCObjcMediaType.Video.rawValue | SCObjcMediaType.Audio.rawValue))!
 
