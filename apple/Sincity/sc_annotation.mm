@@ -1,5 +1,5 @@
-#import "sincity/sc_annotation.h"
-#import "sincity/sc_debug.h"
+#import "sc_annotation.h"
+#import "sc_debug.h"
 #import "tsk_string.h"
 #import "tsk_memory.h"
 

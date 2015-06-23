@@ -1,10 +1,10 @@
 #import <Foundation/Foundation.h>
-#import "sincity/sc_display_osx.h"
+#import "sc_display_osx.h"
 
-#include "sincity/sc_display_osx.h"
-#include "sincity/sc_utils.h"
-#include "sincity/sc_common.h"
-#include "sincity/sc_debug.h"
+#include "sc_display_osx.h"
+#include "sc_utils.h"
+#include "sc_common.h"
+#include "sc_debug.h"
 
 #include "tinymedia/tmedia_consumer.h"
 
@@ -13,7 +13,7 @@
 #include "tsk_safeobj.h"
 
 #if TARGET_OS_IPHONE
-#import "sincity/sc_glview_ios.h"
+#import "sc_glview_ios.h"
 #endif
 
 @interface SCDisplayOSX : NSObject {

@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Framework.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>SincityFramework.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>1592D3011B38DF0B003E3F99</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>15B744BE1AE82B9B0001E1C7</key>
 		<dict>
 			<key>primary</key>

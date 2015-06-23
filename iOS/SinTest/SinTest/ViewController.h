@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "sincity/sc_api_objc.h"
-#import "sincity/sc_glview_ios.h"
+#import <Sincity/Sincity.h>
 
 @interface ViewController : UIViewController<SCObjcSignalingDelegate, SCObjcSessionCallDelegate, SCGlviewIOSDelegate> {
     IBOutlet UIButton *buttonConnect;

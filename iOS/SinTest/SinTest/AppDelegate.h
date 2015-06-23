@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "sincity/sc_api_objc.h"
+#import <Sincity/Sincity.h>
 
 @class ViewController;
 

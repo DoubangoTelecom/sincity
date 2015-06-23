@@ -1,6 +1,6 @@
-#import "sincity/sc_camera_ios.h"
-#import "sincity/sc_debug.h"
-#import "sincity/sc_common.h"
+#import "sc_camera_ios.h"
+#import "sc_debug.h"
+#import "sc_common.h"
 
 #if SC_UNDER_IPHONE
 

@@ -1,7 +1,7 @@
 #ifndef SINCITY_ANNOTATION_CIRCLE_H
 #define SINCITY_ANNOTATION_CIRCLE_H
 
-#import "sincity/sc_annotation.h"
+#import "Sincity/sc_annotation.h"
 
 @interface SCAnnotationCircle : SCAnnotationAny {
 }
