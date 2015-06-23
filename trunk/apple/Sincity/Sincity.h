@@ -5,7 +5,7 @@
 #import <TargetConditionals.h>
 
 #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
-#   import "sincity/sc_glview_ios.h"
+#   import "Sincity/sc_glview_ios.h"
 #   define SCObjcVideoDisplayLocal UIView*
 #   define SCObjcVideoDisplayRemote SCGlviewIOS*
 #else

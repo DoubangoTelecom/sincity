@@ -1,7 +1,7 @@
-#import "sincity/sc_producer_video_ios.h"
-#import "sincity/sc_camera_ios.h"
-#import "sincity/sc_debug.h"
-#import "sincity/sc_common.h"
+#import "sc_producer_video_ios.h"
+#import "sc_camera_ios.h"
+#import "sc_debug.h"
+#import "sc_common.h"
 
 #import "tinymedia/tmedia_producer.h"
 

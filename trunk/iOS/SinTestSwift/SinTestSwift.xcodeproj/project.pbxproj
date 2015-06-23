@@ -21,7 +21,6 @@
 		15B15B691AEC3B0D0013651B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B15B671AEC3B0D0013651B /* Main.storyboard */; };
 		15B15B6B1AEC3B0D0013651B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15B15B6A1AEC3B0D0013651B /* Images.xcassets */; };
 		15B15B6E1AEC3B0D0013651B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B15B6C1AEC3B0D0013651B /* LaunchScreen.xib */; };
-		15B15B7A1AEC3B0D0013651B /* SinTestSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B15B791AEC3B0D0013651B /* SinTestSwiftTests.swift */; };
 		15B15B891AEC3BED0013651B /* libSincityFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B881AEC3B770013651B /* libSincityFramework.a */; };
 		15B15B8E1AEC3C040013651B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B8A1AEC3C040013651B /* AudioToolbox.framework */; };
 		15B15B8F1AEC3C040013651B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B8B1AEC3C040013651B /* AVFoundation.framework */; };
@@ -32,13 +31,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		15B15B741AEC3B0D0013651B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 15B15B561AEC3B0D0013651B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 15B15B5D1AEC3B0D0013651B;
-			remoteInfo = SinTestSwift;
-		};
 		15B15B871AEC3B770013651B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 15B15B831AEC3B770013651B /* SincityFramework.xcodeproj */;
@@ -72,7 +64,6 @@
 		15B15B681AEC3B0D0013651B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		15B15B6A1AEC3B0D0013651B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		15B15B6D1AEC3B0D0013651B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		15B15B731AEC3B0D0013651B /* SinTestSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SinTestSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15B15B781AEC3B0D0013651B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15B15B791AEC3B0D0013651B /* SinTestSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinTestSwiftTests.swift; sourceTree = "<group>"; };
 		15B15B831AEC3B770013651B /* SincityFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SincityFramework.xcodeproj; path = ../SincityFramework/SincityFramework.xcodeproj; sourceTree = "<group>"; };
@@ -97,13 +88,6 @@
 				15B15B901AEC3C040013651B /* CFNetwork.framework in Frameworks */,
 				15B15B911AEC3C040013651B /* Security.framework in Frameworks */,
 				15B15B891AEC3BED0013651B /* libSincityFramework.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		15B15B701AEC3B0D0013651B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				15B15B5E1AEC3B0D0013651B /* SinTestSwift.app */,
-				15B15B731AEC3B0D0013651B /* SinTestSwiftTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -219,24 +202,6 @@
 			productReference = 15B15B5E1AEC3B0D0013651B /* SinTestSwift.app */;
 			productType = "com.apple.product-type.application";
 		};
-		15B15B721AEC3B0D0013651B /* SinTestSwiftTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 15B15B801AEC3B0D0013651B /* Build configuration list for PBXNativeTarget "SinTestSwiftTests" */;
-			buildPhases = (
-				15B15B6F1AEC3B0D0013651B /* Sources */,
-				15B15B701AEC3B0D0013651B /* Frameworks */,
-				15B15B711AEC3B0D0013651B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				15B15B751AEC3B0D0013651B /* PBXTargetDependency */,
-			);
-			name = SinTestSwiftTests;
-			productName = SinTestSwiftTests;
-			productReference = 15B15B731AEC3B0D0013651B /* SinTestSwiftTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -253,10 +218,6 @@
 								enabled = 1;
 							};
 						};
-					};
-					15B15B721AEC3B0D0013651B = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 15B15B5D1AEC3B0D0013651B;
 					};
 				};
 			};
@@ -280,7 +241,6 @@
 			projectRoot = "";
 			targets = (
 				15B15B5D1AEC3B0D0013651B /* SinTestSwift */,
-				15B15B721AEC3B0D0013651B /* SinTestSwiftTests */,
 			);
 		};
 /* End PBXProject section */
@@ -313,13 +273,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		15B15B711AEC3B0D0013651B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -333,22 +286,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		15B15B6F1AEC3B0D0013651B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				15B15B7A1AEC3B0D0013651B /* SinTestSwiftTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		15B15B751AEC3B0D0013651B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 15B15B5D1AEC3B0D0013651B /* SinTestSwift */;
-			targetProxy = 15B15B741AEC3B0D0013651B /* PBXContainerItemProxy */;
-		};
 		15B15B931AEC3C0B0013651B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SincityFramework;
@@ -416,6 +356,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					$SINCITY_HOME/sincity/include,
+					$SINCITY_HOME/apple,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = $DOUBANGO_LIBS;
@@ -463,6 +404,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					$SINCITY_HOME/sincity/include,
+					$SINCITY_HOME/apple,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = $DOUBANGO_LIBS;
@@ -526,40 +468,6 @@
 			};
 			name = Release;
 		};
-		15B15B811AEC3B0D0013651B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SinTestSwiftTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SinTestSwift.app/SinTestSwift";
-			};
-			name = Debug;
-		};
-		15B15B821AEC3B0D0013651B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SinTestSwiftTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SinTestSwift.app/SinTestSwift";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -577,15 +485,6 @@
 			buildConfigurations = (
 				15B15B7E1AEC3B0D0013651B /* Debug */,
 				15B15B7F1AEC3B0D0013651B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		15B15B801AEC3B0D0013651B /* Build configuration list for PBXNativeTarget "SinTestSwiftTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				15B15B811AEC3B0D0013651B /* Debug */,
-				15B15B821AEC3B0D0013651B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

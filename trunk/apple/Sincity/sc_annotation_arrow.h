@@ -1,7 +1,7 @@
 #ifndef SINCITY_ANNOTATION_ARROW_H
 #define SINCITY_ANNOTATION_ARROW_H
 
-#import "sincity/sc_annotation.h"
+#import "Sincity/sc_annotation.h"
 
 @interface SCAnnotationArrow : SCAnnotationAny {
 }

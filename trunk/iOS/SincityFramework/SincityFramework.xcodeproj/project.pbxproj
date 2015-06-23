@@ -6,18 +6,39 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		1592D3011B38DF0B003E3F99 /* Framework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 1592D3021B38DF0B003E3F99 /* Build configuration list for PBXAggregateTarget "Framework" */;
+			buildPhases = (
+				1592D3071B38DF32003E3F99 /* Build Framework */,
+			);
+			dependencies = (
+				15A6ADF81B39EECC00E02519 /* PBXTargetDependency */,
+			);
+			name = Framework;
+			productName = Framework;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		15106DEF1AFC4CDD00F18916 /* sc_annotation_circle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15106DEE1AFC4CDD00F18916 /* sc_annotation_circle.mm */; };
-		15106DF41AFD7BDF00F18916 /* sc_annotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15106DF31AFD7BDF00F18916 /* sc_annotation.mm */; };
-		15106DF91B01771600F18916 /* sc_annotation_freehand.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15106DF81B01771600F18916 /* sc_annotation_freehand.mm */; };
-		15106E021B02D28C00F18916 /* sc_annotation_arrow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15106E001B02D28C00F18916 /* sc_annotation_arrow.mm */; };
-		15106E031B02D28C00F18916 /* sc_annotation_text.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15106E011B02D28C00F18916 /* sc_annotation_text.mm */; };
 		15423B381B1295E80046C437 /* tnet_proxy_plugin.c in Sources */ = {isa = PBXBuildFile; fileRef = 15423B371B1295E80046C437 /* tnet_proxy_plugin.c */; };
 		15423B3A1B12A7BE0046C437 /* thttp_proxy_node_plugin.c in Sources */ = {isa = PBXBuildFile; fileRef = 15423B391B12A7BE0046C437 /* thttp_proxy_node_plugin.c */; };
 		15423B3E1B12F8970046C437 /* tnet_proxy_node_socks_plugin.c in Sources */ = {isa = PBXBuildFile; fileRef = 15423B3C1B12F8970046C437 /* tnet_proxy_node_socks_plugin.c */; };
 		1553C3B81B269CDE00D62C77 /* tnet_proxydetect.c in Sources */ = {isa = PBXBuildFile; fileRef = 1553C3B61B269CDE00D62C77 /* tnet_proxydetect.c */; };
-		1553C3FC1B32456400D62C77 /* sc_producer_video_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1553C3FB1B32456400D62C77 /* sc_producer_video_ios.mm */; };
-		1553C4011B32512400D62C77 /* sc_camera_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1553C4001B32512400D62C77 /* sc_camera_ios.mm */; };
+		1592D3631B39DFCB003E3F99 /* Sincity.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1592D3621B39DFCB003E3F99 /* Sincity.mm */; };
+		1592D3791B39E34D003E3F99 /* sc_annotation_arrow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1592D3671B39E34D003E3F99 /* sc_annotation_arrow.mm */; };
+		1592D37B1B39E34D003E3F99 /* sc_annotation_circle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1592D3691B39E34D003E3F99 /* sc_annotation_circle.mm */; };
+		1592D37D1B39E34D003E3F99 /* sc_annotation_freehand.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1592D36B1B39E34D003E3F99 /* sc_annotation_freehand.mm */; };
+		1592D37F1B39E34D003E3F99 /* sc_annotation_text.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1592D36D1B39E34D003E3F99 /* sc_annotation_text.mm */; };
+		1592D3811B39E34D003E3F99 /* sc_annotation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1592D36F1B39E34D003E3F99 /* sc_annotation.mm */; };
+		1592D3831B39E34D003E3F99 /* sc_camera_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1592D3711B39E34D003E3F99 /* sc_camera_ios.mm */; };
+		1592D3851B39E34D003E3F99 /* sc_display_osx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1592D3731B39E34D003E3F99 /* sc_display_osx.mm */; };
+		1592D3871B39E34D003E3F99 /* sc_glview_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1592D3751B39E34D003E3F99 /* sc_glview_ios.mm */; };
+		1592D3891B39E34D003E3F99 /* sc_producer_video_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1592D3771B39E34D003E3F99 /* sc_producer_video_ios.mm */; };
+		1592D38E1B39EBA9003E3F99 /* sc_annotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1592D36E1B39E34D003E3F99 /* sc_annotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1592D38F1B39EBA9003E3F99 /* sc_glview_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 1592D3741B39E34D003E3F99 /* sc_glview_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1592D3901B39EBA9003E3F99 /* Sincity.h in Headers */ = {isa = PBXBuildFile; fileRef = 1592D3641B39E00F003E3F99 /* Sincity.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		15B158831AE83E5B0013651B /* trtp_rtcp_header.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B158651AE83E5B0013651B /* trtp_rtcp_header.c */; };
 		15B158841AE83E5B0013651B /* trtp_rtcp_packet.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B158661AE83E5B0013651B /* trtp_rtcp_packet.c */; };
 		15B158851AE83E5B0013651B /* trtp_rtcp_rblock.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B158671AE83E5B0013651B /* trtp_rtcp_rblock.c */; };
@@ -181,7 +202,6 @@
 		15B15B171AE84C660013651B /* SSL_CA.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 15B15B131AE84C050013651B /* SSL_CA.pem */; };
 		15B15B181AE84C660013651B /* SSL_Priv.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 15B15B141AE84C050013651B /* SSL_Priv.pem */; };
 		15B15B191AE84C660013651B /* SSL_Pub.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 15B15B151AE84C050013651B /* SSL_Pub.pem */; };
-		15B15B481AEB17E40013651B /* sc_api_objc.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15B15B471AEB17E40013651B /* sc_api_objc.mm */; };
 		15B7454A1AE82C2C0001E1C7 /* tsk.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B744E51AE82C2C0001E1C7 /* tsk.c */; };
 		15B7454B1AE82C2C0001E1C7 /* tsk_base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B744E71AE82C2C0001E1C7 /* tsk_base64.c */; };
 		15B7454C1AE82C2C0001E1C7 /* tsk_binaryutils.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B744E91AE82C2C0001E1C7 /* tsk_binaryutils.c */; };
@@ -287,9 +307,17 @@
 		15B746B71AE83AFF0001E1C7 /* tsdp_parser_message.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B746921AE83AFF0001E1C7 /* tsdp_parser_message.c */; };
 		15B746B81AE83AFF0001E1C7 /* tsdp.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B746931AE83AFF0001E1C7 /* tsdp.c */; };
 		15B746B91AE83AFF0001E1C7 /* tsdp_message.c in Sources */ = {isa = PBXBuildFile; fileRef = 15B746941AE83AFF0001E1C7 /* tsdp_message.c */; };
-		15E343D91AF31517007C24C3 /* sc_display_osx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15E343D71AF31517007C24C3 /* sc_display_osx.mm */; };
-		15E343DA1AF31517007C24C3 /* sc_glview_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = 15E343D81AF31517007C24C3 /* sc_glview_ios.mm */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		15A6ADF71B39EECC00E02519 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15B744B71AE82B9B0001E1C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15B744BE1AE82B9B0001E1C7;
+			remoteInfo = SincityFramework;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		15B744BD1AE82B9B0001E1C7 /* CopyFiles */ = {
@@ -308,16 +336,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		15106DEB1AFC4BEB00F18916 /* sc_annotation_circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_annotation_circle.h; sourceTree = "<group>"; };
-		15106DEE1AFC4CDD00F18916 /* sc_annotation_circle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_annotation_circle.mm; sourceTree = "<group>"; };
-		15106DF01AFD7B9200F18916 /* sc_annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_annotation.h; sourceTree = "<group>"; };
-		15106DF31AFD7BDF00F18916 /* sc_annotation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_annotation.mm; sourceTree = "<group>"; };
-		15106DF51B01766A00F18916 /* sc_annotation_freehand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_annotation_freehand.h; sourceTree = "<group>"; };
-		15106DF81B01771600F18916 /* sc_annotation_freehand.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_annotation_freehand.mm; sourceTree = "<group>"; };
-		15106DFA1B02D20B00F18916 /* sc_annotation_text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_annotation_text.h; sourceTree = "<group>"; };
-		15106DFD1B02D25900F18916 /* sc_annotation_arrow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_annotation_arrow.h; sourceTree = "<group>"; };
-		15106E001B02D28C00F18916 /* sc_annotation_arrow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_annotation_arrow.mm; sourceTree = "<group>"; };
-		15106E011B02D28C00F18916 /* sc_annotation_text.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_annotation_text.mm; sourceTree = "<group>"; };
 		15423B361B1295A60046C437 /* tnet_proxy_plugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tnet_proxy_plugin.h; sourceTree = "<group>"; };
 		15423B371B1295E80046C437 /* tnet_proxy_plugin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tnet_proxy_plugin.c; sourceTree = "<group>"; };
 		15423B391B12A7BE0046C437 /* thttp_proxy_node_plugin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = thttp_proxy_node_plugin.c; sourceTree = "<group>"; };
@@ -326,10 +344,26 @@
 		15423B3D1B12F8970046C437 /* tnet_proxy_node_socks_plugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tnet_proxy_node_socks_plugin.h; sourceTree = "<group>"; };
 		1553C3B61B269CDE00D62C77 /* tnet_proxydetect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tnet_proxydetect.c; sourceTree = "<group>"; };
 		1553C3B71B269CDE00D62C77 /* tnet_proxydetect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tnet_proxydetect.h; sourceTree = "<group>"; };
-		1553C3FA1B32455600D62C77 /* sc_producer_video_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_producer_video_ios.h; sourceTree = "<group>"; };
-		1553C3FB1B32456400D62C77 /* sc_producer_video_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_producer_video_ios.mm; sourceTree = "<group>"; };
-		1553C3FD1B32508000D62C77 /* sc_camera_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_camera_ios.h; sourceTree = "<group>"; };
-		1553C4001B32512400D62C77 /* sc_camera_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_camera_ios.mm; sourceTree = "<group>"; };
+		1592D3621B39DFCB003E3F99 /* Sincity.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Sincity.mm; sourceTree = "<group>"; };
+		1592D3641B39E00F003E3F99 /* Sincity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sincity.h; sourceTree = "<group>"; };
+		1592D3661B39E34D003E3F99 /* sc_annotation_arrow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_annotation_arrow.h; sourceTree = "<group>"; };
+		1592D3671B39E34D003E3F99 /* sc_annotation_arrow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_annotation_arrow.mm; sourceTree = "<group>"; };
+		1592D3681B39E34D003E3F99 /* sc_annotation_circle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_annotation_circle.h; sourceTree = "<group>"; };
+		1592D3691B39E34D003E3F99 /* sc_annotation_circle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_annotation_circle.mm; sourceTree = "<group>"; };
+		1592D36A1B39E34D003E3F99 /* sc_annotation_freehand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_annotation_freehand.h; sourceTree = "<group>"; };
+		1592D36B1B39E34D003E3F99 /* sc_annotation_freehand.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_annotation_freehand.mm; sourceTree = "<group>"; };
+		1592D36C1B39E34D003E3F99 /* sc_annotation_text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_annotation_text.h; sourceTree = "<group>"; };
+		1592D36D1B39E34D003E3F99 /* sc_annotation_text.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_annotation_text.mm; sourceTree = "<group>"; };
+		1592D36E1B39E34D003E3F99 /* sc_annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_annotation.h; sourceTree = "<group>"; };
+		1592D36F1B39E34D003E3F99 /* sc_annotation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_annotation.mm; sourceTree = "<group>"; };
+		1592D3701B39E34D003E3F99 /* sc_camera_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_camera_ios.h; sourceTree = "<group>"; };
+		1592D3711B39E34D003E3F99 /* sc_camera_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_camera_ios.mm; sourceTree = "<group>"; };
+		1592D3721B39E34D003E3F99 /* sc_display_osx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_display_osx.h; sourceTree = "<group>"; };
+		1592D3731B39E34D003E3F99 /* sc_display_osx.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_display_osx.mm; sourceTree = "<group>"; };
+		1592D3741B39E34D003E3F99 /* sc_glview_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_glview_ios.h; sourceTree = "<group>"; };
+		1592D3751B39E34D003E3F99 /* sc_glview_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_glview_ios.mm; sourceTree = "<group>"; };
+		1592D3761B39E34D003E3F99 /* sc_producer_video_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_producer_video_ios.h; sourceTree = "<group>"; };
+		1592D3771B39E34D003E3F99 /* sc_producer_video_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_producer_video_ios.mm; sourceTree = "<group>"; };
 		15B1584B1AE83E5B0013651B /* trtp_rtcp_header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trtp_rtcp_header.h; sourceTree = "<group>"; };
 		15B1584C1AE83E5B0013651B /* trtp_rtcp_packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trtp_rtcp_packet.h; sourceTree = "<group>"; };
 		15B1584D1AE83E5B0013651B /* trtp_rtcp_rblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trtp_rtcp_rblock.h; sourceTree = "<group>"; };
@@ -662,8 +696,6 @@
 		15B15B131AE84C050013651B /* SSL_CA.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SSL_CA.pem; path = ../../SSL_CA.pem; sourceTree = "<group>"; };
 		15B15B141AE84C050013651B /* SSL_Priv.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SSL_Priv.pem; path = ../../SSL_Priv.pem; sourceTree = "<group>"; };
 		15B15B151AE84C050013651B /* SSL_Pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SSL_Pub.pem; path = ../../SSL_Pub.pem; sourceTree = "<group>"; };
-		15B15B471AEB17E40013651B /* sc_api_objc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_api_objc.mm; sourceTree = "<group>"; };
-		15B15B491AEB17F30013651B /* sc_api_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_api_objc.h; sourceTree = "<group>"; };
 		15B15B4A1AEB17F30013651B /* sc_debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_debug.h; sourceTree = "<group>"; };
 		15B744BF1AE82B9B0001E1C7 /* libSincityFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSincityFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		15B744E41AE82C2C0001E1C7 /* tinysak_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinysak_config.h; sourceTree = "<group>"; };
@@ -886,10 +918,6 @@
 		15B746921AE83AFF0001E1C7 /* tsdp_parser_message.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tsdp_parser_message.c; sourceTree = "<group>"; };
 		15B746931AE83AFF0001E1C7 /* tsdp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tsdp.c; sourceTree = "<group>"; };
 		15B746941AE83AFF0001E1C7 /* tsdp_message.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tsdp_message.c; sourceTree = "<group>"; };
-		15E343D11AF311A4007C24C3 /* sc_display_osx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_display_osx.h; sourceTree = "<group>"; };
-		15E343D21AF31286007C24C3 /* sc_glview_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sc_glview_ios.h; sourceTree = "<group>"; };
-		15E343D71AF31517007C24C3 /* sc_display_osx.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_display_osx.mm; sourceTree = "<group>"; };
-		15E343D81AF31517007C24C3 /* sc_glview_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = sc_glview_ios.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -903,6 +931,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1592D35E1B39DE47003E3F99 /* apple */ = {
+			isa = PBXGroup;
+			children = (
+				1592D35F1B39DE47003E3F99 /* Sincity */,
+			);
+			name = apple;
+			path = ../../apple;
+			sourceTree = "<group>";
+		};
+		1592D35F1B39DE47003E3F99 /* Sincity */ = {
+			isa = PBXGroup;
+			children = (
+				1592D3661B39E34D003E3F99 /* sc_annotation_arrow.h */,
+				1592D3671B39E34D003E3F99 /* sc_annotation_arrow.mm */,
+				1592D3681B39E34D003E3F99 /* sc_annotation_circle.h */,
+				1592D3691B39E34D003E3F99 /* sc_annotation_circle.mm */,
+				1592D36A1B39E34D003E3F99 /* sc_annotation_freehand.h */,
+				1592D36B1B39E34D003E3F99 /* sc_annotation_freehand.mm */,
+				1592D36C1B39E34D003E3F99 /* sc_annotation_text.h */,
+				1592D36D1B39E34D003E3F99 /* sc_annotation_text.mm */,
+				1592D36E1B39E34D003E3F99 /* sc_annotation.h */,
+				1592D36F1B39E34D003E3F99 /* sc_annotation.mm */,
+				1592D3701B39E34D003E3F99 /* sc_camera_ios.h */,
+				1592D3711B39E34D003E3F99 /* sc_camera_ios.mm */,
+				1592D3721B39E34D003E3F99 /* sc_display_osx.h */,
+				1592D3731B39E34D003E3F99 /* sc_display_osx.mm */,
+				1592D3741B39E34D003E3F99 /* sc_glview_ios.h */,
+				1592D3751B39E34D003E3F99 /* sc_glview_ios.mm */,
+				1592D3761B39E34D003E3F99 /* sc_producer_video_ios.h */,
+				1592D3771B39E34D003E3F99 /* sc_producer_video_ios.mm */,
+				1592D3621B39DFCB003E3F99 /* Sincity.mm */,
+				1592D3641B39E00F003E3F99 /* Sincity.h */,
+			);
+			path = Sincity;
+			sourceTree = "<group>";
+		};
 		15B158461AE83E5B0013651B /* tinyRTP */ = {
 			isa = PBXGroup;
 			children = (
@@ -2098,6 +2162,7 @@
 		15B15ADB1AE84B870013651B /* Sincity */ = {
 			isa = PBXGroup;
 			children = (
+				1592D35E1B39DE47003E3F99 /* apple */,
 				15E343CE1AF310A1007C24C3 /* iOS */,
 				15B15B121AE84C050013651B /* config.json */,
 				15B15B131AE84C050013651B /* SSL_CA.pem */,
@@ -2123,13 +2188,11 @@
 			isa = PBXGroup;
 			children = (
 				15B15ADF1AE84BC30013651B /* jsoncpp */,
-				15B15B491AEB17F30013651B /* sc_api_objc.h */,
 				15B15B4A1AEB17F30013651B /* sc_debug.h */,
 				15B15AE21AE84BC30013651B /* sc_api.h */,
 				15B15AE31AE84BC30013651B /* sc_common.h */,
 				15B15AE41AE84BC30013651B /* sc_display_fake.h */,
 				15B15AE51AE84BC30013651B /* sc_engine.h */,
-				1553C3FA1B32455600D62C77 /* sc_producer_video_ios.h */,
 				15B15AE61AE84BC30013651B /* sc_mutex.h */,
 				15B15AE71AE84BC30013651B /* sc_nettransport.h */,
 				15B15AE81AE84BC30013651B /* sc_nettransport_ws.h */,
@@ -2141,14 +2204,6 @@
 				15B15AEE1AE84BC30013651B /* sc_thread.h */,
 				15B15AEF1AE84BC30013651B /* sc_url.h */,
 				15B15AF01AE84BC30013651B /* sc_utils.h */,
-				15E343D21AF31286007C24C3 /* sc_glview_ios.h */,
-				15E343D11AF311A4007C24C3 /* sc_display_osx.h */,
-				15106DEB1AFC4BEB00F18916 /* sc_annotation_circle.h */,
-				15106DF01AFD7B9200F18916 /* sc_annotation.h */,
-				15106DF51B01766A00F18916 /* sc_annotation_freehand.h */,
-				15106DFA1B02D20B00F18916 /* sc_annotation_text.h */,
-				15106DFD1B02D25900F18916 /* sc_annotation_arrow.h */,
-				1553C3FD1B32508000D62C77 /* sc_camera_ios.h */,
 			);
 			path = sincity;
 			sourceTree = "<group>";
@@ -2165,16 +2220,6 @@
 		15B15AF11AE84BC30013651B /* src */ = {
 			isa = PBXGroup;
 			children = (
-				1553C4001B32512400D62C77 /* sc_camera_ios.mm */,
-				1553C3FB1B32456400D62C77 /* sc_producer_video_ios.mm */,
-				15106E001B02D28C00F18916 /* sc_annotation_arrow.mm */,
-				15106E011B02D28C00F18916 /* sc_annotation_text.mm */,
-				15106DF81B01771600F18916 /* sc_annotation_freehand.mm */,
-				15106DF31AFD7BDF00F18916 /* sc_annotation.mm */,
-				15106DEE1AFC4CDD00F18916 /* sc_annotation_circle.mm */,
-				15E343D71AF31517007C24C3 /* sc_display_osx.mm */,
-				15E343D81AF31517007C24C3 /* sc_glview_ios.mm */,
-				15B15B471AEB17E40013651B /* sc_api_objc.mm */,
 				15B15AF21AE84BC30013651B /* sc_display_fake.cc */,
 				15B15AF31AE84BC30013651B /* sc_engine.cc */,
 				15B15AF41AE84BC30013651B /* sc_jsoncpp.cc */,
@@ -2614,6 +2659,19 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		1592D38D1B39EB97003E3F99 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1592D38E1B39EBA9003E3F99 /* sc_annotation.h in Headers */,
+				1592D38F1B39EBA9003E3F99 /* sc_glview_ios.h in Headers */,
+				1592D3901B39EBA9003E3F99 /* Sincity.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		15B744BE1AE82B9B0001E1C7 /* SincityFramework */ = {
 			isa = PBXNativeTarget;
@@ -2622,6 +2680,7 @@
 				15B744BB1AE82B9B0001E1C7 /* Sources */,
 				15B744BC1AE82B9B0001E1C7 /* Frameworks */,
 				15B744BD1AE82B9B0001E1C7 /* CopyFiles */,
+				1592D38D1B39EB97003E3F99 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -2641,6 +2700,9 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Doubango Telecom";
 				TargetAttributes = {
+					1592D3011B38DF0B003E3F99 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
 					15B744BE1AE82B9B0001E1C7 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
@@ -2660,9 +2722,27 @@
 			projectRoot = "";
 			targets = (
 				15B744BE1AE82B9B0001E1C7 /* SincityFramework */,
+				1592D3011B38DF0B003E3F99 /* Framework */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1592D3071B38DF32003E3F99 /* Build Framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build Framework";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\nset -e\necho \"Mamadou ${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\"\n\n# Create the framework architecture\nexport FRAMEWORK_LOCN=\"./build-${CONFIGURATION}-framework/Sincity.framework\"\n# Create the path to the real Headers die\nmkdir -p \"${FRAMEWORK_LOCN}/Versions/A/Headers\"\n# Create the required symlinks\n/bin/ln -sfh A \"${FRAMEWORK_LOCN}/Versions/Current\"\n/bin/ln -sfh Versions/Current/Headers \"${FRAMEWORK_LOCN}/Headers\"\n/bin/ln -sfh \"Versions/Current/Sincity\" \"${FRAMEWORK_LOCN}/Sincity\"\n# Copy the public headers into the framework\n/bin/cp -a \"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\" \"${FRAMEWORK_LOCN}/Versions/A/Headers\"\n\n# Build Devices\nfor arch in armv7 armv7s arm64\ndo\nxcodebuild -project 'SincityFramework.xcodeproj' -configuration ${CONFIGURATION} -sdk iphoneos clean build ARCHS=\"$arch\" ONLY_ACTIVE_ARCH=NO TARGET_BUILD_DIR=\"./build-${CONFIGURATION}-$arch\" BUILT_PRODUCTS_DIR=\"./build-${CONFIGURATION}-$arch\"\ndone\n\n# Build for Simulators\nfor arch in i386 x86_64\ndo\nxcodebuild -project 'SincityFramework.xcodeproj' -configuration ${CONFIGURATION} -sdk iphonesimulator clean build ARCHS=\"$arch\"  ONLY_ACTIVE_ARCH=NO TARGET_BUILD_DIR=\"./build-${CONFIGURATION}-$arch\" BUILT_PRODUCTS_DIR=\"./build-${CONFIGURATION}-$arch\"\ndone\n\n# Build universal lib\nlipo -create -output \"${FRAMEWORK_LOCN}/Versions/A/libSincityFramework.a\" \\\n\"./build-${CONFIGURATION}-armv7/libSincityFramework.a\" \\\n\"./build-${CONFIGURATION}-armv7s/libSincityFramework.a\" \\\n\"./build-${CONFIGURATION}-arm64/libSincityFramework.a\" \\\n\"./build-${CONFIGURATION}-i386/libSincityFramework.a\" \\\n\"./build-${CONFIGURATION}-x86_64/libSincityFramework.a\"\n# Merge tmp universal lib 3rd-parties universal libs\nlibtool -static -o \"${FRAMEWORK_LOCN}/Versions/A/Sincity\" \\\n\"${FRAMEWORK_LOCN}/Versions/A/libSincityFramework.a\" \\\n\"${DOUBANGO_LIBS}/libsrtp.a\" \\\n\"${DOUBANGO_LIBS}/libssl.a\" \\\n\"${DOUBANGO_LIBS}/libcrypto.a\" \\\n\"${DOUBANGO_LIBS}/libyuv.a\" \\\n\"${DOUBANGO_LIBS}/libvpx.a\" \\\n\"${DOUBANGO_LIBS}/libopus.a\" \\\n\"${DOUBANGO_LIBS}/libspeexdsp.a\"\n# Remove tmp lib\nrm -rf \"${FRAMEWORK_LOCN}/Versions/A/libSincityFramework.a\"\n\nopen \"./build-${CONFIGURATION}-framework\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		15B744BB1AE82B9B0001E1C7 /* Sources */ = {
@@ -2676,12 +2756,14 @@
 				15B159761AE8491B0013651B /* tmedia_codec.c in Sources */,
 				15B1597A1AE8491B0013651B /* tmedia_converter_video.c in Sources */,
 				15B746171AE82D200001E1C7 /* tnet_dns_aaaa.c in Sources */,
+				1592D3831B39E34D003E3F99 /* sc_camera_ios.mm in Sources */,
 				15B746281AE82D200001E1C7 /* tnet_ice_event.c in Sources */,
+				1592D3851B39E34D003E3F99 /* sc_display_osx.mm in Sources */,
 				15B15A981AE849600013651B /* tdav_jitterbuffer.c in Sources */,
-				15B15B481AEB17E40013651B /* sc_api_objc.mm in Sources */,
 				15B7462E1AE82D200001E1C7 /* tnet_stun_binding.c in Sources */,
 				15B15AC21AE849600013651B /* tdav_consumer_msrp.c in Sources */,
 				15B7455A1AE82C2C0001E1C7 /* tsk_ppfcs16.c in Sources */,
+				1592D37F1B39E34D003E3F99 /* sc_annotation_text.mm in Sources */,
 				15B746431AE82D200001E1C7 /* tnet_turn_session.c in Sources */,
 				15B159101AE8485F0013651B /* thttp_header_Sec_WebSocket_Accept.c in Sources */,
 				15B746B51AE83AFF0001E1C7 /* tsdp_header_V.c in Sources */,
@@ -2700,6 +2782,7 @@
 				15B746B91AE83AFF0001E1C7 /* tsdp_message.c in Sources */,
 				15B15AA11AE849600013651B /* tdav_producer_wasapi.cxx in Sources */,
 				15B746271AE82D200001E1C7 /* tnet_ice_ctx.c in Sources */,
+				1592D3891B39E34D003E3F99 /* sc_producer_video_ios.mm in Sources */,
 				15B158831AE83E5B0013651B /* trtp_rtcp_header.c in Sources */,
 				15B15A961AE849600013651B /* tdav_producer_oss.c in Sources */,
 				15B15B021AE84BC40013651B /* sc_display_fake.cc in Sources */,
@@ -2713,8 +2796,10 @@
 				15B15A9E1AE849600013651B /* tdav_speex_resampler.c in Sources */,
 				15B159821AE8491B0013651B /* tmedia_resampler.c in Sources */,
 				15B745661AE82C2C0001E1C7 /* tsk_uuid.c in Sources */,
+				1592D3811B39E34D003E3F99 /* sc_annotation.mm in Sources */,
 				15B15A971AE849600013651B /* tdav_consumer_audio.c in Sources */,
 				15B15B0C1AE84BC40013651B /* sc_signaling.cc in Sources */,
+				1592D37B1B39E34D003E3F99 /* sc_annotation_circle.mm in Sources */,
 				15B159111AE8485F0013651B /* thttp_header_Sec_WebSocket_Key.c in Sources */,
 				15B159771AE8491B0013651B /* tmedia_codec_dummy.c in Sources */,
 				15B7454F1AE82C2C0001E1C7 /* tsk_debug.c in Sources */,
@@ -2740,13 +2825,13 @@
 				15B1590E1AE8485F0013651B /* thttp_header_Dummy.c in Sources */,
 				15B15AB51AE849600013651B /* tdav_codec_h264.c in Sources */,
 				15B7454D1AE82C2C0001E1C7 /* tsk_buffer.c in Sources */,
+				1592D3791B39E34D003E3F99 /* sc_annotation_arrow.mm in Sources */,
 				15B158861AE83E5B0013651B /* trtp_rtcp_report.c in Sources */,
 				15B746321AE82D200001E1C7 /* tnet_dtls.c in Sources */,
 				15B159191AE8485F0013651B /* thttp_parser_url.c in Sources */,
 				15B15AC11AE849600013651B /* tdav_codec_vp8.c in Sources */,
 				15B7462F1AE82D200001E1C7 /* tnet_stun_message.c in Sources */,
 				15B746AC1AE83AFF0001E1C7 /* tsdp_header_I.c in Sources */,
-				15E343D91AF31517007C24C3 /* sc_display_osx.mm in Sources */,
 				15B159181AE8485F0013651B /* thttp_parser_message.c in Sources */,
 				15B15AC51AE849600013651B /* tdav_consumer_t140.c in Sources */,
 				15B158931AE83E5B0013651B /* trtp.c in Sources */,
@@ -2754,7 +2839,6 @@
 				15B15AC81AE849600013651B /* tdav.c in Sources */,
 				15B15AD21AE849600013651B /* tdav_consumer_video.c in Sources */,
 				15B159851AE8491B0013651B /* tmedia_session_ghost.c in Sources */,
-				15106E021B02D28C00F18916 /* sc_annotation_arrow.mm in Sources */,
 				15B1597F1AE8491B0013651B /* tmedia_params.c in Sources */,
 				15B746B81AE83AFF0001E1C7 /* tsdp.c in Sources */,
 				15B15AD01AE849600013651B /* tdav_consumer_video_mf.cxx in Sources */,
@@ -2768,7 +2852,6 @@
 				15B159141AE8485F0013651B /* thttp_header_Transfer_Encoding.c in Sources */,
 				15B746181AE82D200001E1C7 /* tnet_dns_cname.c in Sources */,
 				15B7455F1AE82C2C0001E1C7 /* tsk_semaphore.c in Sources */,
-				15106DEF1AFC4CDD00F18916 /* sc_annotation_circle.mm in Sources */,
 				15B745561AE82C2C0001E1C7 /* tsk_object.c in Sources */,
 				15B7463A1AE82D200001E1C7 /* tnet_transport.c in Sources */,
 				15B15ABE1AE849600013651B /* tdav_codec_speex.c in Sources */,
@@ -2777,7 +2860,6 @@
 				15B15AB31AE849600013651B /* tdav_codec_h261.c in Sources */,
 				15B15ABA1AE849600013651B /* tdav_codec_ilbc.c in Sources */,
 				15B15B031AE84BC40013651B /* sc_engine.cc in Sources */,
-				15106DF41AFD7BDF00F18916 /* sc_annotation.mm in Sources */,
 				15B15B0F1AE84BC40013651B /* sc_utils.cc in Sources */,
 				15B745501AE82C2C0001E1C7 /* tsk_fsm.c in Sources */,
 				15B7463C1AE82D200001E1C7 /* tnet_transport_poll.c in Sources */,
@@ -2789,16 +2871,16 @@
 				15B746331AE82D200001E1C7 /* tnet_tls.c in Sources */,
 				15B745621AE82C2C0001E1C7 /* tsk_thread.c in Sources */,
 				15B15AD81AE849600013651B /* tdav_producer_winm.cxx in Sources */,
-				15106DF91B01771600F18916 /* sc_annotation_freehand.mm in Sources */,
 				15B15AC71AE849600013651B /* tdav_session_t140.c in Sources */,
+				1592D3871B39E34D003E3F99 /* sc_glview_ios.mm in Sources */,
 				15B158941AE83E5B0013651B /* trtp_manager.c in Sources */,
 				15B745581AE82C2C0001E1C7 /* tsk_params.c in Sources */,
 				1553C3B81B269CDE00D62C77 /* tnet_proxydetect.c in Sources */,
 				15B15AC31AE849600013651B /* tdav_producer_msrp.c in Sources */,
 				15B15A8D1AE849600013651B /* tdav_producer_alsa.c in Sources */,
 				15B7455E1AE82C2C0001E1C7 /* tsk_safeobj.c in Sources */,
-				1553C4011B32512400D62C77 /* sc_camera_ios.mm in Sources */,
 				15423B3A1B12A7BE0046C437 /* thttp_proxy_node_plugin.c in Sources */,
+				1592D37D1B39E34D003E3F99 /* sc_annotation_freehand.mm in Sources */,
 				15B15A9D1AE849600013651B /* tdav_speex_jitterbuffer.c in Sources */,
 				15B15AAD1AE849600013651B /* tdav_codec_g711.c in Sources */,
 				15B746341AE82D200001E1C7 /* tnet.c in Sources */,
@@ -2818,7 +2900,6 @@
 				15B15ACB1AE849600013651B /* tdav_win32.c in Sources */,
 				15B15A8F1AE849600013651B /* tdav_consumer_audioqueue.c in Sources */,
 				15B15AB41AE849600013651B /* tdav_codec_h263.c in Sources */,
-				15E343DA1AF31517007C24C3 /* sc_glview_ios.mm in Sources */,
 				15B15ACE1AE849600013651B /* tdav_video_frame.c in Sources */,
 				15B746311AE82D200001E1C7 /* tnet_stun_utils.c in Sources */,
 				15B15AA51AE849600013651B /* tdav_codec_amr.c in Sources */,
@@ -2863,7 +2944,6 @@
 				15B159711AE8491B0013651B /* tmedia_content.c in Sources */,
 				15B7455C1AE82C2C0001E1C7 /* tsk_ragel_state.c in Sources */,
 				15B15B0B1AE84BC40013651B /* sc_session_call.cc in Sources */,
-				1553C3FC1B32456400D62C77 /* sc_producer_video_ios.mm in Sources */,
 				15B746351AE82D200001E1C7 /* tnet_auth.c in Sources */,
 				15B15A941AE849600013651B /* tdav_producer_dsound.c in Sources */,
 				15B745551AE82C2C0001E1C7 /* tsk_mutex.c in Sources */,
@@ -2932,10 +3012,10 @@
 				15B746371AE82D200001E1C7 /* tnet_nat.c in Sources */,
 				15B15A991AE849600013651B /* tdav_producer_audio.c in Sources */,
 				15B158911AE83E5B0013651B /* trtp_rtp_packet.c in Sources */,
-				15106E031B02D28C00F18916 /* sc_annotation_text.mm in Sources */,
 				15B746161AE82D200001E1C7 /* tnet_dns_a.c in Sources */,
 				15B7463D1AE82D200001E1C7 /* tnet_transport_win32.c in Sources */,
 				15B1590B1AE8485F0013651B /* thttp_header_Authorization.c in Sources */,
+				1592D3631B39DFCB003E3F99 /* Sincity.mm in Sources */,
 				15B15AA01AE849600013651B /* tdav_consumer_wasapi.cxx in Sources */,
 				15B1590D1AE8485F0013651B /* thttp_header_Content_Type.c in Sources */,
 				15B158921AE83E5B0013651B /* trtp_rtp_session.c in Sources */,
@@ -2952,7 +3032,29 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		15A6ADF81B39EECC00E02519 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 15B744BE1AE82B9B0001E1C7 /* SincityFramework */;
+			targetProxy = 15A6ADF71B39EECC00E02519 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		1592D3031B38DF0B003E3F99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1592D3041B38DF0B003E3F99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		15B744D11AE82B9B0001E1C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2969,6 +3071,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
 				DOUBANGO_HOME = ../../../doubango;
 				DOUBANGO_LIBS = $DOUBANGO_HOME/thirdparties/iphone/lib/universal;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3012,9 +3115,11 @@
 					"-DHAVE_SRTP=1",
 					"-DHAVE_OPENSSL=1",
 				);
+				PUBLIC_HEADERS_FOLDER_PATH = Headers;
 				SDKROOT = iphoneos;
 				SINCITY_HOME = ../..;
-				USER_HEADER_SEARCH_PATHS = "$SINCITY_HOME/sincity/include $DOUBANGO_HOME/tinySDP/include $DOUBANGO_HOME/tinyHTTP/include $DOUBANGO_HOME/tinyRTP/include $DOUBANGO_HOME/tinyMEDIA/include $DOUBANGO_HOME/tinyNET/src $DOUBANGO_HOME/tinyDAV/include $DOUBANGO_HOME/thirdparties/iphone/include $DOUBANGO_HOME/thirdparties/common/include $DOUBANGO_HOME/thirdparties/common/include/libyuv";
+				STRIP_STYLE = "non-global";
+				USER_HEADER_SEARCH_PATHS = "$SINCITY_HOME/sincity/include $SINCITY_HOME/sincity/include/sincity $SINCITY_HOME/apple $DOUBANGO_HOME/tinySDP/include $DOUBANGO_HOME/tinyHTTP/include $DOUBANGO_HOME/tinyRTP/include $DOUBANGO_HOME/tinyMEDIA/include $DOUBANGO_HOME/tinyNET/src $DOUBANGO_HOME/tinyDAV/include $DOUBANGO_HOME/thirdparties/iphone/include $DOUBANGO_HOME/thirdparties/common/include $DOUBANGO_HOME/thirdparties/common/include/libyuv";
 			};
 			name = Debug;
 		};
@@ -3033,7 +3138,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = NO;
 				DOUBANGO_HOME = ../../../doubango;
 				DOUBANGO_LIBS = $DOUBANGO_HOME/thirdparties/iphone/lib/universal;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -3070,9 +3175,11 @@
 					"-DHAVE_SRTP=1",
 					"-DHAVE_OPENSSL=1",
 				);
+				PUBLIC_HEADERS_FOLDER_PATH = Headers;
 				SDKROOT = iphoneos;
 				SINCITY_HOME = ../..;
-				USER_HEADER_SEARCH_PATHS = "$SINCITY_HOME/sincity/include $DOUBANGO_HOME/tinySDP/include $DOUBANGO_HOME/tinyHTTP/include $DOUBANGO_HOME/tinyRTP/include $DOUBANGO_HOME/tinyMEDIA/include $DOUBANGO_HOME/tinyNET/src $DOUBANGO_HOME/tinyDAV/include $DOUBANGO_HOME/thirdparties/iphone/include $DOUBANGO_HOME/thirdparties/common/include $DOUBANGO_HOME/thirdparties/common/include/libyuv";
+				STRIP_STYLE = "non-global";
+				USER_HEADER_SEARCH_PATHS = "$SINCITY_HOME/sincity/include $SINCITY_HOME/sincity/include/sincity $SINCITY_HOME/apple $DOUBANGO_HOME/tinySDP/include $DOUBANGO_HOME/tinyHTTP/include $DOUBANGO_HOME/tinyRTP/include $DOUBANGO_HOME/tinyMEDIA/include $DOUBANGO_HOME/tinyNET/src $DOUBANGO_HOME/tinyDAV/include $DOUBANGO_HOME/thirdparties/iphone/include $DOUBANGO_HOME/thirdparties/common/include $DOUBANGO_HOME/thirdparties/common/include/libyuv";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -3080,15 +3187,20 @@
 		15B744D41AE82B9B0001E1C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		15B744D51AE82B9B0001E1C7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -3098,6 +3210,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1592D3021B38DF0B003E3F99 /* Build configuration list for PBXAggregateTarget "Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1592D3031B38DF0B003E3F99 /* Debug */,
+				1592D3041B38DF0B003E3F99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		15B744BA1AE82B9B0001E1C7 /* Build configuration list for PBXProject "SincityFramework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

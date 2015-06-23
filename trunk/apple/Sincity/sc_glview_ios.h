@@ -3,7 +3,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "sincity/sc_annotation.h"
+#import "Sincity/sc_annotation.h"
 
 @protocol SCGlviewIOSDelegate <NSObject>
 @optional

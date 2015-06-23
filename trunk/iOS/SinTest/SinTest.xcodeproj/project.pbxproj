@@ -13,13 +13,12 @@
 		150DB6A21AE829C70004FC60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 150DB6A01AE829C70004FC60 /* Main.storyboard */; };
 		150DB6A41AE829C70004FC60 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 150DB6A31AE829C70004FC60 /* Images.xcassets */; };
 		150DB6A71AE829C70004FC60 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 150DB6A51AE829C70004FC60 /* LaunchScreen.xib */; };
-		150DB6B31AE829C70004FC60 /* SinTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 150DB6B21AE829C70004FC60 /* SinTestTests.m */; };
 		1553C3BA1B2751FF00D62C77 /* GSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1553C3B91B2751FF00D62C77 /* GSS.framework */; };
 		1553C4031B32EF0C00D62C77 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1553C4021B32EF0C00D62C77 /* CoreMedia.framework */; };
 		1553C40A1B35088000D62C77 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1553C4091B35088000D62C77 /* AudioToolbox.framework */; };
+		1592D34C1B39DA03003E3F99 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B4E1AEC374A0013651B /* CFNetwork.framework */; };
 		15B15B1D1AEAFBE90013651B /* libSincityFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B746D31AE83D730001E1C7 /* libSincityFramework.a */; };
 		15B15B511AEC374A0013651B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B4D1AEC374A0013651B /* AVFoundation.framework */; };
-		15B15B521AEC374A0013651B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B4E1AEC374A0013651B /* CFNetwork.framework */; };
 		15B15B541AEC37640013651B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B15B531AEC37640013651B /* Security.framework */; };
 		15E343C51AF14E9F007C24C3 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 15E343BF1AF14E9F007C24C3 /* config.json */; };
 		15E343C61AF14E9F007C24C3 /* SSL_CA.der in Resources */ = {isa = PBXBuildFile; fileRef = 15E343C01AF14E9F007C24C3 /* SSL_CA.der */; };
@@ -30,13 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		150DB6AD1AE829C70004FC60 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 150DB68B1AE829C70004FC60 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 150DB6921AE829C70004FC60;
-			remoteInfo = SinTest;
-		};
 		15B15B1E1AEAFCA80013651B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 15B746CE1AE83D730001E1C7 /* SincityFramework.xcodeproj */;
@@ -64,7 +56,6 @@
 		150DB6A11AE829C70004FC60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		150DB6A31AE829C70004FC60 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		150DB6A61AE829C70004FC60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		150DB6AC1AE829C70004FC60 /* SinTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SinTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		150DB6B11AE829C70004FC60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		150DB6B21AE829C70004FC60 /* SinTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SinTestTests.m; sourceTree = "<group>"; };
 		1553C3B91B2751FF00D62C77 /* GSS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSS.framework; path = System/Library/Frameworks/GSS.framework; sourceTree = SDKROOT; };
@@ -89,20 +80,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1592D34C1B39DA03003E3F99 /* CFNetwork.framework in Frameworks */,
 				1553C40A1B35088000D62C77 /* AudioToolbox.framework in Frameworks */,
 				1553C4031B32EF0C00D62C77 /* CoreMedia.framework in Frameworks */,
 				15B15B511AEC374A0013651B /* AVFoundation.framework in Frameworks */,
 				1553C3BA1B2751FF00D62C77 /* GSS.framework in Frameworks */,
 				15B15B541AEC37640013651B /* Security.framework in Frameworks */,
-				15B15B521AEC374A0013651B /* CFNetwork.framework in Frameworks */,
 				15B15B1D1AEAFBE90013651B /* libSincityFramework.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		150DB6A91AE829C70004FC60 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				150DB6931AE829C70004FC60 /* SinTest.app */,
-				150DB6AC1AE829C70004FC60 /* SinTestTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -220,24 +203,6 @@
 			productReference = 150DB6931AE829C70004FC60 /* SinTest.app */;
 			productType = "com.apple.product-type.application";
 		};
-		150DB6AB1AE829C70004FC60 /* SinTestTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 150DB6B91AE829C70004FC60 /* Build configuration list for PBXNativeTarget "SinTestTests" */;
-			buildPhases = (
-				150DB6A81AE829C70004FC60 /* Sources */,
-				150DB6A91AE829C70004FC60 /* Frameworks */,
-				150DB6AA1AE829C70004FC60 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				150DB6AE1AE829C70004FC60 /* PBXTargetDependency */,
-			);
-			name = SinTestTests;
-			productName = SinTestTests;
-			productReference = 150DB6AC1AE829C70004FC60 /* SinTestTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -258,10 +223,6 @@
 								enabled = 0;
 							};
 						};
-					};
-					150DB6AB1AE829C70004FC60 = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 150DB6921AE829C70004FC60;
 					};
 				};
 			};
@@ -285,7 +246,6 @@
 			projectRoot = "";
 			targets = (
 				150DB6921AE829C70004FC60 /* SinTest */,
-				150DB6AB1AE829C70004FC60 /* SinTestTests */,
 			);
 		};
 /* End PBXProject section */
@@ -317,13 +277,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		150DB6AA1AE829C70004FC60 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -337,22 +290,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		150DB6A81AE829C70004FC60 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				150DB6B31AE829C70004FC60 /* SinTestTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		150DB6AE1AE829C70004FC60 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 150DB6921AE829C70004FC60 /* SinTest */;
-			targetProxy = 150DB6AD1AE829C70004FC60 /* PBXContainerItemProxy */;
-		};
 		15B15B1F1AEAFCA80013651B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SincityFramework;
@@ -419,7 +359,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					$SINCITY_HOME/sincity/include,
+					$SINCITY_HOME/apple,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = $DOUBANGO_LIBS;
@@ -464,7 +404,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					$SINCITY_HOME/sincity/include,
+					$SINCITY_HOME/apple,
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = $DOUBANGO_LIBS;
@@ -528,40 +468,6 @@
 			};
 			name = Release;
 		};
-		150DB6BA1AE829C70004FC60 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SinTestTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SinTest.app/SinTest";
-			};
-			name = Debug;
-		};
-		150DB6BB1AE829C70004FC60 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SinTestTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SinTest.app/SinTest";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -579,15 +485,6 @@
 			buildConfigurations = (
 				150DB6B71AE829C70004FC60 /* Debug */,
 				150DB6B81AE829C70004FC60 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		150DB6B91AE829C70004FC60 /* Build configuration list for PBXNativeTarget "SinTestTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				150DB6BA1AE829C70004FC60 /* Debug */,
-				150DB6BB1AE829C70004FC60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

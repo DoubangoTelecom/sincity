@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
-#import "sincity/sc_api_objc.h"
-#import "sincity/sc_api.h"
+#import "Sincity.h"
+#import "sc_api.h"
 
 #define kTAG "Objc Wrapper"
 

@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
-#import "sincity/sc_annotation_arrow.h"
-#import "sincity/sc_debug.h"
-#import "sincity/jsoncpp/sc_json.h"
+#import "sc_annotation_arrow.h"
+#import "sc_debug.h"
+#import "jsoncpp/sc_json.h"
 
 #define kTAG "SCAnnotationArrow"
 

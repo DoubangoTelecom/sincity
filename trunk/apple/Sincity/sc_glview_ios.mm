@@ -1,10 +1,10 @@
 #import <Foundation/Foundation.h>
-#import "sincity/sc_glview_ios.h"
-#import "sincity/sc_annotation_circle.h"
-#import "sincity/sc_annotation_freehand.h"
-#import "sincity/sc_annotation_text.h"
-#import "sincity/sc_annotation_arrow.h"
-#import "sincity/sc_debug.h"
+#import "sc_glview_ios.h"
+#import "sc_annotation_circle.h"
+#import "sc_annotation_freehand.h"
+#import "sc_annotation_text.h"
+#import "sc_annotation_arrow.h"
+#import "sc_debug.h"
 
 #import <QuartzCore/QuartzCore.h>
 #import <OpenGLES/ES2/gl.h>
