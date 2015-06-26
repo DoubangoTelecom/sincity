@@ -617,6 +617,9 @@ private:
 -(NSString*) sdp {
     return toNSString(event->getSdp());
 }
+-(NSString*) description {
+    return toNSString(event->getDescription());
+}
 -(void)dealloc {
     event = NULL;
     [super dealloc];
