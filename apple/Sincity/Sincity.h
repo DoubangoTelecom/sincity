@@ -170,6 +170,7 @@ typedef NS_ENUM(NSInteger, SCObjcSessionType) {
 @property(readonly) NSString* callID; // The call identifier
 @property(readonly) NSString* transactionID; // The transaction identifier
 @property(readonly) NSString* sdp; // The session description. Could be NULL.
+@property(readonly) NSString* description; // The event description
 @end
 
 // ==SCObjcSessionCallDelegate==

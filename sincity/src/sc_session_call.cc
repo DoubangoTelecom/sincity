@@ -569,6 +569,8 @@ bool SCSessionCall::setVideoBandwidthDownloadMax(int nMax, SCMediaType_t eMediaT
 bool SCSessionCall::cleanup()
 {
     SCAutoLock<SCSessionCall> autoLock(this);
+    
+    SC_DEBUG_INFO("SCSessionCall::cleanup");
 
     if (m_pSessionMgr) {
         tmedia_session_mgr_stop(m_pSessionMgr);
@@ -1280,7 +1282,7 @@ bool SCSessionCall::sessionMgrStop()
 		SC_DEBUG_INFO("Media session not ready yet");
 		return false;
 	}
-	SC_DEBUG_INFO("Stopping session manager");
+	SC_DEBUG_INFO("SCSessionCall::sessionMgrStop");
 
 	return m_pSessionMgr && tmedia_session_mgr_stop(m_pSessionMgr) == 0;
 }
