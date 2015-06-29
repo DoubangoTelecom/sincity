@@ -483,8 +483,11 @@ const tmedia_producer_plugin_def_t *sc_producer_video_ios_plugin_def_t = &sc_pro
         case AVCaptureVideoOrientationPortraitUpsideDown:
             TMEDIA_PRODUCER(mWrappedProducer)->video.rotation = 90;
             break;
+        case AVCaptureVideoOrientationLandscapeRight:
+            TMEDIA_PRODUCER(mWrappedProducer)->video.rotation = mUseFrontCamera ? 180 : 0;
+            break;
         default:
-            TMEDIA_PRODUCER(mWrappedProducer)->video.rotation = 0;
+            TMEDIA_PRODUCER(mWrappedProducer)->video.rotation = mUseFrontCamera ? 0 : 180;
             break;
     }
 }

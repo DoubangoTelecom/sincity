@@ -1,16 +1,15 @@
 #import <Foundation/Foundation.h>
+
 #import "sc_display_osx.h"
+#import "sc_utils.h"
+#import "sc_common.h"
+#import "sc_debug.h"
 
-#include "sc_display_osx.h"
-#include "sc_utils.h"
-#include "sc_common.h"
-#include "sc_debug.h"
+#import "tinymedia/tmedia_consumer.h"
 
-#include "tinymedia/tmedia_consumer.h"
-
-#include "tsk_memory.h"
-#include "tsk_string.h"
-#include "tsk_safeobj.h"
+#import "tsk_memory.h"
+#import "tsk_string.h"
+#import "tsk_safeobj.h"
 
 #if TARGET_OS_IPHONE
 #import "sc_glview_ios.h"
@@ -197,9 +196,11 @@
     SC_DEBUG_INFO_EX(kSCMobuleNameOSXDisplay, "stop()");
     started = NO;
     if (display) {
+#if TARGET_OS_IPHONE
         dispatch_async(dispatch_get_main_queue(), ^{
             [display stopAnimation];
         });
+#endif
     }
     return 0;
 }

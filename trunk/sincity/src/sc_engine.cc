@@ -100,6 +100,7 @@ bool SCEngine::init(std::string strCredUserId, std::string strCredPassword /*= "
 
         SC_ASSERT(tmedia_defaults_set_pref_video_size(tmedia_pref_video_size_vga) == 0);
         SC_ASSERT(tmedia_defaults_set_video_fps(15) == 0);
+        SC_ASSERT(tmedia_defaults_set_video_zeroartifacts_enabled(tsk_true) == 0);
         
 #if SC_UNDER_IPHONE || SC_UNDER_IPHONE_SIMULATOR /* IOS devices have same features as the browser */
         SC_ASSERT(tmedia_defaults_set_webproxy_auto_detect(tsk_true) == 0);
@@ -108,6 +109,7 @@ bool SCEngine::init(std::string strCredUserId, std::string strCredPassword /*= "
 #endif /* SC_UNDER_IPHONE || SC_UNDER_IPHONE_SIMULATOR */
         
 #if SC_UNDER_WINDOWS
+#elif SC_UNDER_APPLE
 #else
         SC_ASSERT(tmedia_producer_set_friendly_name(tmedia_video, "/dev/video") == 0);
         SC_ASSERT(tmedia_producer_set_friendly_name(tmedia_bfcp_video, "/dev/video") == 0);
