@@ -90,18 +90,6 @@
         [sPreview release];
         sPreview = [preview retain];
         
-        /*
-        if (([previewLayer respondsToSelector:@selector(connection)] ? [previewLayer connection].videoOrientation : previewLayer.orientationSupported)) {
-            // WARNING: -[<AVCaptureVideoPreviewLayer: 0x70235f60> setOrientation:] is deprecated.  Please use AVCaptureConnection's -setVideoOrientation:
-            if ([previewLayer respondsToSelector:@selector(connection)]) {
-                [previewLayer.connection setVideoOrientation:mOrientation];
-            } else {
-                previewLayer.orientation    = mOrientation;
-            }
-        }
-        */
-        
-        
         AVCaptureVideoPreviewLayer* previewLayer = [AVCaptureVideoPreviewLayer layerWithSession: sCaptureSession];
         previewLayer.frame = sPreview.bounds;
         previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
