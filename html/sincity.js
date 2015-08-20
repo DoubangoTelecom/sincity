@@ -3,7 +3,7 @@
 
 @name        libsincity
 @author      Doubango Telecom
-@version     1.3.1
+@version     1.4.0
 */
 document.write(unescape("%3Cscript src='adapter.js' type='text/javascript'%3E%3C/script%3E"));
 var WebSocket = (window['MozWebSocket'] || window['MozWebSocket'] || WebSocket);
@@ -84,19 +84,18 @@ SCCall.prototype.setConfig = function(config) {
 
 /**
 Makes an outgoing call.
+@param {SCConfigCall} [config] call config.
 @returns {Boolean} <i>true</i> if succeed; otherwise <i>false</i>
 @throws {ERR_NOT_CONNECTED}
 @throws {ERR_NOT_ALREADY_INCALL}
 */
-SCCall.prototype.call = function() {
+SCCall.prototype.call = function (config) {
     if (!SCEngine.connected) {
         throw new Error("not connected"); 
     }
-    if (this.pc) {
-        throw new Error("already in call"); 
-    }
     
     var This = this;
+    this.setConfig(config); // config is option and will be updated only if not null
     if (this.config.audio_send || this.config.video_send) {
         console.info("getUserMedia(audio:" + this.config.audio_send + ", video:" + this.config.video_send + ")");
         getUserMedia(
@@ -245,39 +244,11 @@ SCCall.build = function(dest, config) {
 var SCWebRtcEvents = {
     onicecandidate: function(call, e) {
         var This = call;
-        if (e.candidate) {
-            /*call.pc.addIceCandidate(new RTCIceCandidate(e.candidate),
-                function() { console.info("addIceCandidate OK"); },
-                function(err) {
-                    console.error("addIceCandidate NOK:" + err);
-                    SCUtils.raiseCallEvent(This, "error", err);
-                }
-            );*/
-        }
-        if (!e.candidate || (call.pc && (call.pc.iceState === "completed" || call.pc.iceGatheringState === "completed"))) {
-            if (!call.pc) {
-                // closing the peerconnection could raise this event with null candidate --> ignore
-                console.info("ICE gathering done...but pc is null");
-                return;
-            }
-            console.info("ICE gathering done");
-            SCUtils.raiseCallEvent(This, "info", "gathering ICE candidates done!");
-            if (!SCEngine.connected) {
-                SCUtils.raiseCallEvent(This, "error", "ICE gathering done but signaling transport not connected");
-                return;
-            }
-            var msg =
-            {
-                from: call.from,
-                to: call.to,
-                cid: call.cid,
-                tid: call.tid,
-                type: call.pc.localDescription.type, // "offer"/"answer"/"pranswer"
-                sdp: SCUtils.stringLocalSdp(call)
-            };
-            var msg_text = JSON.stringify(msg);
-            console.info("send: " + msg_text);
-            SCEngine.socket.send(msg_text);
+        if (!e.candidate || (call.pc && (call.pc.iceState === "complete" || call.pc.iceGatheringState === "complete"))) {
+            var info_text = "gathering ICE candidates done!";
+            console.info(info_text);
+            SCUtils.raiseCallEvent(This, "info", info_text);
+            SCUtils.sendSDP(call);
         }
     },
     onaddstream: function(call, e) { // remote stream
@@ -292,10 +263,14 @@ var SCWebRtcEvents = {
         }
     },
     onnegotiationneeded: function (call, e) {
-        console.info("onnegotiationneeded");
         var This = call;
-        if (This.pc && (This.pc.iceGatheringState || This.pc.iceState) !== "new") {
-            // SCUtils.makeOffer(This);
+        if (This.pc) {
+            var info_text = "onnegotiationneeded(iceGatheringState=" + (This.pc.iceGatheringState || This.pc.iceState) + ")";
+            console.info(info_text);
+            SCUtils.raiseCallEvent(This, "info", info_text);
+            if ((This.pc.iceGatheringState || This.pc.iceState) == "complete") {
+                SCUtils.sendSDP(call);
+            }
         }
     }
 };
@@ -389,6 +364,26 @@ var SCUtils = {
             'video': (callConfig && callConfig.video_send)
         };
     },
+    buildPeerConn: function (call) {
+        var This = call;
+        if (!call.pc) {
+            call.pc = new RTCPeerConnection(SCUtils.buildPeerConnConfig());
+        }
+        else {
+            var streams = call.pc.getLocalStreams();
+            for (var i = 0; i < streams.length; ++i) {
+                try { call.pc.removeStream(streams[i]); } catch (e) { }
+                streams[i].stop();
+            }
+        }
+        if (call.localStream) {
+            call.pc.addStream(call.localStream);
+            SCUtils.attachStream(call, call.localStream, true/*local*/);
+        }
+        call.pc.onicecandidate = function (e) { SCWebRtcEvents.onicecandidate(This, e); }
+        call.pc.onaddstream = function (e) { SCWebRtcEvents.onaddstream(This, e); }
+        call.pc.onnegotiationneeded = function (e) { SCWebRtcEvents.onnegotiationneeded(This, e); }
+    },
     attachStream: function(call, stream, local) {
         var htmlElementVideo = local ? (call.config.video_local_elt || SCEngine.config.localVideo) : (call.config.video_remote_elt || SCEngine.config.remoteVideo);
         var htmlElementAudio = local ? (call.config.audio_local_elt || SCEngine.config.localAudio) : (call.config.audio_remote_elt || SCEngine.config.remoteAudio);
@@ -420,16 +415,7 @@ var SCUtils = {
     },
     makeOffer: function(call) {
         var This = call;
-        if (!call.pc) {
-            call.pc = new RTCPeerConnection(SCUtils.buildPeerConnConfig());
-            if (call.localStream) {
-                call.pc.addStream(call.localStream);
-                SCUtils.attachStream(call, call.localStream, true/*local*/);
-            }
-        }
-        call.pc.onicecandidate = function(e) { SCWebRtcEvents.onicecandidate(This, e); }
-        call.pc.onaddstream = function (e) { SCWebRtcEvents.onaddstream(This, e); }
-        call.pc.onnegotiationneeded = function (e) { SCWebRtcEvents.onnegotiationneeded(This, e); }
+        SCUtils.buildPeerConn(call);
         call.pc.createOffer(
             function(desc) {
                 console.info("createOffer:" + desc.sdp);
@@ -451,16 +437,7 @@ var SCUtils = {
     },
     makeAnswer: function(call, Msg) {
         var This = call;
-        if (!call.pc) {
-            call.pc = new RTCPeerConnection(SCUtils.buildPeerConnConfig());
-            if (call.localStream) {
-                call.pc.addStream(call.localStream);
-                SCUtils.attachStream(call, call.localStream, true/*local*/);
-            }
-        }
-        call.pc.onicecandidate = function(e) { SCWebRtcEvents.onicecandidate(This, e); }
-        call.pc.onaddstream = function (e) { SCWebRtcEvents.onaddstream(This, e); }
-        call.pc.onnegotiationneeded = function (e) { SCWebRtcEvents.onnegotiationneeded(This, e); }
+        SCUtils.buildPeerConn(call);
         var sdpRemote = new RTCSessionDescription({ type: "offer", sdp: Msg.sdp.replace(/UDP\/TLS\/RTP\/SAVPF/g, 'RTP/SAVPF') });
         call.pc.setRemoteDescription(sdpRemote,
             function() {
@@ -490,6 +467,34 @@ var SCUtils = {
                 SCUtils.raiseCallEvent(This, "error", err);
             }
         );
+    },
+    sendData: function(data) {
+        if (!SCEngine.connected) {
+            SCUtils.raiseCallEvent(This, "error", "ICE gathering done but signaling transport not connected");
+            return;
+        }
+        console.info("sendData: " + data);
+        SCEngine.socket.send(data);
+    },
+    sendSDP: function(call) {
+        if (!call.pc) {
+            // closing the peerconnection could raise this event with null candidate --> ignore
+            console.info("ICE gathering done...but pc is null");
+            return;
+        }
+        if (!call.pc.localDescription) {
+            console.error("pc.localDescription is null");
+            return;
+        }
+        var msg = {
+            from: call.from,
+            to: call.to,
+            cid: call.cid,
+            tid: call.tid,
+            type: call.pc.localDescription.type, // "offer"/"answer"/"pranswer"
+            sdp: SCUtils.stringLocalSdp(call)
+        };
+        SCUtils.sendData(JSON.stringify(msg));
     },
     raiseCallEvent: function(call, type, description, msg) {
         if (SCEngine.oncall) {
