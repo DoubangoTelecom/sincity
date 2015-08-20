@@ -24,25 +24,26 @@ function connect() {
             "localVideo": localVideo,
             "remoteVideo": remoteVideo,
             "remoteAudio": remoteAudio,
-            "iceServers": [{ "url": "stun:54.174.36.219:3478", "username": "twoThumbs", "credential": "eightFingersTenToes" }, { "url": "turn:54.174.36.219:3478", "username": "twoThumbs", "credential": "eightFingersTenToes" }, { "url": "turn:54.174.36.219:443?transport=tcp", "username": "twoThumbs", "credential": "eightFingersTenToes" }]
+            "iceServers": []
         }
     );
     SCEngine.connect(txtConnUrl.value);
 }
 
+function buildCallConfig() {
+    return {
+        audio_send: cbAudioSend.checked,
+        audio_recv: cbAudioReceive.checked,
+        audio_remote_elt: remoteAudio,
+        video_send: cbVideoSend.checked,
+        video_recv: cbVideoReceive.checked,
+        video_local_elt: localVideo,
+        video_remote_elt: remoteVideo
+    };
+}
+
 function call() {
     save();
-    var buildCallConfig = function() {
-        return {
-                audio_send: cbAudioSend.checked,
-                audio_recv: cbAudioReceive.checked,
-                audio_remote_elt: remoteAudio,
-                video_send: cbVideoSend.checked,
-                video_recv: cbVideoReceive.checked,
-                video_local_elt: localVideo,
-                video_remote_elt: remoteVideo
-            };
-    }
     
     if (callSession) { // already in call?
         callSession.hangup();
@@ -72,6 +73,13 @@ function call() {
     btnCall.value = "hangup";
 }
 
+function update() {
+    if (callSession) {
+        txtInfo.innerHTML = "<font color='blue'>Update call</font>";
+        callSession.call(buildCallConfig());
+    }
+}
+
 function disconnect() {
     if (callSession) {
         callSession.hangup();
@@ -94,6 +102,7 @@ function checkboxClick(cb) {
     else if (cb === cbVideoReceive) {
         window.localStorage.setItem('sincity.video_receive', cbVideoReceive.checked ? "true" : "false");
     }
+    update();
 }
 
 window.onload = function() {
