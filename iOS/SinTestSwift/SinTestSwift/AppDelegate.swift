@@ -31,12 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         if (application.respondsToSelector("registerUserNotificationSettings:")) {
-            let notificationType = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
+            let notificationType = UIUserNotificationType.Alert.union(UIUserNotificationType.Badge).union(UIUserNotificationType.Sound)
             let settings = UIUserNotificationSettings(forTypes: notificationType, categories: nil)
             application.registerUserNotificationSettings(settings)
         }
         else {
-            let notificationType = UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound
+            let notificationType = UIRemoteNotificationType.Alert.union(UIRemoteNotificationType.Badge).union(UIRemoteNotificationType.Sound)
             application.registerForRemoteNotificationTypes(notificationType)
         }
         
@@ -86,8 +86,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         else if (type == "chat") {
-            let username:String = notification.userInfo!["username"] as! String
-            let message:String = notification.userInfo!["message"] as! String
+            //let username:String = notification.userInfo!["username"] as! String
+            //let message:String = notification.userInfo!["message"] as! String
             // use "username" and "message" to fill your chat window
         }
         application.applicationIconBadgeNumber -= notification.applicationIconBadgeNumber

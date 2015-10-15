@@ -64,9 +64,9 @@ class ViewController: UIViewController, SCObjcSignalingDelegate, SCObjcSessionCa
         assert(SCObjcEngine.initWithUserId(nsString1 as! String))
         // ssl certificates
         assert(appDelegate.config!.sslCertificates(&nsString1, privateKey:&nsString2, CA:&nsString3))
-        assert(SCObjcEngine.setSSLCertificates(NSBundle.mainBundle().pathForResource(nsString1?.lastPathComponent.stringByDeletingPathExtension, ofType:nsString1?.pathExtension),
-            privateKey: NSBundle.mainBundle().pathForResource(nsString2?.lastPathComponent.stringByDeletingPathExtension, ofType:nsString2?.pathExtension),
-            CA:NSBundle.mainBundle().pathForResource(nsString3?.lastPathComponent.stringByDeletingPathExtension, ofType:nsString3?.pathExtension)))
+        assert(SCObjcEngine.setSSLCertificates(NSBundle.mainBundle().pathForResource((nsString1!.lastPathComponent as NSString).stringByDeletingPathExtension, ofType:nsString1?.pathExtension),
+            privateKey: NSBundle.mainBundle().pathForResource((nsString2!.lastPathComponent as NSString).stringByDeletingPathExtension, ofType:nsString2?.pathExtension),
+            CA:NSBundle.mainBundle().pathForResource((nsString3!.lastPathComponent as NSString).stringByDeletingPathExtension, ofType:nsString3?.pathExtension)))
         
         // video pref size
         if (appDelegate.config!.videoPrefSize(&nsString1)) {
