@@ -208,6 +208,7 @@
 		15B15B561AEC3B0D0013651B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Doubango Telecom";
 				TargetAttributes = {

@@ -3,7 +3,7 @@
 
 @name        libsincity
 @author      Doubango Telecom
-@version     1.4.0
+@version     1.4.1
 */
 document.write(unescape("%3Cscript src='adapter.js' type='text/javascript'%3E%3C/script%3E"));
 var WebSocket = (window['MozWebSocket'] || window['MozWebSocket'] || WebSocket);
@@ -307,7 +307,7 @@ var SCUtils = {
     },
     stringLocalSdp: function(call) {
         if (call.pc && call.pc.localDescription && call.pc.localDescription.sdp) {
-            var sdp = call.pc.localDescription.sdp.replace(/RTP\/SAVPF/g, 'UDP/TLS/RTP/SAVPF');
+            var sdp = call.pc.localDescription.sdp.replace(/\sRTP\/SAVPF/g, ' UDP/TLS/RTP/SAVPF');
             var arrayPosOfVideo = [];
             var posOfVideo, indexOfVideoStart, indexOfVideo, indexOfVideoNext, indexOfContentSlides;
             // Find video positions to consider as "screencast"
