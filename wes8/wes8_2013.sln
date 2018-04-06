@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31010.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wes8", "wes8_2013.vcxproj", "{508FDE95-1947-4E3E-A9AF-B9361B3EFAC7}"
 	ProjectSection(ProjectDependencies) = postProject

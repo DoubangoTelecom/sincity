@@ -1,0 +1,12 @@
+Debug
+Release
+*.user
+*.suo
+*.ncb
+*.orig
+*.db
+*.ipch
+*.opendb
+/wes8/*.opensdf
+/wes8/*.sdf
+/win32/*.sdf

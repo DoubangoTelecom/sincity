@@ -98,7 +98,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>Winmm.lib;ws2_32.lib;IPHLPAPI.lib;libeay32.lib;ssleay32.lib;$(OutDir)tinySAK.lib;$(OutDir)tinyMEDIA.lib;$(OutDir)tinySDP.lib;$(OutDir)tinyNET.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Winmm.lib;ws2_32.lib;IPHLPAPI.lib;libssl32.lib;libcrypto32.lib;crypt32.lib;$(OutDir)tinySAK.lib;$(OutDir)tinyMEDIA.lib;$(OutDir)tinySDP.lib;$(OutDir)tinyNET.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir);..\doubango\thirdparties\win32\lib;..\doubango\thirdparties\win32\lib\openssl;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -119,7 +119,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>Winmm.lib;ws2_32.lib;IPHLPAPI.lib;libeay64.lib;ssleay64.lib;$(OutDir)tinySAK.lib;$(OutDir)tinyMEDIA.lib;$(OutDir)tinySDP.lib;$(OutDir)tinyNET.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Winmm.lib;ws2_32.lib;IPHLPAPI.lib;libssl64.lib;libcrypto64.lib;crypt32.lib;$(OutDir)tinySAK.lib;$(OutDir)tinyMEDIA.lib;$(OutDir)tinySDP.lib;$(OutDir)tinyNET.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir);..\doubango\thirdparties\win32\lib;..\doubango\thirdparties\win32\lib\openssl;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -139,7 +139,7 @@
       <DebugInformationFormat />
     </ClCompile>
     <Link>
-      <AdditionalDependencies>Winmm.lib;ws2_32.lib;IPHLPAPI.lib;libeay32.lib;ssleay32.lib;$(OutDir)tinySAK.lib;$(OutDir)tinyMEDIA.lib;$(OutDir)tinySDP.lib;$(OutDir)tinyNET.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Winmm.lib;ws2_32.lib;IPHLPAPI.lib;libssl32.lib;libcrypto32.lib;crypt32.lib;$(OutDir)tinySAK.lib;$(OutDir)tinyMEDIA.lib;$(OutDir)tinySDP.lib;$(OutDir)tinyNET.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir);..\doubango\thirdparties\win32\lib;..\doubango\thirdparties\win32\lib\openssl;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -164,7 +164,7 @@
       </DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>Winmm.lib;ws2_32.lib;IPHLPAPI.lib;libeay64.lib;ssleay64.lib;$(OutDir)tinySAK.lib;$(OutDir)tinyMEDIA.lib;$(OutDir)tinySDP.lib;$(OutDir)tinyNET.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Winmm.lib;ws2_32.lib;IPHLPAPI.lib;libssl64.lib;libcrypto64.lib;crypt32.lib;$(OutDir)tinySAK.lib;$(OutDir)tinyMEDIA.lib;$(OutDir)tinySDP.lib;$(OutDir)tinyNET.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir);..\doubango\thirdparties\win32\lib;..\doubango\thirdparties\win32\lib\openssl;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
